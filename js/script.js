@@ -109,6 +109,19 @@
 
   if (prevBtn) prevBtn.addEventListener('click', () => render(current - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => render(current + 1));
+
+  // 方向键切换：← 上一张、→ 下一张。只在对话框打开时生效，
+  // 避免影响页面正常滚动（对话框关着时方向键照常滚页面）。
+  document.addEventListener('keydown', (event) => {
+    if (!dialog.open) return;
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      render(current - 1);
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      render(current + 1);
+    }
+  });
   closeBtn.addEventListener('click', () => dialog.close());
 
   // 点遮罩（对话框自身）关闭；点内容不关闭
