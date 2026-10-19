@@ -350,6 +350,22 @@ main {
 }
 .post p { margin-bottom: 1rem; }
 
+/* 笔记之间的上一篇 / 下一篇 */
+.post-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.25rem;
+  margin-top: 1.25rem;
+  padding-top: .9rem;
+  border-top: 1px dashed var(--line);
+  font-size: .92rem;
+}
+.post-nav a {
+  text-decoration: none;
+  color: var(--accent);
+}
+.post-nav a:hover { text-decoration: underline; }
+
 /* ---------- 关于页 ---------- */
 .prose { max-width: 46rem; }
 .prose ul { padding-left: 1.3rem; }
