@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>联系我 · 阿尾的画室</title>
+  <meta name="description" content="联系阿尾：约稿、合作，或在各平台找到我。">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">阿尾的画室</a>
+    <nav aria-label="主导航">
+      <button id="navToggle" class="nav-toggle"
+              aria-expanded="false" aria-controls="siteNav">菜单</button>
+      <ul id="siteNav" class="site-nav">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="works.html">作品</a></li>
+        <li><a href="journal.html">日志</a></li>
+        <li><a href="about.html">关于</a></li>
+        <li><a href="contact.html" aria-current="page">联系</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h1>联系我</h1>
+    <p>约稿或合作请留言，也可以在这些平台找到我：</p>
+    <ul>
+      <li><a href="https://www.patreon.com/你的主页" rel="noopener">Patreon</a></li>
+      <li><a href="https://ko-fi.com/你的主页" rel="noopener">Ko-fi 请我喝咖啡</a></li>
+    </ul>
+
+    <form id="contactForm" novalidate>
+      <div class="field">
+        <label for="name">称呼</label>
+        <input id="name" name="name" type="text" required
+               aria-describedby="name-error">
+        <p class="error" id="name-error"></p>
+      </div>
+      <div class="field">
+        <label for="email">邮箱</label>
+        <input id="email" name="email" type="email" required
+               aria-describedby="email-error">
+        <p class="error" id="email-error"></p>
+      </div>
+      <div class="field">
+        <label for="message">想说的话</label>
+        <textarea id="message" name="message" rows="5" required
+                  aria-describedby="message-error"></textarea>
+        <p class="error" id="message-error"></p>
+      </div>
+      <button type="submit" class="button">发送</button>
+      <p id="formSuccess" class="success" role="status" hidden>谢谢！你的留言已记录。</p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> 阿尾 · 本站由我亲手一行行写成</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

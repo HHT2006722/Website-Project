@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>作品 · 阿尾的画室</title>
+  <meta name="description" content="阿尾的插画作品画廊，点击图片可放大查看。">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">阿尾的画室</a>
+    <nav aria-label="主导航">
+      <button id="navToggle" class="nav-toggle"
+              aria-expanded="false" aria-controls="siteNav">菜单</button>
+      <ul id="siteNav" class="site-nav">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="works.html" aria-current="page">作品</a></li>
+        <li><a href="journal.html">日志</a></li>
+        <li><a href="about.html">关于</a></li>
+        <li><a href="contact.html">联系</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h1>作品</h1>
+    <p>点击任意图片可放大查看（按 Esc 关闭）。全部为本人原创，请勿转载。</p>
+
+    <section class="gallery" aria-label="作品画廊">
+      <figure>
+        <a class="gallery-item" href="img/work-01.jpg"
+           data-caption="《夜班》— 数字插画 · 2026">
+          <img src="img/work-01.jpg" alt="深夜便利店门口，一只狼人在等红绿灯">
+        </a>
+        <figcaption>《夜班》 · 数字插画</figcaption>
+      </figure>
+
+      <figure>
+        <a class="gallery-item" href="img/work-02.jpg"
+           data-caption="《天台》— 数字插画 · 2026">
+          <img src="img/work-02.jpg" alt="长着六条尾巴的狐狸在城市天台上眺望">
+        </a>
+        <figcaption>《天台》 · 数字插画</figcaption>
+      </figure>
+
+      <figure>
+        <a class="gallery-item" href="img/work-03.jpg"
+           data-caption="《末班车》— 数字插画 · 2026">
+          <img src="img/work-03.jpg" alt="地铁站台上一只章鱼在看报纸">
+        </a>
+        <figcaption>《末班车》 · 数字插画</figcaption>
+      </figure>
+
+      <figure>
+        <a class="gallery-item" href="img/work-04.jpg"
+           data-caption="《补给站》— 数字插画 · 2026">
+          <img src="img/work-04.jpg" alt="月球背面的自动贩卖机，旁边停着一辆自行车">
+        </a>
+        <figcaption>《补给站》 · 数字插画</figcaption>
+      </figure>
+
+      <figure>
+        <a class="gallery-item" href="img/work-05.jpg"
+           data-caption="《雨天》— 数字插画 · 2025">
+          <img src="img/work-05.jpg" alt="一只猫撑着伞站在积水的巷子里">
+        </a>
+        <figcaption>《雨天》 · 数字插画</figcaption>
+      </figure>
+
+      <figure>
+        <a class="gallery-item" href="img/work-06.jpg"
+           data-caption="《温室》— 数字插画 · 2025">
+          <img src="img/work-06.jpg" alt="玻璃温室里长满了发光的蘑菇">
+        </a>
+        <figcaption>《温室》 · 数字插画</figcaption>
+      </figure>
+    </section>
+
+    <dialog id="lightbox" class="lightbox" aria-label="图片放大预览">
+      <figure>
+        <img src="" alt="">
+        <figcaption></figcaption>
+      </figure>
+      <button class="lightbox-close" type="button">关闭</button>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> 阿尾 · 本站由我亲手一行行写成</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>首页 · 阿尾的画室</title>
+  <meta name="description" content="插画创作者阿尾的个人网站：作品画廊、创作日志与联系方式。">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">阿尾的画室</a>
+    <nav aria-label="主导航">
+      <button id="navToggle" class="nav-toggle"
+              aria-expanded="false" aria-controls="siteNav">菜单</button>
+      <ul id="siteNav" class="site-nav">
+        <li><a href="index.html"    aria-current="page">首页</a></li>
+        <li><a href="works.html">作品</a></li>
+        <li><a href="journal.html">日志</a></li>
+        <li><a href="about.html">关于</a></li>
+        <li><a href="contact.html">联系</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <h1>你好，我是阿尾</h1>
+      <p>我画怪物、夜晚的城市和不存在的生物。这里是我的作品和创作笔记。</p>
+      <p>
+        <a class="button" href="works.html">看作品</a>
+        <a class="button button-ghost" href="contact.html">联系我</a>
+      </p>
+    </section>
+
+    <section aria-labelledby="featured-heading">
+      <h2 id="featured-heading">近期作品</h2>
+      <div class="card-grid">
+        <article class="card">
+          <img src="img/work-01.jpg" alt="深夜便利店门口，一只狼人在等红绿灯">
+          <h3>《夜班》</h3>
+          <p>2026 年 9 月 · 数字插画</p>
+        </article>
+        <article class="card">
+          <img src="img/work-02.jpg" alt="长着六条尾巴的狐狸在城市天台上眺望">
+          <h3>《天台》</h3>
+          <p>2026 年 8 月 · 数字插画</p>
+        </article>
+        <article class="card">
+          <img src="img/work-03.jpg" alt="地铁站台上一只章鱼在看报纸">
+          <h3>《末班车》</h3>
+          <p>2026 年 7 月 · 数字插画</p>
+        </article>
+      </div>
+      <p><a href="works.html">查看全部作品 →</a></p>
+    </section>
+
+    <section aria-labelledby="latest-heading">
+      <h2 id="latest-heading">最新日志</h2>
+      <ul class="post-list">
+        <li>
+          <h3><a href="journal.html#post-3">十月小结：换了新的上色流程</a></h3>
+          <p><time datetime="2026-10-12">2026年10月12日</time></p>
+        </li>
+        <li>
+          <h3><a href="journal.html#post-2">第一次尝试丝网印刷</a></h3>
+          <p><time datetime="2026-09-20">2026年9月20日</time></p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> 阿尾 · 本站由我亲手一行行写成</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
