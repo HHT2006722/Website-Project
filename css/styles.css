@@ -251,7 +251,7 @@ main {
   max-width: min(94vw, 1000px);
   max-height: 92vh;
 }
-.lightbox::backdrop { background: rgba(25, 18, 12, .85); }
+.lightbox::backdrop { background: rgba(18, 13, 9, .94); }
 .lightbox figure { margin: 0; display: flex; flex-direction: column; }
 .lightbox img {
   width: 100%;
@@ -267,19 +267,33 @@ main {
   text-align: center;
   font-size: .95rem;
 }
-.lightbox-close {
-  display: block;
-  margin: .8rem auto 0;
+.lightbox-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+  margin-top: .9rem;
+}
+/* 三个按钮统一规格：最小触控高度 44px，手机上也好点 */
+.lightbox-btn {
   font: inherit;
   font-weight: 600;
-  padding: .5rem 1.4rem;
-  background: #fff;
-  color: var(--text);
-  border: none;
+  min-height: 44px;
+  padding: .5rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, .35);
   border-radius: 999px;
+  background: rgba(255, 255, 255, .92);
+  color: var(--text);
   cursor: pointer;
 }
-.lightbox-close:focus-visible { outline: var(--focus); outline-offset: 3px; }
+.lightbox-btn:hover { background: #fff; }
+.lightbox-btn:focus-visible { outline: var(--focus); outline-offset: 3px; }
+.lightbox-close {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.lightbox-close:hover { background: #8f3d10; }
 
 /* ---------- 日志 ---------- */
 .post-toc {

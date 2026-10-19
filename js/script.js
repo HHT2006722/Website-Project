@@ -54,30 +54,54 @@
   const img = dialog.querySelector('img');
   const caption = dialog.querySelector('figcaption');
   const closeBtn = dialog.querySelector('.lightbox-close');
+  const prevBtn = dialog.querySelector('.lightbox-prev');
+  const nextBtn = dialog.querySelector('.lightbox-next');
+  const status = dialog.querySelector('.lightbox-status');
   const triggers = Array.from(document.querySelectorAll('.gallery-item'));
-  let lastTrigger = null;
+  if (!triggers.length) return;
 
-  triggers.forEach((link) => {
+  // 先把每张图的地址、替代文字、说明整理成数组，切换时按索引取
+  const items = triggers.map((link) => {
+    const thumb = link.querySelector('img');
+    return {
+      src: link.getAttribute('href'),
+      alt: link.dataset.alt || (thumb ? thumb.alt : ''),
+      caption: link.dataset.caption || (thumb ? thumb.alt : ''),
+    };
+  });
+
+  let current = 0;
+
+  function render(index) {
+    // 取模实现首尾循环：第一张的「上一张」是最后一张
+    current = (index + items.length) % items.length;
+    const item = items[current];
+    img.src = item.src;
+    img.alt = item.alt;
+    caption.textContent = item.caption;
+    if (status) {
+      status.textContent = '第 ' + (current + 1) + ' 张，共 ' + items.length + ' 张：' + item.caption;
+    }
+  }
+
+  function openAt(index) {
+    render(index);
+    if (!dialog.open) dialog.showModal();
+    // 打开后焦点落在关闭按钮：键盘用户第一下就能退出
+    closeBtn.focus();
+  }
+
+  triggers.forEach((link, index) => {
     link.addEventListener('click', (event) => {
-      // 让浏览器默认的新标签打开行为不生效，改用对话框
+      // 修饰键点击保留浏览器默认行为（新标签打开原图）
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
       event.preventDefault();
-
-      lastTrigger = link;
-      const thumb = link.querySelector('img');
-      const display = link.getAttribute('href');
-      const alt = link.dataset.alt || (thumb ? thumb.alt : '');
-
-      img.src = display;
-      img.alt = alt;
-      caption.textContent = link.dataset.caption || (thumb ? thumb.alt : '');
-
-      dialog.showModal();
-      // 打开后焦点直接落在关闭按钮，键盘用户第一下就能退出
-      closeBtn.focus();
+      openAt(index);
     });
   });
 
+  if (prevBtn) prevBtn.addEventListener('click', () => render(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => render(current + 1));
   closeBtn.addEventListener('click', () => dialog.close());
 
   // 点遮罩（对话框自身）关闭；点内容不关闭
@@ -85,12 +109,34 @@
     if (event.target === dialog) dialog.close();
   });
 
-  // 关闭后把焦点还给触发元素
-  dialog.addEventListener('close', () => {
-    if (lastTrigger) {
-      lastTrigger.focus();
-      lastTrigger = null;
+  // focus-trap：把 Tab 限制在对话框内。
+  // 原生 <dialog> 的 showModal() 在部分浏览器里仍会让 Tab 走到背景元素，
+  // 所以这里显式首尾相连，保证键盘用户出不去。
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    const focusables = Array.from(
+      dialog.querySelectorAll('button, a[href], input, select, textarea')
+    ).filter((el) => !el.disabled && el.getClientRects().length > 0);
+    if (!focusables.length) return;
+
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement;
+
+    if (event.shiftKey && (active === first || !dialog.contains(active))) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && (active === last || !dialog.contains(active))) {
+      event.preventDefault();
+      first.focus();
     }
+  });
+
+  // 关闭后把焦点还给「当前正在看的那张图」的触发链接，
+  // 而不是最初点开的那张——切换过图片之后，原来的位置已经不对了
+  dialog.addEventListener('close', () => {
+    const target = triggers[current];
+    if (target) target.focus();
   });
 })();
 
