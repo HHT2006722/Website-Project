@@ -3,18 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>关于我 · 韩宏涛的画室</title>
-  <meta name="description" content="关于插画创作者韩宏涛：我画什么，为什么画。">
+  <title>关于我 · 韩宏涛的练习本</title>
+  <meta name="description" content="关于插画练习者韩宏涛：我在学什么，怎么练，用什么工具。">
+  <link rel="canonical" href="https://hht2006722.github.io/Website-Project/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="关于我 · 韩宏涛的练习本">
+  <meta property="og:description" content="我在学什么，怎么练，用什么工具。">
+  <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
+  <meta property="og:url" content="https://hht2006722.github.io/Website-Project/about.html">
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
 
   <header class="site-header">
-    <a class="logo" href="index.html">韩宏涛的画室</a>
+    <a class="logo" href="index.html">韩宏涛的练习本</a>
     <nav aria-label="主导航">
-      <button id="navToggle" class="nav-toggle"
-              aria-expanded="false" aria-controls="siteNav">菜单</button>
+      <button id="navToggle" class="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+        <span class="nav-toggle-text">菜单</span>
+      </button>
       <ul id="siteNav" class="site-nav">
         <li><a href="index.html">首页</a></li>
         <li><a href="works.html">作品</a></li>
@@ -27,23 +39,40 @@
 
   <main id="main">
     <h1>关于我</h1>
-    <img class="avatar" src="img/me.jpg" alt="我本人的照片：简单描述照片里的样子">
-    <p>第一段：你是谁。这里写你自己的真实内容。</p>
-    <p>第二段：你画什么、做什么。</p>
-    <p>第三段：为什么做这件事。</p>
 
-    <h2>我用的工具</h2>
-    <ul>
-      <li>Clip Studio Paint</li>
-      <li>iPad + Apple Pencil</li>
-      <li>一盒越来越贵的马克笔</li>
-    </ul>
+    <div class="prose">
+      <p>我是韩宏涛，一个在学动漫插画的普通人。这个网站是我的练习本，不是作品集——里面既有我临摹学习的画，也有我按参考重新画的场景，还有每周记下来的复盘。</p>
+
+      <p>我把临摹当作学习方式：先照着原画把结构、光影、配色一遍遍拆开，再试着不看参考重画一遍。这个过程很笨，但每次都能发现自己卡在哪一步。网站上放出来的图，我会在正文里写清楚每张是怎么来的、参考了谁，因为学习别人的东西不丢人，假装是自己画的才丢人。</p>
+
+      <p>下一步想把重心从临摹转到原创：先固定一套自己的角色设定，再用同一套场景反复画不同的时间段和天气。这件事急不来，我打算一个月只推进一小步，把过程记在日志里。</p>
+
+      <h2>我用的工具</h2>
+      <ul>
+        <li>Clip Studio Paint（主要用来画线和上色）</li>
+        <li>iPad + Apple Pencil（起稿和外出速写）</li>
+        <li>一小盒马克笔（手快的时候用）</li>
+      </ul>
+
+      <h2>这个网站上有什么</h2>
+      <ul>
+        <li><a href="works.html">作品</a>：六张练习，附画面说明</li>
+        <li><a href="journal.html">日志</a>：每周一次的过程记录</li>
+        <li><a href="contact.html">联系</a>：约稿、交流都从这里开始</li>
+      </ul>
+    </div>
+
+    <aside class="notice" aria-labelledby="credits-heading">
+      <h2 id="credits-heading">关于画面与版权</h2>
+      <p>本站展示的是个人的学习与临摹记录，画面中的角色与作品版权归原作者及版权方所有。除特别说明外，网站仅用于学习交流，不用于任何商业用途。如果你认为这里的内容侵犯了你的权益，请通过<a href="contact.html">联系页</a>告诉我，我会尽快处理。</p>
+    </aside>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手一行行写成</p>
+    <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手写成</p>
+    <p class="footer-note">页面中的插画为学习与临摹作品，版权归原作者所有，仅作学习交流展示。</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>

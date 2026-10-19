@@ -3,18 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>创作日志 · 韩宏涛的画室</title>
-  <meta name="description" content="韩宏涛的创作日志：记录每一幅画背后的过程和思考。">
+  <title>练习日志 · 韩宏涛的练习本</title>
+  <meta name="description" content="韩宏涛的插画练习日志：每周的记录、遇到的坑和解决办法。">
+  <link rel="canonical" href="https://hht2006722.github.io/Website-Project/journal.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="练习日志 · 韩宏涛的练习本">
+  <meta property="og:description" content="每周的记录、遇到的坑和解决办法。">
+  <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
+  <meta property="og:url" content="https://hht2006722.github.io/Website-Project/journal.html">
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
 
   <header class="site-header">
-    <a class="logo" href="index.html">韩宏涛的画室</a>
+    <a class="logo" href="index.html">韩宏涛的练习本</a>
     <nav aria-label="主导航">
-      <button id="navToggle" class="nav-toggle"
-              aria-expanded="false" aria-controls="siteNav">菜单</button>
+      <button id="navToggle" class="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+        <span class="nav-toggle-text">菜单</span>
+      </button>
       <ul id="siteNav" class="site-nav">
         <li><a href="index.html">首页</a></li>
         <li><a href="works.html">作品</a></li>
@@ -26,31 +38,71 @@
   </header>
 
   <main id="main">
-    <h1>创作日志</h1>
+    <h1>练习日志</h1>
+    <p class="lead">每周记一次：这周做了什么、哪里卡住、怎么解决的。日志按时间倒序排列。</p>
 
-    <article id="post-3" class="post">
-      <h2>十月小结：换了新的上色流程</h2>
-      <p><time datetime="2026-10-12">2026年10月12日</time></p>
-      <p>这里写你自己的真实内容，每篇建议 200 字以上。</p>
+    <nav class="post-toc" aria-label="日志目录">
+      <h2>目录</h2>
+      <ul>
+        <li><a href="#post-images">把 24 MB 的图变成 126 KB</a></li>
+        <li><a href="#post-a11y">键盘也能用的灯箱</a></li>
+        <li><a href="#post-form">表单的校验到底该由谁做</a></li>
+        <li><a href="#post-layout">从一列到三列：网格的自适应</a></li>
+      </ul>
+    </nav>
+
+    <article id="post-images" class="post">
+      <h2>把 24 MB 的图变成 126 KB</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 图片与性能</p>
+
+      <p>第一次打开自己的作品页，手机上下载了将近半分钟。查下来原因很直接：六张图全是相机和绘画软件导出的原图，最大的一张 PNG 有 24 MB，而页面上的缩略图显示出来只有 300 多像素宽。等于让访客下载了一整张高清大图，只为了看一个小方块。</p>
+
+      <p>解决思路是把「显示尺寸」和「文件尺寸」对齐。我用脚本给每张图导出了 480、960、1600 三个宽度的 WebP 版本，然后在 <code>&lt;img&gt;</code> 上用 <code>srcset</code> 列出这三个候选，用 <code>sizes</code> 告诉浏览器「这个位置在大屏大约占 30% 宽、手机上接近满宽」，由浏览器自己挑合适的那档。结果同样的画面，最坏情况从 24 MB 降到 126 KB。</p>
+
+      <p>另外补了两个之前完全漏掉的东西：每个 <code>&lt;img&gt;</code> 都写上真实的 <code>width</code> 和 <code>height</code>，这样图片加载前浏览器就知道要占多大位置，页面不会跳动；缩略图统一加 <code>loading="lazy"</code>，首屏之外的图滚动到附近才下载。改完再用手机宽度测一遍，首页从 10 MB 量级降到 200 KB 以内。</p>
+
+      <p><strong>踩到的坑：</strong>WebP 的 <code>sizes</code> 写错了不会报错，只会悄悄挑错图。我第一次把 <code>sizes</code> 写成 <code>100vw</code>，桌面端就会去下 1600 宽的那档，白白多花流量。判断办法是打开开发者工具的 Network 面板，改窗口宽度时观察实际请求的是哪一档文件。</p>
     </article>
 
-    <article id="post-2" class="post">
-      <h2>第一次尝试丝网印刷</h2>
-      <p><time datetime="2026-09-20">2026年9月20日</time></p>
-      <p>这里写你自己的真实内容。</p>
+    <article id="post-a11y" class="post">
+      <h2>键盘也能用的灯箱</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 可访问性</p>
+
+      <p>作品页的放大预览一开始是拿 <code>div</code> 加半透明遮罩自己写的：点图弹出来，点遮罩关掉。问题是用键盘根本打不开——直到我把触发元素换成真正的链接，并且用原生 <code>&lt;dialog&gt;</code> 加 <code>showModal()</code>。浏览器会自动把焦点锁在对话框里、按 Esc 关闭、把背后内容设为不可交互，这些都不用自己写。</p>
+
+      <p>不过原生 <code>&lt;dialog&gt;</code> 只解决了一半。剩下的两件事要自己补：打开时把焦点放到「关闭」按钮上，关闭后把焦点还给刚才点的那张图。否则用 Tab 键浏览的人关掉大图之后，焦点会掉回页面开头，得重新走一遍导航。</p>
+
+      <p>还有一处细节：对话框里如果只写一个空的 <code>&lt;img src=""&gt;</code>，页面加载时会出现一张裂图。改成先放一张真实存在的占位图、打开时再替换 <code>src</code>，就不会有这个问题了。</p>
     </article>
 
-    <article id="post-1" class="post">
-      <h2>开站啦</h2>
-      <p><time datetime="2026-09-01">2026年9月1日</time></p>
-      <p>这里写你自己的真实内容。</p>
+    <article id="post-form" class="post">
+      <h2>表单的校验到底该由谁做</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · JavaScript</p>
+
+      <p>联系页的表单最初只做了一件事：检查输入框里有没有 <code>@</code>。测试的时候写 <code>a@b</code>、<code>test@</code>、<code>@x.com</code>，全部被当成有效邮箱放行，还弹出了「留言已记录」。这说明「有 <code>@</code>」和「是邮箱」之间差得很远。</p>
+
+      <p>现在的做法分三层：<code>&lt;input type="email"&gt;</code> 交给浏览器做基础判断；提交时再用一条简单的正则检查结构；每一项的错误信息通过 <code>aria-describedby</code> 关联到输入框，同时把 <code>aria-invalid</code> 设为 <code>true</code>，读屏软件才会念出来。另外修了一个状态 bug：上一次提交成功后的提示，在后来校验失败时没有消失，看起来像「又成功了」。</p>
+
+      <p>最后是一个诚实性的问题。这是个纯静态站，没有服务器，表单没法真的把消息存下来。与其假装「已收到」，不如老实告诉访客：点击发送会调用系统邮件客户端，并在页面上写清「如果没弹出，请直接发邮件到某个地址」。用户知道发生了什么，比一个假的成功提示有用得多。</p>
+    </article>
+
+    <article id="post-layout" class="post">
+      <h2>从一列到三列：网格的自适应</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · CSS 布局</p>
+
+      <p>卡片列表一开始是按固定列数写的，手机上会挤成一条缝，或者干脆横向溢出、需要左右拖动。后来改成 <code>grid-template-columns: repeat(auto-fill, minmax(230px, 1fr))</code>：容器宽度放得下几列就排几列，每个卡片最小 230px。手机上一列，平板两列，桌面三列，不用写任何媒体查询。</p>
+
+      <p>导航是反过来的思路：手机上默认收起，用按钮展开；到 700px 以上把按钮隐藏、列表改成横排。这样小屏的交互状态和大屏的静态布局各自独立，不会互相打架。</p>
+
+      <p>验证方法不是「用鼠标拖窗口看看」，而是用浏览器开发者工具的设备模拟，分别固定成 375、768、1440 三个宽度，每次检查页面底部有没有横向滚动条。有滚动条就说明某个元素比视口宽，得逐层排查。</p>
     </article>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手一行行写成</p>
+    <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手写成</p>
+    <p class="footer-note">页面中的插画为学习与临摹作品，版权归原作者所有，仅作学习交流展示。</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>

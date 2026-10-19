@@ -3,18 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>联系我 · 韩宏涛的画室</title>
-  <meta name="description" content="联系韩宏涛：约稿、合作，或在各平台找到我。">
+  <title>联系我 · 韩宏涛的练习本</title>
+  <meta name="description" content="联系韩宏涛：约稿、交流，或告诉我网站哪里出了问题。">
+  <link rel="canonical" href="https://hht2006722.github.io/Website-Project/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="联系我 · 韩宏涛的练习本">
+  <meta property="og:description" content="约稿、交流，或告诉我网站哪里出了问题。">
+  <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
+  <meta property="og:url" content="https://hht2006722.github.io/Website-Project/contact.html">
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
 
   <header class="site-header">
-    <a class="logo" href="index.html">韩宏涛的画室</a>
+    <a class="logo" href="index.html">韩宏涛的练习本</a>
     <nav aria-label="主导航">
-      <button id="navToggle" class="nav-toggle"
-              aria-expanded="false" aria-controls="siteNav">菜单</button>
+      <button id="navToggle" class="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+        <span class="nav-toggle-text">菜单</span>
+      </button>
       <ul id="siteNav" class="site-nav">
         <li><a href="index.html">首页</a></li>
         <li><a href="works.html">作品</a></li>
@@ -27,40 +39,67 @@
 
   <main id="main">
     <h1>联系我</h1>
-    <p>约稿或合作请留言，也可以在这些平台找到我：</p>
-    <ul>
-      <li><a href="https://www.patreon.com/你的主页" rel="noopener">Patreon</a></li>
-      <li><a href="https://ko-fi.com/你的主页" rel="noopener">Ko-fi 请我喝咖啡</a></li>
-    </ul>
 
-    <form id="contactForm" novalidate>
-      <div class="field">
-        <label for="name">称呼</label>
-        <input id="name" name="name" type="text" required
-               aria-describedby="name-error">
-        <p class="error" id="name-error"></p>
-      </div>
-      <div class="field">
-        <label for="email">邮箱</label>
-        <input id="email" name="email" type="email" required
-               aria-describedby="email-error">
-        <p class="error" id="email-error"></p>
-      </div>
-      <div class="field">
-        <label for="message">想说的话</label>
-        <textarea id="message" name="message" rows="5" required
-                  aria-describedby="message-error"></textarea>
-        <p class="error" id="message-error"></p>
-      </div>
-      <button type="submit" class="button">发送</button>
-      <p id="formSuccess" class="success" role="status" hidden>谢谢！你的留言已记录。</p>
-    </form>
+    <p>约稿、交流技法，或者发现网站有哪里不对劲，都可以通过下面任意一种方式找我。</p>
+
+    <section aria-labelledby="direct-heading">
+      <h2 id="direct-heading">直接联系</h2>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-label">邮箱</span>
+          <a href="mailto:zjy1972422hht@163.com">zjy1972422hht@163.com</a>
+        </li>
+        <li>
+          <span class="contact-label">GitHub</span>
+          <a href="https://github.com/HHT2006722" rel="noopener">github.com/HHT2006722</a>
+        </li>
+        <li>
+          <span class="contact-label">网站源码</span>
+          <a href="https://github.com/HHT2006722/Website-Project" rel="noopener">HHT2006722/Website-Project</a>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="form-heading">
+      <h2 id="form-heading">发一条留言</h2>
+      <p class="hint">本站是纯静态页面，没有后台数据库。点击「发送」会调用你电脑或手机上的邮件应用，并自动填好收件人与内容——确认发送后才算真正发出。如果没弹出邮件应用，请直接复制上面的邮箱地址。</p>
+
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">称呼 <span class="req" aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" required
+                 autocomplete="name" aria-describedby="name-error">
+          <p class="error" id="name-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">你的邮箱 <span class="req" aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" required
+                 autocomplete="email" inputmode="email"
+                 aria-describedby="email-hint email-error">
+          <p class="hint" id="email-hint">用来回复你，例如 name@example.com</p>
+          <p class="error" id="email-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="message">想说的话 <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="6" required
+                    aria-describedby="message-error"></textarea>
+          <p class="error" id="message-error"></p>
+        </div>
+
+        <button type="submit" class="button">发送</button>
+
+        <p id="formStatus" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手一行行写成</p>
+    <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手写成</p>
+    <p class="footer-note">页面中的插画为学习与临摹作品，版权归原作者所有，仅作学习交流展示。</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
