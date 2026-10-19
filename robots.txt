@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hht2006722.github.io/Website-Project/sitemap.xml
