@@ -361,6 +361,22 @@ main {
 }
 .post p { margin-bottom: 1rem; }
 
+/* 笔记之间的上一篇 / 下一篇 */
+.post-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.25rem;
+  margin-top: 1.25rem;
+  padding-top: .9rem;
+  border-top: 1px dashed var(--line);
+  font-size: .92rem;
+}
+.post-nav a {
+  text-decoration: none;
+  color: var(--accent);
+}
+.post-nav a:hover { text-decoration: underline; }
+
 /* ---------- 关于页 ---------- */
 .prose { max-width: 46rem; }
 .prose ul { padding-left: 1.3rem; }
@@ -544,6 +560,7 @@ textarea[aria-invalid="true"] {
     <nav class="post-toc" aria-label="笔记目录">
       <h2>目录</h2>
       <ul>
+        <li><a href="#post-theme">把六张画换成六张照片</a></li>
         <li><a href="#post-glass">隔着玻璃拍：反光、水珠和擦不掉的指纹</a></li>
         <li><a href="#post-lowlight">暗光展区：不开闪光灯怎么把主体拍清楚</a></li>
         <li><a href="#post-images">照片只有 300 KB，为什么还要做三档</a></li>
@@ -552,6 +569,23 @@ textarea[aria-invalid="true"] {
         <li><a href="#post-layout">从一列到三列：网格的自适应</a></li>
       </ul>
     </nav>
+
+    <article id="post-theme" class="post">
+      <h2>把六张画换成六张照片</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录 · 内容与定位</p>
+
+      <p>这个站原来叫「练习本」，放的是六张插画。问题是：那六张不是我画的，其中一张右下角还带着原作者的署名。这一条过不了「自己的内容」——就算标成「临摹」，画面里的处理我也解释不了。</p>
+
+      <p>所以做了一次彻底的替换：把自己拍的六张动物照片放上来，站点从「插画练习」改成「观察本」。不是换个标题就完事，而是每一处都对到新主题——首页的自述、六个标题和说明、两篇画面拆解换成拍摄笔记、关于页的器材清单，连 favicon 和分享卡片都换成了照片。</p>
+
+      <p>代价是画面本身不够完美：隔着玻璃、顶光、动物不配合。所以文案里不写「拍得多好」，只写这次放弃了什么、为什么放弃。这样老师问细节时，我答的是真实发生过的事。</p>
+
+      <p>验证：320 / 375 / 768 / 1440 四个宽度都没有横向溢出和坏图；手机端只下载 480 档，单张 15–52 KB。</p>
+
+      <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-next" href="#post-glass" rel="next">下一篇：隔着玻璃拍：反光、水珠和擦不掉的指纹 →</a>
+      </nav>
+    </article>
 
     <article id="post-glass" class="post">
       <h2>隔着玻璃拍：反光、水珠和擦不掉的指纹</h2>
@@ -564,6 +598,11 @@ textarea[aria-invalid="true"] {
       <p>《鳞》那张鬣蜥能成立，是因为它离玻璃够近，而且玻璃底边那条金属框正好压在画面下缘——我把它留在构图里，当作「这是隔着看的」的证据，而不是想办法裁掉它。</p>
 
       <p>拍这类照片的心理准备：十张里能用的可能只有一张，因为反光什么时候落在不碍事的位置，基本靠运气。多拍、回看、删掉，比现场纠结有用。</p>
+
+      <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-prev" href="#post-theme" rel="prev">← 上一篇：把六张画换成六张照片</a>
+        <a class="post-nav-next" href="#post-lowlight" rel="next">下一篇：暗光展区：不开闪光灯怎么把主体拍清楚 →</a>
+      </nav>
     </article>
 
     <article id="post-lowlight" class="post">
@@ -575,6 +614,11 @@ textarea[aria-invalid="true"] {
       <p>手机在这种环境下能做的其实不多，但有三件很关键。<strong>点屏幕对焦到眼睛</strong>，然后向下拖动曝光补偿（就是那个小太阳），先把它压暗一点——宁可欠曝，也不要糊。暗了还能拉回来，糊了没救。<strong>不要用数码变焦</strong>，那是裁切放大，等于把噪点一起放大；能走近就走近，走不近就接受拍不到。<strong>连拍几张再挑</strong>，动物一动，快门稍慢就虚，十张里总有一张是实的。</p>
 
       <p>还有一个容易忽略的点：展区灯光偏暖甚至偏绿，自动白平衡有时会把毛色拍脏。《找吃的》那只刺猬的毛本来是浅米色，我拍的第一组发黄，重拍时对着旁边的白墙重新取样，颜色才回来。</p>
+
+      <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-prev" href="#post-glass" rel="prev">← 上一篇：隔着玻璃拍：反光、水珠和擦不掉的指纹</a>
+        <a class="post-nav-next" href="#post-images" rel="next">下一篇：照片只有 300 KB，为什么还要做三档 →</a>
+      </nav>
     </article>
 
     <article id="post-images" class="post">
@@ -588,6 +632,11 @@ textarea[aria-invalid="true"] {
       <p>另外两件小事影响很大：每个 <code>&lt;img&gt;</code> 写上真实的 <code>width</code> 和 <code>height</code>，图片加载前浏览器就知道要占多高，页面不会跳；缩略图加 <code>loading="lazy"</code>，首屏之外的图滚到附近才下载。</p>
 
       <p><strong>踩过的坑：</strong><code>sizes</code> 写错不会报错，只会悄悄挑错图。我一开始写成 <code>100vw</code>，桌面端就去下了 1600 宽那档，白白多花流量。判断办法是打开开发者工具的 Network 面板，改窗口宽度，看实际请求的是哪一档。</p>
+
+      <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-prev" href="#post-lowlight" rel="prev">← 上一篇：暗光展区：不开闪光灯怎么把主体拍清楚</a>
+        <a class="post-nav-next" href="#post-a11y" rel="next">下一篇：键盘也能用的灯箱 →</a>
+      </nav>
     </article>
 
     <article id="post-a11y" class="post">
@@ -601,6 +650,11 @@ textarea[aria-invalid="true"] {
       <p>还加了一个前后切换的按钮组。手机上没有方向键，只能关掉再点下一张，体验是断的。加了之后，关闭时焦点会回到「当前正在看的那张」，而不是最初点开的那张。</p>
 
       <p>测试时发现一个意外：这个浏览器里，Tab 会从「下一张」跑到背景的「跳到主要内容」，再跳回来。原生对话框理论上应该锁住焦点，实际没有锁严，所以补了十几行焦点陷阱，首尾相连。</p>
+
+      <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-prev" href="#post-images" rel="prev">← 上一篇：照片只有 300 KB，为什么还要做三档</a>
+        <a class="post-nav-next" href="#post-form" rel="next">下一篇：表单的校验该由谁做 →</a>
+      </nav>
     </article>
 
     <article id="post-form" class="post">
@@ -612,6 +666,11 @@ textarea[aria-invalid="true"] {
       <p>现在分三层：<code>&lt;input type="email"&gt;</code> 交给浏览器做基础判断；提交时再用一条正则检查结构；每一项的错误信息通过 <code>aria-describedby</code> 关联到输入框，同时把 <code>aria-invalid</code> 设为 <code>true</code>，读屏软件才会念出来。另外修了一个状态 bug：上一次提交成功的提示，在后来校验失败时没有消失。</p>
 
       <p>最后是一个诚实性的问题。这是纯静态站，没有服务器，表单没法真的把消息存下来。与其假装「已收到」，不如老实告诉访客：点击发送会调用系统邮件客户端，并在页面上写清「如果没弹出，请直接发邮件到某个地址」。</p>
+
+      <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-prev" href="#post-a11y" rel="prev">← 上一篇：键盘也能用的灯箱</a>
+        <a class="post-nav-next" href="#post-layout" rel="next">下一篇：从一列到三列：网格的自适应 →</a>
+      </nav>
     </article>
 
     <article id="post-layout" class="post">
@@ -623,6 +682,10 @@ textarea[aria-invalid="true"] {
       <p>导航是反过来的思路：手机上默认收起，用按钮展开；700px 以上把按钮隐藏、列表横排。这样小屏的交互状态和大屏的静态布局各自独立，不会互相打架。</p>
 
       <p>验证方法不是「拖窗口看看」，而是在开发者工具里固定 320、375、768、1440 四个宽度，每次检查页面底部有没有横向滚动条。有滚动条就说明某个元素比视口宽，逐层排查。</p>
+
+      <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-prev" href="#post-form" rel="prev">← 上一篇：表单的校验该由谁做</a>
+      </nav>
     </article>
   </main>
 
