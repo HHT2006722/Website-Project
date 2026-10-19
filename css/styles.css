@@ -231,14 +231,14 @@ main {
   gap: 1.25rem;
   margin-top: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-items: start; /* 每张按自己的高度，不被同行拉齐 */
 }
 .gallery figure { margin: 0; }
 .gallery a { display: block; }
+/* 照片按原比例显示：竖图不裁、不强行塞进 3:2 的格子 */
 .gallery img {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: contain;
-  background: var(--accent-soft);
+  height: auto;
   border-radius: var(--radius);
   transition: opacity .15s ease;
 }
@@ -247,6 +247,16 @@ main {
   margin-top: .45rem;
   font-size: .9rem;
   color: var(--muted);
+}
+
+/* 照片下面那句拍摄说明：比 figcaption 更小、更轻 */
+.photo-note {
+  margin: .25rem 0 0;
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  border-left: 2px solid var(--line);
+  padding-left: .6rem;
 }
 
 /* ---------- 灯箱 ---------- */

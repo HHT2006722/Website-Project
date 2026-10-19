@@ -4,16 +4,17 @@
   <script>document.documentElement.classList.add('js');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>练习日志 · 韩宏涛的练习本</title>
-  <meta name="description" content="韩宏涛的插画练习日志：每周的记录、遇到的坑和解决办法。">
+  <title>拍摄笔记 · 韩宏涛的观察本</title>
+  <meta name="description" content="韩宏涛的拍摄笔记：隔着玻璃怎么拍、暗光展区怎么曝光，以及做这个网站时踩过的坑。">
   <link rel="canonical" href="https://hht2006722.github.io/Website-Project/journal.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="练习日志 · 韩宏涛的练习本">
-  <meta property="og:description" content="每周的记录、遇到的坑和解决办法。">
+  <meta property="og:title" content="拍摄笔记 · 韩宏涛的观察本">
+  <meta property="og:description" content="隔着玻璃怎么拍、暗光怎么曝光，以及这个网站是怎么做出来的。">
   <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
   <meta property="og:url" content="https://hht2006722.github.io/Website-Project/journal.html">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf6f0">
-  <meta property="og:site_name" content="韩宏涛的练习本">
+  <meta property="og:site_name" content="韩宏涛的观察本">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -254,14 +255,14 @@ main {
   gap: 1.25rem;
   margin-top: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-items: start; /* 每张按自己的高度，不被同行拉齐 */
 }
 .gallery figure { margin: 0; }
 .gallery a { display: block; }
+/* 照片按原比例显示：竖图不裁、不强行塞进 3:2 的格子 */
 .gallery img {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: contain;
-  background: var(--accent-soft);
+  height: auto;
   border-radius: var(--radius);
   transition: opacity .15s ease;
 }
@@ -270,6 +271,16 @@ main {
   margin-top: .45rem;
   font-size: .9rem;
   color: var(--muted);
+}
+
+/* 照片下面那句拍摄说明：比 figcaption 更小、更轻 */
+.photo-note {
+  margin: .25rem 0 0;
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  border-left: 2px solid var(--line);
+  padding-left: .6rem;
 }
 
 /* ---------- 灯箱 ---------- */
@@ -509,7 +520,7 @@ textarea[aria-invalid="true"] {
   <a class="skip-link" href="#main">跳到主要内容</a>
 
   <header class="site-header">
-    <a class="logo" href="index.html">韩宏涛的练习本</a>
+    <a class="logo" href="index.html">韩宏涛的观察本</a>
     <nav aria-label="主导航">
       <button id="navToggle" class="nav-toggle" type="button"
               aria-expanded="false" aria-controls="siteNav">
@@ -518,8 +529,8 @@ textarea[aria-invalid="true"] {
       </button>
       <ul id="siteNav" class="site-nav">
         <li><a href="index.html">首页</a></li>
-        <li><a href="works.html">作品</a></li>
-        <li><a href="journal.html" aria-current="page">日志</a></li>
+        <li><a href="works.html">照片</a></li>
+        <li><a href="journal.html" aria-current="page">笔记</a></li>
         <li><a href="about.html">关于</a></li>
         <li><a href="contact.html">联系</a></li>
       </ul>
@@ -527,97 +538,97 @@ textarea[aria-invalid="true"] {
   </header>
 
   <main id="main">
-    <h1>练习日志</h1>
-    <p class="lead">两类内容：<strong>拆解笔记</strong>（画面里的构图、光影、配色怎么起作用）和<strong>做站记录</strong>（这个网站怎么一步步改出来）。按时间倒序排列。</p>
+    <h1>拍摄笔记</h1>
+    <p class="lead">两类内容：<strong>拍摄笔记</strong>（怎么拍、为什么拍废了）和<strong>做站记录</strong>（这个网站怎么一步步改出来）。按时间倒序排列。</p>
 
-    <nav class="post-toc" aria-label="日志目录">
+    <nav class="post-toc" aria-label="笔记目录">
       <h2>目录</h2>
       <ul>
-        <li><a href="#post-backlight">拆解笔记：逆光为什么耐看</a></li>
-        <li><a href="#post-muted">拆解笔记：低饱和背景怎么托住主体</a></li>
-        <li><a href="#post-images">把 24 MB 的图变成 126 KB</a></li>
+        <li><a href="#post-glass">隔着玻璃拍：反光、水珠和擦不掉的指纹</a></li>
+        <li><a href="#post-lowlight">暗光展区：不开闪光灯怎么把主体拍清楚</a></li>
+        <li><a href="#post-images">照片只有 300 KB，为什么还要做三档</a></li>
         <li><a href="#post-a11y">键盘也能用的灯箱</a></li>
-        <li><a href="#post-form">表单的校验到底该由谁做</a></li>
+        <li><a href="#post-form">表单的校验该由谁做</a></li>
         <li><a href="#post-layout">从一列到三列：网格的自适应</a></li>
       </ul>
     </nav>
 
-    <article id="post-backlight" class="post">
-      <h2>拆解笔记：逆光为什么耐看</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 拆解笔记 · 构图与光影</p>
+    <article id="post-glass" class="post">
+      <h2>隔着玻璃拍：反光、水珠和擦不掉的指纹</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 拍摄笔记 · 玻璃与反光</p>
 
-      <p>看练习 01 那张：夕阳在人物背后，脸和身体正面几乎是暗的，只有轮廓边缘被照亮。第一眼注意到的不是五官，而是那圈亮边。这张图之所以抓人，靠的就是这个结构。</p>
+      <p>《玻璃后面》那张水獭，画面里同时有三层东西：水獭、亚克力管上的水珠、还有玻璃反射的室内灯。这三层叠在同一张照片上，拍完才发现最抢眼的是水珠，不是水獭的眼睛。</p>
 
-      <p>拆开看有两层。<strong>第一层是明度对比</strong>：背景被夕阳照得很亮，人物正面留在暗部，两者拉开之后，剪影自己就成立了，细节画得少也不影响识别。<strong>第二层是冷暖和互补</strong>：亮部偏橙红，暗部偏紫蓝，两色在色环上接近相对，交界处天然有张力。</p>
+      <p>后来总结出三条能落地的做法。<strong>第一，把镜头尽量贴近玻璃。</strong> 贴得越近，玻璃上的指纹和划痕越虚，越容易被忽略；离得远反而全都清清楚楚。<strong>第二，用深色衣服或手挡在镜头侧面。</strong> 玻璃上的反光大多来自镜头后方或侧方的光源，挡住那一侧，画面就干净一半。<strong>第三，绝不开闪光灯。</strong> 光会直接反射回镜头，得到一片白斑，而且会惊到动物。</p>
 
-      <p>可迁移的做法只有一句：<strong>先定光源位置，再决定主体哪一侧留高光</strong>。顺序反了就会变成「先画完再补光」，光会显得贴在表面。练习 03 的彗星也用了同一套逻辑——只不过光源从夕阳换成了那条亮线。</p>
+      <p>《鳞》那张鬣蜥能成立，是因为它离玻璃够近，而且玻璃底边那条金属框正好压在画面下缘——我把它留在构图里，当作「这是隔着看的」的证据，而不是想办法裁掉它。</p>
 
-      <p>我给自己留的检查项：把画面转成黑白，主体和背景如果变成同一个灰度，说明明度没拉开，得重调，不是加细节能救的。</p>
+      <p>拍这类照片的心理准备：十张里能用的可能只有一张，因为反光什么时候落在不碍事的位置，基本靠运气。多拍、回看、删掉，比现场纠结有用。</p>
     </article>
 
-    <article id="post-muted" class="post">
-      <h2>拆解笔记：低饱和背景怎么托住主体</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 拆解笔记 · 色彩</p>
+    <article id="post-lowlight" class="post">
+      <h2>暗光展区：不开闪光灯怎么把主体拍清楚</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 拍摄笔记 · 曝光</p>
 
-      <p>练习 02 那张，背景是大片灰蓝的雨雾和废墟，人物身上的白蓝铠甲是画面里最亮、最干净的一块。人物本身并没有更细，只是背景被「降噪」了。</p>
+      <p>展区的灯几乎都是顶光或者射灯，光从上面下来，动物一抬头，眼睛就掉进阴影里。《并排》那两头小猪之所以能拍清楚，是因为它们正好趴在墙洞里，身体朝向光线，鼻子冲着外面。</p>
 
-      <p>原理不复杂：人眼会先抓<strong>对比最强</strong>的地方。背景的饱和度和对比度一起降下来，主体的相对对比就上去了，哪怕主体只画了七成细节，视觉上也会跑到前面。</p>
+      <p>手机在这种环境下能做的其实不多，但有三件很关键。<strong>点屏幕对焦到眼睛</strong>，然后向下拖动曝光补偿（就是那个小太阳），先把它压暗一点——宁可欠曝，也不要糊。暗了还能拉回来，糊了没救。<strong>不要用数码变焦</strong>，那是裁切放大，等于把噪点一起放大；能走近就走近，走不近就接受拍不到。<strong>连拍几张再挑</strong>，动物一动，快门稍慢就虚，十张里总有一张是实的。</p>
 
-      <p>真正难的是别压过头。背景全灰会显脏、显廉价。这张的处理是留了一块高饱和的<strong>金黄草地</strong>当呼吸口——大面积灰蓝里有一条暖色横带，画面才不闷。</p>
-
-      <p>同样的思路在练习 04 里换成水面高光：背景是偏冷的蓝绿，主体用更亮更纯的白把视线钉住。判断方法也简单：眯起眼睛看，如果背景比主体还抢眼，就是背景该降饱和了。</p>
+      <p>还有一个容易忽略的点：展区灯光偏暖甚至偏绿，自动白平衡有时会把毛色拍脏。《找吃的》那只刺猬的毛本来是浅米色，我拍的第一组发黄，重拍时对着旁边的白墙重新取样，颜色才回来。</p>
     </article>
 
     <article id="post-images" class="post">
-      <h2>把 24 MB 的图变成 126 KB</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 图片与性能</p>
+      <h2>照片只有 300 KB，为什么还要做三档</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录 · 图片与性能</p>
 
-      <p>第一次打开自己的作品页，手机上下载了将近半分钟。查下来原因很直接：六张图全是相机和绘画软件导出的原图，最大的一张 PNG 有 24 MB，而页面上的缩略图显示出来只有 300 多像素宽。等于让访客下载了一整张高清大图，只为了看一个小方块。</p>
+      <p>六张原图都是 1920×1080 或 1440×810，单张一百到三百多 KB，看起来「不大」。但页面上的缩略图只有三百多像素宽——为了看一个小方块，下载的却是一整张原图，六张加起来 1.6 MB，手机流量和首屏时间都被它拖住。</p>
 
-      <p>解决思路是把「显示尺寸」和「文件尺寸」对齐。我用脚本给每张图导出了 480、960、1600 三个宽度的 WebP 版本，然后在 <code>&lt;img&gt;</code> 上用 <code>srcset</code> 列出这三个候选，用 <code>sizes</code> 告诉浏览器「这个位置在大屏大约占 30% 宽、手机上接近满宽」，由浏览器自己挑合适的那档。结果同样的画面，最坏情况从 24 MB 降到 126 KB。</p>
+      <p>做法是给每张导出 480、960、1600 三个宽度的 WebP（竖图是 480、960、1280），在 <code>&lt;img&gt;</code> 上用 <code>srcset</code> 列出候选，用 <code>sizes</code> 说明「这个位置在手机上接近满宽、在大屏大约 300 像素」，剩下的交给浏览器挑。实测手机端只下 480 档，单张 15–50 KB。</p>
 
-      <p>另外补了两个之前完全漏掉的东西：每个 <code>&lt;img&gt;</code> 都写上真实的 <code>width</code> 和 <code>height</code>，这样图片加载前浏览器就知道要占多大位置，页面不会跳动；缩略图统一加 <code>loading="lazy"</code>，首屏之外的图滚动到附近才下载。改完再用手机宽度测一遍，首页从 10 MB 量级降到 200 KB 以内。</p>
+      <p>另外两件小事影响很大：每个 <code>&lt;img&gt;</code> 写上真实的 <code>width</code> 和 <code>height</code>，图片加载前浏览器就知道要占多高，页面不会跳；缩略图加 <code>loading="lazy"</code>，首屏之外的图滚到附近才下载。</p>
 
-      <p><strong>踩到的坑：</strong>WebP 的 <code>sizes</code> 写错了不会报错，只会悄悄挑错图。我第一次把 <code>sizes</code> 写成 <code>100vw</code>，桌面端就会去下 1600 宽的那档，白白多花流量。判断办法是打开开发者工具的 Network 面板，改窗口宽度时观察实际请求的是哪一档文件。</p>
+      <p><strong>踩过的坑：</strong><code>sizes</code> 写错不会报错，只会悄悄挑错图。我一开始写成 <code>100vw</code>，桌面端就去下了 1600 宽那档，白白多花流量。判断办法是打开开发者工具的 Network 面板，改窗口宽度，看实际请求的是哪一档。</p>
     </article>
 
     <article id="post-a11y" class="post">
       <h2>键盘也能用的灯箱</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 可访问性</p>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录 · 可访问性</p>
 
-      <p>作品页的放大预览一开始是拿 <code>div</code> 加半透明遮罩自己写的：点图弹出来，点遮罩关掉。问题是用键盘根本打不开——直到我把触发元素换成真正的链接，并且用原生 <code>&lt;dialog&gt;</code> 加 <code>showModal()</code>。浏览器会自动把焦点锁在对话框里、按 Esc 关闭、把背后内容设为不可交互，这些都不用自己写。</p>
+      <p>照片页的放大预览一开始是拿 <code>div</code> 加半透明遮罩自己写的：点图弹出来，点遮罩关掉。问题是键盘根本打不开。后来把触发元素换成真正的链接，并且用原生 <code>&lt;dialog&gt;</code> 加 <code>showModal()</code>：浏览器会自动把焦点锁在对话框里、按 Esc 关闭、把背后内容设为不可交互。</p>
 
-      <p>不过原生 <code>&lt;dialog&gt;</code> 只解决了一半。剩下的两件事要自己补：打开时把焦点放到「关闭」按钮上，关闭后把焦点还给刚才点的那张图。否则用 Tab 键浏览的人关掉大图之后，焦点会掉回页面开头，得重新走一遍导航。</p>
+      <p>但原生 <code>&lt;dialog&gt;</code> 只解决了一半。剩下两件事要自己补：打开时把焦点放到「关闭」按钮上，关闭后把焦点还给刚才看的那张照片。否则用 Tab 键浏览的人关掉大图之后，焦点会掉回页面开头，得重新走一遍导航。</p>
 
-      <p>还有一处细节：对话框里如果只写一个空的 <code>&lt;img src=""&gt;</code>，页面加载时会出现一张裂图。改成先放一张真实存在的占位图、打开时再替换 <code>src</code>，就不会有这个问题了。</p>
+      <p>还加了一个前后切换的按钮组。手机上没有方向键，只能关掉再点下一张，体验是断的。加了之后，关闭时焦点会回到「当前正在看的那张」，而不是最初点开的那张。</p>
+
+      <p>测试时发现一个意外：这个浏览器里，Tab 会从「下一张」跑到背景的「跳到主要内容」，再跳回来。原生对话框理论上应该锁住焦点，实际没有锁严，所以补了十几行焦点陷阱，首尾相连。</p>
     </article>
 
     <article id="post-form" class="post">
-      <h2>表单的校验到底该由谁做</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · JavaScript</p>
+      <h2>表单的校验该由谁做</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录 · JavaScript</p>
 
-      <p>联系页的表单最初只做了一件事：检查输入框里有没有 <code>@</code>。测试的时候写 <code>a@b</code>、<code>test@</code>、<code>@x.com</code>，全部被当成有效邮箱放行，还弹出了「留言已记录」。这说明「有 <code>@</code>」和「是邮箱」之间差得很远。</p>
+      <p>联系页的表单最初只做了一件事：检查输入框里有没有 <code>@</code>。写 <code>a@b</code>、<code>test@</code>、<code>@x.com</code> 测试，全部被当成有效邮箱放行，还弹出了「留言已记录」。这说明「有 <code>@</code>」和「是邮箱」差得很远。</p>
 
-      <p>现在的做法分三层：<code>&lt;input type="email"&gt;</code> 交给浏览器做基础判断；提交时再用一条简单的正则检查结构；每一项的错误信息通过 <code>aria-describedby</code> 关联到输入框，同时把 <code>aria-invalid</code> 设为 <code>true</code>，读屏软件才会念出来。另外修了一个状态 bug：上一次提交成功后的提示，在后来校验失败时没有消失，看起来像「又成功了」。</p>
+      <p>现在分三层：<code>&lt;input type="email"&gt;</code> 交给浏览器做基础判断；提交时再用一条正则检查结构；每一项的错误信息通过 <code>aria-describedby</code> 关联到输入框，同时把 <code>aria-invalid</code> 设为 <code>true</code>，读屏软件才会念出来。另外修了一个状态 bug：上一次提交成功的提示，在后来校验失败时没有消失。</p>
 
-      <p>最后是一个诚实性的问题。这是个纯静态站，没有服务器，表单没法真的把消息存下来。与其假装「已收到」，不如老实告诉访客：点击发送会调用系统邮件客户端，并在页面上写清「如果没弹出，请直接发邮件到某个地址」。用户知道发生了什么，比一个假的成功提示有用得多。</p>
+      <p>最后是一个诚实性的问题。这是纯静态站，没有服务器，表单没法真的把消息存下来。与其假装「已收到」，不如老实告诉访客：点击发送会调用系统邮件客户端，并在页面上写清「如果没弹出，请直接发邮件到某个地址」。</p>
     </article>
 
     <article id="post-layout" class="post">
       <h2>从一列到三列：网格的自适应</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · CSS 布局</p>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录 · CSS 布局</p>
 
-      <p>卡片列表一开始是按固定列数写的，手机上会挤成一条缝，或者干脆横向溢出、需要左右拖动。后来改成 <code>grid-template-columns: repeat(auto-fill, minmax(230px, 1fr))</code>：容器宽度放得下几列就排几列，每个卡片最小 230px。手机上一列，平板两列，桌面三列，不用写任何媒体查询。</p>
+      <p>照片列表一开始是按固定列数写的，手机上会挤成一条缝，或者横向溢出、需要左右拖动。后来改成 <code>grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))</code>：容器放得下几列就排几列，每格最小 220px。手机一列，平板两列，桌面三列，不用写任何媒体查询。</p>
 
-      <p>导航是反过来的思路：手机上默认收起，用按钮展开；到 700px 以上把按钮隐藏、列表改成横排。这样小屏的交互状态和大屏的静态布局各自独立，不会互相打架。</p>
+      <p>导航是反过来的思路：手机上默认收起，用按钮展开；700px 以上把按钮隐藏、列表横排。这样小屏的交互状态和大屏的静态布局各自独立，不会互相打架。</p>
 
-      <p>验证方法不是「用鼠标拖窗口看看」，而是用浏览器开发者工具的设备模拟，分别固定成 375、768、1440 三个宽度，每次检查页面底部有没有横向滚动条。有滚动条就说明某个元素比视口宽，得逐层排查。</p>
+      <p>验证方法不是「拖窗口看看」，而是在开发者工具里固定 320、375、768、1440 四个宽度，每次检查页面底部有没有横向滚动条。有滚动条就说明某个元素比视口宽，逐层排查。</p>
     </article>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手写成</p>
-    <p class="footer-note">页面中的插画为学习与临摹作品，版权归原作者所有，仅作学习交流展示。</p>
+    <p class="footer-note">站内照片均为本人拍摄，未经许可请勿转载或商用。</p>
   </footer>
 
   <script src="js/script.js" defer></script>

@@ -4,16 +4,17 @@
   <script>document.documentElement.classList.add('js');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>关于我 · 韩宏涛的练习本</title>
-  <meta name="description" content="关于插画练习者韩宏涛：我在学什么，怎么练，用什么工具。">
+  <title>关于我 · 韩宏涛的观察本</title>
+  <meta name="description" content="关于韩宏涛：用手机拍动物，记录隔着玻璃看到的那些瞬间。">
   <link rel="canonical" href="https://hht2006722.github.io/Website-Project/about.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="关于我 · 韩宏涛的练习本">
-  <meta property="og:description" content="我在学什么，怎么练，用什么工具。">
+  <meta property="og:title" content="关于我 · 韩宏涛的观察本">
+  <meta property="og:description" content="用手机拍动物，记录隔着玻璃看到的那些瞬间。">
   <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
   <meta property="og:url" content="https://hht2006722.github.io/Website-Project/about.html">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf6f0">
-  <meta property="og:site_name" content="韩宏涛的练习本">
+  <meta property="og:site_name" content="韩宏涛的观察本">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
@@ -254,14 +255,14 @@ main {
   gap: 1.25rem;
   margin-top: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-items: start; /* 每张按自己的高度，不被同行拉齐 */
 }
 .gallery figure { margin: 0; }
 .gallery a { display: block; }
+/* 照片按原比例显示：竖图不裁、不强行塞进 3:2 的格子 */
 .gallery img {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: contain;
-  background: var(--accent-soft);
+  height: auto;
   border-radius: var(--radius);
   transition: opacity .15s ease;
 }
@@ -270,6 +271,16 @@ main {
   margin-top: .45rem;
   font-size: .9rem;
   color: var(--muted);
+}
+
+/* 照片下面那句拍摄说明：比 figcaption 更小、更轻 */
+.photo-note {
+  margin: .25rem 0 0;
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  border-left: 2px solid var(--line);
+  padding-left: .6rem;
 }
 
 /* ---------- 灯箱 ---------- */
@@ -509,7 +520,7 @@ textarea[aria-invalid="true"] {
   <a class="skip-link" href="#main">跳到主要内容</a>
 
   <header class="site-header">
-    <a class="logo" href="index.html">韩宏涛的练习本</a>
+    <a class="logo" href="index.html">韩宏涛的观察本</a>
     <nav aria-label="主导航">
       <button id="navToggle" class="nav-toggle" type="button"
               aria-expanded="false" aria-controls="siteNav">
@@ -518,8 +529,8 @@ textarea[aria-invalid="true"] {
       </button>
       <ul id="siteNav" class="site-nav">
         <li><a href="index.html">首页</a></li>
-        <li><a href="works.html">作品</a></li>
-        <li><a href="journal.html">日志</a></li>
+        <li><a href="works.html">照片</a></li>
+        <li><a href="journal.html">笔记</a></li>
         <li><a href="about.html" aria-current="page">关于</a></li>
         <li><a href="contact.html">联系</a></li>
       </ul>
@@ -530,47 +541,41 @@ textarea[aria-invalid="true"] {
     <h1>关于我</h1>
 
     <div class="prose">
-      <p>我是韩宏涛，一个在学动漫插画的普通人。这个网站是我的练习本，不是作品集——里面既有我临摹学习的画，也有我按参考重新画的场景，还有每周记下来的复盘。</p>
+      <p>我是韩宏涛，用一部手机拍动物。这个站是我的观察本，不是作品集——里面是我在宠物市场、室内展区和围栏边拍到的照片，以及每次拍完之后记下来的问题。</p>
 
-      <p>我把临摹当作学习方式：先照着原画把结构、光影、配色一遍遍拆开，再试着不看参考重画一遍。这个过程很笨，但每次都能发现自己卡在哪一步。网站上放出来的图，我会在正文里写清楚每张是怎么来的、参考了谁，因为学习别人的东西不丢人，假装是自己画的才丢人。</p>
+      <p>这类拍摄的限制是固定的：光不好、玻璃上有指纹、动物不会配合。所以我更关心「这一次放弃什么」，而不是把画面修得多好看。比如《玻璃后面》那张，我放弃了让水珠消失，改成把镜头贴紧玻璃、把反光压到画面边缘，让水獭的眼睛成为唯一清楚的东西。</p>
 
-      <p>下一步想把重心从临摹转到原创：先固定一套自己的角色设定，再用同一套场景反复画不同的时间段和天气。这件事急不来，我打算一个月只推进一小步，把过程记在日志里。</p>
+      <p>下一步想把同一个展区在不同时间去拍，看光变了之后同一只动物会变成什么样。急不来，一个月推进一点，记在笔记里。</p>
 
-      <h2>我现在在练什么</h2>
+      <h2>我现在在拍什么</h2>
       <ul>
-        <li><strong>逆光与剪影</strong>：先把光源位置定死，再决定人物哪一侧留高光。练的是「主体和背景不能同明度」这件事。</li>
-        <li><strong>低饱和背景</strong>：把背景的对比度和饱和度一起压下去，主体不画细节也会跳出来；难的是压过头会显脏。</li>
-        <li><strong>大面积星空</strong>：先铺暗色底、再点星点，最后用一条亮的流星把视线从左上引到右下。</li>
+        <li><strong>隔着玻璃</strong>：贴紧、遮光、不开闪光灯，先解决反光再谈构图。</li>
+        <li><strong>暗光展区</strong>：点眼睛对焦、压低曝光、连拍挑实的，宁可欠曝也不糊。</li>
+        <li><strong>等眼神</strong>：动物看镜头的那一下决定照片成不成立，剩下的只是等。</li>
       </ul>
+
+      <h2>我用的东西</h2>
+      <ul>
+        <li>手机（所有照片都是手机拍的）</li>
+        <li>一块擦镜布（比想象中重要，玻璃和镜头都会脏）</li>
+        <li>一件深色外套（贴在镜头侧面当遮光板）</li>
+      </ul>
+      <p class="hint">不用闪光灯，也不用三脚架——展区里既不方便，也会打扰动物。</p>
 
       <h2>这个网站是怎么做的</h2>
-      <p>纯 HTML / CSS / JavaScript，没有框架、没有后台、没有数据库，托管在 GitHub Pages。图片统一导出 480 / 960 / 1600 三档 WebP，用 <code>srcset</code> 让手机只下载最小那档；灯箱用浏览器原生的 <code>&lt;dialog&gt;</code>，焦点管理和 Esc 关闭都不用自己写。</p>
-      <p>每一步技术选择的「选了什么、放弃了什么、怎么验证的」，都记在仓库的 <code>DECISIONS.md</code> 里；每周的改动记在<a href="journal.html">日志</a>里。</p>
-
-      <h2>我用的工具</h2>
-      <ul>
-        <li>Clip Studio Paint（主要用来画线和上色）</li>
-        <li>iPad + Apple Pencil（起稿和外出速写）</li>
-        <li>一小盒马克笔（手快的时候用）</li>
-      </ul>
-
-      <h2>这个网站上有什么</h2>
-      <ul>
-        <li><a href="works.html">作品</a>：六张练习，附画面说明</li>
-        <li><a href="journal.html">日志</a>：每周一次的过程记录</li>
-        <li><a href="contact.html">联系</a>：约稿、交流都从这里开始</li>
-      </ul>
+      <p>纯 HTML / CSS / JavaScript，没有框架、没有后台、没有数据库，托管在 GitHub Pages。照片导出 480 / 960 / 1600 三档 WebP，用 <code>srcset</code> 让手机只下载最小那档；灯箱用浏览器原生的 <code>&lt;dialog&gt;</code>，焦点管理和 Esc 关闭都不用自己写。</p>
+      <p>每一步技术选择的「选了什么、放弃了什么、怎么验证的」，都记在仓库的 <code>DECISIONS.md</code> 里；每次改动记在<a href="journal.html">笔记</a>里。</p>
     </div>
 
     <aside class="notice" aria-labelledby="credits-heading">
-      <h2 id="credits-heading">关于画面与版权</h2>
-      <p>本站展示的是个人的学习与临摹记录，画面中的角色与作品版权归原作者及版权方所有。除特别说明外，网站仅用于学习交流，不用于任何商业用途。如果你认为这里的内容侵犯了你的权益，请通过<a href="contact.html">联系页</a>告诉我，我会尽快处理。</p>
+      <h2 id="credits-heading">关于照片</h2>
+      <p>站内照片均为本人拍摄，未经许可请勿转载或商用。如果照片里出现了你的场馆、你的动物，或者你有任何异议，请通过<a href="contact.html">联系页</a>告诉我，我会尽快处理。</p>
     </aside>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手写成</p>
-    <p class="footer-note">页面中的插画为学习与临摹作品，版权归原作者所有，仅作学习交流展示。</p>
+    <p class="footer-note">站内照片均为本人拍摄，未经许可请勿转载或商用。</p>
   </footer>
 
   <script src="js/script.js" defer></script>

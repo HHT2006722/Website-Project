@@ -4,9 +4,10 @@
   <script>document.documentElement.classList.add('js');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>页面走丢了 · 韩宏涛的练习本</title>
-  <meta name="description" content="这个地址没有对应的页面，回到首页或作品页继续看。">
+  <title>页面走丢了 · 韩宏涛的观察本</title>
+  <meta name="description" content="这个地址没有对应的页面，回到首页或照片页继续看。">
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#faf6f0">
   <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
   <style>
     /* 本段由 tools/inline-css.py 从 css/styles.css 生成；改样式请改源文件后重跑 */
@@ -243,14 +244,14 @@ main {
   gap: 1.25rem;
   margin-top: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-items: start; /* 每张按自己的高度，不被同行拉齐 */
 }
 .gallery figure { margin: 0; }
 .gallery a { display: block; }
+/* 照片按原比例显示：竖图不裁、不强行塞进 3:2 的格子 */
 .gallery img {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: contain;
-  background: var(--accent-soft);
+  height: auto;
   border-radius: var(--radius);
   transition: opacity .15s ease;
 }
@@ -259,6 +260,16 @@ main {
   margin-top: .45rem;
   font-size: .9rem;
   color: var(--muted);
+}
+
+/* 照片下面那句拍摄说明：比 figcaption 更小、更轻 */
+.photo-note {
+  margin: .25rem 0 0;
+  font-size: .85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  border-left: 2px solid var(--line);
+  padding-left: .6rem;
 }
 
 /* ---------- 灯箱 ---------- */
@@ -498,7 +509,7 @@ textarea[aria-invalid="true"] {
   <a class="skip-link" href="#main">跳到主要内容</a>
 
   <header class="site-header">
-    <a class="logo" href="index.html">韩宏涛的练习本</a>
+    <a class="logo" href="index.html">韩宏涛的观察本</a>
     <nav aria-label="主导航">
       <button id="navToggle" class="nav-toggle" type="button"
               aria-expanded="false" aria-controls="siteNav">
@@ -507,8 +518,8 @@ textarea[aria-invalid="true"] {
       </button>
       <ul id="siteNav" class="site-nav">
         <li><a href="index.html">首页</a></li>
-        <li><a href="works.html">作品</a></li>
-        <li><a href="journal.html">日志</a></li>
+        <li><a href="works.html">照片</a></li>
+        <li><a href="journal.html">笔记</a></li>
         <li><a href="about.html">关于</a></li>
         <li><a href="contact.html">联系</a></li>
       </ul>
@@ -517,17 +528,17 @@ textarea[aria-invalid="true"] {
 
   <main id="main">
     <h1>找不到这个页面</h1>
-    <p>你访问的地址可能已经改过名字，或者链接拼错了。这几个地方一定有东西看：</p>
+    <p>你访问的地址可能已经改过名字，或者链接拼错了。这两个地方一定有东西看：</p>
     <p>
       <a class="button" href="index.html">回首页</a>
-      <a class="button button-ghost" href="works.html">看作品</a>
+      <a class="button button-ghost" href="works.html">看照片</a>
     </p>
     <p class="hint">如果你是从站内链接点过来的，说明那个链接坏了，麻烦到<a href="contact.html">联系页</a>告诉我，我来修。</p>
   </main>
 
   <footer class="site-footer">
     <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手写成</p>
-    <p class="footer-note">页面中的插画为学习与临摹作品，版权归原作者所有，仅作学习交流展示。</p>
+    <p class="footer-note">站内照片均为本人拍摄，未经许可请勿转载或商用。</p>
   </footer>
 
   <script src="js/script.js" defer></script>
