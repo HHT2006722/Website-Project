@@ -37,6 +37,7 @@
 ├── ACCESSIBILITY.md        无障碍清单：做了什么、怎么测的、没做什么
 ├── PERFORMANCE.md          Lighthouse 实测结果与优化记录
 ├── PLAN.md                 任务池与推进节奏
+├── WEEKLY.md               每周记录：做了什么、卡在哪
 └── README.md               本文件
 ```
 
