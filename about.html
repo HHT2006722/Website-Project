@@ -11,6 +11,10 @@
   <meta property="og:description" content="我在学什么，怎么练，用什么工具。">
   <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
   <meta property="og:url" content="https://hht2006722.github.io/Website-Project/about.html">
+  <meta name="theme-color" content="#faf6f0">
+  <meta property="og:site_name" content="韩宏涛的练习本">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -46,6 +50,17 @@
       <p>我把临摹当作学习方式：先照着原画把结构、光影、配色一遍遍拆开，再试着不看参考重画一遍。这个过程很笨，但每次都能发现自己卡在哪一步。网站上放出来的图，我会在正文里写清楚每张是怎么来的、参考了谁，因为学习别人的东西不丢人，假装是自己画的才丢人。</p>
 
       <p>下一步想把重心从临摹转到原创：先固定一套自己的角色设定，再用同一套场景反复画不同的时间段和天气。这件事急不来，我打算一个月只推进一小步，把过程记在日志里。</p>
+
+      <h2>我现在在练什么</h2>
+      <ul>
+        <li><strong>逆光与剪影</strong>：先把光源位置定死，再决定人物哪一侧留高光。练的是「主体和背景不能同明度」这件事。</li>
+        <li><strong>低饱和背景</strong>：把背景的对比度和饱和度一起压下去，主体不画细节也会跳出来；难的是压过头会显脏。</li>
+        <li><strong>大面积星空</strong>：先铺暗色底、再点星点，最后用一条亮的流星把视线从左上引到右下。</li>
+      </ul>
+
+      <h2>这个网站是怎么做的</h2>
+      <p>纯 HTML / CSS / JavaScript，没有框架、没有后台、没有数据库，托管在 GitHub Pages。图片统一导出 480 / 960 / 1600 三档 WebP，用 <code>srcset</code> 让手机只下载最小那档；灯箱用浏览器原生的 <code>&lt;dialog&gt;</code>，焦点管理和 Esc 关闭都不用自己写。</p>
+      <p>每一步技术选择的「选了什么、放弃了什么、怎么验证的」，都记在仓库的 <code>DECISIONS.md</code> 里；每周的改动记在<a href="journal.html">日志</a>里。</p>
 
       <h2>我用的工具</h2>
       <ul>

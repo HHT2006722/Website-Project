@@ -11,6 +11,10 @@
   <meta property="og:description" content="每周的记录、遇到的坑和解决办法。">
   <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
   <meta property="og:url" content="https://hht2006722.github.io/Website-Project/journal.html">
+  <meta name="theme-color" content="#faf6f0">
+  <meta property="og:site_name" content="韩宏涛的练习本">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -39,17 +43,45 @@
 
   <main id="main">
     <h1>练习日志</h1>
-    <p class="lead">每周记一次：这周做了什么、哪里卡住、怎么解决的。日志按时间倒序排列。</p>
+    <p class="lead">两类内容：<strong>拆解笔记</strong>（画面里的构图、光影、配色怎么起作用）和<strong>做站记录</strong>（这个网站怎么一步步改出来）。按时间倒序排列。</p>
 
     <nav class="post-toc" aria-label="日志目录">
       <h2>目录</h2>
       <ul>
+        <li><a href="#post-backlight">拆解笔记：逆光为什么耐看</a></li>
+        <li><a href="#post-muted">拆解笔记：低饱和背景怎么托住主体</a></li>
         <li><a href="#post-images">把 24 MB 的图变成 126 KB</a></li>
         <li><a href="#post-a11y">键盘也能用的灯箱</a></li>
         <li><a href="#post-form">表单的校验到底该由谁做</a></li>
         <li><a href="#post-layout">从一列到三列：网格的自适应</a></li>
       </ul>
     </nav>
+
+    <article id="post-backlight" class="post">
+      <h2>拆解笔记：逆光为什么耐看</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 拆解笔记 · 构图与光影</p>
+
+      <p>看练习 01 那张：夕阳在人物背后，脸和身体正面几乎是暗的，只有轮廓边缘被照亮。第一眼注意到的不是五官，而是那圈亮边。这张图之所以抓人，靠的就是这个结构。</p>
+
+      <p>拆开看有两层。<strong>第一层是明度对比</strong>：背景被夕阳照得很亮，人物正面留在暗部，两者拉开之后，剪影自己就成立了，细节画得少也不影响识别。<strong>第二层是冷暖和互补</strong>：亮部偏橙红，暗部偏紫蓝，两色在色环上接近相对，交界处天然有张力。</p>
+
+      <p>可迁移的做法只有一句：<strong>先定光源位置，再决定主体哪一侧留高光</strong>。顺序反了就会变成「先画完再补光」，光会显得贴在表面。练习 03 的彗星也用了同一套逻辑——只不过光源从夕阳换成了那条亮线。</p>
+
+      <p>我给自己留的检查项：把画面转成黑白，主体和背景如果变成同一个灰度，说明明度没拉开，得重调，不是加细节能救的。</p>
+    </article>
+
+    <article id="post-muted" class="post">
+      <h2>拆解笔记：低饱和背景怎么托住主体</h2>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 拆解笔记 · 色彩</p>
+
+      <p>练习 02 那张，背景是大片灰蓝的雨雾和废墟，人物身上的白蓝铠甲是画面里最亮、最干净的一块。人物本身并没有更细，只是背景被「降噪」了。</p>
+
+      <p>原理不复杂：人眼会先抓<strong>对比最强</strong>的地方。背景的饱和度和对比度一起降下来，主体的相对对比就上去了，哪怕主体只画了七成细节，视觉上也会跑到前面。</p>
+
+      <p>真正难的是别压过头。背景全灰会显脏、显廉价。这张的处理是留了一块高饱和的<strong>金黄草地</strong>当呼吸口——大面积灰蓝里有一条暖色横带，画面才不闷。</p>
+
+      <p>同样的思路在练习 04 里换成水面高光：背景是偏冷的蓝绿，主体用更亮更纯的白把视线钉住。判断方法也简单：眯起眼睛看，如果背景比主体还抢眼，就是背景该降饱和了。</p>
+    </article>
 
     <article id="post-images" class="post">
       <h2>把 24 MB 的图变成 126 KB</h2>

@@ -394,6 +394,25 @@ textarea[aria-invalid="true"] {
 .status.is-ok { background: #e7f3ea; color: var(--success); }
 .status.is-error { background: #fbe9e7; color: var(--danger); }
 
+/* ---------- 首页「最近在练什么」 ---------- */
+.practice-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: .6rem;
+  max-width: 46rem;
+}
+.practice-list li {
+  padding: .7rem .9rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-size: .95rem;
+}
+.practice-list strong { color: var(--accent); }
+
 /* ---------- 页脚 ---------- */
 .site-footer {
   border-top: 1px solid var(--line);
