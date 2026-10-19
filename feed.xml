@@ -5,7 +5,7 @@
     <link>https://hht2006722.github.io/Website-Project/</link>
     <description>动物摄影与拍摄笔记：隔着玻璃拍到的照片，以及每次拍摄的取舍。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 19 Oct 2026 19:42:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 19:48:00 +0800</lastBuildDate>
     <atom:link href="https://hht2006722.github.io/Website-Project/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>把六张画换掉了</title>
@@ -40,14 +40,14 @@
       <link>https://hht2006722.github.io/Website-Project/journal.html#post-a11y</link>
       <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-a11y</guid>
       <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
-      <description>照片页的放大预览最早是 div 加一层半透明遮罩：点图弹出来，点遮罩关掉。用鼠标没问题，用键盘根本打不开。</description>
+      <description>照片页的放大预览最早是自己写的一个方块加半透明遮罩：点图弹出来，点遮罩关掉。用鼠标没问题，用键盘根本打不开。</description>
     </item>
     <item>
       <title>表单里我改了三遍的地方</title>
       <link>https://hht2006722.github.io/Website-Project/journal.html#post-form</link>
       <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-form</guid>
       <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
-      <description>第一版的校验只有一句：看输入框里有没有 @。我用 a@b、test@、@x.com 试了一下，全过，还弹了「留言已记录」。这才意识到「有 @」和「是邮箱」差得远。</description>
+      <description>第一版的校验只有一句：看输入框里有没有 @ 号。我拿 a@b、test@、@x.com 试了一下，全过，还弹了「留言已记录」。这才意识到「有 @」和「是邮箱」差得远。</description>
     </item>
     <item>
       <title>一列排到三列</title>
