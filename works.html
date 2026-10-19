@@ -20,6 +20,7 @@
   <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="韩宏涛的观察本 · 笔记" href="feed.xml">
   <style>
     /* 本段由 tools/inline-css.py 从 css/styles.css 生成；改样式请改源文件后重跑 */
 /* ===========================================================
@@ -360,6 +361,22 @@ main {
   margin-bottom: 1rem;
 }
 .post p { margin-bottom: 1rem; }
+
+/* 笔记之间的上一篇 / 下一篇 */
+.post-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.25rem;
+  margin-top: 1.25rem;
+  padding-top: .9rem;
+  border-top: 1px dashed var(--line);
+  font-size: .92rem;
+}
+.post-nav a {
+  text-decoration: none;
+  color: var(--accent);
+}
+.post-nav a:hover { text-decoration: underline; }
 
 /* ---------- 关于页 ---------- */
 .prose { max-width: 46rem; }
