@@ -1,6 +1,6 @@
 # 韩宏涛的观察本
 
-动物摄影观察站。纯 HTML / CSS / JavaScript，没有构建步骤、没有服务端、没有数据库，直接托管在 GitHub Pages。
+动物摄影观察站。六张照片拍于 2024 年 4 月 5 日，设备 iPhone 13 Pro。纯 HTML / CSS / JavaScript，没有构建步骤、没有服务端、没有数据库，直接托管在 GitHub Pages。
 
 **线上地址**：<https://hht2006722.github.io/Website-Project/>
 
