@@ -29,6 +29,7 @@
 ├── tools/build-images.py   把照片导出成三档 WebP
 ├── tools/build-feed.py     从 journal.html 生成 feed.xml
 ├── feed.xml                RSS 订阅源
+├── feed.xsl                给订阅源用的样式表（浏览器里直接显示成网页）
 ├── favicon.ico  favicon-32.png  apple-touch-icon.png
 ├── og-cover.jpg            社交分享卡片（1200×630）
 ├── sitemap.xml  robots.txt 搜索引擎用

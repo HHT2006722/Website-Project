@@ -76,6 +76,7 @@ def main():
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
+        '<?xml-stylesheet type="text/xsl" href="feed.xsl"?>',
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
         "  <channel>",
         f"    <title>{escape(SITE_TITLE)}</title>",
@@ -92,6 +93,7 @@ def main():
             f"      <link>{escape(it['link'])}</link>",
             f'      <guid isPermaLink="true">{escape(it['guid'])}</guid>',
             f"      <pubDate>{rfc822(it['date'])}</pubDate>",
+            f"      <atom:updated>{it['date']}</atom:updated>",
             f"      <description>{escape(it['summary'])}</description>",
             "    </item>",
         ]
