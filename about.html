@@ -414,6 +414,37 @@ main {
 .prose ul { padding-left: 1.3rem; }
 .prose li { margin-bottom: .35rem; }
 
+/* 关于页的检查清单：编号用色块，读屏仍按 ol 顺序念 */
+.checklist {
+  counter-reset: check;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  max-width: 46rem;
+}
+.checklist li {
+  counter-increment: check;
+  position: relative;
+  padding: .5rem 0 .5rem 2.2rem;
+  border-bottom: 1px dashed var(--line);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: counter(check);
+  position: absolute;
+  left: 0;
+  top: .55rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
 .notice {
   margin-top: 2.5rem;
   max-width: 46rem;
@@ -687,6 +718,16 @@ body { hanging-punctuation: allow-end; }
         <li><strong>暗光展区</strong>：点眼睛对焦、压低曝光、连拍挑实的，宁可欠曝也不糊。</li>
         <li><strong>等眼神</strong>：动物看镜头的那一下决定照片成不成立，剩下的只是等。</li>
       </ul>
+
+      <h2>我怎么判断一张照片成不成立</h2>
+      <p>拍完当场就能筛掉大半，靠的是这四条，按顺序看：</p>
+      <ol class="checklist">
+        <li><strong>眼睛清不清楚</strong>——糊了就不成立，别的都白搭。</li>
+        <li><strong>主体和背景的明度有没有拉开</strong>——把照片转成黑白看，如果主体和背景糊成一片灰，说明光没选对，加细节救不回来。</li>
+        <li><strong>有没有多余的反光或杂物</strong>——玻璃上的高光、笼子的边条。能避开就避开，避不开就让它成为构图的一部分，像《鳞》下缘那道金属框。</li>
+        <li><strong>裁切有没有切掉关键部位</strong>——耳朵、尾巴尖、爪子，切掉任何一处都会显得「没拍全」。</li>
+      </ol>
+      <p class="hint">这四条是我删片时用的，不是拍之前想的。拍的时候只顾得上对焦和曝光。</p>
 
       <h2>我用的东西</h2>
       <ul>

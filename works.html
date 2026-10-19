@@ -414,6 +414,37 @@ main {
 .prose ul { padding-left: 1.3rem; }
 .prose li { margin-bottom: .35rem; }
 
+/* 关于页的检查清单：编号用色块，读屏仍按 ol 顺序念 */
+.checklist {
+  counter-reset: check;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  max-width: 46rem;
+}
+.checklist li {
+  counter-increment: check;
+  position: relative;
+  padding: .5rem 0 .5rem 2.2rem;
+  border-bottom: 1px dashed var(--line);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: counter(check);
+  position: absolute;
+  left: 0;
+  top: .55rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
 .notice {
   margin-top: 2.5rem;
   max-width: 46rem;
