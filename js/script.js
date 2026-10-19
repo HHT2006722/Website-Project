@@ -67,6 +67,9 @@
       src: link.getAttribute('href'),
       alt: link.dataset.alt || (thumb ? thumb.alt : ''),
       caption: link.dataset.caption || (thumb ? thumb.alt : ''),
+      // 记下大图真实宽高：竖图打开时不会先按横图占位再跳一下
+      w: Number(link.dataset.w) || 0,
+      h: Number(link.dataset.h) || 0,
     };
   });
 
@@ -76,6 +79,10 @@
     // 取模实现首尾循环：第一张的「上一张」是最后一张
     current = (index + items.length) % items.length;
     const item = items[current];
+    if (item.w && item.h) {
+      img.width = item.w;
+      img.height = item.h;
+    }
     img.src = item.src;
     img.alt = item.alt;
     caption.textContent = item.caption;
