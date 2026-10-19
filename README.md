@@ -27,10 +27,13 @@
 ├── img/                    照片，每张含 480 / 960 / 1600 三档 WebP
 ├── tools/inline-css.py     把 css/styles.css 内联进六个页面
 ├── tools/build-images.py   把照片导出成三档 WebP
+├── tools/build-feed.py     从 journal.html 生成 feed.xml
+├── feed.xml                RSS 订阅源
 ├── favicon.ico  favicon-32.png  apple-touch-icon.png
 ├── og-cover.jpg            社交分享卡片（1200×630）
 ├── sitemap.xml  robots.txt 搜索引擎用
 ├── DECISIONS.md            技术决策与踩坑记录
+├── ACCESSIBILITY.md        无障碍清单：做了什么、怎么测的、没做什么
 ├── PLAN.md                 任务池与推进节奏
 └── README.md               本文件
 ```
@@ -50,6 +53,12 @@ python -m http.server 8000
 
 ```bash
 python tools/inline-css.py
+```
+
+**改笔记**（`journal.html`）之后，重新生成订阅源：
+
+```bash
+python tools/build-feed.py
 ```
 
 **换照片**：把照片放进一个文件夹，然后：
