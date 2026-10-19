@@ -237,6 +237,74 @@
   });
 })();
 
+/* ---------- 5. 照片筛选 ---------- */
+(function initGalleryFilter() {
+  const bar = document.querySelector('.filters');
+  if (!bar) return;
+
+  const buttons = Array.from(bar.querySelectorAll('.filter-btn'));
+  const figures = Array.from(document.querySelectorAll('.gallery figure'));
+  const status = document.querySelector('.filter-status');
+  if (!figures.length) return;
+
+  function apply(filter) {
+    let shown = 0;
+    figures.forEach((figure) => {
+      const match = filter === 'all' || figure.dataset.category === filter;
+      // hidden 属性由浏览器负责隐藏，无需再改样式
+      figure.hidden = !match;
+      if (match) shown += 1;
+    });
+
+    buttons.forEach((button) => {
+      const on = button.dataset.filter === filter;
+      button.classList.toggle('is-active', on);
+      button.setAttribute('aria-pressed', String(on));
+    });
+
+    if (status) status.textContent = '显示 ' + shown + ' 张，共 ' + figures.length + ' 张';
+  }
+
+  bar.addEventListener('click', (event) => {
+    const button = event.target.closest('.filter-btn');
+    if (button) apply(button.dataset.filter);
+  });
+
+  apply('all');
+})();
+
+/* ---------- 6. 留言字数计数 ---------- */
+(function initMessageCounter() {
+  const textarea = document.querySelector('#message');
+  const counter = document.querySelector('#message-count');
+  if (!textarea || !counter) return;
+
+  const max = Number(textarea.getAttribute('maxlength')) || 500;
+
+  function update() {
+    const n = textarea.value.length;
+    counter.textContent = String(n);
+    // 快到上限时把数字变红，提醒还能写多少
+    counter.classList.toggle('is-near-limit', n >= max * 0.9);
+  }
+
+  textarea.addEventListener('input', update);
+  update();
+})();
+
+/* ---------- 7. 图片加载失败时的兜底 ---------- */
+(function initImageFallback() {
+  // 捕获阶段监听，图片加载失败也能收到
+  document.addEventListener('error', (event) => {
+    const img = event.target;
+    if (!img || img.tagName !== 'IMG') return;
+    if (img.dataset.failed) return;
+    img.dataset.failed = '1';
+    img.classList.add('img-failed');
+    // 不替换元素：浏览器本身会把 alt 文字显示出来，这里只加一层边框提示
+  }, true);
+})();
+
 /* ---------- 4. 页脚年份 ---------- */
 (function initYear() {
   const el = document.querySelector('#year');

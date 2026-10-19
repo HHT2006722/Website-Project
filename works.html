@@ -13,7 +13,8 @@
   <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
   <meta property="og:url" content="https://hht2006722.github.io/Website-Project/works.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#faf6f0">
+  <meta name="theme-color" content="#faf6f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14100d" media="(prefers-color-scheme: dark)">
   <meta property="og:site_name" content="韩宏涛的观察本">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -284,6 +285,36 @@ main {
   padding-left: .6rem;
 }
 
+/* ---------- 照片筛选 ---------- */
+/* 没有 JS 时整条栏不显示：按钮点了没反应比看不到更糟 */
+.filters {
+  display: none;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1.25rem 0 0;
+}
+.js .filters { display: flex; }
+
+.filter-btn {
+  font: inherit;
+  font-size: .92rem;
+  padding: .45rem 1rem;
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn:active { transform: translateY(1px); }
+.filter-btn.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.filter-btn.is-active:hover { color: #fff; }
+
 /* ---------- 灯箱 ---------- */
 .lightbox {
   border: none;
@@ -455,6 +486,9 @@ textarea[aria-invalid="true"] {
   border-width: 2px;
 }
 
+.counter, #message-hint { font-variant-numeric: tabular-nums; }
+#message-count.is-near-limit { color: var(--danger); font-weight: 600; }
+
 .status {
   margin-top: 1rem;
   padding: .75rem 1rem;
@@ -484,6 +518,13 @@ textarea[aria-invalid="true"] {
 }
 .practice-list strong { color: var(--accent); }
 
+/* 图片加载失败时给一个可见的占位，alt 文字由浏览器自己显示 */
+img.img-failed {
+  min-height: 120px;
+  background: var(--accent-soft);
+  border: 1px dashed var(--line);
+}
+
 /* ---------- 页脚 ---------- */
 .site-footer {
   border-top: 1px solid var(--line);
@@ -493,7 +534,7 @@ textarea[aria-invalid="true"] {
   font-size: .9rem;
 }
 .site-footer p { margin: 0 0 .4rem; }
-.footer-note { font-size: .82rem; opacity: .85; }
+.footer-note { font-size: .82rem; } /* 去掉 opacity：透明会稀释颜色，实测对比度掉到 4.12，低于 4.5 */
 
 /* ---------- 大屏：导航常驻横排 ---------- */
 @media (min-width: 700px) {
@@ -524,12 +565,88 @@ textarea[aria-invalid="true"] {
   }
 }
 
+/* ---------- 交互三态：hover / focus-visible / active ---------- */
+a:hover { text-decoration-thickness: 2px; }
+a:active { opacity: .85; }
+.card-link:active { transform: translateY(1px); }
+.post-nav a:active { opacity: .8; }
+.link-plain:active { opacity: .8; }
+
+/* ---------- 中文排版 ---------- */
+p, li, dd { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+/* 支持的浏览器才生效：行末标点不单独跑到下一行 */
+body { hanging-punctuation: allow-end; }
+
+/* ---------- 暗色模式：只覆盖颜色变量与少数实心色块 ----------
+   规则完全不重写，改的是变量。实心色块（按钮、跳转链接、灯箱关闭）
+   单独用更深的橙色，保证白色文字仍达到 4.5:1。 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14100d;
+    --card: #1d1815;
+    --text: #ece4dc;
+    --muted: #a89c90;
+    --accent: #e8935a;
+    --accent-soft: #2a211b;
+    --line: #322a24;
+    --danger: #f08a80;
+    --success: #8fd3a6;
+    --focus: 3px solid #8ec6ff;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5);
+  }
+  .button,
+  .skip-link,
+  .lightbox-close {
+    background: #b35c25;
+    border-color: #b35c25;
+    color: #fff;
+  }
+  .button:hover,
+  .lightbox-close:hover { background: #c4632a; color: #fff; }
+  .button-ghost { background: transparent; color: var(--accent); }
+  .button-ghost:hover { background: var(--accent-soft); color: var(--accent); }
+  .field input,
+  .field textarea { border-color: #4a3d34; }
+  .status.is-ok { background: #12281a; color: var(--success); }
+  .status.is-error { background: #2a1412; color: var(--danger); }
+  /* 灯箱里的「上一张 / 下一张」：白底 + 浅色字在暗色下会看不清 */
+  .lightbox-btn:not(.lightbox-close) {
+    background: rgba(28, 22, 18, .92);
+    border-color: rgba(255, 255, 255, .28);
+    color: var(--text);
+  }
+  .lightbox-btn:not(.lightbox-close):hover { background: #2a211b; }
+  .lightbox::backdrop { background: rgba(0, 0, 0, .94); }
+  .lightbox img { background: #000; }
+}
+
 /* ---------- 打印 ---------- */
 @media print {
-  .site-header, .site-footer, .nav-toggle, .skip-link { display: none; }
-  body { background: #fff; color: #000; }
-  a { color: #000; }
-  .card, .notice { border: 1px solid #ccc; }
+  /* 打印是另一种"设备"：去掉一切交互外壳，只留内容 */
+  .site-header, .site-footer, .nav-toggle, .skip-link,
+  .filters, .lightbox, .post-nav, .post-toc { display: none !important; }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+  main { max-width: none; padding: 0; }
+  a { color: #000; text-decoration: underline; }
+  /* 打印出来也能知道链接指向哪里 */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    word-break: break-all;
+  }
+  .card, .notice, figure, .post {
+    break-inside: avoid;
+    border-color: #bbb;
+  }
+  img { max-width: 70%; height: auto; }
+  h1, h2, h3 { break-after: avoid; }
 }
   </style>
 </head>
@@ -559,29 +676,37 @@ textarea[aria-invalid="true"] {
     <p>六张照片都拍于 2024年4月5日，设备是 iPhone 13 Pro。场景都是室内展区，隔着玻璃或围栏。点击任意一张可以放大，按 Esc 或「关闭」返回；也可以用底部按钮或方向键前后翻看。</p>
     <p class="hint">每张照片为本人拍摄。下面写的是拍摄时的问题和取舍，不是后期修出来的效果。</p>
 
+    <div class="filters" role="group" aria-label="按拍摄难点筛选照片">
+      <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">全部</button>
+      <button type="button" class="filter-btn" data-filter="glass" aria-pressed="false">隔着玻璃</button>
+      <button type="button" class="filter-btn" data-filter="lowlight" aria-pressed="false">暗光</button>
+      <button type="button" class="filter-btn" data-filter="light" aria-pressed="false">侧光 / 顶光</button>
+    </div>
+    <p class="filter-status visually-hidden" role="status" aria-live="polite"></p>
+
     <section class="gallery" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading" class="visually-hidden">照片列表</h2>
 
-      <figure id="work-01">
+      <figure id="work-01" data-category="glass">
         <a class="gallery-item" href="img/work-01-1600.webp"
            data-caption="01 ·《鳞》— 隔着玻璃 · 2024年4月5日"
            data-alt="一只绿色鬣蜥趴在碎石地上，头转向镜头，嘴微张，画面下方有一道金属框。" data-w="1600" data-h="900">
           <img src="img/work-01-480.webp"
-               srcset="img/work-01-480.webp 480w, img/work-01-960.webp 960w, img/work-01-1600.webp 1600w"
+               srcset="img/work-01-480.webp 480w, img/work-01-768.webp 768w, img/work-01-960.webp 960w, img/work-01-1600.webp 1600w"
                sizes="(min-width: 1000px) 300px, (min-width: 700px) 45vw, 92vw"
-               width="480" height="270" loading="lazy" decoding="async"
-               alt="一只绿色鬣蜥趴在碎石地上，头转向镜头，嘴微张，画面下方有一道金属框。">
+               width="480" height="270" decoding="async"
+               alt="一只绿色鬣蜥趴在碎石地上，头转向镜头，嘴微张，画面下方有一道金属框。" fetchpriority="high">
         </a>
         <figcaption>01 ·《鳞》· 隔着玻璃 · 2024.04.05</figcaption>
         <p class="photo-note">贴着玻璃拍，把底边那道金属框留在画面下缘——它是「隔着看」的证据，不是该裁掉的杂物。</p>
       </figure>
 
-      <figure id="work-02">
+      <figure id="work-02" data-category="light">
         <a class="gallery-item" href="img/work-02-1600.webp"
            data-caption="02 ·《木墙前》— 侧光 · 2024年4月5日"
            data-alt="两只玄凤鹦鹉站在枯枝上，左边一只灰底白斑，右边一只通体浅黄，背后是开裂的木墙。" data-w="1600" data-h="900">
           <img src="img/work-02-480.webp"
-               srcset="img/work-02-480.webp 480w, img/work-02-960.webp 960w, img/work-02-1600.webp 1600w"
+               srcset="img/work-02-480.webp 480w, img/work-02-768.webp 768w, img/work-02-960.webp 960w, img/work-02-1600.webp 1600w"
                sizes="(min-width: 1000px) 300px, (min-width: 700px) 45vw, 92vw"
                width="480" height="270" loading="lazy" decoding="async"
                alt="两只玄凤鹦鹉站在枯枝上，左边一只灰底白斑，右边一只通体浅黄，背后是开裂的木墙。">
@@ -590,12 +715,12 @@ textarea[aria-invalid="true"] {
         <p class="photo-note">侧光把木墙的裂缝照出来，两只鸟一灰一黄，刚好分出前后层次。</p>
       </figure>
 
-      <figure id="work-03">
+      <figure id="work-03" data-category="glass">
         <a class="gallery-item" href="img/work-03-1280.webp"
            data-caption="03 ·《玻璃后面》— 隔着玻璃 · 2024年4月5日"
            data-alt="一只水獭趴在透明亚克力管上，前爪垂着，玻璃上有水珠和反光，它正看着镜头。" data-w="1280" data-h="1707">
           <img src="img/work-03-480.webp"
-               srcset="img/work-03-480.webp 480w, img/work-03-960.webp 960w, img/work-03-1280.webp 1280w"
+               srcset="img/work-03-480.webp 480w, img/work-03-768.webp 768w, img/work-03-960.webp 960w, img/work-03-1280.webp 1280w"
                sizes="(min-width: 1000px) 300px, (min-width: 700px) 45vw, 92vw"
                width="480" height="640" loading="lazy" decoding="async"
                alt="一只水獭趴在透明亚克力管上，前爪垂着，玻璃上有水珠和反光，它正看着镜头。">
@@ -604,12 +729,12 @@ textarea[aria-invalid="true"] {
         <p class="photo-note">水珠和反光消不掉，就把它们压到画面边缘，让眼睛成为唯一清楚的地方。</p>
       </figure>
 
-      <figure id="work-04">
+      <figure id="work-04" data-category="lowlight">
         <a class="gallery-item" href="img/work-04-1440.webp"
            data-caption="04 ·《找吃的》— 暗光 · 2024年4月5日"
            data-alt="一只浅色刺猬低着头，站在岩石缝前的饲料堆旁，粉色眼睛和鼻头。" data-w="1440" data-h="810">
           <img src="img/work-04-480.webp"
-               srcset="img/work-04-480.webp 480w, img/work-04-960.webp 960w, img/work-04-1440.webp 1440w"
+               srcset="img/work-04-480.webp 480w, img/work-04-768.webp 768w, img/work-04-960.webp 960w, img/work-04-1440.webp 1440w"
                sizes="(min-width: 1000px) 300px, (min-width: 700px) 45vw, 92vw"
                width="480" height="270" loading="lazy" decoding="async"
                alt="一只浅色刺猬低着头，站在岩石缝前的饲料堆旁，粉色眼睛和鼻头。">
@@ -618,12 +743,12 @@ textarea[aria-invalid="true"] {
         <p class="photo-note">顶光下压低曝光，饲料堆的亮部反而衬出了刺猬的浅色毛。</p>
       </figure>
 
-      <figure id="work-05">
+      <figure id="work-05" data-category="light">
         <a class="gallery-item" href="img/work-05-1440.webp"
            data-caption="05 ·《一束光》— 顶光 · 2024年4月5日"
            data-alt="一只毛色近乎全白的小兽蹲在斜放的原木上，粉鼻头，背景是深灰色岩壁，一束光从右上方打下来。" data-w="1440" data-h="810">
           <img src="img/work-05-480.webp"
-               srcset="img/work-05-480.webp 480w, img/work-05-960.webp 960w, img/work-05-1440.webp 1440w"
+               srcset="img/work-05-480.webp 480w, img/work-05-768.webp 768w, img/work-05-960.webp 960w, img/work-05-1440.webp 1440w"
                sizes="(min-width: 1000px) 300px, (min-width: 700px) 45vw, 92vw"
                width="480" height="270" loading="lazy" decoding="async"
                alt="一只毛色近乎全白的小兽蹲在斜放的原木上，粉鼻头，背景是深灰色岩壁，一束光从右上方打下来。">
@@ -632,12 +757,12 @@ textarea[aria-invalid="true"] {
         <p class="photo-note">等射灯扫到背上那一秒才按快门，深灰岩壁把白毛衬成了主体。</p>
       </figure>
 
-      <figure id="work-06">
+      <figure id="work-06" data-category="lowlight">
         <a class="gallery-item" href="img/work-06-1440.webp"
            data-caption="06 ·《并排》— 暗光 · 2024年4月5日"
            data-alt="两头小猪并排趴在水泥墙洞里，一头灰黑、一头黑白相间，粉色鼻头朝外。" data-w="1440" data-h="810">
           <img src="img/work-06-480.webp"
-               srcset="img/work-06-480.webp 480w, img/work-06-960.webp 960w, img/work-06-1440.webp 1440w"
+               srcset="img/work-06-480.webp 480w, img/work-06-768.webp 768w, img/work-06-960.webp 960w, img/work-06-1440.webp 1440w"
                sizes="(min-width: 1000px) 300px, (min-width: 700px) 45vw, 92vw"
                width="480" height="270" loading="lazy" decoding="async"
                alt="两头小猪并排趴在水泥墙洞里，一头灰黑、一头黑白相间，粉色鼻头朝外。">

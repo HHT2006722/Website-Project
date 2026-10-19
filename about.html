@@ -13,7 +13,8 @@
   <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
   <meta property="og:url" content="https://hht2006722.github.io/Website-Project/about.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#faf6f0">
+  <meta name="theme-color" content="#faf6f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14100d" media="(prefers-color-scheme: dark)">
   <meta property="og:site_name" content="韩宏涛的观察本">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -284,6 +285,36 @@ main {
   padding-left: .6rem;
 }
 
+/* ---------- 照片筛选 ---------- */
+/* 没有 JS 时整条栏不显示：按钮点了没反应比看不到更糟 */
+.filters {
+  display: none;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1.25rem 0 0;
+}
+.js .filters { display: flex; }
+
+.filter-btn {
+  font: inherit;
+  font-size: .92rem;
+  padding: .45rem 1rem;
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn:active { transform: translateY(1px); }
+.filter-btn.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.filter-btn.is-active:hover { color: #fff; }
+
 /* ---------- 灯箱 ---------- */
 .lightbox {
   border: none;
@@ -455,6 +486,9 @@ textarea[aria-invalid="true"] {
   border-width: 2px;
 }
 
+.counter, #message-hint { font-variant-numeric: tabular-nums; }
+#message-count.is-near-limit { color: var(--danger); font-weight: 600; }
+
 .status {
   margin-top: 1rem;
   padding: .75rem 1rem;
@@ -484,6 +518,13 @@ textarea[aria-invalid="true"] {
 }
 .practice-list strong { color: var(--accent); }
 
+/* 图片加载失败时给一个可见的占位，alt 文字由浏览器自己显示 */
+img.img-failed {
+  min-height: 120px;
+  background: var(--accent-soft);
+  border: 1px dashed var(--line);
+}
+
 /* ---------- 页脚 ---------- */
 .site-footer {
   border-top: 1px solid var(--line);
@@ -493,7 +534,7 @@ textarea[aria-invalid="true"] {
   font-size: .9rem;
 }
 .site-footer p { margin: 0 0 .4rem; }
-.footer-note { font-size: .82rem; opacity: .85; }
+.footer-note { font-size: .82rem; } /* 去掉 opacity：透明会稀释颜色，实测对比度掉到 4.12，低于 4.5 */
 
 /* ---------- 大屏：导航常驻横排 ---------- */
 @media (min-width: 700px) {
@@ -524,12 +565,88 @@ textarea[aria-invalid="true"] {
   }
 }
 
+/* ---------- 交互三态：hover / focus-visible / active ---------- */
+a:hover { text-decoration-thickness: 2px; }
+a:active { opacity: .85; }
+.card-link:active { transform: translateY(1px); }
+.post-nav a:active { opacity: .8; }
+.link-plain:active { opacity: .8; }
+
+/* ---------- 中文排版 ---------- */
+p, li, dd { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+/* 支持的浏览器才生效：行末标点不单独跑到下一行 */
+body { hanging-punctuation: allow-end; }
+
+/* ---------- 暗色模式：只覆盖颜色变量与少数实心色块 ----------
+   规则完全不重写，改的是变量。实心色块（按钮、跳转链接、灯箱关闭）
+   单独用更深的橙色，保证白色文字仍达到 4.5:1。 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14100d;
+    --card: #1d1815;
+    --text: #ece4dc;
+    --muted: #a89c90;
+    --accent: #e8935a;
+    --accent-soft: #2a211b;
+    --line: #322a24;
+    --danger: #f08a80;
+    --success: #8fd3a6;
+    --focus: 3px solid #8ec6ff;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5);
+  }
+  .button,
+  .skip-link,
+  .lightbox-close {
+    background: #b35c25;
+    border-color: #b35c25;
+    color: #fff;
+  }
+  .button:hover,
+  .lightbox-close:hover { background: #c4632a; color: #fff; }
+  .button-ghost { background: transparent; color: var(--accent); }
+  .button-ghost:hover { background: var(--accent-soft); color: var(--accent); }
+  .field input,
+  .field textarea { border-color: #4a3d34; }
+  .status.is-ok { background: #12281a; color: var(--success); }
+  .status.is-error { background: #2a1412; color: var(--danger); }
+  /* 灯箱里的「上一张 / 下一张」：白底 + 浅色字在暗色下会看不清 */
+  .lightbox-btn:not(.lightbox-close) {
+    background: rgba(28, 22, 18, .92);
+    border-color: rgba(255, 255, 255, .28);
+    color: var(--text);
+  }
+  .lightbox-btn:not(.lightbox-close):hover { background: #2a211b; }
+  .lightbox::backdrop { background: rgba(0, 0, 0, .94); }
+  .lightbox img { background: #000; }
+}
+
 /* ---------- 打印 ---------- */
 @media print {
-  .site-header, .site-footer, .nav-toggle, .skip-link { display: none; }
-  body { background: #fff; color: #000; }
-  a { color: #000; }
-  .card, .notice { border: 1px solid #ccc; }
+  /* 打印是另一种"设备"：去掉一切交互外壳，只留内容 */
+  .site-header, .site-footer, .nav-toggle, .skip-link,
+  .filters, .lightbox, .post-nav, .post-toc { display: none !important; }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+  main { max-width: none; padding: 0; }
+  a { color: #000; text-decoration: underline; }
+  /* 打印出来也能知道链接指向哪里 */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    word-break: break-all;
+  }
+  .card, .notice, figure, .post {
+    break-inside: avoid;
+    border-color: #bbb;
+  }
+  img { max-width: 70%; height: auto; }
+  h1, h2, h3 { break-after: avoid; }
 }
   </style>
 </head>
