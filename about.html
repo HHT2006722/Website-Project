@@ -418,6 +418,32 @@ main {
 .prose ul { padding-left: 1.3rem; }
 .prose li { margin-bottom: .35rem; }
 
+/* 关于页的时间线：左边年份、右边说明，手机上竖排 */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  max-width: 46rem;
+}
+.timeline li {
+  display: flex;
+  gap: 1rem;
+  padding: .7rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+.timeline li:last-child { border-bottom: none; }
+.tl-date {
+  flex: 0 0 7.5rem;
+  color: var(--muted);
+  font-size: .9rem;
+  font-variant-numeric: tabular-nums;
+}
+.tl-text { flex: 1; }
+@media (max-width: 480px) {
+  .timeline li { flex-direction: column; gap: .1rem; }
+  .tl-date { flex: none; }
+}
+
 /* 关于页的检查清单：编号用色块，读屏仍按 ol 顺序念 */
 .checklist {
   counter-reset: check;
@@ -710,11 +736,27 @@ body { hanging-punctuation: allow-end; }
     <h1>关于我</h1>
 
     <div class="prose">
-      <p>我是韩宏涛，用一部手机拍动物。这个站是我的观察本，不是作品集——里面是我在宠物市场、室内展区和围栏边拍到的照片，以及每次拍完之后记下来的问题。</p>
+      <p>我是韩宏涛，2006 年生，用一部手机拍动物。这个站是我的观察本，不是作品集——里面是我在宠物市场、室内展区和围栏边拍到的照片，以及每次拍完之后记下来的问题。</p>
 
       <p>这类拍摄的限制是固定的：光不好、玻璃上有指纹、动物不会配合。所以我更关心「这一次放弃什么」，而不是把画面修得多好看。比如《玻璃后面》那张，我放弃了让水珠消失，改成把镜头贴紧玻璃、把反光压到画面边缘，让水獭的眼睛成为唯一清楚的东西。</p>
 
       <p>下一步想把同一个展区在不同时间去拍，看光变了之后同一只动物会变成什么样。急不来，一个月推进一点，记在笔记里。</p>
+
+      <h2>时间线</h2>
+      <ol class="timeline">
+        <li>
+          <span class="tl-date">2006</span>
+          <span class="tl-text">出生。</span>
+        </li>
+        <li>
+          <span class="tl-date">2024 · 17 岁</span>
+          <span class="tl-text">4 月 5 日，用 iPhone 13 Pro 拍了这六张照片。当时没想过要拿它们做什么。</span>
+        </li>
+        <li>
+          <span class="tl-date">2026 · 20 岁</span>
+          <span class="tl-text">10 月，把它们整理成这个站。做的时候才发现，拍照时那点判断——先定光源、别跟玻璃较劲——写成文字比记住难。</span>
+        </li>
+      </ol>
 
       <h2>我现在在拍什么</h2>
       <ul>

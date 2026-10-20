@@ -418,6 +418,32 @@ main {
 .prose ul { padding-left: 1.3rem; }
 .prose li { margin-bottom: .35rem; }
 
+/* 关于页的时间线：左边年份、右边说明，手机上竖排 */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  max-width: 46rem;
+}
+.timeline li {
+  display: flex;
+  gap: 1rem;
+  padding: .7rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+.timeline li:last-child { border-bottom: none; }
+.tl-date {
+  flex: 0 0 7.5rem;
+  color: var(--muted);
+  font-size: .9rem;
+  font-variant-numeric: tabular-nums;
+}
+.tl-text { flex: 1; }
+@media (max-width: 480px) {
+  .timeline li { flex-direction: column; gap: .1rem; }
+  .tl-date { flex: none; }
+}
+
 /* 关于页的检查清单：编号用色块，读屏仍按 ol 顺序念 */
 .checklist {
   counter-reset: check;
