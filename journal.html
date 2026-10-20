@@ -795,11 +795,12 @@ body { hanging-punctuation: allow-end; }
 
     <article id="post-form" class="post">
       <h2>表单里我改了三遍的地方</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录</p>
+      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录<span class="post-updated"> · 最后更新 <time datetime="2026-10-20">2026年10月20日</time></span></p>
 
       <p>第一版的校验只有一句：看输入框里有没有 @ 号。我拿 a@b、test@、@x.com 试了一下，全过，还弹了「留言已记录」。这才意识到「有 @」和「是邮箱」差得远。</p>
       <p>第二版写了一条规则检查结构，把错误提示和输入框关联起来，出错时也给读屏软件一个标记，它才会念出来。顺带修了个状态 bug：上一次成功后的提示，在后来校验失败时没有消失，看着像又成功了。</p>
       <p>第三版改的是态度。这是纯静态站，没有服务器，表单根本存不下东西。与其显示「已收到」，不如老实说：点发送会调起邮件客户端，没弹出来就直接发邮件。页面上把邮箱也写出来了。</p>
+      <p>后来又加了个字数提示：输入框下面实时显示已经写了多少，快到上限时数字变红。原来是提交之后才因为太短报错，用户根本不知道上限在哪。先给反馈，比事后报错省一次往返。</p>
       <nav class="post-nav" aria-label="在笔记中导航">
         <a class="post-nav-prev" href="#post-a11y" rel="prev">← 上一篇：用键盘看照片</a>
         <a class="post-nav-next" href="#post-layout" rel="next">下一篇：一列排到三列 →</a>
