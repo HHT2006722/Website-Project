@@ -295,6 +295,10 @@ main {
 }
 .js .filters { display: flex; }
 
+/* 只有 JS 可用时才显示的说明文字（没有脚本时它也没有意义） */
+.hidden-until-js { display: none; }
+.js .hidden-until-js { display: block; }
+
 .filter-btn {
   font: inherit;
   font-size: .92rem;
@@ -714,6 +718,7 @@ body { hanging-punctuation: allow-end; }
       <button type="button" class="filter-btn" data-filter="light" aria-pressed="false">侧光 / 顶光</button>
     </div>
     <p class="filter-status visually-hidden" role="status" aria-live="polite"></p>
+    <p class="hint hidden-until-js">筛选结果会写进地址栏，复制链接发给别人时会停在同一个分组。</p>
 
     <section class="gallery" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading" class="visually-hidden">照片列表</h2>

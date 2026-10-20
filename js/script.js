@@ -263,6 +263,19 @@
     });
 
     if (status) status.textContent = '显示 ' + shown + ' 张，共 ' + figures.length + ' 张';
+    syncUrl(filter);
+  }
+
+  // 把筛选写进地址：分享出去的链接、刷新之后都停在同一组
+  function syncUrl(filter) {
+    const url = new URL(window.location.href);
+    if (filter === 'all') {
+      url.searchParams.delete('type');
+    } else {
+      url.searchParams.set('type', filter);
+    }
+    // replaceState 不新增历史记录，按浏览器返回键不会在筛选之间来回跳
+    history.replaceState(null, '', url);
   }
 
   bar.addEventListener('click', (event) => {
@@ -270,7 +283,10 @@
     if (button) apply(button.dataset.filter);
   });
 
-  apply('all');
+  // 从地址里读回上次的筛选；无效值当作「全部」
+  const wanted = new URLSearchParams(window.location.search).get('type');
+  const known = buttons.some((button) => button.dataset.filter === wanted);
+  apply(known ? wanted : 'all');
 })();
 
 /* ---------- 6. 留言字数计数 ---------- */

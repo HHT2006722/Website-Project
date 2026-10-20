@@ -269,6 +269,10 @@ main {
 }
 .js .filters { display: flex; }
 
+/* 只有 JS 可用时才显示的说明文字（没有脚本时它也没有意义） */
+.hidden-until-js { display: none; }
+.js .hidden-until-js { display: block; }
+
 .filter-btn {
   font: inherit;
   font-size: .92rem;
