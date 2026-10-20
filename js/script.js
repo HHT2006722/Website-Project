@@ -73,12 +73,26 @@
     };
   });
 
+  // 当前能翻到的图。默认是全部；被筛选隐藏的图不参与前后切换——
+  // 否则筛到 2 张、打开灯箱却还能翻到被藏起来的另外 4 张。
+  let order = triggers.map((_, i) => i);
   let current = 0;
+
+  function refreshOrder() {
+    const visible = triggers
+      .map((_, i) => i)
+      .filter((i) => {
+        const figure = triggers[i].closest('figure');
+        return !figure || !figure.hidden;
+      });
+    order = visible.length ? visible : triggers.map((_, i) => i);
+    if (!order.length) order = [0];
+  }
 
   function render(index) {
     // 取模实现首尾循环：第一张的「上一张」是最后一张
-    current = (index + items.length) % items.length;
-    const item = items[current];
+    current = (index + order.length) % order.length;
+    const item = items[order[current]];
     if (item.w && item.h) {
       img.width = item.w;
       img.height = item.h;
@@ -87,12 +101,14 @@
     img.alt = item.alt;
     caption.textContent = item.caption;
     if (status) {
-      status.textContent = '第 ' + (current + 1) + ' 张，共 ' + items.length + ' 张：' + item.caption;
+      status.textContent = '第 ' + (current + 1) + ' 张，共 ' + order.length + ' 张：' + item.caption;
     }
   }
 
   function openAt(index) {
-    render(index);
+    refreshOrder();
+    const position = order.indexOf(index);
+    render(position === -1 ? 0 : position);
     if (!dialog.open) dialog.showModal();
     // 打开后焦点落在关闭按钮：键盘用户第一下就能退出
     closeBtn.focus();
@@ -155,7 +171,7 @@
   // 关闭后把焦点还给「当前正在看的那张图」的触发链接，
   // 而不是最初点开的那张——切换过图片之后，原来的位置已经不对了
   dialog.addEventListener('close', () => {
-    const target = triggers[current];
+    const target = triggers[order[current]];
     if (target) target.focus();
   });
 })();
