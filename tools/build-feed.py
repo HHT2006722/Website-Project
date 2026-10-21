@@ -58,11 +58,23 @@ def main():
             summary = strip_tags(content)
             if summary:
                 break
+        # 分类：post-meta 里「· 做站记录」那半截
+        kind = ""
+        meta = re.search(r'<p class="post-meta">([\s\S]*?)</p>', body)
+        if meta:
+            raw = meta.group(1)
+            # 去掉「最后更新」那一小段，只留发布日期和分类
+            raw = re.sub(r'<span class="post-updated">[\s\S]*?</span>', '', raw)
+            parts = [x.strip() for x in re.sub(r"<[^>]+>", "", raw).split("·")]
+            if len(parts) > 1:
+                kind = parts[1].strip()
+
         if len(summary) > 140:
             summary = summary[:140].rstrip() + "…"
 
         link = f"{BASE}journal.html#{aid}"
         items.append({
+            "kind": kind,
             "title": title,
             "link": link,
             "guid": link,
@@ -87,7 +99,7 @@ def main():
         f'    <atom:link href="{escape(BASE)}feed.xml" rel="self" type="application/rss+xml"/>',
     ]
     for it in items:
-        lines += [
+        block = [
             "    <item>",
             f"      <title>{escape(it['title'])}</title>",
             f"      <link>{escape(it['link'])}</link>",
@@ -95,8 +107,10 @@ def main():
             f"      <pubDate>{rfc822(it['date'])}</pubDate>",
             f"      <atom:updated>{it['date']}</atom:updated>",
             f"      <description>{escape(it['summary'])}</description>",
+            (f"      <category>{escape(it['kind'])}</category>" if it.get("kind") else None),
             "    </item>",
         ]
+        lines += [x for x in block if x]
     lines += ["  </channel>", "</rss>"]
 
     with io.open(OUT, "w", encoding="utf-8", newline="\n") as f:
