@@ -666,6 +666,15 @@ body { hanging-punctuation: allow-end; }
     color: var(--text);
   }
   .lightbox-btn:not(.lightbox-close):hover { background: #2a211b; }
+  /* 这两处是实心浅橙配白字，暗色下同样要换成深橙，否则只有 2.4:1 */
+  .filter-btn.is-active {
+    background: #b35c25;
+    border-color: #b35c25;
+    color: #fff;
+  }
+  .checklist li::before {
+    background: #b35c25;
+  }
   .lightbox::backdrop { background: rgba(0, 0, 0, .94); }
   .lightbox img { background: #000; }
 }
