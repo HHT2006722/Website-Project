@@ -784,7 +784,7 @@ body { hanging-punctuation: allow-end; }
       <h2>A Bug You Only Find by Clicking</h2>
       <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Build notes</p>
 
-      <p>Yesterday I added filters to the photo page. Today I clicked through it: filtered to "Through glass" — two photos left — opened the first, pressed Next, and landed on <em>Before the Wooden Wall</em>, one of the four that had just been filtered out.</p>
+      <p>Yesterday I added filters to the photo page. Today I clicked through it: filtered to "Through glass" — two photos left — opened the first, pressed Next, and landed on <em>Cute Little Parrot</em>, one of the four that had just been filtered out.</p>
       <p>Reading the code, every piece looks right: the filter toggles visibility, the lightbox swaps the image. The problem sits between them. The list the lightbox cycles through was built from all six photos when the page loaded, and nothing ever told it that only two were left.</p>
       <p>The fix is small: when the lightbox opens, work out which photos are currently visible and cycle only through those; the counter then reads "1 of 2". Handing focus back on close uses the same new list, otherwise it points at a photo nobody can see.</p>
       <p>A bug like this doesn't show up by reading code. Each part is fine on its own; it only breaks once they are joined. The only way to find it is to walk the real path — filter, open, step through, close.</p>
