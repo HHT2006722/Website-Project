@@ -34,6 +34,7 @@
 | 图片替代文字 | 描述画面内容，不写文件名——例如「一只水獭趴在透明亚克力管上，前爪垂着，玻璃上有水珠和反光」 |
 | 装饰性内容 | 菜单图标 `aria-hidden="true"`；灯箱的隐藏标题用 `.visually-hidden` |
 | 语言 | `<html lang="zh-CN">` |
+| 多语言 | 英文页 `lang="en"`、中文页 `lang="zh-CN"`；语言切换链接带 `hreflang` 与 `lang`，读屏会按目标语言换发音 | 逐个页面检查 `document.documentElement.lang` 与切换链接的属性 |
 
 ## 三、视觉可读
 

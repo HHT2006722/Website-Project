@@ -21,7 +21,10 @@
 
 ```
 /
-├── index.html  works.html  journal.html  about.html  contact.html  404.html
+├── index.html  works.html  journal.html  about.html  contact.html  404.html   ← 英文（默认）
+├── zh/                     中文版，同样六个页面
+├── feed.xml               英文订阅源（feed.xsl 渲染）
+├── zh/feed.xml            中文订阅源（zh/feed.xsl 渲染）
 ├── css/styles.css          样式源文件（会被内联进各页，见下）
 ├── js/script.js            菜单、灯箱（含前后切换与焦点陷阱）、表单校验
 ├── img/                    照片，每张含 480 / 960 / 1600 三档 WebP
@@ -61,7 +64,8 @@ python tools/inline-css.py
 **改笔记**（`journal.html`）之后，重新生成订阅源：
 
 ```bash
-python tools/build-feed.py
+python tools/build-feed.py            # 英文：journal.html -> feed.xml
+python tools/build-feed.py --lang zh   # 中文：zh/journal.html -> zh/feed.xml
 ```
 
 **换照片**：把照片放进一个文件夹，然后：
@@ -73,6 +77,13 @@ python tools/build-images.py 照片文件夹
 脚本按文件名排序输出 `img/work-01` … `work-06` 的三档 WebP。
 之后把页面里的 `srcset` 改成对应档位（原图小于 1600 宽时不会生成 1600 档），
 再跑一次 `inline-css.py`。
+
+## 两套语言怎么维护
+
+- 根目录是英文（老师默认看到的），`zh/` 是中文。两边的图片、脚本、样式共用根目录的 `img/`、`js/`、`css/`。
+- 每个页面 `<head>` 里有三条 `hreflang`（en / zh-CN / x-default），导航最后一项是语言切换。
+- 脚本里的动态文案（筛选计数、灯箱「第 N 张」、表单报错）按 `<html lang>` 自动选中文或英文。
+- 改完中文记得改英文，反之亦然。**这是双语的代价**，写在 `DECISIONS.md` 里。
 
 ## 技术要点
 
