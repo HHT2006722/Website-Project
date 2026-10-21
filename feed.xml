@@ -6,96 +6,42 @@
     <link>https://hht2006722.github.io/Website-Project/</link>
     <description>Animal photography and shooting notes: photos taken through glass, and what each frame cost.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Oct 2026 11:36:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 21:17:00 +0800</lastBuildDate>
     <atom:link href="https://hht2006722.github.io/Website-Project/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Comments in Two Languages</title>
-      <link>https://hht2006722.github.io/Website-Project/journal.html#post-comments</link>
-      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-comments</guid>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate>
-      <atom:updated>2026-10-21</atom:updated>
-      <description>My teacher doesn't read Chinese. The pages are in English now, but the comments in the code were still entirely Chinese — anyone reading the…</description>
-      <category>Build notes</category>
-    </item>
-    <item>
-      <title>Turning the Whole Site into English</title>
+      <title>Why the Site Has an English Version</title>
       <link>https://hht2006722.github.io/Website-Project/journal.html#post-english</link>
       <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-english</guid>
       <pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate>
       <atom:updated>2026-10-21</atom:updated>
-      <description>My teacher doesn't read Chinese. I knew that all along and only dealt with it today: if the site is Chinese only, the person marking it can'…</description>
+      <description>My teacher doesn't read Chinese. A Chinese-only site means the person marking it can't read the content — everything written here would coun…</description>
       <category>Build notes</category>
     </item>
     <item>
-      <title>Small Fixes: Contrast, First Image, Two Names</title>
-      <link>https://hht2006722.github.io/Website-Project/journal.html#post-smallfix</link>
-      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-smallfix</guid>
+      <title>Two Photos Left, and It Still Paged to a Third</title>
+      <link>https://hht2006722.github.io/Website-Project/journal.html#post-filterbug</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-filterbug</guid>
       <pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate>
       <atom:updated>2026-10-21</atom:updated>
-      <description>Everything else today was small, but each item has a number attached.</description>
+      <description>Filtered to "Through glass", two photos left. Opened the lightbox, pressed Next, and landed on a third — one that had just been filtered out…</description>
       <category>Build notes</category>
     </item>
     <item>
-      <title>Waiting for the Light</title>
-      <link>https://hht2006722.github.io/Website-Project/journal.html#post-light</link>
-      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-light</guid>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate>
-      <atom:updated>2026-10-21</atom:updated>
-      <description>There are only three things in A Shaft of Light: a fallen log lying at an angle, a wall of dark grey rock, and one shaft of light coming dow…</description>
-      <category>Shooting notes</category>
-    </item>
-    <item>
-      <title>A Bug You Only Find by Clicking</title>
-      <link>https://hht2006722.github.io/Website-Project/journal.html#post-lightbox</link>
-      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-lightbox</guid>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate>
-      <atom:updated>2026-10-21</atom:updated>
-      <description>Yesterday I added filters to the photo page. Today I clicked through it: filtered to "Through glass" — two photos left — opened the first, p…</description>
-      <category>Build notes</category>
-    </item>
-    <item>
-      <title>Swapping Out the Six Illustrations</title>
-      <link>https://hht2006722.github.io/Website-Project/journal.html#post-theme</link>
-      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-theme</guid>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
-      <atom:updated>2026-10-19</atom:updated>
-      <description>The six images on this site used to be illustrations. They weren't mine: one even carried the original artist's signature in the bottom corn…</description>
-      <category>Build notes</category>
-    </item>
-    <item>
-      <title>Shooting Animals Through Glass</title>
-      <link>https://hht2006722.github.io/Website-Project/journal.html#post-glass</link>
-      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-glass</guid>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
-      <atom:updated>2026-10-19</atom:updated>
-      <description>The otter frame has three layers stacked on top of each other: the otter, the droplets on the acrylic tube, and the reflection of the room's…</description>
-      <category>Shooting notes</category>
-    </item>
-    <item>
-      <title>When the Light Is Weak</title>
-      <link>https://hht2006722.github.io/Website-Project/journal.html#post-lowlight</link>
-      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-lowlight</guid>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
-      <atom:updated>2026-10-19</atom:updated>
-      <description>The light in these places almost always comes from above — ceiling fixtures or spot lamps. The moment an animal lifts its head, its eyes dro…</description>
-      <category>Shooting notes</category>
-    </item>
-    <item>
-      <title>Why Three Sizes for a 300 KB Photo</title>
+      <title>Three Sizes for One Photo</title>
       <link>https://hht2006722.github.io/Website-Project/journal.html#post-images</link>
       <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-images</guid>
       <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
       <atom:updated>2026-10-19</atom:updated>
-      <description>The originals are 1920×1080 or 1440×810, between a hundred and three hundred-odd KB each. On its own that isn't much; the problem is that th…</description>
+      <description>An original is one to three hundred KB; the thumbnail on the page is about 330 pixels wide. A small square used to cost you the whole file.</description>
       <category>Build notes</category>
     </item>
     <item>
-      <title>Using the Lightbox with a Keyboard</title>
+      <title>Enlarging a Photo Without a Mouse</title>
       <link>https://hht2006722.github.io/Website-Project/journal.html#post-a11y</link>
       <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-a11y</guid>
       <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
       <atom:updated>2026-10-19</atom:updated>
-      <description>The enlarged view on the photo page started as a plain box with a translucent overlay: click a photo to open, click the overlay to close. Fi…</description>
+      <description>The first enlarged view was a box and an overlay I wrote myself: click to open, click to close. Fine with a mouse, impossible with a keyboar…</description>
       <category>Build notes</category>
     </item>
     <item>
@@ -104,16 +50,25 @@
       <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-form</guid>
       <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
       <atom:updated>2026-10-19</atom:updated>
-      <description>The first version validated one thing: whether the box contained an @. I tried a@b, test@ and @x.com — all passed, and it thanked me for the…</description>
+      <description>The first version checked for an @. a@b, test@ and @x.com all passed, and it thanked me for the message.</description>
       <category>Build notes</category>
     </item>
     <item>
-      <title>From One Column to Three</title>
-      <link>https://hht2006722.github.io/Website-Project/journal.html#post-layout</link>
-      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-layout</guid>
+      <title>Glass, Weak Light, and Waiting</title>
+      <link>https://hht2006722.github.io/Website-Project/journal.html#post-shooting</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-shooting</guid>
       <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
       <atom:updated>2026-10-19</atom:updated>
-      <description>The photo list started with a fixed number of columns. On a phone they squeezed into a sliver and sometimes overflowed sideways, needing a d…</description>
+      <description>All six were shot indoors, through glass or fencing. There are only three problems.</description>
+      <category>Shooting notes</category>
+    </item>
+    <item>
+      <title>Swapping Out the Six Illustrations</title>
+      <link>https://hht2006722.github.io/Website-Project/journal.html#post-theme</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-theme</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-19</atom:updated>
+      <description>The first six images on this site were illustrations, not mine. One of them still carried the original artist's signature in the corner. I s…</description>
       <category>Build notes</category>
     </item>
   </channel>

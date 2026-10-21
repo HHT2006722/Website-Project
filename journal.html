@@ -720,96 +720,92 @@ body { hanging-punctuation: allow-end; }
     <p class="lead">Problems I hit while shooting, and problems I hit while building this site. Newest first.</p>
     <p class="hint"><a href="feed.xml">Subscribe (RSS)</a> · RSS is a feed format: add this address to a reader (Feedly, NetNewsWire, and so on) and new notes arrive on their own. If you don't know what RSS is, just scroll down.</p>
 
-    <nav class="post-toc" aria-label="Note list">
+        <nav class="post-toc" aria-label="Contents">
       <h2>Contents</h2>
       <ul>
-        <li><a href="#post-comments">Comments in Two Languages</a></li>
-        <li><a href="#post-english">Turning the Whole Site into English</a></li>
-        <li><a href="#post-smallfix">Small Fixes: Contrast, First Image, Two Names</a></li>
-        <li><a href="#post-light">Waiting for the Light</a></li>
-        <li><a href="#post-lightbox">A Bug You Only Find by Clicking</a></li>
-        <li><a href="#post-theme">Swapping Out the Six Illustrations</a></li>
-        <li><a href="#post-glass">Shooting Animals Through Glass</a></li>
-        <li><a href="#post-lowlight">When the Light Is Weak</a></li>
-        <li><a href="#post-images">Why Three Sizes for a 300 KB Photo</a></li>
-        <li><a href="#post-a11y">Using the Lightbox with a Keyboard</a></li>
+        <li><a href="#post-english">Why the Site Has an English Version</a></li>
+        <li><a href="#post-filterbug">Two Photos Left, and It Still Paged to a Third</a></li>
+        <li><a href="#post-images">Three Sizes for One Photo</a></li>
+        <li><a href="#post-a11y">Enlarging a Photo Without a Mouse</a></li>
         <li><a href="#post-form">The Form I Rewrote Three Times</a></li>
-        <li><a href="#post-layout">From One Column to Three</a></li>
+        <li><a href="#post-shooting">Glass, Weak Light, and Waiting</a></li>
+        <li><a href="#post-theme">Swapping Out the Six Illustrations</a></li>
       </ul>
     </nav>
-    <article id="post-comments" class="post">
-      <h2>Comments in Two Languages</h2>
-      <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Build notes</p>
-
-      <p>My teacher doesn't read Chinese. The pages are in English now, but the comments in the code were still entirely Chinese — anyone reading the code would be just as stuck.</p>
-      <p>So every comment is now two lines: Chinese first, English second. Thirty-two of them, no exceptions. Writing the English line turned out to be useful in itself: a few Chinese notes weren't actually saying anything clear. "Store the real width and height" only became an explanation once English forced me to add the reason — a portrait photo would otherwise reserve a landscape box and jump.</p>
-      <p>One more detail. The stylesheet is inlined into twelve pages, and doubling the comments would mean shipping the same explanation twelve times — about 3 KB each. So the inliner strips out comments; they live in the source file, which is where you would read them anyway.</p>
-      <p>After stripping I measured: the home page went from 24.4 KB to 21.7 KB and nothing changed visually — the screenshots before and after have the same hash. Without that check I would only have "it should be fine".</p>
-      <p>One line to sum up: a comment is written for a reader. Who that reader is decides how many lines it takes.</p>
-      <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-next" href="#post-english" rel="next">Next: Turning the Whole Site into English →</a>
-      </nav>
-    </article>
-
 
     <article id="post-english" class="post">
-      <h2>Turning the Whole Site into English</h2>
+      <h2>Why the Site Has an English Version</h2>
       <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Build notes</p>
 
-      <p>My teacher doesn't read Chinese. I knew that all along and only dealt with it today: if the site is Chinese only, the person marking it can't read the content, and the nine notes I had written might as well not exist.</p>
-      <p>So the root is now English, the Chinese version moved into <code>zh/</code>, and both trees share the same images, scripts and styles. The last item in the navigation switches language; each page declares three <code>hreflang</code> links; there are two feeds; and the strings that change at runtime — how many photos are showing, which one the lightbox is on, what the form says went wrong — are picked from the page's <code>lang</code>.</p>
-      <p>I didn't choose "swap the text with JavaScript on one page". Search engines would only ever see one language, and if the script failed the whole site would fall back to monolingual. Two directories just means twice as many files.</p>
-      <p>The cost is real: change a sentence in Chinese and you have to change its English twin. I found that out this afternoon while renaming two photos — two names, twelve files, eighteen references.</p>
-      <p>Some sentences got shorter on the way over, because a literal translation turned out wordy. Lines that lean on tone in Chinese usually need a concrete detail to stand up in English. That was an unexpected gain.</p>
+      <p>My teacher doesn't read Chinese. A Chinese-only site means the person marking it can't read the content — everything written here would count for nothing.</p>
+      <p>So the root is English, the Chinese version sits under zh/, and both share the images and scripts. The last nav item switches language, each page declares three hreflang links, and there are two feeds. I didn't swap text with JavaScript on one page: search engines would see only one language, and if the script failed the site would be monolingual again.</p>
+      <p>The cost is that every Chinese sentence needs an English twin. Renaming two photos today touched twelve files and eighteen references. The code comments are two lines now, Chinese then English — but they're stripped when the stylesheet is inlined, because shipping the same explanation twelve times is pointless.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-comments" rel="prev">← Previous: Comments in Two Languages</a>
-        <a class="post-nav-next" href="#post-smallfix" rel="next">Next: Small Fixes: Contrast, First Image, Two Names →</a>
+        <a class="post-nav-next" href="#post-filterbug" rel="next">Next: Two Photos Left, and It Still Paged to a Third →</a>
       </nav>
     </article>
 
-    <article id="post-smallfix" class="post">
-      <h2>Small Fixes: Contrast, First Image, Two Names</h2>
+    <article id="post-filterbug" class="post">
+      <h2>Two Photos Left, and It Still Paged to a Third</h2>
       <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Build notes</p>
 
-      <p>Everything else today was small, but each item has a number attached.</p>
-      <p><strong>Two things were invisible in dark mode.</strong> The selected filter button and the numbers in the about page's checklist both put white text on pale orange — a contrast ratio of 2.4. They used the accent colour as a fill, and in dark mode that accent turns light. A darker orange gives 4.69.</p>
-      <p><strong>The first image was requested too late.</strong> Lighthouse put LCP on the photo page at 2.7 s, and the largest element was the first photo. It already had high priority, but the request only went out once the gallery markup was parsed. Preloading it from the head brought LCP to 2.3–2.5 s and the score from 96 to 98.</p>
-      <p>Halfway through I suspected the lightbox change from the day before, so I ran an A/B: revert it and re-test — still 98. The drop was mostly the machine running several browsers at once, not the code. That is written up in <code>PERFORMANCE.md</code> too.</p>
-      <p><strong>Renaming.</strong> "Before the Wooden Wall" became "Cute Little Parrot", "Behind the Glass" became "Little Otter" — plainer names that match what is in the picture. Two titles, twelve files, eighteen references. That is the first maintenance bill for going bilingual.</p>
-      <p><strong>Also:</strong> categories in the feeds (shooting notes / build notes), and the sitemap date moved from two days ago to today.</p>
+      <p>Filtered to "Through glass", two photos left. Opened the lightbox, pressed Next, and landed on a third — one that had just been filtered out. The counter still said "of 6".</p>
+      <p>Every part was right on its own: the filter toggles visibility, the lightbox swaps the image. The fault sat between them — the list it cycled through was built from all six when the page loaded, and nothing told it only two were left. The fix is to recompute the visible order when the lightbox opens and cycle within that group.</p>
+      <p>You can't find this by reading code. You have to walk the real path: filter, open, step, close.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-english" rel="prev">← Previous: Turning the Whole Site into English</a>
-        <a class="post-nav-next" href="#post-light" rel="next">Next: Waiting for the Light →</a>
+        <a class="post-nav-prev" href="#post-english" rel="prev">← Previous: Why the Site Has an English Version</a>
+        <a class="post-nav-next" href="#post-images" rel="next">Next: Three Sizes for One Photo →</a>
       </nav>
     </article>
 
+    <article id="post-images" class="post">
+      <h2>Three Sizes for One Photo</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
 
-    <article id="post-light" class="post">
-      <h2>Waiting for the Light</h2>
-      <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Shooting notes</p>
-
-      <p>There are only three things in <em>A Shaft of Light</em>: a fallen log lying at an angle, a wall of dark grey rock, and one shaft of light coming down from the upper right.</p>
-      <p>The log cuts the frame in two. The animal sits just right of centre on that diagonal, and your eye travels along the wood from bottom left to top right and ends on its face. I didn't design that line — the log was already that shape. I just crouched until it lined up.</p>
-      <p>The dark background is what makes the picture work. White fur only stands out against dark grey rock; if the wall behind had been lit as well, the animal would have dissolved into it.</p>
-      <p>I tried moving in for a bigger frame. The moment I got close, my own shadow fell across the light and the fur went grey. Stepping back gave the better photo.</p>
-      <p>Pictures like this depend on where the light is, not on settings. I have no say in when the spot sweeps across its back; I can only wait. I waited about fifteen minutes that day and shot seven or eight frames that were no good.</p>
+      <p>An original is one to three hundred KB; the thumbnail on the page is about 330 pixels wide. A small square used to cost you the whole file.</p>
+      <p>So each photo is exported at three widths (480 / 960 / 1600) and the page only says how wide the slot is, letting the browser choose. Adding a 768 step later brought all six from 585 KB down to 436 KB. I broke that markup once: the browser recognised only two widths and took the larger one, and the first screen went from 3.2 s to 5.1 s. That kind of mistake raises no error — it just costs bandwidth.</p>
+      <p>Every image also carries its real width and height, so nothing jumps while loading. The grid fits as many 220px columns as it can: one on a phone, three on a desktop, without a single media query.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-smallfix" rel="prev">← Previous: Small Fixes: Contrast, First Image, Two Names</a>
-        <a class="post-nav-next" href="#post-lightbox" rel="next">Next: A Bug You Only Find by Clicking →</a>
+        <a class="post-nav-prev" href="#post-filterbug" rel="prev">← Previous: Two Photos Left, and It Still Paged to a Third</a>
+        <a class="post-nav-next" href="#post-a11y" rel="next">Next: Enlarging a Photo Without a Mouse →</a>
       </nav>
     </article>
 
-    <article id="post-lightbox" class="post">
-      <h2>A Bug You Only Find by Clicking</h2>
-      <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Build notes</p>
+    <article id="post-a11y" class="post">
+      <h2>Enlarging a Photo Without a Mouse</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
 
-      <p>Yesterday I added filters to the photo page. Today I clicked through it: filtered to "Through glass" — two photos left — opened the first, pressed Next, and landed on <em>Cute Little Parrot</em>, one of the four that had just been filtered out.</p>
-      <p>Reading the code, every piece looks right: the filter toggles visibility, the lightbox swaps the image. The problem sits between them. The list the lightbox cycles through was built from all six photos when the page loaded, and nothing ever told it that only two were left.</p>
-      <p>The fix is small: when the lightbox opens, work out which photos are currently visible and cycle only through those; the counter then reads "1 of 2". Handing focus back on close uses the same new list, otherwise it points at a photo nobody can see.</p>
-      <p>A bug like this doesn't show up by reading code. Each part is fine on its own; it only breaks once they are joined. The only way to find it is to walk the real path — filter, open, step through, close.</p>
-      <p>One more note from yesterday: after a change the test showed nothing and I assumed the code hadn't applied. In fact the headless browser kept serving me an old cached script. Suspect the cache before the code.</p>
+      <p>The first enlarged view was a box and an overlay I wrote myself: click to open, click to close. Fine with a mouse, impossible with a keyboard.</p>
+      <p>Switching to the browser's dialog gave Esc, focus containment and an inert background for free. Two things still had to be added by hand: focus goes to Close when it opens, and back to the photo you are actually looking at when it closes — not the one you first opened.</p>
+      <p>I also fixed two things nobody could see: in dark mode the selected filter button and the checklist numbers put white on pale orange, a ratio of 2.4. They now use the darker orange: 4.69.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-light" rel="prev">← Previous: Waiting for the Light</a>
+        <a class="post-nav-prev" href="#post-images" rel="prev">← Previous: Three Sizes for One Photo</a>
+        <a class="post-nav-next" href="#post-form" rel="next">Next: The Form I Rewrote Three Times →</a>
+      </nav>
+    </article>
+
+    <article id="post-form" class="post">
+      <h2>The Form I Rewrote Three Times</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
+
+      <p>The first version checked for an @. a@b, test@ and @x.com all passed, and it thanked me for the message.</p>
+      <p>The second used a pattern to check the shape, tied each error to its field and told screen readers which field was invalid. The third changed the attitude: this is a static site and the form cannot store anything. Instead of claiming it received the message, it says plainly that Send opens your mail app — and that if nothing opens, you can write to the address, which is printed on the page.</p>
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-a11y" rel="prev">← Previous: Enlarging a Photo Without a Mouse</a>
+        <a class="post-nav-next" href="#post-shooting" rel="next">Next: Glass, Weak Light, and Waiting →</a>
+      </nav>
+    </article>
+
+    <article id="post-shooting" class="post">
+      <h2>Glass, Weak Light, and Waiting</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Shooting notes</p>
+
+      <p>All six were shot indoors, through glass or fencing. There are only three problems.</p>
+      <p>Glass. Put the lens against it: the closer it is, the softer the fingerprints and scratches. Block the side of the lens with a jacket — reflections mostly come from the side or from behind. No flash: it fires back as a sheet of white and the animals flinch.</p>
+      <p>Weak light. Light comes from above, so a raised head puts the eyes in shadow. Tap to focus on the eyes, drag the exposure down — better dark than blurred. Skip digital zoom; walk closer instead.</p>
+      <p>Waiting. Whether the frame works depends on whether the animal looks at the lens. I waited fifteen minutes for a spot of light to reach one animal's back, and shot seven or eight frames that were no good.</p>
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-form" rel="prev">← Previous: The Form I Rewrote Three Times</a>
         <a class="post-nav-next" href="#post-theme" rel="next">Next: Swapping Out the Six Illustrations →</a>
       </nav>
     </article>
@@ -818,99 +814,11 @@ body { hanging-punctuation: allow-end; }
       <h2>Swapping Out the Six Illustrations</h2>
       <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
 
-      <p>The six images on this site used to be illustrations. They weren't mine: one even carried the original artist's signature in the bottom corner, and I saw it and ignored it.</p>
-      <p>Eventually I worked out that this wasn't a question of "reference". The whole site was claiming something untrue: even labelled as a copy, I couldn't explain the decisions inside those pictures. So I deleted all six and put my own photographs in.</p>
-      <p>By then the site already had a fair amount of text, including two breakdown notes about why someone else's pictures worked. Reading them now feels wrong: I was analysing something I had never painted. They were rewritten into what actually happened while taking these two photos.</p>
-      <p>Once the swap was done, more had to follow than I expected: the introduction on the home page, the gear list on the about page, even the favicon and the share card — a drawing's face before, an animal's now.</p>
-      <p>The photos are less pretty than the drawings were; that is just true. Glass in the way, flat overhead light, animals that don't cooperate. So nothing under a photo claims it is good — each one says what I gave up.</p>
+      <p>The first six images on this site were illustrations, not mine. One of them still carried the original artist's signature in the corner. I saw it and looked away.</p>
+      <p>It didn't hold. Even labelled as a copy, I couldn't explain why anything inside those pictures was the way it was — the whole site was propping up a claim that wasn't true. So I deleted all six and replaced them with my own photographs.</p>
+      <p>The photographs are less pretty. Glass in the way, flat overhead light, animals that don't cooperate. So nothing under a photo claims it is good; each one says what I gave up.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-lightbox" rel="prev">← Previous: A Bug You Only Find by Clicking</a>
-        <a class="post-nav-next" href="#post-glass" rel="next">Next: Shooting Animals Through Glass →</a>
-      </nav>
-    </article>
-
-    <article id="post-glass" class="post">
-      <h2>Shooting Animals Through Glass</h2>
-      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Shooting notes</p>
-
-      <p>The otter frame has three layers stacked on top of each other: the otter, the droplets on the acrylic tube, and the reflection of the room's lights in the glass. Only when I looked back did I notice the droplets were the loudest thing in it, not the otter's eyes.</p>
-      <p>After that I settled into an order. First, put the lens right up against the glass: the closer it is, the softer the fingerprints and scratches become, easy to ignore — step back half a pace and every one of them is sharp. Then block the side of the lens with a jacket or a hand; reflections mostly come from the side or from behind, and blocking that side cleans up half the frame. Last, no flash. It fires straight back as a sheet of white, and the animals flinch.</p>
-      <p>Half of why <em>Scales</em> works is luck: the iguana was close to the glass, and the metal frame along the bottom edge happened to sit right at the edge of the picture. I tried cropping it out; the frame went flat immediately. In the end I kept it, as evidence that we are looking through something.</p>
-      <p>The hit rate is low. Maybe one in ten is usable, because where the reflection lands is unpredictable. There is no point agonising on site — shoot plenty, delete at home.</p>
-      <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-theme" rel="prev">← Previous: Swapping Out the Six Illustrations</a>
-        <a class="post-nav-next" href="#post-lowlight" rel="next">Next: When the Light Is Weak →</a>
-      </nav>
-    </article>
-
-    <article id="post-lowlight" class="post">
-      <h2>When the Light Is Weak</h2>
-      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Shooting notes</p>
-
-      <p>The light in these places almost always comes from above — ceiling fixtures or spot lamps. The moment an animal lifts its head, its eyes drop into shadow.</p>
-      <p>The two pigs in <em>Side by Side</em> came out sharp because they were lying in a hole in the wall with their bodies turned to the light and their snouts pointing out. I tried the corner next to it as well; everything was mush.</p>
-      <p>There isn't much a phone can do in a place like this. Tap to focus on the eyes, then drag the exposure down a little — better dark than blurred; dark can be lifted, blurred cannot. Don't use digital zoom: it crops and enlarges, noise included. Get closer if you can; if you can't, accept that the shot isn't there. Press the shutter five or six times in a row and pick the sharp one later.</p>
-      <p>Colour is another trap. The lamps run warm, sometimes green, and auto white balance often makes fur look dirty. The hedgehog in <em>Foraging</em> is pale cream; my first set came out yellow. Reshooting with the phone pointed at a white wall to reset the balance brought the colour back.</p>
-      <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-glass" rel="prev">← Previous: Shooting Animals Through Glass</a>
-        <a class="post-nav-next" href="#post-images" rel="next">Next: Why Three Sizes for a 300 KB Photo →</a>
-      </nav>
-    </article>
-
-    <article id="post-images" class="post">
-      <h2>Why Three Sizes for a 300 KB Photo</h2>
-      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
-
-      <p>The originals are 1920×1080 or 1440×810, between a hundred and three hundred-odd KB each. On its own that isn't much; the problem is that the thumbnails on the page are only about 330 pixels wide — a small square costs you the whole file.</p>
-      <p>So each photo is exported at three widths: 480, 960 and 1600 (the portrait one goes 480, 960, 1280). The page doesn't pin one; it tells the browser roughly how wide the slot is and lets it choose. On a phone it downloads the 480 file — fifteen to fifty KB.</p>
-      <p>Two smaller things as well: every image carries its real width and height, so the page knows how tall the slot is before the file arrives and nothing jumps; thumbnails only download when you scroll near them, so the ones below the fold don't load up front.</p>
-      <p>Later I found the ladder had a gap. On a 2× screen the slot needs roughly 700 pixels, and with only 480 and 960 available the browser jumped up to 960. Adding a 768 step brought all six down from 585 KB to 436 KB.</p>
-      <p>In the middle of that I broke it. The markup for the new step came out malformed: the filename got stuck after "768" and the 960 entry disappeared. The browser only recognised 480 and 1600, so a 2× screen took the 1600 file — performance fell from 93 to 81 and the first photo went from 3.2 s to 5.1 s. I only saw it in the network panel. Get this markup wrong and nothing errors; you just pay several times the bandwidth.</p>
-      <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-lowlight" rel="prev">← Previous: When the Light Is Weak</a>
-        <a class="post-nav-next" href="#post-a11y" rel="next">Next: Using the Lightbox with a Keyboard →</a>
-      </nav>
-    </article>
-
-    <article id="post-a11y" class="post">
-      <h2>Using the Lightbox with a Keyboard</h2>
-      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
-
-      <p>The enlarged view on the photo page started as a plain box with a translucent overlay: click a photo to open, click the overlay to close. Fine with a mouse; impossible with a keyboard.</p>
-      <p>Then I switched to the browser's built-in dialog. It keeps focus inside the box, closes on Esc and makes everything behind it inert — none of which I have to write.</p>
-      <p>But that only covers half. Two things are left to do by hand: put focus on Close when it opens, and give focus back to the photo you came from when it closes. Without that, someone tabbing through the page loses their place and has to walk the navigation again.</p>
-      <p>Adding Previous/Next introduced one more: on close, focus should go to the photo you are actually looking at, not the one you originally opened. Open the fourth, step to the fifth, close — focus must not stay on the fourth.</p>
-      <p>Testing turned up a surprise. In this browser, Tab leapt from Next to the "Skip to content" link behind the dialog and then back in. The built-in dialog is supposed to keep focus inside; it didn't hold. I added a dozen lines to link the ends together.</p>
-      <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-images" rel="prev">← Previous: Why Three Sizes for a 300 KB Photo</a>
-        <a class="post-nav-next" href="#post-form" rel="next">Next: The Form I Rewrote Three Times →</a>
-      </nav>
-    </article>
-
-    <article id="post-form" class="post">
-      <h2>The Form I Rewrote Three Times</h2>
-      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes<span class="post-updated"> · Updated <time datetime="2026-10-20">20 October 2026</time></span></p>
-
-      <p>The first version validated one thing: whether the box contained an @. I tried a@b, test@ and @x.com — all passed, and it thanked me for the message. That is when I realised "contains an @" and "is an email address" are very different claims.</p>
-      <p>The second version used a pattern to check the shape, tied each error message to its field, and told screen readers which field was invalid so it would be read out. It also fixed a state bug: the "sent" message from an earlier successful attempt never cleared when a later one failed, so it looked like it had worked again.</p>
-      <p>The third version changed the attitude. This is a static site with no server; the form cannot store anything. Rather than claim it received the message, it says plainly that Send opens your mail app, and that if nothing opens you can just write to the address — which is printed on the page.</p>
-      <p>Later I added a character count: a live number under the box that turns red near the limit. Before that you only learned about the minimum after submitting, with no idea where the ceiling was. Telling people as they type saves a round trip.</p>
-      <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-a11y" rel="prev">← Previous: Using the Lightbox with a Keyboard</a>
-        <a class="post-nav-next" href="#post-layout" rel="next">Next: From One Column to Three →</a>
-      </nav>
-    </article>
-
-    <article id="post-layout" class="post">
-      <h2>From One Column to Three</h2>
-      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
-
-      <p>The photo list started with a fixed number of columns. On a phone they squeezed into a sliver and sometimes overflowed sideways, needing a drag to read.</p>
-      <p>Now the browser does the arithmetic: as many columns as fit, each at least 220 pixels wide. One column on a phone, two on a tablet, three on a desktop, without a single media query.</p>
-      <p>The navigation works the other way round. Collapsed on a phone, opened by a button; above 700 pixels the button disappears and the list goes horizontal. Mixing a small-screen interaction with a large-screen layout causes fights; keeping them apart is easier.</p>
-      <p>The way to check isn't to drag the window about; it is to pin the width in dev tools — 320, 375, 768, 1440 — and look for a horizontal scrollbar at the bottom. A scrollbar means something is wider than the viewport; then you work down the tree until you find it.</p>
-      <nav class="post-nav" aria-label="Navigate between notes">
-        <a class="post-nav-prev" href="#post-form" rel="prev">← Previous: The Form I Rewrote Three Times</a>
+        <a class="post-nav-prev" href="#post-shooting" rel="prev">← Previous: Glass, Weak Light, and Waiting</a>
       </nav>
     </article>
   </main>

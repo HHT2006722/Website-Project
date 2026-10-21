@@ -719,11 +719,8 @@ body { hanging-punctuation: allow-end; }
     <h1>About</h1>
 
     <div class="prose">
-      <p>I'm Han Hongtao, born in 2006, and I photograph animals with a phone. This site is a notebook rather than a portfolio: photographs taken in pet markets, indoor exhibits and at the edge of fences, plus what I noticed afterwards.</p>
-
-      <p>The limits are fixed — bad light, fingerprints on the glass, animals that don't cooperate. So I care more about what I gave up in a frame than about how well I can retouch it. With <em>Little Otter</em>, I stopped trying to remove the droplets and got the lens up against the glass instead, pushing the reflections to the edges and letting the otter's eye be the one thing that stays sharp.</p>
-
-      <p>Next I want to shoot the same exhibit at different times of day, to see what the light does to the same animal. It won't happen quickly: one small step a month, written up in the notes.</p>
+      <p>I'm Han Hongtao, born in 2006, and I photograph animals with a phone. This site is a notebook rather than a portfolio: photos taken in pet markets, indoor exhibits and behind fencing, plus what I noticed at the time.</p>
+      <p>The conditions can't be changed — poor light, fingerprints on the glass, animals that don't cooperate. So what interests me is what each frame gave up, not how well it could be retouched.</p>
 
       <h2>Timeline</h2>
       <ol class="timeline">
@@ -733,42 +730,40 @@ body { hanging-punctuation: allow-end; }
         </li>
         <li>
           <span class="tl-date">2024 · 17</span>
-          <span class="tl-text">5 April: took these six photographs on an iPhone 13 Pro. At the time I had no plan for them.</span>
+          <span class="tl-text">5 April: took these six photographs on an iPhone 13 Pro, with no plan for them.</span>
         </li>
         <li>
           <span class="tl-date">2026 · 20</span>
-          <span class="tl-text">October: turned them into this site. Writing down the judgements I made while shooting — fix the light source first, don't fight the glass — turned out to be harder than remembering them.</span>
+          <span class="tl-text">October: started building this site. Writing down the judgements I made while shooting turned out to be harder than remembering them.</span>
         </li>
       </ol>
 
       <h2>What I'm shooting now</h2>
       <ul>
         <li><strong>Through glass</strong>: get close, block the reflection, no flash. Solve that before thinking about composition.</li>
-        <li><strong>Low light</strong>: focus on the eyes, pull the exposure down, shoot a burst and pick the sharp one. Better dark than blurred.</li>
-        <li><strong>Waiting for the eyes</strong>: the moment an animal looks at the lens is what makes the photograph. The rest is patience.</li>
+        <li><strong>Weak light</strong>: focus on the eyes, pull the exposure down, shoot a burst and pick the sharp one.</li>
+        <li><strong>Waiting for the eyes</strong>: the moment an animal looks at the lens decides the frame. The rest is patience.</li>
       </ul>
 
       <h2>How I judge a frame</h2>
       <p>Most of the filtering happens on site, in this order:</p>
       <ol class="checklist">
-        <li><strong>Are the eyes sharp</strong> — if they're not, nothing else rescues the photo.</li>
-        <li><strong>Is there separation between subject and background</strong> — flip the photo to black and white; if subject and background become the same grey, the light was wrong and no amount of detail will fix it.</li>
-        <li><strong>Is there a stray reflection or object</strong> — highlights on glass, the bar of a cage. Avoid it if you can; if you can't, let it become part of the composition, like the metal frame along the bottom of <em>Scales</em>.</li>
-        <li><strong>Did the crop cut something off</strong> — an ear, the tip of a tail, a paw. Any of those makes the frame feel incomplete.</li>
+        <li><strong>Are the eyes sharp</strong> — if they aren't, nothing else rescues the photo.</li>
+        <li><strong>Do subject and background separate</strong> — flip it to black and white; if they become the same grey, the light was wrong.</li>
+        <li><strong>Is there a stray reflection or object</strong> — highlights on glass, the bar of a cage. Avoid it, or let it become part of the frame.</li>
+        <li><strong>Did the crop cut something off</strong> — an ear, a tail tip, a paw. Any one of those makes the frame feel incomplete.</li>
       </ol>
       <p class="hint">These four are for deleting pictures, not for taking them. While shooting I only have attention for focus and exposure.</p>
 
       <h2>What I use</h2>
       <ul>
-        <li>iPhone 13 Pro (all six photographs were taken with it, on 5 April 2024)</li>
+        <li>iPhone 13 Pro (all six photographs, 5 April 2024)</li>
         <li>A microfibre cloth — more important than it sounds; both the glass and the lens get dirty</li>
-        <li>A dark jacket, held at the side of the lens as a flag</li>
       </ul>
       <p class="hint">No flash and no tripod. Neither is practical in these places, and both disturb the animals.</p>
 
       <h2>How this site was made</h2>
-      <p>Plain HTML, CSS and JavaScript — no framework, no server, no database, hosted on GitHub Pages. Each photo is exported at three sizes so a phone only downloads the smallest; the enlarged view uses the browser's built-in dialog, which handles focus and Esc without extra code.</p>
-      <p>Every technical choice — what I picked, what I rejected and how I checked it — is recorded in <code>DECISIONS.md</code> in the repository. The changes are written up in the <a href="journal.html">notes</a>.</p>
+      <p>Plain HTML, CSS and JavaScript — no framework, no server, no database. Each photo is exported at three sizes; the enlarged view uses the browser's own dialog, so focus handling and Esc come for free. The trade-offs are recorded in <code>DECISIONS.md</code> and the process in the <a href="journal.html">notes</a>.</p>
     </div>
 
     <aside class="notice" aria-labelledby="credits-heading">
