@@ -70,6 +70,9 @@
       // 记下大图真实宽高：竖图打开时不会先按横图占位再跳一下
       w: Number(link.dataset.w) || 0,
       h: Number(link.dataset.h) || 0,
+      // 缩略图那组候选宽度也带上，灯箱里可以让浏览器按屏幕密度挑，
+      // 手机不必为了看大图去下 1600 那档
+      srcset: thumb ? thumb.getAttribute('srcset') || '' : '',
     };
   });
 
@@ -96,6 +99,11 @@
     if (item.w && item.h) {
       img.width = item.w;
       img.height = item.h;
+    }
+    if (item.srcset) {
+      img.srcset = item.srcset;
+      // 对话框最大 1000px，手机上接近满宽；按这个算，浏览器就不会取最大档
+      img.sizes = '(min-width: 1064px) 1000px, 94vw';
     }
     img.src = item.src;
     img.alt = item.alt;
