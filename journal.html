@@ -723,6 +723,7 @@ body { hanging-punctuation: allow-end; }
     <nav class="post-toc" aria-label="Note list">
       <h2>Contents</h2>
       <ul>
+        <li><a href="#post-comments">Comments in Two Languages</a></li>
         <li><a href="#post-english">Turning the Whole Site into English</a></li>
         <li><a href="#post-smallfix">Small Fixes: Contrast, First Image, Two Names</a></li>
         <li><a href="#post-light">Waiting for the Light</a></li>
@@ -736,6 +737,20 @@ body { hanging-punctuation: allow-end; }
         <li><a href="#post-layout">From One Column to Three</a></li>
       </ul>
     </nav>
+    <article id="post-comments" class="post">
+      <h2>Comments in Two Languages</h2>
+      <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Build notes</p>
+
+      <p>My teacher doesn't read Chinese. The pages are in English now, but the comments in the code were still entirely Chinese — anyone reading the code would be just as stuck.</p>
+      <p>So every comment is now two lines: Chinese first, English second. Thirty-two of them, no exceptions. Writing the English line turned out to be useful in itself: a few Chinese notes weren't actually saying anything clear. "Store the real width and height" only became an explanation once English forced me to add the reason — a portrait photo would otherwise reserve a landscape box and jump.</p>
+      <p>One more detail. The stylesheet is inlined into twelve pages, and doubling the comments would mean shipping the same explanation twelve times — about 3 KB each. So the inliner strips out comments; they live in the source file, which is where you would read them anyway.</p>
+      <p>After stripping I measured: the home page went from 24.4 KB to 21.7 KB and nothing changed visually — the screenshots before and after have the same hash. Without that check I would only have "it should be fine".</p>
+      <p>One line to sum up: a comment is written for a reader. Who that reader is decides how many lines it takes.</p>
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-next" href="#post-english" rel="next">Next: Turning the Whole Site into English →</a>
+      </nav>
+    </article>
+
 
     <article id="post-english" class="post">
       <h2>Turning the Whole Site into English</h2>
@@ -747,6 +762,7 @@ body { hanging-punctuation: allow-end; }
       <p>The cost is real: change a sentence in Chinese and you have to change its English twin. I found that out this afternoon while renaming two photos — two names, twelve files, eighteen references.</p>
       <p>Some sentences got shorter on the way over, because a literal translation turned out wordy. Lines that lean on tone in Chinese usually need a concrete detail to stand up in English. That was an unexpected gain.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-comments" rel="prev">← Previous: Comments in Two Languages</a>
         <a class="post-nav-next" href="#post-smallfix" rel="next">Next: Small Fixes: Contrast, First Image, Two Names →</a>
       </nav>
     </article>

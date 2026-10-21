@@ -6,8 +6,17 @@
     <link>https://hht2006722.github.io/Website-Project/</link>
     <description>Animal photography and shooting notes: photos taken through glass, and what each frame cost.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Oct 2026 11:26:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 11:36:00 +0800</lastBuildDate>
     <atom:link href="https://hht2006722.github.io/Website-Project/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Comments in Two Languages</title>
+      <link>https://hht2006722.github.io/Website-Project/journal.html#post-comments</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-comments</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-21</atom:updated>
+      <description>My teacher doesn't read Chinese. The pages are in English now, but the comments in the code were still entirely Chinese — anyone reading the…</description>
+      <category>Build notes</category>
+    </item>
     <item>
       <title>Turning the Whole Site into English</title>
       <link>https://hht2006722.github.io/Website-Project/journal.html#post-english</link>
