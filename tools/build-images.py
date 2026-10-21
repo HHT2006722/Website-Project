@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """把照片导出成三档 WebP，供 srcset 使用。
+Export each photo as WebP at three widths for srcset.
 
 用法：
     python tools/build-images.py 照片文件夹

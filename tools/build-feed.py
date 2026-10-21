@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """从笔记页生成 RSS，支持中英两种语言。
+Generate an RSS feed from the notes page, for either language.
 
 用法：
     python tools/build-feed.py              # 英文：journal.html -> feed.xml
@@ -77,6 +78,7 @@ def main():
         date = m.group(1) if m else "2026-10-19"
 
         # 分类：post-meta 里「· 做站记录 / Build notes」那半截（先剥掉「最后更新」）
+        # Category: the part after the dot in post-meta, once the "updated" span is removed
         kind = ""
         meta = re.search(r'<p class="post-meta">([\s\S]*?)</p>', body)
         if meta:
