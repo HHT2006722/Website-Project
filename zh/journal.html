@@ -754,6 +754,8 @@ body { hanging-punctuation: allow-end; }
     <nav class="post-toc" aria-label="笔记目录">
       <h2>目录</h2>
       <ul>
+        <li><a href="#post-english">把整站翻成英文</a></li>
+        <li><a href="#post-smallfix">几个小修：对比度、首图、改名</a></li>
         <li><a href="#post-light">等光扫过来</a></li>
         <li><a href="#post-lightbox">一个只有点进去才会发现的 bug</a></li>
         <li><a href="#post-theme">把六张画换掉了</a></li>
@@ -766,6 +768,37 @@ body { hanging-punctuation: allow-end; }
       </ul>
     </nav>
 
+    <article id="post-english" class="post">
+      <h2>把整站翻成英文</h2>
+      <p class="post-meta"><time datetime="2026-10-21">2026年10月21日</time> · 做站记录</p>
+
+      <p>老师看不懂中文。这句话我早就知道，但一直到今天才真正处理：网站如果只有中文，评阅的人读不到内容，前面写的九篇笔记等于白写。</p>
+      <p>做法是把根目录整个换成英文版，中文整套搬到 <code>zh/</code>，两边共用同一套图片、脚本和样式。导航最后一项用来切换；每页在 head 里写三条 hreflang；订阅源也做了两份；脚本里那些会变的字（筛选显示几张、灯箱第几张、表单报错）按页面的 lang 取中文或英文。</p>
+      <p>没有选「用 JS 在同一个页面上换字」。那样子搜索引擎读到的永远是同一种语言，脚本万一失效，整站变回单语。分开两个目录，最多是文件多一倍。</p>
+      <p>代价是真实存在的：改一句中文就得改对应的英文。今天下午改两个照片标题就体会到了——两个名字，十二个文件，十八处引用。</p>
+      <p>翻译过程中有几处直译过去变得啰嗦，顺手改短了。中文里靠语气撑着的句子，换成英文往往得补上具体信息才站得住，这算是意外的收获。</p>
+      <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-next" href="#post-smallfix" rel="next">下一篇：几个小修：对比度、首图、改名 →</a>
+      </nav>
+    </article>
+
+    <article id="post-smallfix" class="post">
+      <h2>几个小修：对比度、首图、改名</h2>
+      <p class="post-meta"><time datetime="2026-10-21">2026年10月21日</time> · 做站记录</p>
+
+      <p>今天剩下的都是小改，但每条都记了数字。</p>
+      <p><strong>暗色下有两处看不见。</strong> 选中的筛选按钮、关于页清单的编号圆圈，都是白字压在浅橙上，对比度只有 2.4。它们直接用强调色当底色，而暗色下强调色会变浅。改成深橙之后是 4.69。</p>
+      <p><strong>首图请求发得太晚。</strong> Lighthouse 说照片页 LCP 2.7 秒，最大的元素就是第一张照片。它已经有高优先级，但请求要等解析到画廊才发起。在 head 里 preload 之后，LCP 到 2.3–2.5 秒，性能 96 → 98。</p>
+      <p>中间我怀疑是自己前一天加的灯箱改动拖慢了，做了 A/B：把改动撤掉重跑，还是 98 分。所以掉分主要是机器上同时跑了好几个浏览器进程，不是代码变差。这条也写进了 <code>PERFORMANCE.md</code>。</p>
+      <p><strong>改名。</strong> 《木墙前》改成《可爱小鹦鹉》，《玻璃后面》改成《小水獭》。名字直白一点，跟照片里看到的东西对得上。两个标题，十二个文件，十八处引用，全部换掉——这就是双语之后的第一笔维护成本。</p>
+      <p><strong>顺手：</strong> 订阅源加了分类（拍摄笔记 / 做站记录），sitemap 的日期从两天前更新到今天。</p>
+      <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-prev" href="#post-english" rel="prev">← 上一篇：把整站翻成英文</a>
+        <a class="post-nav-next" href="#post-light" rel="next">下一篇：等光扫过来 →</a>
+      </nav>
+    </article>
+
+
 
     <article id="post-light" class="post">
       <h2>等光扫过来</h2>
@@ -777,6 +810,7 @@ body { hanging-punctuation: allow-end; }
       <p>拍的时候试过往前凑，想让它再大一点。结果人一靠近，影子就挡在光路上，白毛立刻灰掉，退回来这张反而好。</p>
       <p>这类照片靠的是光的位置，不是参数。射灯什么时候扫到背上，我说了不算，只能等。那天大概等了十几分钟，中间拍了七八张废片。</p>
       <nav class="post-nav" aria-label="在笔记中导航">
+        <a class="post-nav-prev" href="#post-smallfix" rel="prev">← 上一篇：几个小修：对比度、首图、改名</a>
         <a class="post-nav-next" href="#post-lightbox" rel="next">下一篇：一个只有点进去才会发现的 bug →</a>
       </nav>
     </article>
