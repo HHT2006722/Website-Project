@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="feed.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>韩宏涛的观察本</title>
+    <link>https://hht2006722.github.io/Website-Project/zh/</link>
+    <description>动物摄影与拍摄笔记：隔着玻璃拍到的照片，以及每次拍摄的取舍。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 21 Oct 2026 11:13:00 +0800</lastBuildDate>
+    <atom:link href="https://hht2006722.github.io/Website-Project/zh/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>等光扫过来</title>
+      <link>https://hht2006722.github.io/Website-Project/zh/journal.html#post-light</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/zh/journal.html#post-light</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-21</atom:updated>
+      <description>《一束光》那张里其实只有三样东西：一段斜放的原木、一片深灰的岩壁、一束从右上打下来的光。</description>
+      <category>拍摄笔记</category>
+    </item>
+    <item>
+      <title>一个只有点进去才会发现的 bug</title>
+      <link>https://hht2006722.github.io/Website-Project/zh/journal.html#post-lightbox</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/zh/journal.html#post-lightbox</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-21</atom:updated>
+      <description>昨天给照片页加了筛选。今天顺手点进去，筛「隔着玻璃」——只剩两张——点开第一张，按「下一张」，接着翻到了《木墙前》，一张刚被筛掉的。</description>
+      <category>做站记录</category>
+    </item>
+    <item>
+      <title>把六张画换掉了</title>
+      <link>https://hht2006722.github.io/Website-Project/zh/journal.html#post-theme</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/zh/journal.html#post-theme</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-19</atom:updated>
+      <description>站里的六张图原来是插画，不是我画的。有一张右下角还带着原作者的署名，我当时看见了，没当回事。</description>
+      <category>做站记录</category>
+    </item>
+    <item>
+      <title>隔着玻璃拍动物</title>
+      <link>https://hht2006722.github.io/Website-Project/zh/journal.html#post-glass</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/zh/journal.html#post-glass</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-19</atom:updated>
+      <description>水獭那张，画面里其实有三层东西：水獭本身、亚克力管上的水珠、玻璃反射的室内灯。拍完回看才发现，最扎眼的是水珠，不是水獭的眼睛。</description>
+      <category>拍摄笔记</category>
+    </item>
+    <item>
+      <title>灯不够亮的时候</title>
+      <link>https://hht2006722.github.io/Website-Project/zh/journal.html#post-lowlight</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/zh/journal.html#post-lowlight</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-19</atom:updated>
+      <description>展区的光基本是顶光或者射灯，从上面打下来。动物一抬头，眼睛就掉进阴影里。</description>
+      <category>拍摄笔记</category>
+    </item>
+    <item>
+      <title>图片为什么还要做三档</title>
+      <link>https://hht2006722.github.io/Website-Project/zh/journal.html#post-images</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/zh/journal.html#post-images</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-19</atom:updated>
+      <description>六张原图是 1920×1080 或者 1440×810，一张一百多到三百多 KB。单看不算大，问题是页面上的缩略图只有三百多像素宽——为了看个小方块，下的是整张大图。</description>
+      <category>做站记录</category>
+    </item>
+    <item>
+      <title>用键盘看照片</title>
+      <link>https://hht2006722.github.io/Website-Project/zh/journal.html#post-a11y</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/zh/journal.html#post-a11y</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-19</atom:updated>
+      <description>照片页的放大预览最早是自己写的一个方块加半透明遮罩：点图弹出来，点遮罩关掉。用鼠标没问题，用键盘根本打不开。</description>
+      <category>做站记录</category>
+    </item>
+    <item>
+      <title>表单里我改了三遍的地方</title>
+      <link>https://hht2006722.github.io/Website-Project/zh/journal.html#post-form</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/zh/journal.html#post-form</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-19</atom:updated>
+      <description>第一版的校验只有一句：看输入框里有没有 @ 号。我拿 a@b、test@、@x.com 试了一下，全过，还弹了「留言已记录」。这才意识到「有 @」和「是邮箱」差得远。</description>
+      <category>做站记录</category>
+    </item>
+    <item>
+      <title>一列排到三列</title>
+      <link>https://hht2006722.github.io/Website-Project/zh/journal.html#post-layout</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/zh/journal.html#post-layout</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-19</atom:updated>
+      <description>照片列表最早是按固定列数写的。手机上挤成一条缝，有时候还横向溢出去，得左右拖。</description>
+      <category>做站记录</category>
+    </item>
+  </channel>
+</rss>

@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <script>document.documentElement.classList.add('js');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>拍摄笔记 · 韩宏涛的观察本</title>
-  <meta name="description" content="韩宏涛的拍摄笔记：隔着玻璃怎么拍、暗光展区怎么曝光，以及做这个网站时踩过的坑。">
+  <title>Notes · Han Hongtao's Field Notes</title>
+  <meta name="description" content="Shooting notes and build notes: how these photos were made, and how this site was built.">
   <link rel="canonical" href="https://hht2006722.github.io/Website-Project/journal.html">
+  <link rel="alternate" hreflang="en" href="https://hht2006722.github.io/Website-Project/journal.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://hht2006722.github.io/Website-Project/zh/journal.html">
+  <link rel="alternate" hreflang="x-default" href="https://hht2006722.github.io/Website-Project/journal.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="拍摄笔记 · 韩宏涛的观察本">
-  <meta property="og:description" content="隔着玻璃怎么拍、暗光怎么曝光，以及这个网站是怎么做出来的。">
+  <meta property="og:title" content="Notes · Han Hongtao's Field Notes">
+  <meta property="og:description" content="Shooting notes and build notes, newest first.">
   <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
   <meta property="og:url" content="https://hht2006722.github.io/Website-Project/journal.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf6f0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#14100d" media="(prefers-color-scheme: dark)">
-  <meta property="og:site_name" content="韩宏涛的观察本">
+  <meta property="og:site_name" content="Han Hongtao's Field Notes">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="alternate" type="application/rss+xml" title="韩宏涛的观察本 · 笔记" href="feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Han Hongtao's Field Notes" href="feed.xml">
   <style>
     /* 本段由 tools/inline-css.py 从 css/styles.css 生成；改样式请改源文件后重跑 */
 /* ===========================================================
@@ -721,182 +724,189 @@ body { hanging-punctuation: allow-end; }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到主要内容</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <a class="logo" href="index.html">韩宏涛的观察本</a>
-    <nav aria-label="主导航">
+    <a class="logo" href="index.html">Han Hongtao's Field Notes</a>
+    <nav aria-label="Main">
       <button id="navToggle" class="nav-toggle" type="button"
               aria-expanded="false" aria-controls="siteNav">
         <span class="nav-toggle-icon" aria-hidden="true">☰</span>
-        <span class="nav-toggle-text">菜单</span>
+        <span class="nav-toggle-text">Menu</span>
       </button>
       <ul id="siteNav" class="site-nav">
-        <li><a href="index.html">首页</a></li>
-        <li><a href="works.html">照片</a></li>
-        <li><a href="journal.html" aria-current="page">笔记</a></li>
-        <li><a href="about.html">关于</a></li>
-        <li><a href="contact.html">联系</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="works.html">Photos</a></li>
+        <li><a href="journal.html" aria-current="page">Notes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="lang-link" href="zh/journal.html" hreflang="zh-CN" lang="zh-CN">中文</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="main">
+    <h1>Notes</h1>
+    <p class="lead">Problems I hit while shooting, and problems I hit while building this site. Newest first.</p>
+    <p class="hint"><a href="feed.xml">Subscribe (RSS)</a> · RSS is a feed format: add this address to a reader (Feedly, NetNewsWire, and so on) and new notes arrive on their own. If you don't know what RSS is, just scroll down.</p>
 
-    <h1>拍摄笔记</h1>
-    <p class="lead">拍照片时遇到的问题，和做这个站时遇到的问题。都按时间倒序，新的在最前面。</p>
-    <p class="hint"><a href="feed.xml">订阅这个站的更新（RSS）</a> · RSS 是一种订阅格式，把它加进阅读器（Feedly、NetNewsWire 之类）就会收到新笔记。不知道 RSS 是什么也没关系，往下看就行。</p>
-
-    <nav class="post-toc" aria-label="笔记目录">
-      <h2>目录</h2>
+    <nav class="post-toc" aria-label="Note list">
+      <h2>Contents</h2>
       <ul>
-        <li><a href="#post-light">等光扫过来</a></li>
-        <li><a href="#post-lightbox">一个只有点进去才会发现的 bug</a></li>
-        <li><a href="#post-theme">把六张画换掉了</a></li>
-        <li><a href="#post-glass">隔着玻璃拍动物</a></li>
-        <li><a href="#post-lowlight">灯不够亮的时候</a></li>
-        <li><a href="#post-images">图片为什么还要做三档</a></li>
-        <li><a href="#post-a11y">用键盘看照片</a></li>
-        <li><a href="#post-form">表单里我改了三遍的地方</a></li>
-        <li><a href="#post-layout">一列排到三列</a></li>
+        <li><a href="#post-light">Waiting for the Light</a></li>
+        <li><a href="#post-lightbox">A Bug You Only Find by Clicking</a></li>
+        <li><a href="#post-theme">Swapping Out the Six Illustrations</a></li>
+        <li><a href="#post-glass">Shooting Animals Through Glass</a></li>
+        <li><a href="#post-lowlight">When the Light Is Weak</a></li>
+        <li><a href="#post-images">Why Three Sizes for a 300 KB Photo</a></li>
+        <li><a href="#post-a11y">Using the Lightbox with a Keyboard</a></li>
+        <li><a href="#post-form">The Form I Rewrote Three Times</a></li>
+        <li><a href="#post-layout">From One Column to Three</a></li>
       </ul>
     </nav>
 
-
     <article id="post-light" class="post">
-      <h2>等光扫过来</h2>
-      <p class="post-meta"><time datetime="2026-10-21">2026年10月21日</time> · 拍摄笔记</p>
+      <h2>Waiting for the Light</h2>
+      <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Shooting notes</p>
 
-      <p>《一束光》那张里其实只有三样东西：一段斜放的原木、一片深灰的岩壁、一束从右上打下来的光。</p>
-      <p>斜的原木把画面切成两半，动物蹲在斜线中间偏右的位置。视线会顺着木头从左下走到右上，最后落在它脸上——这个走向不是我设计的，是那段木头本来就那么斜，我只是蹲下来找了个角度。</p>
-      <p>背景全暗是这张能成立的关键。白毛在深灰岩壁前面才立得住，如果后面也亮，它整个人就会糊进去。</p>
-      <p>拍的时候试过往前凑，想让它再大一点。结果人一靠近，影子就挡在光路上，白毛立刻灰掉，退回来这张反而好。</p>
-      <p>这类照片靠的是光的位置，不是参数。射灯什么时候扫到背上，我说了不算，只能等。那天大概等了十几分钟，中间拍了七八张废片。</p>
-      <nav class="post-nav" aria-label="在笔记中导航">
-        <a class="post-nav-next" href="#post-lightbox" rel="next">下一篇：一个只有点进去才会发现的 bug →</a>
+      <p>There are only three things in <em>A Shaft of Light</em>: a fallen log lying at an angle, a wall of dark grey rock, and one shaft of light coming down from the upper right.</p>
+      <p>The log cuts the frame in two. The animal sits just right of centre on that diagonal, and your eye travels along the wood from bottom left to top right and ends on its face. I didn't design that line — the log was already that shape. I just crouched until it lined up.</p>
+      <p>The dark background is what makes the picture work. White fur only stands out against dark grey rock; if the wall behind had been lit as well, the animal would have dissolved into it.</p>
+      <p>I tried moving in for a bigger frame. The moment I got close, my own shadow fell across the light and the fur went grey. Stepping back gave the better photo.</p>
+      <p>Pictures like this depend on where the light is, not on settings. I have no say in when the spot sweeps across its back; I can only wait. I waited about fifteen minutes that day and shot seven or eight frames that were no good.</p>
+
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-next" href="#post-lightbox" rel="next">Next: A Bug You Only Find by Clicking →</a>
       </nav>
     </article>
 
-
     <article id="post-lightbox" class="post">
-      <h2>一个只有点进去才会发现的 bug</h2>
-      <p class="post-meta"><time datetime="2026-10-21">2026年10月21日</time> · 做站记录</p>
+      <h2>A Bug You Only Find by Clicking</h2>
+      <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Build notes</p>
 
-      <p>昨天给照片页加了筛选。今天顺手点进去，筛「隔着玻璃」——只剩两张——点开第一张，按「下一张」，接着翻到了《木墙前》，一张刚被筛掉的。</p>
-      <p>看代码，每个部分都对：筛选在改显示隐藏，灯箱在换图片。问题在两者之间——灯箱用来切换的那份列表，是页面加载时按全部六张建好的，之后没人告诉它「现在只剩两张」。</p>
-      <p>改法不复杂：打开灯箱时重新算一遍当前可见的序号，切换就在这一组里循环；计数也跟着变成「第 1 张，共 2 张」。关闭后把焦点还回去时，也得按新序号找，否则会指到一张看不见的图上。</p>
-      <p>这类 bug 光看代码看不出来——每一块单看都没毛病，接起来才出问题。只能按真实路径点一遍：先筛，再开，再翻，再关。</p>
-      <p>顺带记一句昨天的坑：改完测不出来，以为代码没生效，其实是测试用的无头浏览器一直在给我缓存里的旧脚本。以后先怀疑缓存，再怀疑代码。</p>
-      <nav class="post-nav" aria-label="在笔记中导航">
-        <a class="post-nav-prev" href="#post-light" rel="prev">← 上一篇：等光扫过来</a>
-        <a class="post-nav-next" href="#post-theme" rel="next">下一篇：把六张画换掉了 →</a>
+      <p>Yesterday I added filters to the photo page. Today I clicked through it: filtered to "Through glass" — two photos left — opened the first, pressed Next, and landed on <em>Before the Wooden Wall</em>, one of the four that had just been filtered out.</p>
+      <p>Reading the code, every piece looks right: the filter toggles visibility, the lightbox swaps the image. The problem sits between them. The list the lightbox cycles through was built from all six photos when the page loaded, and nothing ever told it that only two were left.</p>
+      <p>The fix is small: when the lightbox opens, work out which photos are currently visible and cycle only through those; the counter then reads "1 of 2". Handing focus back on close uses the same new list, otherwise it points at a photo nobody can see.</p>
+      <p>A bug like this doesn't show up by reading code. Each part is fine on its own; it only breaks once they are joined. The only way to find it is to walk the real path — filter, open, step through, close.</p>
+      <p>One more note from yesterday: after a change the test showed nothing and I assumed the code hadn't applied. In fact the headless browser kept serving me an old cached script. Suspect the cache before the code.</p>
+
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-light" rel="prev">← Previous: Waiting for the Light</a>
+        <a class="post-nav-next" href="#post-theme" rel="next">Next: Swapping Out the Six Illustrations →</a>
       </nav>
     </article>
 
     <article id="post-theme" class="post">
-      <h2>把六张画换掉了</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录</p>
+      <h2>Swapping Out the Six Illustrations</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
 
-      <p>站里的六张图原来是插画，不是我画的。有一张右下角还带着原作者的署名，我当时看见了，没当回事。</p>
-      <p>后来想清楚，这不是「参考」的问题。整站在说一件不成立的事：就算标成临摹，画面里的处理我也讲不出来。所以六张全删，换成自己拍的。</p>
-      <p>删的时候站已经写了不少字，包括两篇「拆解笔记」——讲的是别人的画为什么好看。现在再看那两篇挺别扭的：我在分析一个自己没画过的东西。后来重写成了拍这两张照片时实际遇到的情况。</p>
-      <p>换完才发现牵动的地方比想的多。首页的自述、关于页的工具清单，连 favicon 和分享卡片都得跟着换——原来是张插画的脸，现在得是动物。</p>
-      <p>照片不如画好看，这是实话。隔着玻璃、顶光、动物不配合。所以每张下面不写「拍得多好」，只写这次放弃了什么。</p>
-      <nav class="post-nav" aria-label="在笔记中导航">
-        <a class="post-nav-prev" href="#post-lightbox" rel="prev">← 上一篇：一个只有点进去才会发现的 bug</a>
-        <a class="post-nav-next" href="#post-glass" rel="next">下一篇：隔着玻璃拍动物 →</a>
+      <p>The six images on this site used to be illustrations. They weren't mine: one even carried the original artist's signature in the bottom corner, and I saw it and ignored it.</p>
+      <p>Eventually I worked out that this wasn't a question of "reference". The whole site was claiming something untrue: even labelled as a copy, I couldn't explain the decisions inside those pictures. So I deleted all six and put my own photographs in.</p>
+      <p>By then the site already had a fair amount of text, including two breakdown notes about why someone else's pictures worked. Reading them now feels wrong: I was analysing something I had never painted. They were rewritten into what actually happened while taking these two photos.</p>
+      <p>Once the swap was done, more had to follow than I expected: the introduction on the home page, the gear list on the about page, even the favicon and the share card — a drawing's face before, an animal's now.</p>
+      <p>The photos are less pretty than the drawings were; that is just true. Glass in the way, flat overhead light, animals that don't cooperate. So nothing under a photo claims it is good — each one says what I gave up.</p>
+
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-lightbox" rel="prev">← Previous: A Bug You Only Find by Clicking</a>
+        <a class="post-nav-next" href="#post-glass" rel="next">Next: Shooting Animals Through Glass →</a>
       </nav>
     </article>
 
     <article id="post-glass" class="post">
-      <h2>隔着玻璃拍动物</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 拍摄笔记</p>
+      <h2>Shooting Animals Through Glass</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Shooting notes</p>
 
-      <p>水獭那张，画面里其实有三层东西：水獭本身、亚克力管上的水珠、玻璃反射的室内灯。拍完回看才发现，最扎眼的是水珠，不是水獭的眼睛。</p>
-      <p>后来几次都按同一个顺序来。先把镜头贴到玻璃上——贴得越近，玻璃上的指纹和划痕越虚，容易被忽略；退半步反而全都清楚。然后拿衣服或手挡在镜头侧面，反光多半来自侧后方，挡住那一侧，画面干净一半。最后，不开闪光灯。会直接反一片白回来，动物也会躲。</p>
-      <p>《鳞》那张能成，一半是运气：鬣蜥离玻璃很近，玻璃底边那道金属框又正好压在画面下缘。我试过裁掉它，画面立刻变闷，后来干脆留着，当作「这是隔着看的」的证据。</p>
-      <p>这类照片的通过率很低。十张里能用的可能就一张，因为反光落在什么位置，说不准。现场纠结没用，多拍，回去删。</p>
-      <nav class="post-nav" aria-label="在笔记中导航">
-        <a class="post-nav-prev" href="#post-theme" rel="prev">← 上一篇：把六张画换掉了</a>
-        <a class="post-nav-next" href="#post-lowlight" rel="next">下一篇：灯不够亮的时候 →</a>
+      <p>The otter frame has three layers stacked on top of each other: the otter, the droplets on the acrylic tube, and the reflection of the room's lights in the glass. Only when I looked back did I notice the droplets were the loudest thing in it, not the otter's eyes.</p>
+      <p>After that I settled into an order. First, put the lens right up against the glass: the closer it is, the softer the fingerprints and scratches become, easy to ignore — step back half a pace and every one of them is sharp. Then block the side of the lens with a jacket or a hand; reflections mostly come from the side or from behind, and blocking that side cleans up half the frame. Last, no flash. It fires straight back as a sheet of white, and the animals flinch.</p>
+      <p>Half of why <em>Scales</em> works is luck: the iguana was close to the glass, and the metal frame along the bottom edge happened to sit right at the edge of the picture. I tried cropping it out; the frame went flat immediately. In the end I kept it, as evidence that we are looking through something.</p>
+      <p>The hit rate is low. Maybe one in ten is usable, because where the reflection lands is unpredictable. There is no point agonising on site — shoot plenty, delete at home.</p>
+
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-theme" rel="prev">← Previous: Swapping Out the Six Illustrations</a>
+        <a class="post-nav-next" href="#post-lowlight" rel="next">Next: When the Light Is Weak →</a>
       </nav>
     </article>
 
     <article id="post-lowlight" class="post">
-      <h2>灯不够亮的时候</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 拍摄笔记</p>
+      <h2>When the Light Is Weak</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Shooting notes</p>
 
-      <p>展区的光基本是顶光或者射灯，从上面打下来。动物一抬头，眼睛就掉进阴影里。</p>
-      <p>《并排》那两头小猪能拍清楚，是因为它们正趴在墙洞里，身体朝向光，鼻子冲外。旁边那个角落我也拍过，全糊。</p>
-      <p>手机在这种地方能做的其实不多。点屏幕对焦到眼睛，然后往下拖曝光补偿，先把它压暗一点——宁可暗，也别糊，暗了还能拉回来，糊了没救。别用数码变焦，那是裁一块放大，噪点一起放大；能走近就走近，走不近就当没拍到。一按就是五六张，回头挑实的。</p>
-      <p>还有一个坑是颜色。展区的灯偏暖，有的地方还偏绿，自动白平衡经常把毛色拍脏。《找吃的》那只刺猬的毛本来是浅米色，第一组出来发黄。重拍时把手机对着旁边的白墙重新取一次，颜色才回来。</p>
-      <nav class="post-nav" aria-label="在笔记中导航">
-        <a class="post-nav-prev" href="#post-glass" rel="prev">← 上一篇：隔着玻璃拍动物</a>
-        <a class="post-nav-next" href="#post-images" rel="next">下一篇：图片为什么还要做三档 →</a>
+      <p>The light in these places almost always comes from above — ceiling fixtures or spot lamps. The moment an animal lifts its head, its eyes drop into shadow.</p>
+      <p>The two pigs in <em>Side by Side</em> came out sharp because they were lying in a hole in the wall with their bodies turned to the light and their snouts pointing out. I tried the corner next to it as well; everything was mush.</p>
+      <p>There isn't much a phone can do in a place like this. Tap to focus on the eyes, then drag the exposure down a little — better dark than blurred; dark can be lifted, blurred cannot. Don't use digital zoom: it crops and enlarges, noise included. Get closer if you can; if you can't, accept that the shot isn't there. Press the shutter five or six times in a row and pick the sharp one later.</p>
+      <p>Colour is another trap. The lamps run warm, sometimes green, and auto white balance often makes fur look dirty. The hedgehog in <em>Foraging</em> is pale cream; my first set came out yellow. Reshooting with the phone pointed at a white wall to reset the balance brought the colour back.</p>
+
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-glass" rel="prev">← Previous: Shooting Animals Through Glass</a>
+        <a class="post-nav-next" href="#post-images" rel="next">Next: Why Three Sizes for a 300 KB Photo →</a>
       </nav>
     </article>
 
     <article id="post-images" class="post">
-      <h2>图片为什么还要做三档</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录</p>
+      <h2>Why Three Sizes for a 300 KB Photo</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
 
-      <p>六张原图是 1920×1080 或者 1440×810，一张一百多到三百多 KB。单看不算大，问题是页面上的缩略图只有三百多像素宽——为了看个小方块，下的是整张大图。</p>
-      <p>所以每张导了三个宽度：480、960、1600（竖的那张是 480、960、1280）。页面上不写死用哪一张，只告诉浏览器「这个位置大概多宽」，让它自己挑。手机端实际只下 480 那档，一张十几到五十 KB。</p>
-      <p>另外两件小事：每张图都标上真实的长宽，加载前就知道要占多高，页面不会跳；缩略图改成滚到附近才下载，首屏之外的不用一上来就下。</p>
-      <p>后来发现档位不够。两倍屏的手机上，这个位置实际需要七百来像素宽的图，原来只有 480 和 960，只能往上跳到 960。补了 768 这一档之后，六张加起来从 585 KB 降到 436 KB。</p>
-      <p>中间出过一次事故。加档的时候那串标记写错了：768 后面粘了文件名，还漏掉了 960。浏览器只认出 480 和 1600 两档，两倍屏直接取了 1600——性能从 93 掉到 81，首屏那张图从 3.2 秒涨到 5.1 秒。翻网络面板才看出来。这东西写错不报错，只会让你多花几倍流量。</p>
-      <nav class="post-nav" aria-label="在笔记中导航">
-        <a class="post-nav-prev" href="#post-lowlight" rel="prev">← 上一篇：灯不够亮的时候</a>
-        <a class="post-nav-next" href="#post-a11y" rel="next">下一篇：用键盘看照片 →</a>
+      <p>The originals are 1920×1080 or 1440×810, between a hundred and three hundred-odd KB each. On its own that isn't much; the problem is that the thumbnails on the page are only about 330 pixels wide — a small square costs you the whole file.</p>
+      <p>So each photo is exported at three widths: 480, 960 and 1600 (the portrait one goes 480, 960, 1280). The page doesn't pin one; it tells the browser roughly how wide the slot is and lets it choose. On a phone it downloads the 480 file — fifteen to fifty KB.</p>
+      <p>Two smaller things as well: every image carries its real width and height, so the page knows how tall the slot is before the file arrives and nothing jumps; thumbnails only download when you scroll near them, so the ones below the fold don't load up front.</p>
+      <p>Later I found the ladder had a gap. On a 2× screen the slot needs roughly 700 pixels, and with only 480 and 960 available the browser jumped up to 960. Adding a 768 step brought all six down from 585 KB to 436 KB.</p>
+      <p>In the middle of that I broke it. The markup for the new step came out malformed: the filename got stuck after "768" and the 960 entry disappeared. The browser only recognised 480 and 1600, so a 2× screen took the 1600 file — performance fell from 93 to 81 and the first photo went from 3.2 s to 5.1 s. I only saw it in the network panel. Get this markup wrong and nothing errors; you just pay several times the bandwidth.</p>
+
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-lowlight" rel="prev">← Previous: When the Light Is Weak</a>
+        <a class="post-nav-next" href="#post-a11y" rel="next">Next: Using the Lightbox with a Keyboard →</a>
       </nav>
     </article>
 
     <article id="post-a11y" class="post">
-      <h2>用键盘看照片</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录</p>
+      <h2>Using the Lightbox with a Keyboard</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
 
-      <p>照片页的放大预览最早是自己写的一个方块加半透明遮罩：点图弹出来，点遮罩关掉。用鼠标没问题，用键盘根本打不开。</p>
-      <p>后来换成浏览器自带的对话框。它会自己把焦点锁在框里、按 Esc 关掉、把背后的内容设成不可操作，这几件都不用写。</p>
-      <p>但它只解决一半。还有两件得自己补：打开时把焦点放到「关闭」上，关掉后把焦点还给刚才那张。不补的话，用 Tab 浏览的人关掉大图，焦点会掉回页面开头，得重新走一遍导航。</p>
-      <p>加了前后切换之后又多一件事：关闭时焦点该回到「当前这张」，不是最初点开的那张。从第 4 张打开、翻到第 5 张、关掉，焦点留在第 4 张就不对了。</p>
-      <p>测试时还发现一个意外。这个浏览器里 Tab 会从「下一张」跑到背景的「跳到主要内容」，再跳回来。浏览器自带的对话框理论上该锁住，实际没锁严。补了十几行首尾相连。</p>
-      <nav class="post-nav" aria-label="在笔记中导航">
-        <a class="post-nav-prev" href="#post-images" rel="prev">← 上一篇：图片为什么还要做三档</a>
-        <a class="post-nav-next" href="#post-form" rel="next">下一篇：表单里我改了三遍的地方 →</a>
+      <p>The enlarged view on the photo page started as a plain box with a translucent overlay: click a photo to open, click the overlay to close. Fine with a mouse; impossible with a keyboard.</p>
+      <p>Then I switched to the browser's built-in dialog. It keeps focus inside the box, closes on Esc and makes everything behind it inert — none of which I have to write.</p>
+      <p>But that only covers half. Two things are left to do by hand: put focus on Close when it opens, and give focus back to the photo you came from when it closes. Without that, someone tabbing through the page loses their place and has to walk the navigation again.</p>
+      <p>Adding Previous/Next introduced one more: on close, focus should go to the photo you are actually looking at, not the one you originally opened. Open the fourth, step to the fifth, close — focus must not stay on the fourth.</p>
+      <p>Testing turned up a surprise. In this browser, Tab leapt from Next to the "Skip to content" link behind the dialog and then back in. The built-in dialog is supposed to keep focus inside; it didn't hold. I added a dozen lines to link the ends together.</p>
+
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-images" rel="prev">← Previous: Why Three Sizes for a 300 KB Photo</a>
+        <a class="post-nav-next" href="#post-form" rel="next">Next: The Form I Rewrote Three Times →</a>
       </nav>
     </article>
 
     <article id="post-form" class="post">
-      <h2>表单里我改了三遍的地方</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录<span class="post-updated"> · 最后更新 <time datetime="2026-10-20">2026年10月20日</time></span></p>
+      <h2>The Form I Rewrote Three Times</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes<span class="post-updated"> · Updated <time datetime="2026-10-20">20 October 2026</time></span></p>
 
-      <p>第一版的校验只有一句：看输入框里有没有 @ 号。我拿 a@b、test@、@x.com 试了一下，全过，还弹了「留言已记录」。这才意识到「有 @」和「是邮箱」差得远。</p>
-      <p>第二版写了一条规则检查结构，把错误提示和输入框关联起来，出错时也给读屏软件一个标记，它才会念出来。顺带修了个状态 bug：上一次成功后的提示，在后来校验失败时没有消失，看着像又成功了。</p>
-      <p>第三版改的是态度。这是纯静态站，没有服务器，表单根本存不下东西。与其显示「已收到」，不如老实说：点发送会调起邮件客户端，没弹出来就直接发邮件。页面上把邮箱也写出来了。</p>
-      <p>后来又加了个字数提示：输入框下面实时显示已经写了多少，快到上限时数字变红。原来是提交之后才因为太短报错，用户根本不知道上限在哪。先给反馈，比事后报错省一次往返。</p>
-      <nav class="post-nav" aria-label="在笔记中导航">
-        <a class="post-nav-prev" href="#post-a11y" rel="prev">← 上一篇：用键盘看照片</a>
-        <a class="post-nav-next" href="#post-layout" rel="next">下一篇：一列排到三列 →</a>
+      <p>The first version validated one thing: whether the box contained an @. I tried a@b, test@ and @x.com — all passed, and it thanked me for the message. That is when I realised "contains an @" and "is an email address" are very different claims.</p>
+      <p>The second version used a pattern to check the shape, tied each error message to its field, and told screen readers which field was invalid so it would be read out. It also fixed a state bug: the "sent" message from an earlier successful attempt never cleared when a later one failed, so it looked like it had worked again.</p>
+      <p>The third version changed the attitude. This is a static site with no server; the form cannot store anything. Rather than claim it received the message, it says plainly that Send opens your mail app, and that if nothing opens you can just write to the address — which is printed on the page.</p>
+      <p>Later I added a character count: a live number under the box that turns red near the limit. Before that you only learned about the minimum after submitting, with no idea where the ceiling was. Telling people as they type saves a round trip.</p>
+
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-a11y" rel="prev">← Previous: Using the Lightbox with a Keyboard</a>
+        <a class="post-nav-next" href="#post-layout" rel="next">Next: From One Column to Three →</a>
       </nav>
     </article>
 
     <article id="post-layout" class="post">
-      <h2>一列排到三列</h2>
-      <p class="post-meta"><time datetime="2026-10-19">2026年10月19日</time> · 做站记录</p>
+      <h2>From One Column to Three</h2>
+      <p class="post-meta"><time datetime="2026-10-19">19 October 2026</time> · Build notes</p>
 
-      <p>照片列表最早是按固定列数写的。手机上挤成一条缝，有时候还横向溢出去，得左右拖。</p>
-      <p>后来改成让浏览器自己算：容器放得下几列就排几列，每列最窄 220 像素。手机一列，平板两列，桌面三列，一行媒体查询都没写。</p>
-      <p>导航是反过来的。手机上默认收起，按钮点开；到 700 像素以上把按钮藏掉，列表横排。小屏的交互状态和大屏的静态布局混在一起容易打架，分开写省事。</p>
-      <p>验证的办法不是拖窗口看，而是在开发者工具里把宽度钉死：320、375、768、1440，每个看页面底部有没有横向滚动条。有滚动条就是某个元素比视口宽，一层层找。</p>
-      <nav class="post-nav" aria-label="在笔记中导航">
-        <a class="post-nav-prev" href="#post-form" rel="prev">← 上一篇：表单里我改了三遍的地方</a>
+      <p>The photo list started with a fixed number of columns. On a phone they squeezed into a sliver and sometimes overflowed sideways, needing a drag to read.</p>
+      <p>Now the browser does the arithmetic: as many columns as fit, each at least 220 pixels wide. One column on a phone, two on a tablet, three on a desktop, without a single media query.</p>
+      <p>The navigation works the other way round. Collapsed on a phone, opened by a button; above 700 pixels the button disappears and the list goes horizontal. Mixing a small-screen interaction with a large-screen layout causes fights; keeping them apart is easier.</p>
+      <p>The way to check isn't to drag the window about; it is to pin the width in dev tools — 320, 375, 768, 1440 — and look for a horizontal scrollbar at the bottom. A scrollbar means something is wider than the viewport; then you work down the tree until you find it.</p>
+
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-form" rel="prev">← Previous: The Form I Rewrote Three Times</a>
       </nav>
     </article>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year">2026</span> 韩宏涛 · 本站由我亲手写成</p>
-    <p class="footer-note">站内照片均为本人拍摄，未经许可请勿转载或商用。</p>
+    <p>© <span id="year">2026</span> Han Hongtao · built by hand</p>
+    <p class="footer-note">Every photograph here is mine. Please don't republish them without asking.</p>
   </footer>
 
   <script src="js/script.js" defer></script>

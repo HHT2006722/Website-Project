@@ -12,7 +12,9 @@ import io, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSS_PATH = os.path.join(ROOT, "css", "styles.css")
-PAGES = ["index.html", "works.html", "journal.html", "about.html", "contact.html", "404.html"]
+PAGES = ["index.html", "works.html", "journal.html", "about.html", "contact.html", "404.html",
+         "zh/index.html", "zh/works.html", "zh/journal.html", "zh/about.html",
+         "zh/contact.html", "zh/404.html"]
 
 JS_FLAG = "<script>document.documentElement.classList.add('js');</script>\n"
 HEADER = "    /* 本段由 tools/inline-css.py 从 css/styles.css 生成；改样式请改源文件后重跑 */\n"
@@ -31,7 +33,7 @@ def main():
     block = "  <style>\n" + HEADER + css.rstrip("\n") + "\n  </style>\n"
 
     for name in PAGES:
-        p = os.path.join(ROOT, name)
+        p = os.path.join(ROOT, *name.split("/"))
         with io.open(p, encoding="utf-8") as f:
             s = f.read()
 

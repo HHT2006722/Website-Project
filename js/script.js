@@ -8,6 +8,29 @@
    =========================================================== */
 'use strict';
 
+/* ---------- 界面文案：按 <html lang> 选中英文 ---------- */
+const STRINGS = {
+  zh: {
+    filterStatus: (shown, total) => '显示 ' + shown + ' 张，共 ' + total + ' 张',
+    lightboxStatus: (index, total, caption) => '第 ' + index + ' 张，共 ' + total + ' 张：' + caption,
+    required: '这一项不能为空',
+    email: '请输入有效的邮箱地址，例如 name@example.com',
+    tooShort: '至少写 5 个字，方便我了解你的来意',
+    fixCount: (n) => '还有 ' + n + ' 项需要修改，请检查标红的地方。',
+    mailtoOpened: (to) => '已打开你的邮件客户端，请在那里确认发送。如果没有任何反应，请直接写邮件到 ' + to + '。'
+  },
+  en: {
+    filterStatus: (shown, total) => 'Showing ' + shown + ' of ' + total + ' photos',
+    lightboxStatus: (index, total, caption) => index + ' of ' + total + ' · ' + caption,
+    required: 'This field can\'t be empty',
+    email: 'Enter a valid email address, for example name@example.com',
+    tooShort: 'A few more words, so I know what this is about',
+    fixCount: (n) => (n === 1 ? '1 field still needs fixing' : n + ' fields still need fixing') + ' — see the highlighted ones.',
+    mailtoOpened: (to) => 'Your mail app should have opened — confirm and send there. If nothing happened, write to ' + to + '.'
+  }
+};
+const T = STRINGS[(document.documentElement.lang || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en'];
+
 /* ---------- 1. 导航菜单 ---------- */
 (function initNav() {
   const toggle = document.querySelector('#navToggle');
@@ -109,7 +132,7 @@
     img.alt = item.alt;
     caption.textContent = item.caption;
     if (status) {
-      status.textContent = '第 ' + (current + 1) + ' 张，共 ' + order.length + ' 张：' + item.caption;
+      status.textContent = T.lightboxStatus(current + 1, order.length, item.caption);
     }
   }
 
@@ -197,12 +220,12 @@
 
   function errorFor(field) {
     const value = field.value.trim();
-    if (!value) return '这一项不能为空';
+    if (!value) return T.required;
     if (field.type === 'email' && !EMAIL_RE.test(value)) {
-      return '请输入有效的邮箱地址，例如 name@example.com';
+      return T.email;
     }
     if (field.id === 'message' && value.length < 5) {
-      return '至少写 5 个字，方便我了解你的来意';
+      return T.tooShort;
     }
     return '';
   }
@@ -238,7 +261,7 @@
     if (firstInvalid) {
       if (status) {
         status.className = 'status is-error';
-        status.textContent = '还有 ' + fields.filter((f) => f.getAttribute('aria-invalid') === 'true').length + ' 项需要修改，请检查标红的地方。';
+        status.textContent = T.fixCount(fields.filter((f) => f.getAttribute('aria-invalid') === 'true').length);
       }
       firstInvalid.focus();
       return;
@@ -253,7 +276,7 @@
 
     if (status) {
       status.className = 'status is-ok';
-      status.textContent = '已打开你的邮件客户端，请在那里确认发送。如果没有任何反应，请直接写邮件到 ' + TO + '。';
+      status.textContent = T.mailtoOpened(TO);
     }
 
     window.location.href = 'mailto:' + TO + '?subject=' + subject + '&body=' + body;
@@ -286,7 +309,7 @@
       button.setAttribute('aria-pressed', String(on));
     });
 
-    if (status) status.textContent = '显示 ' + shown + ' 张，共 ' + figures.length + ' 张';
+    if (status) status.textContent = T.filterStatus(shown, figures.length);
     syncUrl(filter);
   }
 

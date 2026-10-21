@@ -7,11 +7,11 @@
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
   <xsl:template match="/">
-    <html lang="zh-CN">
+    <html lang="en">
       <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title><xsl:value-of select="/rss/channel/title"/> · 订阅源</title>
+        <title><xsl:value-of select="/rss/channel/title"/> · Feed</title>
         <style>
           :root {
             --bg: #faf6f0; --card: #fff; --text: #2b2320; --muted: #6b5f55;
@@ -61,13 +61,13 @@
           </p>
 
           <div class="note">
-            这是这个站的 RSS 订阅源。用阅读器（Feedly、Inoreader、NetNewsWire
-            等）订阅下面这个地址，新笔记会自动推给你。<br/>
-            订阅地址：<code><xsl:value-of select="concat(/rss/channel/link, 'feed.xml')"/></code><br/>
-            只想看内容的话，<a>
+            This is the RSS feed for this site. Add the address below to a reader (Feedly, Inoreader, NetNewsWire
+            and so on) and new notes arrive on their own.<br/>
+            Feed address: <code><xsl:value-of select="concat(/rss/channel/link, 'feed.xml')"/></code><br/>
+            Just here to read? <a>
               <xsl:attribute name="href"><xsl:value-of select="/rss/channel/link"/></xsl:attribute>
-              直接回笔记页
-            </a>。
+              Back to the notes
+            </a>.
           </div>
 
           <ol>
@@ -97,7 +97,7 @@
           <nav>
             <a>
               <xsl:attribute name="href"><xsl:value-of select="/rss/channel/link"/></xsl:attribute>
-              ← 回「韩宏涛的观察本」
+              ← Back to Han Hongtao's Field Notes
             </a>
           </nav>
         </div>
