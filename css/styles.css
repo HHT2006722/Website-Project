@@ -413,6 +413,13 @@ main {
   text-decoration: none;
   color: var(--accent);
 }
+/* 每篇末尾的「回到目录」：靠右，和其他导航链接同高 */
+/* "Back to contents" at the end of a note: pushed right, same line as the others */
+.post-nav .post-top {
+  margin-left: auto;
+  color: var(--muted);
+}
+
 .post-nav a:hover { text-decoration: underline; }
 
 /* ---------- 关于页 ---------- */

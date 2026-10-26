@@ -395,6 +395,12 @@ main {
   text-decoration: none;
   color: var(--accent);
 }
+
+.post-nav .post-top {
+  margin-left: auto;
+  color: var(--muted);
+}
+
 .post-nav a:hover { text-decoration: underline; }
 
 .prose { max-width: 46rem; }
@@ -720,9 +726,10 @@ body { hanging-punctuation: allow-end; }
     <p class="lead">Problems I hit while shooting, and problems I hit while building this site. Newest first.</p>
     <p class="hint"><a href="feed.xml">Subscribe (RSS)</a> · RSS is a feed format: add this address to a reader (Feedly, NetNewsWire, and so on) and new notes arrive on their own. If you don't know what RSS is, just scroll down.</p>
 
-        <nav class="post-toc" aria-label="Contents">
+        <nav class="post-toc" id="contents" aria-label="Contents">
       <h2>Contents</h2>
       <ul>
+        <li><a href="#post-defence">Walking the Site the Way a Marker Would</a></li>
         <li><a href="#post-english">Why the Site Has an English Version</a></li>
         <li><a href="#post-filterbug">Two Photos Left, and It Still Paged to a Third</a></li>
         <li><a href="#post-images">Three Sizes for One Photo</a></li>
@@ -733,6 +740,20 @@ body { hanging-punctuation: allow-end; }
       </ul>
     </nav>
 
+    <article id="post-defence" class="post">
+      <h2>Walking the Site the Way a Marker Would</h2>
+      <p class="post-meta"><time datetime="2026-10-26">26 October 2026</time> · Build notes</p>
+
+      <p>The teacher will click while I talk. So today I added no features — I just walked the site in the order I plan to present it, looking for places it snags.</p>
+      <p>First snag: jump to the fourth note from the contents and getting back means scrolling a long way. Every note now ends with a "↑ Contents" link, sitting next to previous and next.</p>
+      <p>Second snag: it is easy to forget the next sentence while talking. There is now a five-minute script in the repository — seven notes, seven points, one sentence each, with the page to open beside it.</p>
+      <p>Third: the network in the room may not be good. The home page is 316 KiB and the notes page 53 KiB, and the images land in the cache. Clicking through the pages once before presenting does the rest.</p>
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-next" href="#post-english" rel="next">Next: Why the Site Has an English Version →</a>
+        <a class="post-top" href="#contents">↑ Contents</a>
+      </nav>
+    </article>
+
     <article id="post-english" class="post">
       <h2>Why the Site Has an English Version</h2>
       <p class="post-meta"><time datetime="2026-10-21">21 October 2026</time> · Build notes</p>
@@ -741,7 +762,9 @@ body { hanging-punctuation: allow-end; }
       <p>So the root is English, the Chinese version sits under zh/, and both share the images and scripts. The last nav item switches language, each page declares three hreflang links, and there are two feeds. I didn't swap text with JavaScript on one page: search engines would see only one language, and if the script failed the site would be monolingual again.</p>
       <p>The cost is that every Chinese sentence needs an English twin. Renaming two photos today touched twelve files and eighteen references. The code comments are two lines now, Chinese then English — but they're stripped when the stylesheet is inlined, because shipping the same explanation twelve times is pointless.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-defence" rel="prev">← Previous: Walking the Site the Way a Marker Would</a>
         <a class="post-nav-next" href="#post-filterbug" rel="next">Next: Two Photos Left, and It Still Paged to a Third →</a>
+        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -755,6 +778,7 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-english" rel="prev">← Previous: Why the Site Has an English Version</a>
         <a class="post-nav-next" href="#post-images" rel="next">Next: Three Sizes for One Photo →</a>
+        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -768,6 +792,7 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-filterbug" rel="prev">← Previous: Two Photos Left, and It Still Paged to a Third</a>
         <a class="post-nav-next" href="#post-a11y" rel="next">Next: Enlarging a Photo Without a Mouse →</a>
+        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -781,6 +806,7 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-images" rel="prev">← Previous: Three Sizes for One Photo</a>
         <a class="post-nav-next" href="#post-form" rel="next">Next: The Form I Rewrote Three Times →</a>
+        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -793,6 +819,7 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-a11y" rel="prev">← Previous: Enlarging a Photo Without a Mouse</a>
         <a class="post-nav-next" href="#post-shooting" rel="next">Next: Glass, Weak Light, and Waiting →</a>
+        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -807,6 +834,7 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-form" rel="prev">← Previous: The Form I Rewrote Three Times</a>
         <a class="post-nav-next" href="#post-theme" rel="next">Next: Swapping Out the Six Illustrations →</a>
+        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -819,6 +847,7 @@ body { hanging-punctuation: allow-end; }
       <p>The photographs are less pretty. Glass in the way, flat overhead light, animals that don't cooperate. So nothing under a photo claims it is good; each one says what I gave up.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-shooting" rel="prev">← Previous: Glass, Weak Light, and Waiting</a>
+        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
   </main>
