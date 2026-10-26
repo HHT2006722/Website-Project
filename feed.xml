@@ -6,8 +6,17 @@
     <link>https://hht2006722.github.io/Website-Project/</link>
     <description>Animal photography and shooting notes: photos taken through glass, and what each frame cost.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Oct 2026 21:17:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 16:58:00 +0800</lastBuildDate>
     <atom:link href="https://hht2006722.github.io/Website-Project/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Walking the Site the Way a Marker Would</title>
+      <link>https://hht2006722.github.io/Website-Project/journal.html#post-defence</link>
+      <guid isPermaLink="true">https://hht2006722.github.io/Website-Project/journal.html#post-defence</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate>
+      <atom:updated>2026-10-26</atom:updated>
+      <description>The teacher will click while I talk. So today I added no features — I just walked the site in the order I plan to present it, looking for pl…</description>
+      <category>Build notes</category>
+    </item>
     <item>
       <title>Why the Site Has an English Version</title>
       <link>https://hht2006722.github.io/Website-Project/journal.html#post-english</link>
