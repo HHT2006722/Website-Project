@@ -729,6 +729,7 @@ body { hanging-punctuation: allow-end; }
         <nav class="post-toc" id="contents" aria-label="Contents">
       <h2>Contents</h2>
       <ul>
+        <li><a href="#post-review">Checking the Site Against the Brief</a></li>
         <li><a href="#post-defence">Walking the Site the Way a Marker Would</a></li>
         <li><a href="#post-english">Why the Site Has an English Version</a></li>
         <li><a href="#post-filterbug">Two Photos Left, and It Still Paged to a Third</a></li>
@@ -740,6 +741,17 @@ body { hanging-punctuation: allow-end; }
       </ul>
     </nav>
 
+    <article id="post-review" class="post">
+      <h2>Checking the Site Against the Brief</h2>
+      <p class="post-meta"><time datetime="2026-10-29">29 October 2026</time> · Build notes</p>
+
+      <p>Nothing new today. I went through the requirements one by one against the files: six pages, working navigation, accessible markup, responsive layout, an interactive element, a live URL — all there. The one that isn't: the commit history doesn't show a semester. That can't be fixed by editing dates, and I won't.</p>
+      <p>Two small things came out of the pass: the English 404 page was missing three hreflang links, and the sitemap still said 21 October even though every page changed later that month.</p>
+      <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-next" href="#post-defence" rel="next">Next: Walking the Site the Way a Marker Would →</a>
+      </nav>
+    </article>
+
     <article id="post-defence" class="post">
       <h2>Walking the Site the Way a Marker Would</h2>
       <p class="post-meta"><time datetime="2026-10-26">26 October 2026</time> · Build notes</p>
@@ -749,8 +761,8 @@ body { hanging-punctuation: allow-end; }
       <p>Second snag: it is easy to forget the next sentence while talking. There is now a five-minute script in the repository — seven notes, seven points, one sentence each, with the page to open beside it.</p>
       <p>Third: the network in the room may not be good. The home page is 316 KiB and the notes page 53 KiB, and the images land in the cache. Clicking through the pages once before presenting does the rest.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
+        <a class="post-nav-prev" href="#post-review" rel="prev">← Previous: Checking the Site Against the Brief</a>
         <a class="post-nav-next" href="#post-english" rel="next">Next: Why the Site Has an English Version →</a>
-        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -764,7 +776,6 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-defence" rel="prev">← Previous: Walking the Site the Way a Marker Would</a>
         <a class="post-nav-next" href="#post-filterbug" rel="next">Next: Two Photos Left, and It Still Paged to a Third →</a>
-        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -778,7 +789,6 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-english" rel="prev">← Previous: Why the Site Has an English Version</a>
         <a class="post-nav-next" href="#post-images" rel="next">Next: Three Sizes for One Photo →</a>
-        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -792,7 +802,6 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-filterbug" rel="prev">← Previous: Two Photos Left, and It Still Paged to a Third</a>
         <a class="post-nav-next" href="#post-a11y" rel="next">Next: Enlarging a Photo Without a Mouse →</a>
-        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -806,7 +815,6 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-images" rel="prev">← Previous: Three Sizes for One Photo</a>
         <a class="post-nav-next" href="#post-form" rel="next">Next: The Form I Rewrote Three Times →</a>
-        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -819,7 +827,6 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-a11y" rel="prev">← Previous: Enlarging a Photo Without a Mouse</a>
         <a class="post-nav-next" href="#post-shooting" rel="next">Next: Glass, Weak Light, and Waiting →</a>
-        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -834,7 +841,6 @@ body { hanging-punctuation: allow-end; }
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-form" rel="prev">← Previous: The Form I Rewrote Three Times</a>
         <a class="post-nav-next" href="#post-theme" rel="next">Next: Swapping Out the Six Illustrations →</a>
-        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
 
@@ -847,7 +853,6 @@ body { hanging-punctuation: allow-end; }
       <p>The photographs are less pretty. Glass in the way, flat overhead light, animals that don't cooperate. So nothing under a photo claims it is good; each one says what I gave up.</p>
       <nav class="post-nav" aria-label="Navigate between notes">
         <a class="post-nav-prev" href="#post-shooting" rel="prev">← Previous: Glass, Weak Light, and Waiting</a>
-        <a class="post-top" href="#contents">↑ Contents</a>
       </nav>
     </article>
   </main>
