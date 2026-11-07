@@ -450,3 +450,12 @@ const T = STRINGS[(document.documentElement.lang || 'en').toLowerCase().startsWi
 
   btn.addEventListener("click", dotRain);
 })();
+
+/* ---------- 9. 全屏选择门：点跳过进主站 ---------- */
+/* ---------- 9. The choice gate: Skip reveals the main site ---------- */
+(function initChoiceGate() {
+  const gate = document.querySelector("#choiceGate");
+  const skip = document.querySelector("#gateSkip");
+  if (!gate || !skip) return;
+  skip.addEventListener("click", () => gate.remove());
+})();

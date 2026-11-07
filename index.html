@@ -883,9 +883,98 @@ body { hanging-punctuation: allow-end; }
     color: #fff;
   }
 }
+
+.choice-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  background: var(--line);
+}
+
+.gate-quad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--card);
+  padding: 1rem;
+}
+
+.gate-quad:hover,
+.gate-quad:focus-visible {
+  background: var(--bg);
+  outline: 2px solid var(--accent);
+  outline-offset: -4px;
+}
+
+.q-emoji {
+  font-size: 3.2rem;
+  line-height: 1.1;
+}
+
+.q-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.q-desc {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.gate-skip {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9991;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  border-radius: 99px;
+  padding: .4em 1.2em;
+  font: inherit;
+  cursor: pointer;
+}
+
+.gate-skip:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
   </style>
 </head>
 <body>
+  <div id="choiceGate" class="choice-gate">
+    <a class="gate-quad" href="works.html?cat=humanities">
+      <span class="q-emoji" aria-hidden="true">🏙️</span>
+      <span class="q-title">人文 · Humanities</span>
+      <span class="q-desc">People on streets and in markets</span>
+    </a>
+    <a class="gate-quad" href="works.html?cat=food">
+      <span class="q-emoji" aria-hidden="true">🍜</span>
+      <span class="q-title">美食 · Food</span>
+      <span class="q-desc">Food that stops you in your tracks</span>
+    </a>
+    <a class="gate-quad" href="works.html?cat=animals">
+      <span class="q-emoji" aria-hidden="true">🐾</span>
+      <span class="q-title">动物 · Animals</span>
+      <span class="q-desc">Animals photographed through glass</span>
+    </a>
+    <a class="gate-quad" href="works.html?cat=landscape">
+      <span class="q-emoji" aria-hidden="true">⛰️</span>
+      <span class="q-title">风景 · Landscape</span>
+      <span class="q-desc">Mountains and lakes</span>
+    </a>
+    <button id="gateSkip" class="gate-skip" type="button">跳过 · Skip</button>
+  </div>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
