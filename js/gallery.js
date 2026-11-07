@@ -24,6 +24,10 @@
     landscape: "#15803d",
   };
 
+  // 主打图 + 扩展图库合并成这一类的全部照片
+  // Featured photos plus the extended pool make up the full category
+  const photosOf = (cat) => cat.photos.concat((typeof GALLERY_POOL !== "undefined" ? GALLERY_POOL : {})[cat.id] || []);
+
   const params = new URLSearchParams(location.search);
   let currentId = GALLERY.categories.some((c) => c.id === params.get("cat"))
     ? params.get("cat") : GALLERY.categories[0].id;
@@ -59,7 +63,7 @@
     luckyBtn.textContent = "🎲 " + T(current.lucky);
 
     grid.innerHTML = "";
-    current.photos.forEach((photo) => {
+    photosOf(current).forEach((photo) => {
       const fig = document.createElement("figure");
       fig.className = "cat-item";
 
@@ -139,7 +143,10 @@
   }
 
   luckyBtn.addEventListener("click", () => {
-    const photo = current.photos[todayIndex(current)];
+    const photos = photosOf(current);
+    const d = new Date();
+    const seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+    const photo = photos[seed % photos.length];
 
     luckyBox.innerHTML = "";
     const title = document.createElement("h2");
