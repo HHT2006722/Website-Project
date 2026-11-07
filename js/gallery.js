@@ -28,6 +28,11 @@
   // Featured photos plus the extended pool make up the full category
   const photosOf = (cat) => cat.photos.concat((typeof GALLERY_POOL !== "undefined" ? GALLERY_POOL : {})[cat.id] || []);
 
+  // 图片路径按页面位置加前缀：zh/de 页面的资源在上一层
+  // Image paths get a prefix by page location: assets live one level up on zh/de pages
+  const pathParts = location.pathname.split("/").filter(Boolean);
+  const IMG = pathParts.includes("zh") || pathParts.includes("de") ? "../" : "";
+
   const params = new URLSearchParams(location.search);
   let currentId = GALLERY.categories.some((c) => c.id === params.get("cat"))
     ? params.get("cat") : GALLERY.categories[0].id;
@@ -73,9 +78,9 @@
       btn.setAttribute("aria-label", T(photo.alt));
 
       const img = document.createElement("img");
-      img.src = photo.src;
+      img.src = IMG + photo.src;
       img.alt = T(photo.alt);
-      if (photo.srcset) img.srcset = photo.srcset;
+      if (photo.srcset) img.srcset = photo.srcset.split(", ").map((e) => IMG + e).join(", ");
       img.sizes = "(min-width: 1000px) 300px, 92vw";
       img.width = photo.w;
       img.height = photo.h;
@@ -104,7 +109,7 @@
   }
 
   function bigSrc(photo) {
-    return photo.srcset ? photo.srcset.split(", ").pop().split(" ")[0] : photo.src;
+    return IMG + (photo.srcset ? photo.srcset.split(", ").pop().split(" ")[0] : photo.src);
   }
 
   function openStory(photo) {

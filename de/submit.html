@@ -1229,6 +1229,75 @@ main > h1::after {
     animation: none;
   }
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  z-index: 9999;
+  background: linear-gradient(90deg, #e0245e, #ea580c, #15803d, #0e7490, #e0245e);
+  background-size: 200% 100%;
+  animation: hue-slide 6s linear infinite;
+}
+
+body {
+  background:
+    radial-gradient(620px 420px at 8% 12%, rgba(224, 36, 94, .08), transparent 62%),
+    radial-gradient(620px 420px at 92% 18%, rgba(14, 116, 144, .08), transparent 62%),
+    radial-gradient(720px 520px at 50% 92%, rgba(21, 128, 61, .07), transparent 62%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+.cat-btn[data-cat="humanities"] { border-color: #0e7490; color: #0e7490; }
+.cat-btn[data-cat="food"]       { border-color: #dc2626; color: #dc2626; }
+.cat-btn[data-cat="animals"]    { border-color: #ea580c; color: #ea580c; }
+.cat-btn[data-cat="landscape"]  { border-color: #15803d; color: #15803d; }
+
+.cat-btn.is-active {
+  background: var(--cat, var(--accent));
+  border-color: var(--cat, var(--accent));
+  color: #fff;
+}
+
+.news-zone {
+  background: color-mix(in srgb, var(--cat, var(--accent)) 9%, var(--card));
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+.site-footer {
+  background: linear-gradient(120deg, #16100d, #2b1a14);
+  color: #e9ddd0;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, #e0245e, #ea580c, #15803d, #0e7490) 1;
+}
+
+.site-footer a {
+  color: #f3a35c;
+}
+
+.quad-humanities .q-title { border-bottom: 3px solid #67e8f9; padding-bottom: .2rem; }
+.quad-food .q-title       { border-bottom: 3px solid #fca5a5; padding-bottom: .2rem; }
+.quad-animals .q-title    { border-bottom: 3px solid #fdba74; padding-bottom: .2rem; }
+.quad-landscape .q-title  { border-bottom: 3px solid #86efac; padding-bottom: .2rem; }
+
+.site-nav a[aria-current="page"] {
+  background: linear-gradient(120deg, #b34e17, #e0245e);
+  color: #fff;
+  border-radius: 99px;
+  padding: .15em .8em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}
   </style>
 </head>
 <body>
@@ -1303,7 +1372,7 @@ main > h1::after {
     <p>© <span id="year">2026</span> Photo Fortune · von Hand gebaut</p>
       </footer>
 
-  <script src="../js/script.js?v=18" defer></script>
-  <script src="../js/submit.js?v=18" defer></script>
+  <script src="../js/script.js?v=19" defer></script>
+  <script src="../js/submit.js?v=19" defer></script>
 </body>
 </html>

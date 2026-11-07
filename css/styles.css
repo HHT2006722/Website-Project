@@ -1343,3 +1343,91 @@ main > h1::after {
     animation: none;
   }
 }
+
+/* ---------- UI 二轮升级：整体不再单一 ---------- */
+/* ---------- UI round two: no more flat single colour ---------- */
+
+/* 顶部一条流动彩虹条，全站可见 */
+/* A flowing rainbow bar at the very top, visible everywhere */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  z-index: 9999;
+  background: linear-gradient(90deg, #e0245e, #ea580c, #15803d, #0e7490, #e0245e);
+  background-size: 200% 100%;
+  animation: hue-slide 6s linear infinite;
+}
+
+/* 页面极光底色：三团淡淡的彩色光晕铺在背景上 */
+/* Aurora wash: three soft colour glows behind everything */
+body {
+  background:
+    radial-gradient(620px 420px at 8% 12%, rgba(224, 36, 94, .08), transparent 62%),
+    radial-gradient(620px 420px at 92% 18%, rgba(14, 116, 144, .08), transparent 62%),
+    radial-gradient(720px 520px at 50% 92%, rgba(21, 128, 61, .07), transparent 62%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+/* 分类按钮：每个按钮自己的颜色，选中才实心 */
+/* Category buttons: each in its own colour, filled when active */
+.cat-btn[data-cat="humanities"] { border-color: #0e7490; color: #0e7490; }
+.cat-btn[data-cat="food"]       { border-color: #dc2626; color: #dc2626; }
+.cat-btn[data-cat="animals"]    { border-color: #ea580c; color: #ea580c; }
+.cat-btn[data-cat="landscape"]  { border-color: #15803d; color: #15803d; }
+
+.cat-btn.is-active {
+  background: var(--cat, var(--accent));
+  border-color: var(--cat, var(--accent));
+  color: #fff;
+}
+
+/* 今日新闻：本类颜色的浅色底 */
+/* News panel: a soft tint of the category colour */
+.news-zone {
+  background: color-mix(in srgb, var(--cat, var(--accent)) 9%, var(--card));
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+/* 页脚：深色渐变 + 顶部彩虹线 */
+/* Footer: dark gradient with a rainbow top edge */
+.site-footer {
+  background: linear-gradient(120deg, #16100d, #2b1a14);
+  color: #e9ddd0;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, #e0245e, #ea580c, #15803d, #0e7490) 1;
+}
+
+.site-footer a {
+  color: #f3a35c;
+}
+
+/* 象限标题下面的本类颜色小横线 */
+/* A small category-coloured line under each quadrant title */
+.quad-humanities .q-title { border-bottom: 3px solid #67e8f9; padding-bottom: .2rem; }
+.quad-food .q-title       { border-bottom: 3px solid #fca5a5; padding-bottom: .2rem; }
+.quad-animals .q-title    { border-bottom: 3px solid #fdba74; padding-bottom: .2rem; }
+.quad-landscape .q-title  { border-bottom: 3px solid #86efac; padding-bottom: .2rem; }
+
+/* 导航当前页：彩色小药丸 */
+/* Current nav page as a coloured pill */
+.site-nav a[aria-current="page"] {
+  background: linear-gradient(120deg, #b34e17, #e0245e);
+  color: #fff;
+  border-radius: 99px;
+  padding: .15em .8em;
+}
+
+/* 减少动效：彩虹条静止 */
+/* Reduced motion: the rainbow bar stands still */
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}
