@@ -106,7 +106,7 @@
   // Featured photos plus the extended pool make up the full category
   const photosOf = (cat) => cat.photos.concat((typeof GALLERY_POOL !== "undefined" ? GALLERY_POOL : {})[cat.id] || []);
 
-  // 热门：主打图 + 按日期从池里挑 6 张（每天不一样）
+  // 热门：主打图 + 按日期从池里挑 6 张（每天不一样，线性取数保证不重复）
   // Hot: featured photos plus 6 date-seeded picks from the pool
   const hotPhotos = (cat) => {
     const pool = (typeof GALLERY_POOL !== "undefined" ? GALLERY_POOL : {})[cat.id] || [];
@@ -114,12 +114,16 @@
     const seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
     const picks = [];
     const seen = new Set(cat.photos.map((p) => p.src));
-    for (let i = 0; i < 6 && picks.length < 6 && pool.length; i++) {
-      const p = pool[(seed + i * 7) % pool.length];
+    let idx = seed % Math.max(pool.length, 1);
+    let guard = 0;
+    while (picks.length < 6 && guard < pool.length + 6) {
+      const p = pool[idx % pool.length];
       if (!seen.has(p.src)) {
         seen.add(p.src);
         picks.push(p);
       }
+      idx += 1;
+      guard += 1;
     }
     return cat.photos.concat(picks);
   };
@@ -152,23 +156,21 @@
       current = cat;
       history.replaceState(null, "", "?cat=" + cat.id);
       render();
-      menuPanel.hidden = true;
-      menuBtn.setAttribute("aria-expanded", "false");
+      setMenuOpen(false);
     });
     menuPanel.appendChild(b);
   });
 
-  // 类别下拉开关
-  menuBtn.addEventListener("click", () => {
-    const open = menuPanel.hidden;
+  // 类别下拉开关（class + hidden 双保险）
+  // Category menu toggle (class plus hidden, belt and braces)
+  function setMenuOpen(open) {
+    menuPanel.classList.toggle("is-open", open);
     menuPanel.hidden = !open;
     menuBtn.setAttribute("aria-expanded", String(open));
-  });
+  }
+  menuBtn.addEventListener("click", () => setMenuOpen(menuPanel.hidden));
   document.addEventListener("click", (e) => {
-    if (!e.target.closest(".cat-menu")) {
-      menuPanel.hidden = true;
-      menuBtn.setAttribute("aria-expanded", "false");
-    }
+    if (!e.target.closest(".cat-menu")) setMenuOpen(false);
   });
 
   // 热门 / 综合 / 收藏
@@ -203,6 +205,10 @@
     const all = photosOf(current);
     const shown = sortMode === "hot" ? hotPhotos(current)
       : sortMode === "fav" ? all.filter((p) => store.isFav(p)) : all;
+
+    // 热门用大卡布局，和综合明显区分
+    // Hot uses big cards so it never looks like the same group as All
+    grid.classList.toggle("is-hot", sortMode === "hot");
 
     grid.innerHTML = "";
     if (!shown.length) {
@@ -275,6 +281,14 @@
 
       actions.appendChild(likeBtn);
       actions.appendChild(favBtn);
+
+      // 热门角标
+      if (sortMode === "hot") {
+        const badge = document.createElement("span");
+        badge.className = "hot-badge";
+        badge.textContent = "🔥 " + SORT[0];
+        imgWrap.appendChild(badge);
+      }
 
       const cap = document.createElement("figcaption");
       const line = document.createElement("span");

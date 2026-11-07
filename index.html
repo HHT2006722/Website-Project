@@ -1389,8 +1389,12 @@ body {
   border-radius: var(--radius);
   box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
   padding: .5rem;
-  display: grid;
+  display: none;
   gap: .35rem;
+}
+
+.cat-menu-panel.is-open {
+  display: grid;
 }
 
 .cat-menu-panel .cat-btn {
@@ -1439,6 +1443,23 @@ body {
   width: 100%;
   height: auto;
   border-radius: 6px;
+}
+
+.cat-gallery.is-hot {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.1rem;
+}
+
+.hot-badge {
+  position: absolute;
+  left: .5rem;
+  top: .5rem;
+  z-index: 2;
+  background: linear-gradient(120deg, #b34e17, #e0245e);
+  color: #fff;
+  border-radius: 99px;
+  padding: .15em .7em;
+  font-size: .78rem;
 }
 
 .cat-actions {
@@ -1569,7 +1590,7 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · built by hand</p>
       </footer>
 
-  <script src="js/script.js?v=23" defer></script>
-  <script src="js/home-pool.js?v=23" defer></script>
+  <script src="js/script.js?v=24" defer></script>
+  <script src="js/home-pool.js?v=24" defer></script>
 </body>
 </html>
