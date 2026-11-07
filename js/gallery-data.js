@@ -28,7 +28,8 @@ const GALLERY = {
                        de: "Heute ist Fantasie mehr wert als Wissen." },
           credit: { en: "Photo by Orren Jack Turner · 1947 · Public domain · Wikimedia Commons",
                     zh: "摄影：Orren Jack Turner · 1947 · 公有领域 · Wikimedia Commons",
-                    de: "Foto: Orren Jack Turner · 1947 · Public domain · Wikimedia Commons" } },
+                    de: "Foto: Orren Jack Turner · 1947 · Public domain · Wikimedia Commons" },
+          desc: { en: "Albert Einstein photographed in 1947 by Orren Jack Turner in Princeton. Turner's portrait became the classic press image of Einstein, reproduced in countless reports, books and textbooks around the world.", zh: "1947 年，奥伦·杰克·特纳在普林斯顿为爱因斯坦拍下这张肖像。它后来成为爱因斯坦最经典的新闻照片，被世界各地的报道、书籍和教科书反复引用。", de: "Albert Einstein, 1947 von Orren Jack Turner in Princeton fotografiert. Das Porträt wurde zum klassischen Pressebild Einsteins und in zahllosen Berichten, Büchern und Lehrbüchern weltweit abgedruckt." } },
         { src: "img/cat-humanities-2.jpg", w: 414, h: 560, srcset: "", source: "https://commons.wikimedia.org/wiki/File:Chaplin%20The%20Kid%20edit.jpg",
           alt: { en: "Charlie Chaplin, 1921", zh: "查理·卓别林（1921）", de: "Charlie Chaplin, 1921" },
           line: { en: "Charlie Chaplin in 1921, the year The Kid made him world news.",
@@ -39,7 +40,8 @@ const GALLERY = {
                        de: "Lache heute über das Schwere." },
           credit: { en: "Photo · 1921 · Public domain · Wikimedia Commons",
                     zh: "摄影 · 1921 · 公有领域 · Wikimedia Commons",
-                    de: "Foto · 1921 · Public domain · Wikimedia Commons" } },
+                    de: "Foto · 1921 · Public domain · Wikimedia Commons" },
+          desc: { en: "Charlie Chaplin in 1921, the year he released The Kid — his first feature-length film. The film's success made him front-page news around the world and turned the Tramp into one of the most recognised faces of the century.", zh: "1921 年的查理·卓别林——这一年他推出了首部长片《寻子遇仙记》。影片的巨大成功让他登上世界各地的头版，也让流浪汉形象成为二十世纪最著名的面孔之一。", de: "Charlie Chaplin 1921, im Jahr der Veröffentlichung von The Kid, seinem ersten abendfüllenden Film. Der Erfolg machte ihn weltweit zur Schlagzeile und den Tramp zu einem der bekanntesten Gesichter des Jahrhunderts." } },
         { src: "img/cat-humanities-3.jpg", w: 560, h: 375, srcset: "", source: "https://commons.wikimedia.org/wiki/File:Gandhi%20and%20Nehru%201946.jpg",
           alt: { en: "Gandhi and Nehru, July 1946", zh: "甘地与尼赫鲁（1946 年 7 月）", de: "Gandhi und Nehru, Juli 1946" },
           line: { en: "Gandhi and Nehru together, 6 July 1946, photographed for the Associated Press.",
@@ -50,7 +52,8 @@ const GALLERY = {
                        de: "Heute ist Sanftheit eine Form von Stärke." },
           credit: { en: "Photo by Max Desfor (AP) · 1946-07-06 · Public domain · Wikimedia Commons",
                     zh: "摄影：Max Desfor（美联社）· 1946-07-06 · 公有领域 · Wikimedia Commons",
-                    de: "Foto: Max Desfor (AP) · 1946-07-06 · Public domain · Wikimedia Commons" } }
+                    de: "Foto: Max Desfor (AP) · 1946-07-06 · Public domain · Wikimedia Commons" },
+          desc: { en: "Gandhi and Nehru together on 6 July 1946, photographed by Max Desfor for the Associated Press during the negotiations that led to India's independence. Desfor won a Pulitzer Prize in 1951 for his Korean War coverage.", zh: "甘地与尼赫鲁，1946 年 7 月 6 日由美联社记者马克斯·德斯福拍下的合影，摄于通向印度独立的谈判期间。德斯福后来因朝鲜战争报道获得 1951 年普利策奖。", de: "Gandhi und Nehru am 6. Juli 1946, fotografiert von Max Desfor für die Associated Press während der Verhandlungen, die zu Indiens Unabhängigkeit führten. Desfor erhielt 1951 für seine Korea-Berichterstattung den Pulitzer-Preis." } }
       ]
     },
     {
@@ -79,7 +82,8 @@ const GALLERY = {
                        de: "Iss heute eine richtige Mahlzeit — und genieße sie langsam." },
           credit: { en: "Photo by Kritzolina · 2019-06-05 · CC BY-SA 4.0 · Wikimedia Commons",
                     zh: "摄影：Kritzolina · 2019-06-05 · CC BY-SA 4.0 · Wikimedia Commons",
-                    de: "Foto: Kritzolina · 2019-06-05 · CC BY-SA 4.0 · Wikimedia Commons" } },
+                    de: "Foto: Kritzolina · 2019-06-05 · CC BY-SA 4.0 · Wikimedia Commons" },
+          desc: { en: "This photo shows \"A street food market in Bizerte: taste comes before language.\". It was taken by Kritzolina in 2019-06-05. It is published under CC BY-SA 4.0. The original file and its full history are on Wikimedia Commons (link below).", zh: "这张照片是《突尼斯街头的食物摊：味道先于语言。》。由 Kritzolina 摄于 2019-06-05 年。以 CC BY-SA 4.0 许可发布。原文件与完整历史见下方维基共享资源链接。", de: "Dieses Foto zeigt „Ein Straßenimbiss in Bizerte: Geschmack kommt vor der Sprache.\". Es wurde 2019-06-05 von Kritzolina aufgenommen. Es steht unter CC BY-SA 4.0. Originaldatei und vollständige Geschichte: Wikimedia Commons (Link unten)." } },
         { src: "img/cat-food-2.jpg", w: 560, h: 420, srcset: "", source: "https://commons.wikimedia.org/wiki/Reffen_Copenhagen_Street_Food_Market.jpg",
           alt: { en: "Food trucks at Reffen, Copenhagen", zh: "摄影 · Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons", de: "Foto · Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons" },
           line: { en: "Copenhagen's food truck market: a city putting its tastes on display.",
@@ -90,7 +94,8 @@ const GALLERY = {
                        de: "Probier heute etwas, das du noch nie gegessen hast." },
           credit: { en: "Photo by Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons",
                     zh: "摄影：Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons",
-                    de: "Foto: Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons" } },
+                    de: "Foto: Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons" },
+          desc: { en: "This photo shows \"Copenhagen's food truck market: a city putting its tastes on display.\". It was taken by Turaids in 2022-04-05. It is published under CC BY-SA 4.0. The original file and its full history are on Wikimedia Commons (link below).", zh: "这张照片是《哥本哈根的餐车集市：一座城市把自己的味道摆出来。》。由 Turaids 摄于 2022-04-05 年。以 CC BY-SA 4.0 许可发布。原文件与完整历史见下方维基共享资源链接。", de: "Dieses Foto zeigt „Kopenhagens Foodtruck-Markt: Eine Stadt stellt ihre Geschmäcker aus.\". Es wurde 2022-04-05 von Turaids aufgenommen. Es steht unter CC BY-SA 4.0. Originaldatei und vollständige Geschichte: Wikimedia Commons (Link unten)." } },
         { src: "img/cat-food-3.jpg", w: 560, h: 420, srcset: "", source: "https://commons.wikimedia.org/wiki/Reffen_Copenhagen_Street_Food_Market_%285%29.jpg",
           alt: { en: "Eating under the open sky at Reffen", zh: "摄影 · Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons", de: "Foto · Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons" },
           line: { en: "Eating under the open sky: food pulls people close.",
@@ -101,7 +106,8 @@ const GALLERY = {
                        de: "Teile heute eine Mahlzeit mit jemandem." },
           credit: { en: "Photo by Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons",
                     zh: "摄影：Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons",
-                    de: "Foto: Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons" } }
+                    de: "Foto: Turaids · 2022-04-05 · CC BY-SA 4.0 · Wikimedia Commons" },
+          desc: { en: "This photo shows \"Eating under the open sky: food pulls people close.\". It was taken by Turaids in 2022-04-05. It is published under CC BY-SA 4.0. The original file and its full history are on Wikimedia Commons (link below).", zh: "这张照片是《在天空下吃饭：食物把天南地北的人拉近。》。由 Turaids 摄于 2022-04-05 年。以 CC BY-SA 4.0 许可发布。原文件与完整历史见下方维基共享资源链接。", de: "Dieses Foto zeigt „Essen unter freiem Himmel: Essen bringt Menschen einander näher.\". Es wurde 2022-04-05 von Turaids aufgenommen. Es steht unter CC BY-SA 4.0. Originaldatei und vollständige Geschichte: Wikimedia Commons (Link unten)." } }
       ]
     },
     {
@@ -130,7 +136,8 @@ const GALLERY = {
           luckyLine: { en: "Today rewards patience: what you want will come on its own.",
                        zh: "今天适合等待：你想的东西会自己过来。",
                        de: "Heute belohnt Geduld: Was du willst, kommt von selbst." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-02-768.webp",
           srcset: "img/work-02-480.webp 480w, img/work-02-768.webp 768w, img/work-02-960.webp 960w, img/work-02-1600.webp 1600w",
           w: 1600, h: 900,
@@ -141,7 +148,8 @@ const GALLERY = {
           luckyLine: { en: "Today, say what is on your mind — someone will answer.",
                        zh: "今天把想说的话说出来，会有人回应。",
                        de: "Sag heute, was du denkst — jemand wird antworten." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-03-768.webp",
           srcset: "img/work-03-480.webp 480w, img/work-03-768.webp 768w, img/work-03-960.webp 960w, img/work-03-1280.webp 1280w",
           w: 1280, h: 1707,
@@ -152,7 +160,8 @@ const GALLERY = {
           luckyLine: { en: "Today, make room to play — being serious can wait.",
                        zh: "今天留点时间玩，认真可以等一等。",
                        de: "Nimm dir heute Zeit zum Spielen — Ernstsein kann warten." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-04-768.webp",
           srcset: "img/work-04-480.webp 480w, img/work-04-768.webp 768w, img/work-04-960.webp 960w, img/work-04-1440.webp 1440w",
           w: 1440, h: 810,
@@ -163,7 +172,8 @@ const GALLERY = {
           luckyLine: { en: "Today, prepare first, then act.",
                        zh: "今天先准备好，再动手。",
                        de: "Heute erst vorbereiten, dann handeln." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-05-768.webp",
           srcset: "img/work-05-480.webp 480w, img/work-05-768.webp 768w, img/work-05-960.webp 960w, img/work-05-1440.webp 1440w",
           w: 1440, h: 810,
@@ -174,7 +184,8 @@ const GALLERY = {
           luckyLine: { en: "Today, a light will fall on you — stand where it can reach.",
                        zh: "今天会有一束光打在你身上，站到它够得着的地方。",
                        de: "Heute fällt ein Licht auf dich — stell dich dorthin, wo es hinkommt." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-06-768.webp",
           srcset: "img/work-06-480.webp 480w, img/work-06-768.webp 768w, img/work-06-960.webp 960w, img/work-06-1440.webp 1440w",
           w: 1440, h: 810,
@@ -185,7 +196,8 @@ const GALLERY = {
           luckyLine: { en: "Today is for rest — enough is enough.",
                        zh: "今天适合休息，够了就是够了。",
                        de: "Heute ist Ruhetag — genug ist genug." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } }
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } }
       ]
     },
     {
@@ -214,7 +226,8 @@ const GALLERY = {
                        de: "Schau heute weiter als sonst — die Antwort liegt weiter draußen." },
           credit: { en: "Photo by Chensiyuan · 2019-06-16 · CC BY-SA 4.0 · Wikimedia Commons",
                     zh: "摄影：Chensiyuan · 2019-06-16 · CC BY-SA 4.0 · Wikimedia Commons",
-                    de: "Foto: Chensiyuan · 2019-06-16 · CC BY-SA 4.0 · Wikimedia Commons" } },
+                    de: "Foto: Chensiyuan · 2019-06-16 · CC BY-SA 4.0 · Wikimedia Commons" },
+          desc: { en: "This photo shows \"Lake Louise: the mountains hold the lake.\". It was taken by Chensiyuan in 2019-06-16. It is published under CC BY-SA 4.0. The original file and its full history are on Wikimedia Commons (link below).", zh: "这张照片是《路易斯湖：山把湖抱在怀里。》。由 Chensiyuan 摄于 2019-06-16 年。以 CC BY-SA 4.0 许可发布。原文件与完整历史见下方维基共享资源链接。", de: "Dieses Foto zeigt „Lake Louise: Die Berge halten den See.\". Es wurde 2019-06-16 von Chensiyuan aufgenommen. Es steht unter CC BY-SA 4.0. Originaldatei und vollständige Geschichte: Wikimedia Commons (Link unten)." } },
         { src: "img/cat-landscape-2.jpg", w: 560, h: 350, srcset: "", source: "https://commons.wikimedia.org/wiki/Ergaki%2C_Mountain_lake_Skazka%2C_Rock_formations%2C_Sayan_Mountains%2C_Russia.jpg",
           alt: { en: "Mountain lake Skazka in the Ergaki range", zh: "摄影 · Vyacheslav Argenberg · 2016-07-31 · CC BY 4.0 · Wikimedia Commons", de: "Foto · Vyacheslav Argenberg · 2016-07-31 · CC BY 4.0 · Wikimedia Commons" },
           line: { en: "Siberia's rocks and lake: quiet enough to hear yourself.",
@@ -225,7 +238,8 @@ const GALLERY = {
                        de: "Behalte heute ein wenig Stille für dich." },
           credit: { en: "Photo by Vyacheslav Argenberg · 2016-07-31 · CC BY 4.0 · Wikimedia Commons",
                     zh: "摄影：Vyacheslav Argenberg · 2016-07-31 · CC BY 4.0 · Wikimedia Commons",
-                    de: "Foto: Vyacheslav Argenberg · 2016-07-31 · CC BY 4.0 · Wikimedia Commons" } },
+                    de: "Foto: Vyacheslav Argenberg · 2016-07-31 · CC BY 4.0 · Wikimedia Commons" },
+          desc: { en: "This photo shows \"Siberia's rocks and lake: quiet enough to hear yourself.\". It was taken by Vyacheslav Argenberg in 2016-07-31. It is published under CC BY 4.0. The original file and its full history are on Wikimedia Commons (link below).", zh: "这张照片是《西伯利亚的石头和湖：安静到听得见自己。》。由 Vyacheslav Argenberg 摄于 2016-07-31 年。以 CC BY 4.0 许可发布。原文件与完整历史见下方维基共享资源链接。", de: "Dieses Foto zeigt „Felsen und See in Sibirien: still genug, um sich selbst zu hören.\". Es wurde 2016-07-31 von Vyacheslav Argenberg aufgenommen. Es steht unter CC BY 4.0. Originaldatei und vollständige Geschichte: Wikimedia Commons (Link unten)." } },
         { src: "img/cat-landscape-3.jpg", w: 560, h: 370, srcset: "", source: "https://commons.wikimedia.org/wiki/Jokulsarlon_lake%2C_Iceland.jpg",
           alt: { en: "Jökulsárlón glacier lagoon, Iceland", zh: "摄影 · Kenny Muir · Taken · CC BY 2.0 · Wikimedia Commons", de: "Foto · Kenny Muir · Taken · CC BY 2.0 · Wikimedia Commons" },
           line: { en: "Iceland's glacier lagoon: blue ice drifts to the sea.",
@@ -236,7 +250,8 @@ const GALLERY = {
                        de: "Heute ist gut, um die nächste Reise zu planen." },
           credit: { en: "Photo by Kenny Muir · 2006 · CC BY 2.0 · Wikimedia Commons",
                     zh: "摄影：Kenny Muir · 2006 · CC BY 2.0 · Wikimedia Commons",
-                    de: "Foto: Kenny Muir · 2006 · CC BY 2.0 · Wikimedia Commons" } }
+                    de: "Foto: Kenny Muir · 2006 · CC BY 2.0 · Wikimedia Commons" },
+          desc: { en: "This photo shows \"Iceland's glacier lagoon: blue ice drifts to the sea.\". It was taken by Kenny Muir in 2006. It is published under CC BY 2.0. The original file and its full history are on Wikimedia Commons (link below).", zh: "这张照片是《冰岛的冰湖：蓝色冰块漂向海。》。由 Kenny Muir 摄于 2006 年。以 CC BY 2.0 许可发布。原文件与完整历史见下方维基共享资源链接。", de: "Dieses Foto zeigt „Die Gletscherlagune Islands: Blaues Eis treibt zum Meer.\". Es wurde 2006 von Kenny Muir aufgenommen. Es steht unter CC BY 2.0. Originaldatei und vollständige Geschichte: Wikimedia Commons (Link unten)." } }
       ]
     }
   ]
