@@ -475,3 +475,17 @@ const T = STRINGS[L.startsWith('zh') ? 'zh' : L.startsWith('de') ? 'de' : 'en'];
   }
   if (skip) skip.addEventListener("click", () => gate.remove());
 })();
+
+/* ---------- 10. 入口介绍弹窗：先说清楚网站是做什么的 ---------- */
+/* ---------- 10. Intro dialog: explain the site before choosing ---------- */
+(function initIntro() {
+  const box = document.querySelector("#introBox");
+  const start = document.querySelector("#introStart");
+  const gate = document.querySelector("#choiceGate");
+  if (!box || !gate || typeof box.showModal !== "function") return;
+  // 语言切换带 ?skip=1 时不再弹
+  // Language links carry ?skip=1, so the intro is skipped there too
+  if (new URLSearchParams(location.search).has("skip")) return;
+  if (!box.open) box.showModal();
+  if (start) start.addEventListener("click", () => box.close());
+})();

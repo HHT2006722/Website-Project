@@ -1498,6 +1498,34 @@ body {
   border: 1px dashed var(--line);
   border-radius: var(--radius);
 }
+
+.intro-box {
+  width: min(92vw, 480px);
+  padding: 1.6rem 1.4rem;
+  border-radius: var(--radius);
+  border: 0;
+  border-top: 6px solid transparent;
+  border-image: linear-gradient(90deg, #e0245e, #ea580c, #15803d, #0e7490) 1;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+}
+
+.intro-box h2 {
+  margin-top: 0;
+}
+
+.intro-box p {
+  line-height: 1.6;
+}
+
+.intro-box .button {
+  margin-top: .6rem;
+}
+
+.intro-box::backdrop {
+  background: rgba(20, 16, 13, .55);
+}
   </style>
 </head>
 <body>
@@ -1590,7 +1618,13 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · built by hand</p>
       </footer>
 
-  <script src="js/script.js?v=25" defer></script>
-  <script src="js/home-pool.js?v=25" defer></script>
+  <script src="js/script.js?v=26" defer></script>
+  <script src="js/home-pool.js?v=26" defer></script>
+
+    <dialog id="introBox" class="intro-box" aria-labelledby="introTitle">
+      <h2 id="introTitle">What this site is for</h2>
+      <p>Photo Fortune — photos in four kinds: people, food, animals, landscape. Each one comes with a single line, its real source, and a lucky photo for today. Pick the kind you like, or skip and browse everything.</p>
+      <button type="button" class="button" id="introStart">Start picking</button>
+    </dialog>
 </body>
 </html>
