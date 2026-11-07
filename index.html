@@ -1113,30 +1113,30 @@ body[data-cat="landscape"]  { --cat: #15803d; }
 <body>
     <div id="choiceGate" class="choice-gate">
     <nav class="gate-lang" aria-label="Language">
-      <a href="index.html" lang="en" aria-current="page">EN</a>
-      <a href="zh/index.html" lang="zh-CN">中文</a>
-      <a href="de/index.html" lang="de">Deutsch</a>
+      <a href="index.html?skip=1" lang="en" aria-current="page">EN</a>
+      <a href="zh/index.html?skip=1" lang="zh-CN">中文</a>
+      <a href="de/index.html?skip=1" lang="de">Deutsch</a>
     </nav>
     <a class="gate-quad quad-humanities" href="works.html?cat=humanities">
-      <span class="q-bg" aria-hidden="true" style="background-image:url(img/cat-humanities-3.jpg)"></span>
+      <span class="q-bg" data-pool="humanities" aria-hidden="true" style="background-image:url(img/cat-humanities-3.jpg)" data-pool="animals" data-pool="food" data-pool="humanities"></span>
       <span class="q-emoji" aria-hidden="true">🏙️</span>
       <span class="q-title">Humanities · 人文</span>
       <span class="q-desc">People on streets and in markets</span>
     </a>
     <a class="gate-quad quad-food" href="works.html?cat=food">
-      <span class="q-bg" aria-hidden="true" style="background-image:url(img/cat-food-dish.jpg)"></span>
+      <span class="q-bg" data-pool="food" aria-hidden="true" style="background-image:url(img/cat-food-dish.jpg)" data-pool="animals" data-pool="food" data-pool="humanities"></span>
       <span class="q-emoji" aria-hidden="true">🍜</span>
       <span class="q-title">Food · 美食</span>
       <span class="q-desc">Food that stops you in your tracks</span>
     </a>
     <a class="gate-quad quad-animals" href="works.html?cat=animals">
-      <span class="q-bg" aria-hidden="true" style="background-image:url(img/work-05-1440.webp)"></span>
+      <span class="q-bg" data-pool="animals" aria-hidden="true" style="background-image:url(img/work-05-1440.webp)" data-pool="animals" data-pool="food" data-pool="humanities"></span>
       <span class="q-emoji" aria-hidden="true">🐾</span>
       <span class="q-title">Animals · 动物</span>
       <span class="q-desc">Animals photographed through glass</span>
     </a>
     <a class="gate-quad quad-landscape" href="works.html?cat=landscape">
-      <span class="q-bg" aria-hidden="true" style="background-image:url(img/cat-landscape-1.jpg)"></span>
+      <span class="q-bg" data-pool="landscape" aria-hidden="true" style="background-image:url(img/cat-landscape-1.jpg)" data-pool="animals" data-pool="food" data-pool="humanities"></span>
       <span class="q-emoji" aria-hidden="true">⛰️</span>
       <span class="q-title">Landscape · 风景</span>
       <span class="q-desc">Mountains and lakes</span>
@@ -1147,7 +1147,7 @@ body[data-cat="landscape"]  { --cat: #15803d; }
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <a class="logo" href="index.html">Han Hongtao's Field Notes</a>
+    <a class="logo" href="index.html?skip=1">Han Hongtao's Field Notes</a>
     <nav aria-label="Main">
       <button id="navToggle" class="nav-toggle" type="button"
               aria-expanded="false" aria-controls="siteNav">
@@ -1155,13 +1155,13 @@ body[data-cat="landscape"]  { --cat: #15803d; }
         <span class="nav-toggle-text">Menu</span>
       </button>
       <ul id="siteNav" class="site-nav">
-        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="index.html?skip=1" aria-current="page">Home</a></li>
         <li><a href="works.html">Photos</a></li>
         <li><a href="journal.html">How it works</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><button id="dotBtn" class="dot-btn" type="button" aria-label="Useless machine: fill the screen with 99+ dots">99+</button></li>
-        <li class="lang-group"><a href="index.html" lang="en" aria-current="page">EN</a><a href="zh/index.html" lang="zh-CN">中文</a><a href="de/index.html" lang="de">Deutsch</a></li>
+        <li class="lang-group"><a href="index.html?skip=1" lang="en" aria-current="page">EN</a><a href="zh/index.html?skip=1" lang="zh-CN">中文</a><a href="de/index.html?skip=1" lang="de">Deutsch</a></li>
       </ul>
     </nav>
   </header>
@@ -1171,26 +1171,27 @@ body[data-cat="landscape"]  { --cat: #15803d; }
     <p class="lead">Four kinds of photos, one line each — and a lucky photo for your day.</p>
     <div class="gate-grid">
       <a class="gate-card gate-humanities" href="works.html?cat=humanities">
-        <img class="gate-thumb" src="img/cat-humanities-3.jpg" alt="" aria-hidden="true">
+        <img class="gate-thumb" src="img/cat-humanities-3.jpg" alt="" aria-hidden="true" data-pool="humanities">
         <span class="gate-title">人文 · Humanities</span>
         <span class="gate-desc">People on streets and in markets</span>
       </a>
       <a class="gate-card gate-food" href="works.html?cat=food">
-        <img class="gate-thumb" src="img/cat-food-dish.jpg" alt="" aria-hidden="true">
+        <img class="gate-thumb" src="img/cat-food-dish.jpg" alt="" aria-hidden="true" data-pool="food">
         <span class="gate-title">美食 · Food</span>
         <span class="gate-desc">Food that stops you in your tracks</span>
       </a>
       <a class="gate-card gate-animals" href="works.html?cat=animals">
-        <img class="gate-thumb" src="img/work-05-768.webp" alt="" aria-hidden="true">
+        <img class="gate-thumb" src="img/work-05-768.webp" alt="" aria-hidden="true" data-pool="animals">
         <span class="gate-title">动物 · Animals</span>
         <span class="gate-desc">Animals photographed through glass</span>
       </a>
       <a class="gate-card gate-landscape" href="works.html?cat=landscape">
-        <img class="gate-thumb" src="img/cat-landscape-1.jpg" alt="" aria-hidden="true">
+        <img class="gate-thumb" src="img/cat-landscape-1.jpg" alt="" aria-hidden="true" data-pool="landscape">
         <span class="gate-title">风景 · Landscape</span>
         <span class="gate-desc">Mountains and lakes</span>
       </a>
     </div>
+    <p class="hint">Decor photos rotate on every visit · 装饰图每次刷新随机换</p>
   </main>
 
   <footer class="site-footer">
@@ -1199,5 +1200,6 @@ body[data-cat="landscape"]  { --cat: #15803d; }
   </footer>
 
   <script src="js/script.js" defer></script>
+  <script src="js/home-pool.js" defer></script>
 </body>
 </html>

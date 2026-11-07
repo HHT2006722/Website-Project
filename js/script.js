@@ -466,6 +466,12 @@ const T = STRINGS[L.startsWith('zh') ? 'zh' : L.startsWith('de') ? 'de' : 'en'];
 (function initChoiceGate() {
   const gate = document.querySelector("#choiceGate");
   const skip = document.querySelector("#gateSkip");
-  if (!gate || !skip) return;
-  skip.addEventListener("click", () => gate.remove());
+  if (!gate) return;
+  // 语言切换链接带 ?skip=1：换语言后直达主页面，不再重新过一遍入口
+  // Language links carry ?skip=1: switching language lands on the main page directly
+  if (new URLSearchParams(location.search).has("skip")) {
+    gate.remove();
+    return;
+  }
+  if (skip) skip.addEventListener("click", () => gate.remove());
 })();

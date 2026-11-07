@@ -1125,30 +1125,30 @@ body[data-cat="landscape"]  { --cat: #15803d; }
 <body>
     <div id="choiceGate" class="choice-gate">
     <nav class="gate-lang" aria-label="语言">
-      <a href="../index.html" lang="en">EN</a>
-      <a href="index.html" lang="zh-CN" aria-current="page">中文</a>
+      <a href="../index.html?skip=1" lang="en">EN</a>
+      <a href="index.html?skip=1" lang="zh-CN" aria-current="page">中文</a>
       <a href="../de/index.html" lang="de">Deutsch</a>
     </nav>
     <a class="gate-quad quad-humanities" href="works.html?cat=humanities">
-      <span class="q-bg" aria-hidden="true" style="background-image:url(../img/cat-humanities-3.jpg)"></span>
+      <span class="q-bg" data-pool="humanities" aria-hidden="true" style="background-image:url(../img/cat-humanities-3.jpg)" data-pool="animals" data-pool="food" data-pool="humanities"></span>
       <span class="q-emoji" aria-hidden="true">🏙️</span>
       <span class="q-title">人文 · Humanities</span>
       <span class="q-desc">街头与市场里的人</span>
     </a>
     <a class="gate-quad quad-food" href="works.html?cat=food">
-      <span class="q-bg" aria-hidden="true" style="background-image:url(../img/cat-food-dish.jpg)"></span>
+      <span class="q-bg" data-pool="food" aria-hidden="true" style="background-image:url(../img/cat-food-dish.jpg)" data-pool="animals" data-pool="food" data-pool="humanities"></span>
       <span class="q-emoji" aria-hidden="true">🍜</span>
       <span class="q-title">美食 · Food</span>
       <span class="q-desc">让人走不动路的食物</span>
     </a>
     <a class="gate-quad quad-animals" href="works.html?cat=animals">
-      <span class="q-bg" aria-hidden="true" style="background-image:url(../img/work-05-1440.webp)"></span>
+      <span class="q-bg" data-pool="animals" aria-hidden="true" style="background-image:url(../img/work-05-1440.webp)" data-pool="animals" data-pool="food" data-pool="humanities"></span>
       <span class="q-emoji" aria-hidden="true">🐾</span>
       <span class="q-title">动物 · Animals</span>
       <span class="q-desc">隔着玻璃拍下的动物</span>
     </a>
     <a class="gate-quad quad-landscape" href="works.html?cat=landscape">
-      <span class="q-bg" aria-hidden="true" style="background-image:url(../img/cat-landscape-1.jpg)"></span>
+      <span class="q-bg" data-pool="landscape" aria-hidden="true" style="background-image:url(../img/cat-landscape-1.jpg)" data-pool="animals" data-pool="food" data-pool="humanities"></span>
       <span class="q-emoji" aria-hidden="true">⛰️</span>
       <span class="q-title">风景 · Landscape</span>
       <span class="q-desc">山川与湖泊</span>
@@ -1159,7 +1159,7 @@ body[data-cat="landscape"]  { --cat: #15803d; }
   <a class="skip-link" href="#main">跳到主要内容</a>
 
   <header class="site-header">
-    <a class="logo" href="index.html">韩宏涛的观察本</a>
+    <a class="logo" href="index.html?skip=1">韩宏涛的观察本</a>
     <nav aria-label="主导航">
       <button id="navToggle" class="nav-toggle" type="button"
               aria-expanded="false" aria-controls="siteNav">
@@ -1167,13 +1167,13 @@ body[data-cat="landscape"]  { --cat: #15803d; }
         <span class="nav-toggle-text">菜单</span>
       </button>
       <ul id="siteNav" class="site-nav">
-        <li><a href="index.html" aria-current="page">首页</a></li>
+        <li><a href="index.html?skip=1" aria-current="page">首页</a></li>
         <li><a href="works.html">照片</a></li>
         <li><a href="journal.html">怎么用</a></li>
         <li><a href="about.html">关于</a></li>
         <li><a href="contact.html">联系</a></li>
         <li><button id="dotBtn" class="dot-btn" type="button" aria-label="Useless machine: fill the screen with 99+ dots">99+</button></li>
-        <li class="lang-group"><a href="../index.html" lang="en">EN</a><a href="index.html" lang="zh-CN" aria-current="page">中文</a><a href="../de/index.html" lang="de">Deutsch</a></li>
+        <li class="lang-group"><a href="../index.html?skip=1" lang="en">EN</a><a href="index.html?skip=1" lang="zh-CN" aria-current="page">中文</a><a href="../de/index.html" lang="de">Deutsch</a></li>
       </ul>
     </nav>
   </header>
@@ -1183,26 +1183,27 @@ body[data-cat="landscape"]  { --cat: #15803d; }
     <p class="lead">四类照片，每张只有一句话；还有一张属于今天的幸运照片。</p>
     <div class="gate-grid">
       <a class="gate-card gate-humanities" href="works.html?cat=humanities">
-        <img class="gate-thumb" src="../img/cat-humanities-3.jpg" alt="" aria-hidden="true">
+        <img class="gate-thumb" src="../img/cat-humanities-3.jpg" alt="" aria-hidden="true" data-pool="humanities">
         <span class="gate-title">人文 · Humanities</span>
         <span class="gate-desc">街头与市场里的人</span>
       </a>
       <a class="gate-card gate-food" href="works.html?cat=food">
-        <img class="gate-thumb" src="../img/cat-food-dish.jpg" alt="" aria-hidden="true">
+        <img class="gate-thumb" src="../img/cat-food-dish.jpg" alt="" aria-hidden="true" data-pool="food">
         <span class="gate-title">美食 · Food</span>
         <span class="gate-desc">让人走不动路的食物</span>
       </a>
       <a class="gate-card gate-animals" href="works.html?cat=animals">
-        <img class="gate-thumb" src="../img/work-05-768.webp" alt="" aria-hidden="true">
+        <img class="gate-thumb" src="../img/work-05-768.webp" alt="" aria-hidden="true" data-pool="animals">
         <span class="gate-title">动物 · Animals</span>
         <span class="gate-desc">隔着玻璃拍下的动物</span>
       </a>
       <a class="gate-card gate-landscape" href="works.html?cat=landscape">
-        <img class="gate-thumb" src="../img/cat-landscape-1.jpg" alt="" aria-hidden="true">
+        <img class="gate-thumb" src="../img/cat-landscape-1.jpg" alt="" aria-hidden="true" data-pool="landscape">
         <span class="gate-title">风景 · Landscape</span>
         <span class="gate-desc">山川与湖泊</span>
       </a>
     </div>
+    <p class="hint">装饰图每次刷新随机换 · Decor photos rotate on every visit</p>
   </main>
 
   <footer class="site-footer">
@@ -1211,5 +1212,6 @@ body[data-cat="landscape"]  { --cat: #15803d; }
   </footer>
 
   <script src="../js/script.js" defer></script>
+  <script src="../js/home-pool.js" defer></script>
 </body>
 </html>

@@ -189,8 +189,14 @@
         const items = (data.news || []).map((n) => {
           const text = n.story
             .replace(/<[^>]+>/g, "")
-            .replace(/&amp;/g, "&")
+            .replace(/&quot;/g, '"')
+            .replace(/&#0?39;/g, "'")
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&ndash;/g, "\u2013")
+            .replace(/&mdash;/g, "\u2014")
             .replace(/&nbsp;/g, " ")
+            .replace(/&amp;/g, "&")
             .replace(/\s+/g, " ")
             .trim();
           let link = "";
