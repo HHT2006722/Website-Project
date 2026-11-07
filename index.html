@@ -1687,6 +1687,22 @@ body {
   border-color: var(--cat, var(--accent));
   color: var(--cat, var(--accent));
 }
+
+.intro-lang {
+  display: flex;
+  gap: .8rem;
+  margin: .8rem 0 0;
+}
+
+.intro-lang a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.intro-lang a[aria-current="true"] {
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+}
   </style>
 </head>
 <body>
@@ -1779,13 +1795,10 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · built by hand</p>
       </footer>
 
-  <script src="js/script.js?v=34" defer></script>
-  <script src="js/home-pool.js?v=34" defer></script>
+  <script src="js/script.js?v=35" defer></script>
+  <script src="js/home-pool.js?v=35" defer></script>
 
-    <dialog id="introBox" class="intro-box" aria-labelledby="introTitle">
-      <h2 id="introTitle">What this site is for</h2>
-      <p>Photo Fortune — photos in four kinds: people, food, animals, landscape. Each one comes with a single line, its real source, and a lucky photo for today. Pick the kind you like, or skip and browse everything.</p>
-      <button type="button" class="button" id="introStart">Start picking</button>
-    </dialog>
+
+    <dialog id="introBox" class="intro-box" aria-labelledby="introTitle"></dialog>
 </body>
 </html>

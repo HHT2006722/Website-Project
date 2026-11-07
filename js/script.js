@@ -484,12 +484,69 @@ const T = STRINGS[L.startsWith('zh') ? 'zh' : L.startsWith('de') ? 'de' : 'en'];
 /* ---------- 10. Intro dialog: explain the site before choosing ---------- */
 (function initIntro() {
   const box = document.querySelector("#introBox");
-  const start = document.querySelector("#introStart");
   const gate = document.querySelector("#choiceGate");
   if (!box || !gate || typeof box.showModal !== "function") return;
   // 语言切换带 ?skip=1 时不再弹
   // Language links carry ?skip=1, so the intro is skipped there too
   if (new URLSearchParams(location.search).has("skip")) return;
+
+  const lang = (document.documentElement.lang || "en").toLowerCase().startsWith("zh")
+    ? "zh" : (document.documentElement.lang || "en").toLowerCase().startsWith("de") ? "de" : "en";
+
+  const INTRO = {
+    en: {
+      title: "What this site is for",
+      body: "Photo Fortune — photos in four kinds: people, food, animals, landscape. Each one comes with a single line, its real source, and a lucky photo for today. Pick the kind you like, or skip and browse everything.",
+      button: "Start picking",
+    },
+    zh: {
+      title: "这个网站是做什么的",
+      body: "照片签——四类照片：人文、美食、动物、风景。每张都配一句话、真实的出处，还有一张今日幸运照片。选一个你喜欢的种类开始，或者跳过随便逛。",
+      button: "开始选择",
+    },
+    de: {
+      title: "Worum es hier geht",
+      body: "Photo Fortune — Fotos in vier Arten: Menschen, Essen, Tiere, Landschaft. Jedes mit einer Zeile, echter Quelle und einem Glücksfoto für heute. Wähle eine Art — oder überspringe und stöbere.",
+      button: "Los geht's",
+    },
+  }[lang];
+
+  // 弹窗内容：按当前页面语言渲染
+  const title = document.createElement("h2");
+  title.id = "introTitle";
+  title.textContent = INTRO.title;
+  const body = document.createElement("p");
+  body.textContent = INTRO.body;
+  const start = document.createElement("button");
+  start.type = "button";
+  start.className = "button";
+  start.id = "introStart";
+  start.textContent = INTRO.button;
+  start.addEventListener("click", () => box.close());
+
+  // 弹窗内的语言切换：跳到对应语言入口（不带 skip，重新看到该语言的介绍）
+  // Language switch inside the dialog: the intro reopens in that language
+  const parts = location.pathname.split("/").filter(Boolean);
+  const up = parts.includes("zh") || parts.includes("de") ? "../" : "";
+  const links = document.createElement("p");
+  links.className = "intro-lang";
+  const mk = (label, href, cur) => {
+    const a = document.createElement("a");
+    a.href = href;
+    a.lang = label === "中文" ? "zh-CN" : label === "Deutsch" ? "de" : "en";
+    a.textContent = label;
+    if (cur) a.setAttribute("aria-current", "true");
+    links.appendChild(a);
+  };
+  mk("EN", up + "index.html", lang === "en");
+  mk("中文", up + "zh/index.html", lang === "zh");
+  mk("Deutsch", up + "de/index.html", lang === "de");
+
+  box.appendChild(title);
+  box.appendChild(body);
+  box.appendChild(links);
+  box.appendChild(start);
+
   if (!box.open) box.showModal();
-  if (start) start.addEventListener("click", () => box.close());
+  start.focus();
 })();
