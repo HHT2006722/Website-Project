@@ -9,7 +9,11 @@ const GALLERY = {
       gate: { en: "People on streets and in markets", zh: "街头与市场里的人", de: "Menschen auf Straßen und Märkten" },
       lucky: { en: "Lucky Moment of the Day", zh: "今日幸运人文", de: "Glücksmoment des Tages" },
       news: {
-        keywords: ["culture", "art", "museum", "festival", "film", "music", "artist", "writer", "book", "election", "president", "leader", "protest", "city", "people"],
+        keywords: {
+        en: ["culture", "art", "museum", "festival", "film", "music", "artist", "writer", "book", "election", "president", "leader", "protest", "city", "people"],
+        zh: ["艺术", "文化", "博物馆", "电影节", "电影", "音乐", "作家", "书", "选举", "总统", "抗议", "城市", "人", "画家", "文学"],
+        de: ["Kultur", "Kunst", "Museum", "Film", "Musik", "Künstler", "Schriftsteller", "Buch", "Wahl", "Präsident", "Protest", "Stadt", "Menschen", "Festival"]
+      },
         title: { en: "Humanities news today", zh: "今日人文新闻", de: "Menschen-Nachrichten von heute" },
         fallback: { en: "No themed news matched today — here is what is in the news generally.", zh: "今天没有匹配到人文新闻——下面是今天的要闻。", de: "Heute passte keine Themenmeldung — hier sind die allgemeinen Nachrichten." }
       },
@@ -56,7 +60,11 @@ const GALLERY = {
       gate: { en: "Food that stops you in your tracks", zh: "让人走不动路的食物", de: "Essen, bei dem man stehen bleibt" },
       lucky: { en: "Lucky Food of the Day", zh: "今日幸运美食", de: "Glücksessen des Tages" },
       news: {
-        keywords: ["food", "crop", "harvest", "restaurant", "chef", "cuisine", "hunger", "wheat", "rice", "fish", "farm", "meal"],
+        keywords: {
+        en: ["food", "crop", "harvest", "restaurant", "chef", "cuisine", "hunger", "wheat", "rice", "fish", "farm", "meal"],
+        zh: ["食品", "食物", "粮", "收成", "餐厅", "厨师", "饥", "小麦", "水稻", "鱼", "农场", "餐"],
+        de: ["Lebensmittel", "Essen", "Ernte", "Restaurant", "Koch", "Hunger", "Weizen", "Reis", "Fisch", "Bauernhof", "Mahlzeit"]
+      },
         title: { en: "Food news today", zh: "今日美食新闻", de: "Essen-Nachrichten von heute" },
         fallback: { en: "No themed news matched today — here is what is in the news generally.", zh: "今天没有匹配到美食新闻——下面是今天的要闻。", de: "Heute passte keine Themenmeldung — hier sind die allgemeinen Nachrichten." }
       },
@@ -103,7 +111,11 @@ const GALLERY = {
       gate: { en: "Animals photographed through glass", zh: "隔着玻璃拍下的动物", de: "Tiere, durch Glas fotografiert" },
       lucky: { en: "Lucky Animal of the Day", zh: "今日幸运动物", de: "Glückstier des Tages" },
       news: {
-        keywords: ["animal", "species", "zoo", "wildlife", "bird", "fish", "whale", "panda", "dog", "cat", "extinct", "conservation"],
+        keywords: {
+        en: ["animal", "species", "zoo", "wildlife", "bird", "fish", "whale", "panda", "dog", "cat", "extinct", "conservation"],
+        zh: ["动物", "物种", "动物园", "野生", "鸟", "鱼", "鲸", "熊猫", "狗", "猫", "灭绝", "保护"],
+        de: ["Tier", "Art", "Zoo", "Wildtier", "Vogel", "Fisch", "Wal", "Panda", "Hund", "Katze", "ausgestorben", "Naturschutz"]
+      },
         title: { en: "Animal news today", zh: "今日动物新闻", de: "Tier-Nachrichten von heute" },
         fallback: { en: "No themed news matched today — here is what is in the news generally.", zh: "今天没有匹配到动物新闻——下面是今天的要闻。", de: "Heute passte keine Themenmeldung — hier sind die allgemeinen Nachrichten." }
       },
@@ -183,7 +195,11 @@ const GALLERY = {
       gate: { en: "Mountains and lakes", zh: "山川与湖泊", de: "Berge und Seen" },
       lucky: { en: "Lucky Landscape of the Day", zh: "今日幸运风景", de: "Glückslandschaft des Tages" },
       news: {
-        keywords: ["environment", "climate", "flood", "drought", "forest", "fire", "storm", "earthquake", "volcano", "mountain", "lake", "nature", "glacier"],
+        keywords: {
+        en: ["environment", "climate", "flood", "drought", "forest", "fire", "storm", "earthquake", "volcano", "mountain", "lake", "nature", "glacier"],
+        zh: ["环境", "气候", "洪水", "干旱", "森林", "火灾", "风暴", "地震", "火山", "山", "湖", "自然", "冰川"],
+        de: ["Umwelt", "Klima", "Hochwasser", "Dürre", "Wald", "Feuer", "Sturm", "Erdbeben", "Vulkan", "Berg", "See", "Natur", "Gletscher"]
+      },
         title: { en: "Landscape news today", zh: "今日风景新闻", de: "Landschafts-Nachrichten von heute" },
         fallback: { en: "No themed news matched today — here is what is in the news generally.", zh: "今天没有匹配到风景新闻——下面是今天的要闻。", de: "Heute passte keine Themenmeldung — hier sind die allgemeinen Nachrichten." }
       },

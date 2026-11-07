@@ -190,10 +190,63 @@
     const pad = (n) => String(n).padStart(2, "0");
     const ymd = d.getFullYear() + "/" + pad(d.getMonth() + 1) + "/" + pad(d.getDate());
 
-    fetch("https://en.wikipedia.org/api/rest_v1/feed/featured/" + ymd)
-      .then((r) => r.json())
-      .then((data) => {
-        const items = (data.news || []).map((n) => {
+    // 按页面语言取对应语言维基的「In the news」；该语言没有时退回英文维基
+    // Fetch "In the news" from the Wikipedia edition matching the page language; fall back to English when it has none
+    const WIKI = { en: "en.wikipedia.org", zh: "zh.wikipedia.org", de: "de.wikipedia.org" };
+    const host = WIKI[lang] || "en.wikipedia.org";
+    let feedLang = lang;
+
+    const fetchFeed = (h) =>
+      fetch("https://" + h + "/api/rest_v1/feed/featured/" + ymd).then((r) => r.json());
+
+    // 中文维基的 featured 接口没有新闻字段，改解析「新聞動態」页面
+    // The Chinese Wikipedia's featured feed has no news field, so parse the 新聞動態 page instead
+    const loadZhItems = () =>
+      fetch("https://zh.wikipedia.org/w/api.php?action=parse&page=" +
+            encodeURIComponent("Wikipedia:新聞動態") + "&prop=text&format=json&origin=*")
+        .then((r) => r.json())
+        .then((data) => {
+          const doc = new DOMParser().parseFromString(data.parse.text["*"], "text/html");
+          const items = [];
+          doc.querySelectorAll("li").forEach((li) => {
+            const text = li.textContent.replace(/\[[^\]]*\]/g, "").replace(/\s+/g, " ").trim();
+            if (text.length < 10) return;
+            const a = li.querySelector("a");
+            let link = "";
+            if (a && a.getAttribute("href")) {
+              const href = a.getAttribute("href");
+              link = href.startsWith("http") ? href : "https://zh.wikipedia.org" + href;
+            }
+            items.push({ text, link });
+          });
+          return items;
+        });
+
+    const feedPromise = lang === "zh"
+      ? loadZhItems()
+          .catch(() => null)
+          .then((items) => {
+            if (items && items.length) return { zhItems: items };
+            feedLang = "en";
+            return fetchFeed("en.wikipedia.org").then((d) => ({ data: d }));
+          })
+      : fetchFeed(host)
+          .catch(() => null)
+          .then((data) => {
+            if ((!data || !Array.isArray(data.news) || data.news.length === 0) && lang !== "en") {
+              feedLang = "en";
+              return fetchFeed("en.wikipedia.org").then((d) => ({ data: d }));
+            }
+            if (!data || !Array.isArray(data.news)) throw new Error("feed unavailable");
+            return { data };
+          });
+
+    feedPromise.then((payload) => {
+        let items;
+        if (payload.zhItems) {
+          items = payload.zhItems;
+        } else {
+          items = (payload.data.news || []).map((n) => {
           const text = n.story
             .replace(/<[^>]+>/g, "")
             .replace(/&quot;/g, '"')
@@ -211,8 +264,9 @@
           if (m) link = m[1].startsWith("http") ? m[1] : "https://en.wikipedia.org" + m[1];
           return { text, link };
         });
+        }
 
-        const kw = current.news.keywords;
+        const kw = (current.news.keywords && (current.news.keywords[feedLang] || current.news.keywords.en)) || [];
         const matched = items.filter((it) => kw.some((k) => it.text.toLowerCase().includes(k)));
         const shown = (matched.length ? matched : items).slice(0, 3);
 
