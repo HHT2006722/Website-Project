@@ -1,5 +1,7 @@
 // 首页装饰图池：每次刷新，每类随机抽一张。
 // Home image pool: on every load each category picks one image at random.
+// 入口门还没关时，主页面缩略图先不加载（把带宽让给四象限背景）；
+// 关掉入口门或语言切换直达时再填。
 (function () {
   const POOL = {
     humanities: ["img/cat-humanities-1.jpg", "img/cat-humanities-2.jpg", "img/cat-humanities-3.jpg", "img/pool-humanities-1.jpg", "img/pool-humanities-12.jpg", "img/pool-humanities-13.jpg", "img/pool-humanities-15.jpg", "img/pool-humanities-2.jpg", "img/pool-humanities-3.jpg", "img/pool-humanities-32.jpg", "img/pool-humanities-35.jpg", "img/pool-humanities-37.jpg", "img/pool-humanities-39.jpg", "img/pool-humanities-4.jpg", "img/pool-humanities-41.jpg", "img/pool-humanities-42.jpg", "img/pool-humanities-44.jpg", "img/pool-humanities-45.jpg", "img/pool-humanities-46.jpg", "img/pool-humanities-47.jpg", "img/pool-humanities-48.jpg", "img/pool-humanities-49.jpg", "img/pool-humanities-5.jpg", "img/pool-humanities-50.jpg", "img/pool-humanities-51.jpg", "img/pool-humanities-52.jpg", "img/pool-humanities-53.jpg", "img/pool-humanities-54.jpg"],
@@ -18,10 +20,28 @@
     return prefix + pool[Math.floor(Math.random() * pool.length)];
   };
 
-  document.querySelectorAll("[data-pool]").forEach((el) => {
+  const assign = (el) => {
     const src = pick(el.dataset.pool);
     if (!src) return;
     if (el.tagName === "IMG") el.src = src;
     else el.style.backgroundImage = 'url("' + src + '")';
+  };
+
+  // 缩略图延迟到入口门关闭；象限背景立即加载
+  // Thumbnails wait for the gate to close; quadrant backgrounds load now
+  const thumbEls = [];
+  document.querySelectorAll("[data-pool]").forEach((el) => {
+    if (el.classList && el.classList.contains("gate-thumb")) {
+      thumbEls.push(el);
+    } else {
+      assign(el);
+    }
   });
+
+  const fillThumbs = () => thumbEls.forEach(assign);
+  if (document.querySelector("#choiceGate")) {
+    window.addEventListener("gategone", fillThumbs, { once: true });
+  } else {
+    fillThumbs();
+  }
 })();

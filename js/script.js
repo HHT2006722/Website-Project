@@ -471,9 +471,13 @@ const T = STRINGS[L.startsWith('zh') ? 'zh' : L.startsWith('de') ? 'de' : 'en'];
   // Language links carry ?skip=1: switching language lands on the main page directly
   if (new URLSearchParams(location.search).has("skip")) {
     gate.remove();
+    window.dispatchEvent(new Event("gategone"));
     return;
   }
-  if (skip) skip.addEventListener("click", () => gate.remove());
+  if (skip) skip.addEventListener("click", () => {
+    gate.remove();
+    window.dispatchEvent(new Event("gategone"));
+  });
 })();
 
 /* ---------- 10. 入口介绍弹窗：先说清楚网站是做什么的 ---------- */
