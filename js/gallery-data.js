@@ -130,7 +130,7 @@ const GALLERY = {
           luckyLine: { en: "Today rewards patience: what you want will come on its own.",
                        zh: "今天适合等待：你想的东西会自己过来。",
                        de: "Heute belohnt Geduld: Was du willst, kommt von selbst." },
-          credit: { en: "My photo · iPhone 13 Pro · 5 Apr 2024", zh: "我的照片 · iPhone 13 Pro · 2024.04.05", de: "Mein Foto · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
         { src: "img/work-02-768.webp",
           srcset: "img/work-02-480.webp 480w, img/work-02-768.webp 768w, img/work-02-960.webp 960w, img/work-02-1600.webp 1600w",
           w: 1600, h: 900,
@@ -141,7 +141,7 @@ const GALLERY = {
           luckyLine: { en: "Today, say what is on your mind — someone will answer.",
                        zh: "今天把想说的话说出来，会有人回应。",
                        de: "Sag heute, was du denkst — jemand wird antworten." },
-          credit: { en: "My photo · iPhone 13 Pro · 5 Apr 2024", zh: "我的照片 · iPhone 13 Pro · 2024.04.05", de: "Mein Foto · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
         { src: "img/work-03-768.webp",
           srcset: "img/work-03-480.webp 480w, img/work-03-768.webp 768w, img/work-03-960.webp 960w, img/work-03-1280.webp 1280w",
           w: 1280, h: 1707,
@@ -152,7 +152,7 @@ const GALLERY = {
           luckyLine: { en: "Today, make room to play — being serious can wait.",
                        zh: "今天留点时间玩，认真可以等一等。",
                        de: "Nimm dir heute Zeit zum Spielen — Ernstsein kann warten." },
-          credit: { en: "My photo · iPhone 13 Pro · 5 Apr 2024", zh: "我的照片 · iPhone 13 Pro · 2024.04.05", de: "Mein Foto · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
         { src: "img/work-04-768.webp",
           srcset: "img/work-04-480.webp 480w, img/work-04-768.webp 768w, img/work-04-960.webp 960w, img/work-04-1440.webp 1440w",
           w: 1440, h: 810,
@@ -163,7 +163,7 @@ const GALLERY = {
           luckyLine: { en: "Today, prepare first, then act.",
                        zh: "今天先准备好，再动手。",
                        de: "Heute erst vorbereiten, dann handeln." },
-          credit: { en: "My photo · iPhone 13 Pro · 5 Apr 2024", zh: "我的照片 · iPhone 13 Pro · 2024.04.05", de: "Mein Foto · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
         { src: "img/work-05-768.webp",
           srcset: "img/work-05-480.webp 480w, img/work-05-768.webp 768w, img/work-05-960.webp 960w, img/work-05-1440.webp 1440w",
           w: 1440, h: 810,
@@ -174,7 +174,7 @@ const GALLERY = {
           luckyLine: { en: "Today, a light will fall on you — stand where it can reach.",
                        zh: "今天会有一束光打在你身上，站到它够得着的地方。",
                        de: "Heute fällt ein Licht auf dich — stell dich dorthin, wo es hinkommt." },
-          credit: { en: "My photo · iPhone 13 Pro · 5 Apr 2024", zh: "我的照片 · iPhone 13 Pro · 2024.04.05", de: "Mein Foto · iPhone 13 Pro · 5. April 2024" } },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } },
         { src: "img/work-06-768.webp",
           srcset: "img/work-06-480.webp 480w, img/work-06-768.webp 768w, img/work-06-960.webp 960w, img/work-06-1440.webp 1440w",
           w: 1440, h: 810,
@@ -185,7 +185,7 @@ const GALLERY = {
           luckyLine: { en: "Today is for rest — enough is enough.",
                        zh: "今天适合休息，够了就是够了。",
                        de: "Heute ist Ruhetag — genug ist genug." },
-          credit: { en: "My photo · iPhone 13 Pro · 5 Apr 2024", zh: "我的照片 · iPhone 13 Pro · 2024.04.05", de: "Mein Foto · iPhone 13 Pro · 5. April 2024" } }
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" } }
       ]
     },
     {
