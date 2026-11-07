@@ -94,8 +94,12 @@
       const credit = document.createElement("span");
       credit.className = "cat-credit";
       credit.textContent = T(photo.credit);
+      const tag = document.createElement("span");
+      tag.className = "cat-tag";
+      tag.textContent = current.emoji + " " + T(current.label);
       cap.appendChild(line);
       cap.appendChild(credit);
+      cap.appendChild(tag);
 
       btn.appendChild(img);
       btn.appendChild(cap);

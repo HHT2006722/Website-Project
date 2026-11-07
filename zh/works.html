@@ -1297,6 +1297,62 @@ body {
     animation: none;
   }
 }
+
+.cat-pick {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: .6rem;
+}
+
+.cat-pick-btn {
+  padding: .8rem .6rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--line);
+  background: var(--card);
+  font: inherit;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.cat-pick-btn:hover {
+  transform: translateY(-2px);
+}
+
+.cat-pick-btn.is-active {
+  border-color: var(--cat, var(--accent));
+  background: color-mix(in srgb, var(--cat, var(--accent)) 12%, var(--card));
+}
+
+.step h2 {
+  margin-bottom: .6rem;
+}
+
+.step + .step {
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--line);
+}
+
+.cat-tag {
+  display: inline-block;
+  font-size: .72rem;
+  padding: .1em .6em;
+  border-radius: 99px;
+  color: var(--cat, var(--accent));
+  border: 1px solid var(--cat, var(--accent));
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
   </style>
 </head>
 <body>
@@ -1344,9 +1400,9 @@ body {
     <p>© <span id="year">2026</span> 照片签 · Photo Fortune</p>
       </footer>
 
-  <script src="../js/script.js?v=19" defer></script>
-  <script src="../js/gallery-data.js?v=19" defer></script>
-  <script src="../js/gallery-pool.js?v=19" defer></script>
-  <script src="../js/gallery.js?v=19" defer></script>
+  <script src="../js/script.js?v=20" defer></script>
+  <script src="../js/gallery-data.js?v=20" defer></script>
+  <script src="../js/gallery-pool.js?v=20" defer></script>
+  <script src="../js/gallery.js?v=20" defer></script>
 </body>
 </html>
