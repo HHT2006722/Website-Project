@@ -311,7 +311,12 @@
       fig.appendChild(cap);
       grid.appendChild(fig);
 
-      btn.addEventListener("click", () => openStory(photo));
+      // 点照片 → 跳转到独立详情页（故事 + 历史介绍 + 来历）
+      // Clicking a photo opens its own detail page (story + history + provenance)
+      const pIndex = all.indexOf(photo);
+      btn.addEventListener("click", () => {
+        location.href = "photo.html?cat=" + current.id + "&p=" + pIndex;
+      });
     });
 
     loadNews();
@@ -378,6 +383,13 @@
     const prefix = lang === "zh" ? "今天的是：" : lang === "de" ? "Heute ist es: " : "Today's is: ";
     name.textContent = prefix + T(photo.alt);
     luckyBox.appendChild(name);
+
+    // 它今天会带来什么——单独一行标签，说得明明白白
+    // What it brings you today — its own labelled line
+    const label = document.createElement("p");
+    label.className = "dialog-label";
+    label.textContent = lang === "zh" ? "它今天会给你带来" : lang === "de" ? "Was es dir heute bringt" : "What it brings you today";
+    luckyBox.appendChild(label);
 
     const meaning = document.createElement("p");
     meaning.className = "dialog-sub";

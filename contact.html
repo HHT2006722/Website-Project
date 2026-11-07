@@ -1527,6 +1527,116 @@ body {
 .intro-box::backdrop {
   background: rgba(20, 16, 13, .55);
 }
+
+.lucky-zone {
+  text-align: center;
+  padding: 1.4rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(120deg, rgba(14, 116, 144, .08), rgba(21, 128, 61, .08), rgba(234, 88, 12, .08), rgba(224, 36, 94, .08)),
+    var(--card);
+}
+
+.lucky-zone h2 {
+  margin: 0 0 .3rem;
+}
+
+.lucky-hint {
+  margin: 0 0 .8rem;
+  color: var(--muted);
+}
+
+.button-big {
+  font-size: 1.15rem;
+  padding: .8em 2.2em;
+}
+
+.dialog-label {
+  margin: 1rem 0 0;
+  font-weight: 700;
+  color: var(--cat, var(--accent));
+}
+
+.photo-back {
+  margin: 1rem 0;
+}
+
+.photo-back a {
+  color: var(--cat, var(--accent));
+}
+
+.photo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.photo-fig {
+  margin: 0;
+}
+
+.photo-fig img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.photo-fig figcaption {
+  margin-top: .5rem;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.photo-info h1 {
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+
+.photo-h2 {
+  font-size: 1rem;
+  margin: 1.4rem 0 .4rem;
+  color: var(--cat, var(--accent));
+}
+
+.photo-line {
+  font-size: 1.05rem;
+}
+
+.photo-desc {
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.photo-source {
+  display: inline-block;
+  margin-top: .4rem;
+  color: var(--cat, var(--accent));
+}
+
+.photo-lucky {
+  margin-top: 1.2rem;
+  padding: .7rem 1rem;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--cat, var(--accent)) 9%, var(--card));
+  border: 1px solid var(--line);
+}
+
+.photo-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: 1.4rem;
+}
+
+@media (max-width: 900px) {
+  .photo-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -1616,6 +1726,6 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · built by hand</p>
       </footer>
 
-  <script src="js/script.js?v=26" defer></script>
+  <script src="js/script.js?v=27" defer></script>
 </body>
 </html>

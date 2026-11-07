@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>照片故事 · 照片签</title>
+  <meta name="description" content="照片故事 · 照片签">
+  <link rel="canonical" href="https://hht2006722.github.io/Website-Project/zh/photo.html">
+  <link rel="alternate" hreflang="en" href="https://hht2006722.github.io/Website-Project/photo.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://hht2006722.github.io/Website-Project/zh/photo.html">
+  <link rel="alternate" hreflang="de" href="https://hht2006722.github.io/Website-Project/de/photo.html">
+  <link rel="alternate" hreflang="x-default" href="https://hht2006722.github.io/Website-Project/photo.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="照片故事 · 照片签">
+  <meta property="og:description" content="照片故事 · 照片签">
+  <meta property="og:image" content="https://hht2006722.github.io/Website-Project/og-cover.jpg">
+  <meta property="og:site_name" content="照片签">
+  <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html">照片签</a>
+    <nav aria-label="主导航">
+      <button id="navToggle" class="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+        <span class="nav-toggle-text">菜单</span>
+      </button>
+      <ul id="siteNav" class="site-nav">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="works.html">照片</a></li>
+        <li><a href="journal.html">怎么用</a></li>
+        <li><a href="about.html">关于</a></li>
+        <li><a href="submit.html">投稿</a></li>
+        <li><a href="contact.html">联系</a></li>
+        <li class="lang-group"><a href="../photo.htmlphoto.html" lang="en">EN</a><a href="photo.htmlphoto.html" lang="zh-CN">中文</a><a href="../de/photo.htmlphoto.html" lang="de">Deutsch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="photo-page">
+    <p id="photoBack" class="photo-back"></p>
+    <div class="photo-layout">
+      <figure class="photo-fig">
+        <img id="photoImg" alt="">
+        <figcaption id="photoCredit"></figcaption>
+      </figure>
+      <div class="photo-info">
+        <p class="cat-tag" id="photoCat"></p>
+        <h1 id="photoTitle"></h1>
+        <h2 class="photo-h2">它的故事</h2>
+        <p id="photoLine" class="photo-line"></p>
+        <h2 class="photo-h2">相关介绍</h2>
+        <p id="photoDesc" class="photo-desc"></p>
+        <h2 class="photo-h2">它的来历</h2>
+        <p id="photoProv" class="photo-desc"></p>
+        <p><a id="photoSource" class="photo-source" href="#" rel="noopener noreferrer"></a></p>
+        <p id="photoLucky" class="photo-lucky"></p>
+        <p class="photo-nav">
+          <a id="photoPrev" class="button button-ghost" href="#">← 上一张</a>
+          <button id="photoCopy" class="button button-ghost" type="button">复制链接</button>
+          <a id="photoNext" class="button button-ghost" href="#">下一张 →</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> 照片签 · 手工搭建</p>
+  </footer>
+
+  <script src="../js/script.js?v=27" defer></script>
+  <script src="../js/gallery-data.js?v=27" defer></script>
+  <script src="../js/gallery-pool.js?v=27" defer></script>
+  <script src="../js/photo-page.js?v=27" defer></script>
+</body>
+</html>
