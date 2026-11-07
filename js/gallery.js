@@ -5,7 +5,12 @@
   const lang = docLang.startsWith("zh") ? "zh" : docLang.startsWith("de") ? "de" : "en";
   const T = (pair) => pair[lang] || pair.en;
 
-  const switchNav = document.querySelector(".cat-switch");
+  const menuPanel = document.querySelector("#catMenu");
+  const menuBtn = document.querySelector("#catMenuBtn");
+  const menuLabel = document.querySelector("#catMenuLabel");
+  const sortHot = document.querySelector("#sortHot");
+  const sortAll = document.querySelector("#sortAll");
+  const sortFav = document.querySelector("#sortFav");
   const grid = document.querySelector(".cat-gallery");
   const luckyBtn = document.querySelector("#luckyBtn");
   const storyBox = document.querySelector("#storyBox");
@@ -13,7 +18,80 @@
   const newsList = document.querySelector("#newsList");
   const newsTitle = document.querySelector("#newsTitle");
   const newsNote = document.querySelector("#newsNote");
-  if (!switchNav || !grid) return;
+  if (!menuPanel || !grid) return;
+
+  // 热门 / 综合 / 收藏 文案
+  // Hot / All / Favourites labels
+  const SORT = {
+    en: ["Hot", "All", "Favourites"],
+    zh: ["热门", "综合", "收藏"],
+    de: ["Beliebt", "Alle", "Favoriten"],
+  }[lang];
+  document.querySelector("[data-sort-hot]").textContent = SORT[0];
+  document.querySelector("[data-sort-all]").textContent = SORT[1];
+  if (document.querySelector("[data-sort-fav]")) {
+    document.querySelector("[data-sort-fav]").textContent = SORT[2];
+  }
+
+  // 喜欢/收藏提示与空状态
+  // Like/favourite hint and the empty state
+  const UI_TEXT = {
+    en: {
+      hint: "Likes and favourites are saved only in this browser — this site has no server.",
+      empty: "No favourites yet — press ★ on a photo to collect it.",
+      likeOn: "You like this photo",
+      likeOff: "Like this photo",
+      favOn: "In your favourites",
+      favOff: "Save to favourites",
+    },
+    zh: {
+      hint: "喜欢和收藏只存在你自己的浏览器里——这个站没有服务器。",
+      empty: "还没有收藏——在照片上点 ★ 把它收进来。",
+      likeOn: "你已经喜欢这张照片",
+      likeOff: "喜欢这张照片",
+      favOn: "已收藏",
+      favOff: "收藏这张照片",
+    },
+    de: {
+      hint: "Likes und Favoriten werden nur in diesem Browser gespeichert — diese Seite hat keinen Server.",
+      empty: "Noch keine Favoriten — drücke ★ auf einem Foto, um es zu sammeln.",
+      likeOn: "Dieses Foto gefällt dir",
+      likeOff: "Foto gefällt mir",
+      favOn: "In deinen Favoriten",
+      favOff: "Als Favorit speichern",
+    },
+  }[lang];
+  const hintEl = document.querySelector("#likeHint");
+  if (hintEl) hintEl.textContent = UI_TEXT.hint;
+
+  // 喜欢/收藏存在 localStorage（本浏览器），静态站没有服务器
+  // Likes and favourites live in localStorage (this browser); the site has no server
+  const store = (() => {
+    let likes = new Set();
+    let favs = new Set();
+    try {
+      likes = new Set(JSON.parse(localStorage.getItem("pf-likes") || "[]"));
+      favs = new Set(JSON.parse(localStorage.getItem("pf-favs") || "[]"));
+    } catch (e) { /* 忽略损坏的数据 / ignore broken data */ }
+    const save = () => {
+      try {
+        localStorage.setItem("pf-likes", JSON.stringify([...likes]));
+        localStorage.setItem("pf-favs", JSON.stringify([...favs]));
+      } catch (e) { /* 无痕模式下存不了也没关系 / fine if it cannot be saved */ }
+    };
+    return {
+      isLike: (p) => likes.has(p.src),
+      isFav: (p) => favs.has(p.src),
+      toggleLike(p) {
+        if (likes.has(p.src)) likes.delete(p.src); else likes.add(p.src);
+        save();
+      },
+      toggleFav(p) {
+        if (favs.has(p.src)) favs.delete(p.src); else favs.add(p.src);
+        save();
+      },
+    };
+  })();
 
   // 每个分类自己的主题色：切换时写到 body 上，CSS 变量跟着换
   // Each category has its own accent colour, set on <body> so the CSS variables follow
@@ -28,6 +106,26 @@
   // Featured photos plus the extended pool make up the full category
   const photosOf = (cat) => cat.photos.concat((typeof GALLERY_POOL !== "undefined" ? GALLERY_POOL : {})[cat.id] || []);
 
+  // 热门：主打图 + 按日期从池里挑 6 张（每天不一样）
+  // Hot: featured photos plus 6 date-seeded picks from the pool
+  const hotPhotos = (cat) => {
+    const pool = (typeof GALLERY_POOL !== "undefined" ? GALLERY_POOL : {})[cat.id] || [];
+    const d = new Date();
+    const seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+    const picks = [];
+    const seen = new Set(cat.photos.map((p) => p.src));
+    for (let i = 0; i < 6 && picks.length < 6 && pool.length; i++) {
+      const p = pool[(seed + i * 7) % pool.length];
+      if (!seen.has(p.src)) {
+        seen.add(p.src);
+        picks.push(p);
+      }
+    }
+    return cat.photos.concat(picks);
+  };
+
+  let sortMode = "all";
+
   // 图片路径按页面位置加前缀：zh/de 页面的资源在上一层
   // Image paths get a prefix by page location: assets live one level up on zh/de pages
   const pathParts = location.pathname.split("/").filter(Boolean);
@@ -38,7 +136,8 @@
     ? params.get("cat") : GALLERY.categories[0].id;
   let current = GALLERY.categories.find((c) => c.id === currentId);
 
-  switchNav.innerHTML = "";
+  // 类别下拉面板
+  menuPanel.innerHTML = "";
   GALLERY.categories.forEach((cat) => {
     const b = document.createElement("button");
     b.type = "button";
@@ -53,24 +152,74 @@
       current = cat;
       history.replaceState(null, "", "?cat=" + cat.id);
       render();
+      menuPanel.hidden = true;
+      menuBtn.setAttribute("aria-expanded", "false");
     });
-    switchNav.appendChild(b);
+    menuPanel.appendChild(b);
   });
+
+  // 类别下拉开关
+  menuBtn.addEventListener("click", () => {
+    const open = menuPanel.hidden;
+    menuPanel.hidden = !open;
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".cat-menu")) {
+      menuPanel.hidden = true;
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // 热门 / 综合 / 收藏
+  function setSort(mode) {
+    sortMode = mode;
+    [sortHot, sortAll, sortFav].forEach((b) => {
+      b.classList.toggle("is-active", b.dataset.mode === mode);
+      b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
+    });
+    render();
+  }
+  sortHot.dataset.mode = "hot";
+  sortAll.dataset.mode = "all";
+  if (sortFav) sortFav.dataset.mode = "fav";
+  sortHot.addEventListener("click", () => setSort("hot"));
+  sortAll.addEventListener("click", () => setSort("all"));
+  if (sortFav) sortFav.addEventListener("click", () => setSort("fav"));
 
   function render() {
     document.body.dataset.cat = current.id;
 
-    switchNav.querySelectorAll(".cat-btn").forEach((b) => {
+    menuPanel.querySelectorAll(".cat-btn").forEach((b) => {
       b.classList.toggle("is-active", b.dataset.cat === current.id);
       b.setAttribute("aria-pressed", String(b.dataset.cat === current.id));
     });
 
+    const second = lang === "en" ? current.label.zh : current.label.en;
+    menuLabel.textContent = current.emoji + " " + T(current.label) + " · " + second;
+
     luckyBtn.textContent = "🎲 " + T(current.lucky);
 
+    const all = photosOf(current);
+    const shown = sortMode === "hot" ? hotPhotos(current)
+      : sortMode === "fav" ? all.filter((p) => store.isFav(p)) : all;
+
     grid.innerHTML = "";
-    photosOf(current).forEach((photo) => {
+    if (!shown.length) {
+      const note = document.createElement("p");
+      note.className = "cat-empty";
+      note.textContent = UI_TEXT.empty;
+      grid.appendChild(note);
+      loadNews();
+      return;
+    }
+
+    shown.forEach((photo) => {
       const fig = document.createElement("figure");
       fig.className = "cat-item";
+
+      const imgWrap = document.createElement("div");
+      imgWrap.className = "cat-img";
 
       const btn = document.createElement("button");
       btn.type = "button";
@@ -87,6 +236,46 @@
       img.loading = "lazy";
       img.decoding = "async";
 
+      // 右下角：喜欢 ♥ 与收藏 ★
+      // Bottom-right corner: like and favourite
+      const actions = document.createElement("div");
+      actions.className = "cat-actions";
+
+      const likeBtn = document.createElement("button");
+      likeBtn.type = "button";
+      likeBtn.className = "like-btn" + (store.isLike(photo) ? " is-on" : "");
+      likeBtn.setAttribute("aria-pressed", String(store.isLike(photo)));
+      likeBtn.setAttribute("aria-label", store.isLike(photo) ? UI_TEXT.likeOn : UI_TEXT.likeOff);
+      likeBtn.textContent = "♥";
+      likeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        store.toggleLike(photo);
+        const on = store.isLike(photo);
+        likeBtn.classList.toggle("is-on", on);
+        likeBtn.setAttribute("aria-pressed", String(on));
+        likeBtn.setAttribute("aria-label", on ? UI_TEXT.likeOn : UI_TEXT.likeOff);
+      });
+
+      const favBtn = document.createElement("button");
+      favBtn.type = "button";
+      favBtn.className = "fav-btn" + (store.isFav(photo) ? " is-on" : "");
+      favBtn.setAttribute("aria-pressed", String(store.isFav(photo)));
+      favBtn.setAttribute("aria-label", store.isFav(photo) ? UI_TEXT.favOn : UI_TEXT.favOff);
+      favBtn.textContent = store.isFav(photo) ? "★" : "☆";
+      favBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        store.toggleFav(photo);
+        const on = store.isFav(photo);
+        favBtn.classList.toggle("is-on", on);
+        favBtn.textContent = on ? "★" : "☆";
+        favBtn.setAttribute("aria-pressed", String(on));
+        favBtn.setAttribute("aria-label", on ? UI_TEXT.favOn : UI_TEXT.favOff);
+        if (sortMode === "fav") render();
+      });
+
+      actions.appendChild(likeBtn);
+      actions.appendChild(favBtn);
+
       const cap = document.createElement("figcaption");
       const line = document.createElement("span");
       line.className = "cat-line";
@@ -102,8 +291,10 @@
       cap.appendChild(tag);
 
       btn.appendChild(img);
-      btn.appendChild(cap);
-      fig.appendChild(btn);
+      imgWrap.appendChild(btn);
+      imgWrap.appendChild(actions);
+      fig.appendChild(imgWrap);
+      fig.appendChild(cap);
       grid.appendChild(fig);
 
       btn.addEventListener("click", () => openStory(photo));
