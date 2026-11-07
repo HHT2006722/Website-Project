@@ -1663,6 +1663,30 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(179, 78, 23, .35);
 }
+
+.dialog-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .6rem;
+  margin-top: 1rem;
+}
+
+.dialog-reroll {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 99px;
+  padding: .35em 1.1em;
+  font: inherit;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.dialog-reroll:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat, var(--accent));
+  color: var(--cat, var(--accent));
+}
   </style>
   <script type="application/ld+json">
   {
@@ -1767,8 +1791,8 @@ body {
     <p>© <span id="year">2026</span> 照片签 · Photo Fortune</p>
       </footer>
 
-  <script src="../js/script.js?v=28" defer></script>
-  <script src="../js/home-pool.js?v=28" defer></script>
+  <script src="../js/script.js?v=29" defer></script>
+  <script src="../js/home-pool.js?v=29" defer></script>
 
     <dialog id="introBox" class="intro-box" aria-labelledby="introTitle">
       <h2 id="introTitle">这个网站是做什么的</h2>

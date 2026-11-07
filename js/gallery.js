@@ -365,66 +365,92 @@
     const photos = photosOf(current);
     const d = new Date();
     const seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
-    const photo = photos[seed % photos.length];
-    const pIndex = photos.indexOf(photo);
-    const detailUrl = "photo.html?cat=" + current.id + "&p=" + pIndex;
+    let idx = seed % photos.length;
 
-    luckyBox.innerHTML = "";
-    const title = document.createElement("h2");
-    title.className = "dialog-title";
-    title.textContent = T(current.lucky);
-    luckyBox.appendChild(title);
+    // 把某张幸运照片填进弹窗；reroll 时原地换内容
+    // Fill the dialog with one lucky photo; re-roll replaces the content in place
+    function buildLucky(i) {
+      const photo = photos[i];
+      const detailUrl = "photo.html?cat=" + current.id + "&p=" + i;
 
-    // 图片和「查看详情」都跳到这张照片的独立页面
-    // Both the image and the details button open this photo's own page
-    const imgLink = document.createElement("a");
-    imgLink.className = "dialog-img-link";
-    imgLink.href = detailUrl;
-    const img = document.createElement("img");
-    img.src = bigSrc(photo);
-    img.alt = T(photo.alt);
-    imgLink.appendChild(img);
-    luckyBox.appendChild(imgLink);
+      luckyBox.innerHTML = "";
+      const title = document.createElement("h2");
+      title.className = "dialog-title";
+      title.textContent = T(current.lucky);
+      luckyBox.appendChild(title);
 
-    const name = document.createElement("p");
-    name.className = "dialog-line";
-    const prefix = lang === "zh" ? "今天的是：" : lang === "de" ? "Heute ist es: " : "Today's is: ";
-    name.textContent = prefix + T(photo.alt);
-    luckyBox.appendChild(name);
+      // 图片和「查看详情」都跳到这张照片的独立页面
+      // Both the image and the details button open this photo's own page
+      const imgLink = document.createElement("a");
+      imgLink.className = "dialog-img-link";
+      imgLink.href = detailUrl;
+      const img = document.createElement("img");
+      img.src = bigSrc(photo);
+      img.alt = T(photo.alt);
+      imgLink.appendChild(img);
+      luckyBox.appendChild(imgLink);
 
-    // 简介：来历一行
-    const intro = document.createElement("p");
-    intro.className = "dialog-sub";
-    intro.textContent = T(photo.credit);
-    luckyBox.appendChild(intro);
+      const name = document.createElement("p");
+      name.className = "dialog-line";
+      const prefix = lang === "zh" ? "今天的是：" : lang === "de" ? "Heute ist es: " : "Today's is: ";
+      name.textContent = prefix + T(photo.alt);
+      luckyBox.appendChild(name);
 
-    // 它今天会带来什么——单独一行标签，说得明明白白
-    // What it brings you today — its own labelled line
-    const label = document.createElement("p");
-    label.className = "dialog-label";
-    label.textContent = lang === "zh" ? "它今天会给你带来" : lang === "de" ? "Was es dir heute bringt" : "What it brings you today";
-    luckyBox.appendChild(label);
+      // 简介：来历一行
+      const intro = document.createElement("p");
+      intro.className = "dialog-sub";
+      intro.textContent = T(photo.credit);
+      luckyBox.appendChild(intro);
 
-    const meaning = document.createElement("p");
-    meaning.className = "dialog-sub";
-    meaning.textContent = T(photo.luckyLine);
-    luckyBox.appendChild(meaning);
+      // 它今天会带来什么——单独一行标签，说得明明白白
+      // What it brings you today — its own labelled line
+      const label = document.createElement("p");
+      label.className = "dialog-label";
+      label.textContent = lang === "zh" ? "它今天会给你带来" : lang === "de" ? "Was es dir heute bringt" : "What it brings you today";
+      luckyBox.appendChild(label);
 
-    const details = document.createElement("a");
-    details.className = "dialog-link";
-    details.href = detailUrl;
-    details.textContent = lang === "zh" ? "查看详情 →" : lang === "de" ? "Details ansehen →" : "View details →";
-    luckyBox.appendChild(details);
+      const meaning = document.createElement("p");
+      meaning.className = "dialog-sub";
+      meaning.textContent = T(photo.luckyLine);
+      luckyBox.appendChild(meaning);
 
-    const close = document.createElement("button");
-    close.type = "button";
-    close.className = "dialog-close";
-    close.textContent = lang === "zh" ? "带走今天的运气" : lang === "de" ? "Nimm das Glück mit" : "Take today's luck";
-    close.addEventListener("click", () => luckyBox.close());
-    luckyBox.appendChild(close);
+      const details = document.createElement("a");
+      details.className = "dialog-link";
+      details.href = detailUrl;
+      details.textContent = lang === "zh" ? "查看详情 →" : lang === "de" ? "Details ansehen →" : "View details →";
+      luckyBox.appendChild(details);
 
-    luckyBox.showModal();
-    close.focus();
+      // 右下角：重新换一张幸运
+      // Bottom-right corner: draw a different lucky photo
+      const foot = document.createElement("div");
+      foot.className = "dialog-foot";
+      const close = document.createElement("button");
+      close.type = "button";
+      close.className = "dialog-close";
+      close.textContent = lang === "zh" ? "带走今天的运气" : lang === "de" ? "Nimm das Glück mit" : "Take today's luck";
+      close.addEventListener("click", () => luckyBox.close());
+      const reroll = document.createElement("button");
+      reroll.type = "button";
+      reroll.className = "dialog-reroll";
+      reroll.textContent = lang === "zh" ? "🔄 换一张" : lang === "de" ? "🔄 Nochmal ziehen" : "🔄 Draw another";
+      reroll.addEventListener("click", () => {
+        if (photos.length < 2) return;
+        let next;
+        do {
+          next = Math.floor(Math.random() * photos.length);
+        } while (next === idx);
+        idx = next;
+        buildLucky(idx);
+      });
+      foot.appendChild(close);
+      foot.appendChild(reroll);
+      luckyBox.appendChild(foot);
+
+      luckyBox.showModal();
+      close.focus();
+    }
+
+    buildLucky(idx);
   });
 
   // ---- 今日新闻：Wikipedia 头版「In the news」，按关键词挑本类的，每天自动更新 ----

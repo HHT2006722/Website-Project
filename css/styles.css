@@ -1822,3 +1822,30 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(179, 78, 23, .35);
 }
+
+/* ---------- 幸运弹窗底栏：关闭在左，换一张在右下角 ---------- */
+/* ---------- Lucky dialog footer: close left, re-roll bottom right ---------- */
+
+.dialog-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .6rem;
+  margin-top: 1rem;
+}
+
+.dialog-reroll {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 99px;
+  padding: .35em 1.1em;
+  font: inherit;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.dialog-reroll:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat, var(--accent));
+  color: var(--cat, var(--accent));
+}
