@@ -8,6 +8,7 @@
   <meta name="description" content="六张在室内展区拍摄的动物照片：鬣蜥、玄凤鹦鹉、水獭、刺猬、白化小兽和小猪。">
   <link rel="canonical" href="https://hht2006722.github.io/Website-Project/zh/works.html">
   <link rel="alternate" hreflang="zh-CN" href="https://hht2006722.github.io/Website-Project/zh/works.html">
+  <link rel="alternate" hreflang="de" href="https://hht2006722.github.io/Website-Project/de/works.html">
   <link rel="alternate" hreflang="en" href="https://hht2006722.github.io/Website-Project/works.html">
   <link rel="alternate" hreflang="x-default" href="https://hht2006722.github.io/Website-Project/works.html">
   <meta property="og:type" content="website">
@@ -765,8 +766,7 @@ body { hanging-punctuation: allow-end; }
         <li><a href="about.html">关于</a></li>
         <li><a href="contact.html">联系</a></li>
         <li><button id="dotBtn" class="dot-btn" type="button" aria-label="Useless machine: fill the screen with 99+ dots">99+</button></li>
-
-        <li><a class="lang-link" href="../works.html" hreflang="en" lang="en">English</a></li>
+        <li class="lang-group"><a href="../works.html" lang="en">EN</a><a href="works.html" lang="zh-CN" aria-current="page">中文</a><a href="../de/works.html" lang="de">Deutsch</a></li>
       </ul>
     </nav>
   </header>
@@ -777,6 +777,11 @@ body { hanging-punctuation: allow-end; }
     <nav class="cat-switch" aria-label="选择分类"></nav>
     <section class="cat-gallery" id="catGallery" aria-label="照片列表"></section>
     <p class="hint">人文、美食、风景的照片来自 Wikimedia Commons，出处写在每张照片下；动物照片是我自己拍的。</p>
+    <section class="news-zone" aria-labelledby="newsTitle">
+      <h2 id="newsTitle">今日新闻 · Today's news</h2>
+      <ul id="newsList"></ul>
+      <p class="hint" id="newsNote"></p>
+    </section>
     <section class="lucky-zone">
       <p><button id="luckyBtn" class="button" type="button">🎲</button></p>
     </section>

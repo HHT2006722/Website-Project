@@ -1079,3 +1079,125 @@ body { hanging-punctuation: allow-end; }
   .gate-quad:hover { transform: none; }
   .gate-quad:active { transform: none; }
 }
+
+/* ---------- 每类一个主题色 ---------- */
+/* ---------- One accent colour per category ---------- */
+body[data-cat="humanities"] { --cat: #0e7490; }
+body[data-cat="food"]       { --cat: #dc2626; }
+body[data-cat="animals"]    { --cat: #ea580c; }
+body[data-cat="landscape"]  { --cat: #15803d; }
+
+.cat-switch {
+  border-bottom: 3px solid var(--cat, var(--accent));
+  padding-bottom: .9rem;
+}
+
+.cat-btn.is-active {
+  background: var(--cat, var(--accent));
+  border-color: var(--cat, var(--accent));
+}
+
+.lucky-zone .button {
+  background: var(--cat, var(--accent));
+}
+
+/* ---------- 今日新闻区 ---------- */
+/* ---------- Today's news ---------- */
+.news-zone {
+  margin: 2rem 0 0;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.news-zone h2 {
+  font-size: 1.05rem;
+  border-left: 4px solid var(--cat, var(--accent));
+  padding-left: .6rem;
+}
+
+.news-zone ul {
+  list-style: none;
+  padding: 0;
+  margin: .8rem 0 0;
+}
+
+.news-zone li {
+  margin-bottom: .5rem;
+}
+
+.news-zone a {
+  color: var(--text);
+}
+
+.news-zone a:hover {
+  color: var(--cat, var(--accent));
+}
+
+/* ---------- 右上角语言切换 ---------- */
+/* ---------- Language switch, top right ---------- */
+.gate-lang {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9992;
+  display: flex;
+  gap: .5rem;
+}
+
+.gate-lang a {
+  padding: .3em .8em;
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-radius: 99px;
+  color: #fff;
+  background: rgba(20, 16, 13, .55);
+  text-decoration: none;
+  font-size: .9rem;
+}
+
+.gate-lang a[aria-current="page"] {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* 导航里的语言组 */
+/* Language group in the nav */
+.lang-group {
+  display: flex;
+  gap: .5rem;
+}
+
+.lang-group a {
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.lang-group a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ---------- 主页卡片：更大 + 每类一条色带 ---------- */
+/* ---------- Home cards: bigger, with one colour bar per category ---------- */
+.gate-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.gate-thumb {
+  aspect-ratio: 3 / 2;
+}
+
+.gate-title {
+  font-size: 1.3rem;
+}
+
+.gate-humanities { border-top: 5px solid #0e7490; }
+.gate-food       { border-top: 5px solid #dc2626; }
+.gate-animals    { border-top: 5px solid #ea580c; }
+.gate-landscape  { border-top: 5px solid #15803d; }
+
+@media (prefers-color-scheme: dark) {
+  .cat-btn.is-active {
+    background: var(--cat, #b35c25);
+    border-color: var(--cat, #b35c25);
+  }
+}

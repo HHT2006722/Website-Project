@@ -27,9 +27,19 @@ const STRINGS = {
     tooShort: 'A few more words, so I know what this is about',
     fixCount: (n) => (n === 1 ? '1 field still needs fixing' : n + ' fields still need fixing') + ' — see the highlighted ones.',
     mailtoOpened: (to) => 'Your mail app should have opened — confirm and send there. If nothing happened, write to ' + to + '.'
+  },
+  de: {
+    filterStatus: (shown, total) => 'Zeige ' + shown + ' von ' + total + ' Fotos',
+    lightboxStatus: (index, total, caption) => index + ' von ' + total + ' · ' + caption,
+    required: 'Dieses Feld darf nicht leer sein',
+    email: 'Gib eine gültige E-Mail-Adresse ein, zum Beispiel name@example.com',
+    tooShort: 'Ein paar Wörter mehr, damit ich weiß, worum es geht',
+    fixCount: (n) => (n === 1 ? '1 Feld muss noch korrigiert werden' : n + ' Felder müssen noch korrigiert werden') + ' — siehe die markierten.',
+    mailtoOpened: (to) => 'Dein Mailprogramm sollte sich geöffnet haben — bestätige dort das Senden. Falls nichts passiert, schreib an ' + to + '.'
   }
 };
-const T = STRINGS[(document.documentElement.lang || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en'];
+const L = (document.documentElement.lang || 'en').toLowerCase();
+const T = STRINGS[L.startsWith('zh') ? 'zh' : L.startsWith('de') ? 'de' : 'en'];
 
 /* ---------- 1. 导航菜单 ---------- */
 (function initNav() {

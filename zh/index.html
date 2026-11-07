@@ -996,6 +996,118 @@ body { hanging-punctuation: allow-end; }
   .gate-quad:hover { transform: none; }
   .gate-quad:active { transform: none; }
 }
+
+body[data-cat="humanities"] { --cat: #0e7490; }
+body[data-cat="food"]       { --cat: #dc2626; }
+body[data-cat="animals"]    { --cat: #ea580c; }
+body[data-cat="landscape"]  { --cat: #15803d; }
+
+.cat-switch {
+  border-bottom: 3px solid var(--cat, var(--accent));
+  padding-bottom: .9rem;
+}
+
+.cat-btn.is-active {
+  background: var(--cat, var(--accent));
+  border-color: var(--cat, var(--accent));
+}
+
+.lucky-zone .button {
+  background: var(--cat, var(--accent));
+}
+
+.news-zone {
+  margin: 2rem 0 0;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.news-zone h2 {
+  font-size: 1.05rem;
+  border-left: 4px solid var(--cat, var(--accent));
+  padding-left: .6rem;
+}
+
+.news-zone ul {
+  list-style: none;
+  padding: 0;
+  margin: .8rem 0 0;
+}
+
+.news-zone li {
+  margin-bottom: .5rem;
+}
+
+.news-zone a {
+  color: var(--text);
+}
+
+.news-zone a:hover {
+  color: var(--cat, var(--accent));
+}
+
+.gate-lang {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9992;
+  display: flex;
+  gap: .5rem;
+}
+
+.gate-lang a {
+  padding: .3em .8em;
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-radius: 99px;
+  color: #fff;
+  background: rgba(20, 16, 13, .55);
+  text-decoration: none;
+  font-size: .9rem;
+}
+
+.gate-lang a[aria-current="page"] {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.lang-group {
+  display: flex;
+  gap: .5rem;
+}
+
+.lang-group a {
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.lang-group a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.gate-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.gate-thumb {
+  aspect-ratio: 3 / 2;
+}
+
+.gate-title {
+  font-size: 1.3rem;
+}
+
+.gate-humanities { border-top: 5px solid #0e7490; }
+.gate-food       { border-top: 5px solid #dc2626; }
+.gate-animals    { border-top: 5px solid #ea580c; }
+.gate-landscape  { border-top: 5px solid #15803d; }
+
+@media (prefers-color-scheme: dark) {
+  .cat-btn.is-active {
+    background: var(--cat, #b35c25);
+    border-color: var(--cat, #b35c25);
+  }
+}
   </style>
   <script type="application/ld+json">
   {
@@ -1012,6 +1124,11 @@ body { hanging-punctuation: allow-end; }
 </head>
 <body>
     <div id="choiceGate" class="choice-gate">
+    <nav class="gate-lang" aria-label="语言">
+      <a href="../index.html" lang="en">EN</a>
+      <a href="index.html" lang="zh-CN" aria-current="page">中文</a>
+      <a href="../de/index.html" lang="de">Deutsch</a>
+    </nav>
     <a class="gate-quad quad-humanities" href="works.html?cat=humanities">
       <span class="q-bg" aria-hidden="true" style="background-image:url(../img/cat-humanities-3.jpg)"></span>
       <span class="q-emoji" aria-hidden="true">🏙️</span>
@@ -1019,7 +1136,7 @@ body { hanging-punctuation: allow-end; }
       <span class="q-desc">街头与市场里的人</span>
     </a>
     <a class="gate-quad quad-food" href="works.html?cat=food">
-      <span class="q-bg" aria-hidden="true" style="background-image:url(../img/cat-food-2.jpg)"></span>
+      <span class="q-bg" aria-hidden="true" style="background-image:url(../img/cat-food-dish.jpg)"></span>
       <span class="q-emoji" aria-hidden="true">🍜</span>
       <span class="q-title">美食 · Food</span>
       <span class="q-desc">让人走不动路的食物</span>
@@ -1056,8 +1173,7 @@ body { hanging-punctuation: allow-end; }
         <li><a href="about.html">关于</a></li>
         <li><a href="contact.html">联系</a></li>
         <li><button id="dotBtn" class="dot-btn" type="button" aria-label="Useless machine: fill the screen with 99+ dots">99+</button></li>
-
-        <li><a class="lang-link" href="../index.html" hreflang="en" lang="en">English</a></li>
+        <li class="lang-group"><a href="../index.html" lang="en">EN</a><a href="index.html" lang="zh-CN" aria-current="page">中文</a><a href="../de/index.html" lang="de">Deutsch</a></li>
       </ul>
     </nav>
   </header>
@@ -1066,22 +1182,22 @@ body { hanging-punctuation: allow-end; }
     <h1>韩宏涛的观察本</h1>
     <p class="lead">四类照片，每张只有一句话；还有一张属于今天的幸运照片。</p>
     <div class="gate-grid">
-      <a class="gate-card" href="works.html?cat=humanities">
+      <a class="gate-card gate-humanities" href="works.html?cat=humanities">
         <img class="gate-thumb" src="../img/cat-humanities-3.jpg" alt="" aria-hidden="true">
         <span class="gate-title">人文 · Humanities</span>
         <span class="gate-desc">街头与市场里的人</span>
       </a>
-      <a class="gate-card" href="works.html?cat=food">
-        <img class="gate-thumb" src="../img/cat-food-2.jpg" alt="" aria-hidden="true">
+      <a class="gate-card gate-food" href="works.html?cat=food">
+        <img class="gate-thumb" src="../img/cat-food-dish.jpg" alt="" aria-hidden="true">
         <span class="gate-title">美食 · Food</span>
         <span class="gate-desc">让人走不动路的食物</span>
       </a>
-      <a class="gate-card" href="works.html?cat=animals">
+      <a class="gate-card gate-animals" href="works.html?cat=animals">
         <img class="gate-thumb" src="../img/work-05-768.webp" alt="" aria-hidden="true">
         <span class="gate-title">动物 · Animals</span>
         <span class="gate-desc">隔着玻璃拍下的动物</span>
       </a>
-      <a class="gate-card" href="works.html?cat=landscape">
+      <a class="gate-card gate-landscape" href="works.html?cat=landscape">
         <img class="gate-thumb" src="../img/cat-landscape-1.jpg" alt="" aria-hidden="true">
         <span class="gate-title">风景 · Landscape</span>
         <span class="gate-desc">山川与湖泊</span>
