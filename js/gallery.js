@@ -366,6 +366,8 @@
     const d = new Date();
     const seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
     const photo = photos[seed % photos.length];
+    const pIndex = photos.indexOf(photo);
+    const detailUrl = "photo.html?cat=" + current.id + "&p=" + pIndex;
 
     luckyBox.innerHTML = "";
     const title = document.createElement("h2");
@@ -373,16 +375,28 @@
     title.textContent = T(current.lucky);
     luckyBox.appendChild(title);
 
+    // 图片和「查看详情」都跳到这张照片的独立页面
+    // Both the image and the details button open this photo's own page
+    const imgLink = document.createElement("a");
+    imgLink.className = "dialog-img-link";
+    imgLink.href = detailUrl;
     const img = document.createElement("img");
     img.src = bigSrc(photo);
     img.alt = T(photo.alt);
-    luckyBox.appendChild(img);
+    imgLink.appendChild(img);
+    luckyBox.appendChild(imgLink);
 
     const name = document.createElement("p");
     name.className = "dialog-line";
     const prefix = lang === "zh" ? "今天的是：" : lang === "de" ? "Heute ist es: " : "Today's is: ";
     name.textContent = prefix + T(photo.alt);
     luckyBox.appendChild(name);
+
+    // 简介：来历一行
+    const intro = document.createElement("p");
+    intro.className = "dialog-sub";
+    intro.textContent = T(photo.credit);
+    luckyBox.appendChild(intro);
 
     // 它今天会带来什么——单独一行标签，说得明明白白
     // What it brings you today — its own labelled line
@@ -395,6 +409,12 @@
     meaning.className = "dialog-sub";
     meaning.textContent = T(photo.luckyLine);
     luckyBox.appendChild(meaning);
+
+    const details = document.createElement("a");
+    details.className = "dialog-link";
+    details.href = detailUrl;
+    details.textContent = lang === "zh" ? "查看详情 →" : lang === "de" ? "Details ansehen →" : "View details →";
+    luckyBox.appendChild(details);
 
     const close = document.createElement("button");
     close.type = "button";

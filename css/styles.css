@@ -1792,3 +1792,33 @@ body {
     gap: 1rem;
   }
 }
+
+/* ---------- 幸运弹窗：图片与「查看详情」链接 ---------- */
+/* ---------- Lucky dialog: image and details links ---------- */
+
+.dialog-img-link {
+  display: block;
+  cursor: zoom-in;
+}
+
+.dialog-img-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.dialog-link {
+  display: inline-block;
+  margin-top: .8rem;
+  padding: .5em 1.4em;
+  border-radius: 99px;
+  background: linear-gradient(120deg, #b34e17, #e0245e);
+  color: #fff;
+  text-decoration: none;
+}
+
+.dialog-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(179, 78, 23, .35);
+}
