@@ -404,3 +404,49 @@ const T = STRINGS[(document.documentElement.lang || 'en').toLowerCase().startsWi
   const el = document.querySelector('#year');
   if (el) el.textContent = String(new Date().getFullYear());
 })();
+
+/* ---------- 8. 99+ 无用小机器 ---------- */
+/* ---------- 8. The 99+ useless machine ---------- */
+(function initDotRain() {
+  const btn = document.querySelector("#dotBtn");
+  if (!btn) return;
+
+  let active = false;
+
+  // 满屏 99+ 红点：两秒后自己淡出
+  // Fill the screen with 99+ dots; they fade out on their own after two seconds
+  function dotRain() {
+    if (active) return;
+    active = true;
+
+    const layer = document.createElement("div");
+    layer.className = "dot-rain";
+    layer.setAttribute("aria-hidden", "true");
+
+    const N = 70;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < N; i++) {
+      const d = document.createElement("span");
+      d.className = "dot";
+      d.style.left = Math.random() * 100 + "vw";
+      d.style.top = Math.random() * 100 + "vh";
+      const size = 22 + Math.random() * 18;
+      d.style.width = size + "px";
+      d.style.height = size + "px";
+      d.style.fontSize = Math.max(9, size * 0.38) + "px";
+      d.style.animationDelay = Math.random() * 0.3 + "s";
+      d.textContent = "99+";
+      frag.appendChild(d);
+    }
+    layer.appendChild(frag);
+    document.body.appendChild(layer);
+
+    setTimeout(() => layer.classList.add("fading"), 2000);
+    setTimeout(() => {
+      layer.remove();
+      active = false;
+    }, 3600);
+  }
+
+  btn.addEventListener("click", dotRain);
+})();

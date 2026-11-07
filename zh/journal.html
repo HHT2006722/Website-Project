@@ -697,6 +697,57 @@ body { hanging-punctuation: allow-end; }
   img { max-width: 70%; height: auto; }
   h1, h2, h3 { break-after: avoid; }
 }
+
+.dot-btn {
+  border: 1.5px solid #e0245e;
+  border-radius: 99px;
+  padding: .3em 1em;
+  color: #e0245e;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.dot-btn:hover {
+  color: #fff;
+  background: #e0245e;
+}
+
+.dot-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dot {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff3b30;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+  opacity: 0;
+  animation: dotPop .3s ease-out forwards;
+  transition: opacity 1.2s ease;
+}
+
+@keyframes dotPop {
+  from { opacity: 0; transform: scale(.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.dot-rain.fading .dot {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot { animation: none; opacity: 1; }
+}
   </style>
 </head>
 <body>
@@ -716,6 +767,8 @@ body { hanging-punctuation: allow-end; }
         <li><a href="journal.html" aria-current="page">笔记</a></li>
         <li><a href="about.html">关于</a></li>
         <li><a href="contact.html">联系</a></li>
+        <li><button id="dotBtn" class="dot-btn" type="button" aria-label="Useless machine: fill the screen with 99+ dots">99+</button></li>
+
         <li><a class="lang-link" href="../journal.html" hreflang="en" lang="en">English</a></li>
       </ul>
     </nav>
