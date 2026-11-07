@@ -1136,6 +1136,98 @@ body[data-cat="landscape"]  { --cat: #15803d; }
 .gate-submit:hover {
   background: rgba(20, 16, 13, .8);
 }
+
+.logo {
+  background: linear-gradient(90deg, #e0245e, #ea580c 45%, #0e7490);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main > h1::after {
+  content: "";
+  display: block;
+  height: 4px;
+  margin-top: .4rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #0e7490, #15803d, #ea580c, #e0245e);
+  background-size: 300% 100%;
+  animation: hue-slide 8s linear infinite;
+}
+
+@keyframes hue-slide {
+  from { background-position: 0% 50%; }
+  to   { background-position: 300% 50%; }
+}
+
+.lucky-zone .button {
+  background: linear-gradient(120deg, #0e7490, #15803d, #ea580c, #e0245e);
+  background-size: 250% 100%;
+  animation: hue-slide 6s linear infinite, pulse 2.4s ease-in-out infinite;
+  border: 0;
+  color: #fff;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+
+.quad-humanities:hover { box-shadow: inset 0 0 0 4px #0e7490, 0 0 26px rgba(14, 116, 144, .5); }
+.quad-food:hover       { box-shadow: inset 0 0 0 4px #dc2626, 0 0 26px rgba(220, 38, 38, .5); }
+.quad-animals:hover    { box-shadow: inset 0 0 0 4px #ea580c, 0 0 26px rgba(234, 88, 12, .5); }
+.quad-landscape:hover  { box-shadow: inset 0 0 0 4px #15803d, 0 0 26px rgba(21, 128, 61, .5); }
+
+.cat-item img {
+  transition: transform .25s ease;
+}
+
+.cat-item-btn:hover img,
+.cat-item-btn:focus-visible img {
+  transform: scale(1.04);
+}
+
+.cat-item-btn:hover .cat-line,
+.cat-item-btn:focus-visible .cat-line {
+  color: var(--cat, var(--accent));
+}
+
+.gate-thumb {
+  transition: transform .25s ease;
+}
+
+.gate-card:hover .gate-thumb,
+.gate-card:focus-visible .gate-thumb {
+  transform: scale(1.04);
+}
+
+.gate-humanities:hover, .gate-humanities:focus-visible { box-shadow: 0 8px 24px rgba(14, 116, 144, .3); }
+.gate-food:hover,       .gate-food:focus-visible       { box-shadow: 0 8px 24px rgba(220, 38, 38, .3); }
+.gate-animals:hover,    .gate-animals:focus-visible    { box-shadow: 0 8px 24px rgba(234, 88, 12, .3); }
+.gate-landscape:hover,  .gate-landscape:focus-visible  { box-shadow: 0 8px 24px rgba(21, 128, 61, .3); }
+
+.story-box,
+.lucky-box {
+  border-top: 6px solid var(--cat, var(--accent));
+}
+
+.button {
+  background: linear-gradient(120deg, #b34e17, #e0245e);
+  border: 0;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(179, 78, 23, .35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > h1::after,
+  .lucky-zone .button {
+    animation: none;
+  }
+}
   </style>
 </head>
 <body>
@@ -1176,6 +1268,6 @@ body[data-cat="landscape"]  { --cat: #15803d; }
     <p>© <span id="year">2026</span> Photo Fortune · von Hand gebaut</p>
       </footer>
 
-  <script src="../js/script.js?v=17" defer></script>
+  <script src="../js/script.js?v=18" defer></script>
 </body>
 </html>
