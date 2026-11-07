@@ -1515,6 +1515,10 @@ body {
   cursor: pointer;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .cat-menu-panel {
   position: absolute;
   top: calc(100% + 6px);
@@ -1565,12 +1569,6 @@ body {
   position: relative;
 }
 
-/* 长列表滚动性能：屏幕外的卡片跳过渲染 */
-/* Long list performance: offscreen cards skip rendering */
-.cat-item {
-  content-visibility: auto;
-  contain-intrinsic-size: 300px 340px;
-}
 
 .cat-item-btn {
   display: block;
