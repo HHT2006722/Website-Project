@@ -1109,6 +1109,33 @@ body[data-cat="landscape"]  { --cat: #15803d; }
     border-color: var(--cat, #b35c25);
   }
 }
+
+.submit-preview {
+  display: block;
+  max-width: 100%;
+  max-height: 320px;
+  margin-top: .8rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.gate-submit {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 9991;
+  border: 1px solid rgba(255, 255, 255, .55);
+  background: rgba(20, 16, 13, .55);
+  color: #fff;
+  border-radius: 99px;
+  padding: .4em 1.2em;
+  font: inherit;
+  text-decoration: none;
+}
+
+.gate-submit:hover {
+  background: rgba(20, 16, 13, .8);
+}
   </style>
 </head>
 <body>
@@ -1129,6 +1156,7 @@ body[data-cat="landscape"]  { --cat: #15803d; }
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><button id="dotBtn" class="dot-btn" type="button" aria-label="Useless machine: fill the screen with 99+ dots">99+</button></li>
+        <li><a href="submit.html">Submit</a></li>
         <li class="lang-group"><a href="journal.html" lang="en" aria-current="page">EN</a><a href="zh/journal.html" lang="zh-CN">中文</a><a href="de/journal.html" lang="de">Deutsch</a></li>
       </ul>
     </nav>
@@ -1140,6 +1168,7 @@ body[data-cat="landscape"]  { --cat: #15803d; }
       <li>Open the home page and pick a kind of photo — humanities, food, animals or landscape.</li>
       <li>Every photo has exactly one line. Click a photo to read it.</li>
       <li>Press the lucky button and today's photo pops up, with its meaning for your day.</li>
+          <li>Send your own photo with its story — the last step happens on GitHub or in email, because the site is static.</li>
     </ol>
     <p class="hint">The humanities, food and landscape photos come from Wikimedia Commons, credited under each one. The animal photos are mine, taken 5 April 2024 with an iPhone 13 Pro.</p>
   </main>
@@ -1149,6 +1178,6 @@ body[data-cat="landscape"]  { --cat: #15803d; }
     <p class="footer-note">Photos: my own and Wikimedia Commons — the credit is under each photo.</p>
   </footer>
 
-  <script src="js/script.js?v=14" defer></script>
+  <script src="js/script.js?v=15" defer></script>
 </body>
 </html>

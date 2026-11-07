@@ -1109,6 +1109,33 @@ body[data-cat="landscape"]  { --cat: #15803d; }
     border-color: var(--cat, #b35c25);
   }
 }
+
+.submit-preview {
+  display: block;
+  max-width: 100%;
+  max-height: 320px;
+  margin-top: .8rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.gate-submit {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 9991;
+  border: 1px solid rgba(255, 255, 255, .55);
+  background: rgba(20, 16, 13, .55);
+  color: #fff;
+  border-radius: 99px;
+  padding: .4em 1.2em;
+  font: inherit;
+  text-decoration: none;
+}
+
+.gate-submit:hover {
+  background: rgba(20, 16, 13, .8);
+}
   </style>
 </head>
 <body>
@@ -1129,6 +1156,7 @@ body[data-cat="landscape"]  { --cat: #15803d; }
         <li><a href="about.html" aria-current="page">关于</a></li>
         <li><a href="contact.html">联系</a></li>
         <li><button id="dotBtn" class="dot-btn" type="button" aria-label="Useless machine: fill the screen with 99+ dots">99+</button></li>
+        <li><a href="submit.html">投稿</a></li>
         <li class="lang-group"><a href="../about.html" lang="en">EN</a><a href="about.html" lang="zh-CN" aria-current="page">中文</a><a href="../de/about.html" lang="de">Deutsch</a></li>
       </ul>
     </nav>
@@ -1147,6 +1175,6 @@ body[data-cat="landscape"]  { --cat: #15803d; }
     <p class="footer-note">站内照片均为本人拍摄，未经许可请勿转载或商用。</p>
   </footer>
 
-  <script src="../js/script.js?v=14" defer></script>
+  <script src="../js/script.js?v=15" defer></script>
 </body>
 </html>

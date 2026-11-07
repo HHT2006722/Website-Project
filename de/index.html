@@ -1109,6 +1109,33 @@ body[data-cat="landscape"]  { --cat: #15803d; }
     border-color: var(--cat, #b35c25);
   }
 }
+
+.submit-preview {
+  display: block;
+  max-width: 100%;
+  max-height: 320px;
+  margin-top: .8rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.gate-submit {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 9991;
+  border: 1px solid rgba(255, 255, 255, .55);
+  background: rgba(20, 16, 13, .55);
+  color: #fff;
+  border-radius: 99px;
+  padding: .4em 1.2em;
+  font: inherit;
+  text-decoration: none;
+}
+
+.gate-submit:hover {
+  background: rgba(20, 16, 13, .8);
+}
   </style>
 </head>
 <body>
@@ -1142,6 +1169,7 @@ body[data-cat="landscape"]  { --cat: #15803d; }
       <span class="q-title">Landschaft · Landscape</span>
       <span class="q-desc">Berge und Seen</span>
     </a>
+        <a class="gate-submit" href="submit.html">投稿 · Submit</a>
     <button id="gateSkip" class="gate-skip" type="button">Überspringen · Skip</button>
   </div>
 
@@ -1162,6 +1190,7 @@ body[data-cat="landscape"]  { --cat: #15803d; }
         <li><a href="about.html">Über mich</a></li>
         <li><a href="contact.html">Kontakt</a></li>
         <li><button id="dotBtn" class="dot-btn" type="button" aria-label="Useless machine: fill the screen with 99+ dots">99+</button></li>
+        <li><a href="submit.html">Einreichen</a></li>
         <li class="lang-group"><a href="../index.html?skip=1" lang="en">EN</a><a href="../zh/index.html" lang="zh-CN">中文</a><a href="index.html?skip=1" lang="de" aria-current="page">Deutsch</a></li>
       </ul>
     </nav>
@@ -1200,7 +1229,7 @@ body[data-cat="landscape"]  { --cat: #15803d; }
     <p class="footer-note">Fotos: meine eigenen und Wikimedia Commons — die Quelle steht unter jedem Foto.</p>
   </footer>
 
-  <script src="../js/script.js?v=14" defer></script>
-  <script src="../js/home-pool.js?v=14" defer></script>
+  <script src="../js/script.js?v=15" defer></script>
+  <script src="../js/home-pool.js?v=15" defer></script>
 </body>
 </html>

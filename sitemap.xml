@@ -81,4 +81,31 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hht2006722.github.io/Website-Project/zh/contact.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hht2006722.github.io/Website-Project/contact.html"/>
   </url>
+  <url>
+    <loc>https://hht2006722.github.io/Website-Project/submit.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hht2006722.github.io/Website-Project/submit.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hht2006722.github.io/Website-Project/zh/submit.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hht2006722.github.io/Website-Project/de/submit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hht2006722.github.io/Website-Project/submit.html"/>
+  </url>
+  <url>
+    <loc>https://hht2006722.github.io/Website-Project/zh/submit.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hht2006722.github.io/Website-Project/submit.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hht2006722.github.io/Website-Project/zh/submit.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hht2006722.github.io/Website-Project/de/submit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hht2006722.github.io/Website-Project/submit.html"/>
+  </url>
+  <url>
+    <loc>https://hht2006722.github.io/Website-Project/de/submit.html</loc>
+    <lastmod>2026-11-07</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hht2006722.github.io/Website-Project/submit.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://hht2006722.github.io/Website-Project/zh/submit.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hht2006722.github.io/Website-Project/de/submit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hht2006722.github.io/Website-Project/submit.html"/>
+  </url>
 </urlset>
