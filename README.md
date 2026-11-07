@@ -23,16 +23,11 @@
 /
 ├── index.html  works.html  journal.html  about.html  contact.html  404.html   ← 英文（默认）
 ├── zh/                     中文版，同样六个页面
-├── feed.xml               英文订阅源（feed.xsl 渲染）
-├── zh/feed.xml            中文订阅源（zh/feed.xsl 渲染）
 ├── css/styles.css          样式源文件（会被内联进各页，见下）
 ├── js/script.js            菜单、灯箱（含前后切换与焦点陷阱）、表单校验
 ├── img/                    照片，每张含 480 / 960 / 1600 三档 WebP
 ├── tools/inline-css.py     把 css/styles.css 内联进六个页面
 ├── tools/build-images.py   把照片导出成三档 WebP
-├── tools/build-feed.py     从 journal.html 生成 feed.xml
-├── feed.xml                RSS 订阅源
-├── feed.xsl                给订阅源用的样式表（浏览器里直接显示成网页）
 ├── favicon.ico  favicon-32.png  apple-touch-icon.png
 ├── og-cover.jpg            社交分享卡片（1200×630）
 ├── sitemap.xml  robots.txt 搜索引擎用
@@ -64,8 +59,6 @@ python tools/inline-css.py
 **改笔记**（`journal.html`）之后，重新生成订阅源：
 
 ```bash
-python tools/build-feed.py            # 英文：journal.html -> feed.xml
-python tools/build-feed.py --lang zh   # 中文：zh/journal.html -> zh/feed.xml
 ```
 
 **换照片**：把照片放进一个文件夹，然后：
