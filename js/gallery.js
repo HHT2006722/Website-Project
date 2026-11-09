@@ -130,6 +130,21 @@
 
   let sortMode = "all";
 
+  // 洗牌：每次展示顺序随机
+  // Shuffle: display order is random on every visit
+  const shuffle = (arr) => {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = a[i];
+      a[i] = a[j];
+      a[j] = tmp;
+    }
+    return a;
+  };
+  let lastOrderKey = "";
+  let shownOrder = [];
+
   // 图片路径按页面位置加前缀：zh/de 页面的资源在上一层
   // Image paths get a prefix by page location: assets live one level up on zh/de pages
   const pathParts = location.pathname.split("/").filter(Boolean);
@@ -203,8 +218,17 @@
     luckyBtn.textContent = "🎲 " + T(current.lucky);
 
     const all = photosOf(current);
-    const shown = sortMode === "hot" ? hotPhotos(current)
+    const base = sortMode === "hot" ? hotPhotos(current)
       : sortMode === "fav" ? all.filter((p) => store.isFav(p)) : all;
+
+    // 每次打开/换类别/换排序都重新洗牌，照片顺序随机
+    // Reshuffle on every load, category change and sort change
+    const orderKey = current.id + "|" + sortMode + "|" + (sortMode === "fav" ? base.length : "");
+    if (orderKey !== lastOrderKey) {
+      lastOrderKey = orderKey;
+      shownOrder = shuffle(base);
+    }
+    const shown = shownOrder;
 
     // 热门用大卡布局，和综合明显区分
     // Hot uses big cards so it never looks like the same group as All
