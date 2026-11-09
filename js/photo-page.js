@@ -43,6 +43,7 @@
   const prevEl = document.querySelector("#photoPrev");
   const nextEl = document.querySelector("#photoNext");
   const copyEl = document.querySelector("#photoCopy");
+  const downloadEl = document.querySelector("#photoDownload");
   const creditEl = document.querySelector("#photoCredit");
   const headingEls = document.querySelectorAll(".photo-h2");
 
@@ -82,6 +83,11 @@
   descEl.textContent = (photo.desc && photo.desc.en) ? desc : (photo.source ? desc : STR.ownAbout);
 
   provEl.textContent = T(photo.credit);
+
+  if (downloadEl) {
+    downloadEl.href = IMG + photo.src;
+    downloadEl.setAttribute("download", photo.src.split("/").pop());
+  }
   creditEl.textContent = T(photo.credit);
 
   if (photo.source) {

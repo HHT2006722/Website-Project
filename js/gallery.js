@@ -29,6 +29,18 @@
   }[lang];
   document.querySelector("[data-sort-hot]").textContent = SORT[0];
   document.querySelector("[data-sort-all]").textContent = SORT[1];
+  const randomBtn = document.querySelector("#randomBtn");
+  const randomSpan = document.querySelector("[data-random]");
+  if (randomSpan) {
+    randomSpan.textContent = { en: "Surprise me", zh: "随手一张", de: "Überrasch mich" }[lang];
+  }
+  if (randomBtn) {
+    randomBtn.addEventListener("click", () => {
+      const list = photosOf(current);
+      const i = Math.floor(Math.random() * list.length);
+      location.href = "photo.html?cat=" + current.id + "&p=" + i;
+    });
+  }
   if (document.querySelector("[data-sort-fav]")) {
     document.querySelector("[data-sort-fav]").textContent = SORT[2];
   }
