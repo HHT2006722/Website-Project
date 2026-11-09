@@ -480,6 +480,19 @@ const T = STRINGS[L.startsWith('zh') ? 'zh' : L.startsWith('de') ? 'de' : 'en'];
   });
 })();
 
+/* ---------- 9b. 首页「随便看一张」：随机挑一类 ---------- */
+/* ---------- 9b. Home "Surprise me": pick a random category ---------- */
+(function initRandomAny() {
+  const a = document.querySelector("#randomAny");
+  if (!a) return;
+  const cats = ["humanities", "food", "animals", "landscape"];
+  a.addEventListener("click", (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    location.href = "works.html?cat=" + cats[Math.floor(Math.random() * cats.length)];
+  });
+})();
+
 /* ---------- 10. 入口介绍弹窗：先说清楚网站是做什么的 ---------- */
 /* ---------- 10. Intro dialog: explain the site before choosing ---------- */
 (function initIntro() {

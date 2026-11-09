@@ -1868,3 +1868,26 @@ body {
   font-weight: 700;
   border-bottom: 2px solid var(--accent);
 }
+
+/* ---------- 已看进度与首页随机按钮 ---------- */
+/* ---------- View progress chip and the home surprise button ---------- */
+
+.viewed-chip {
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: .35em 1em;
+  font-size: .9rem;
+  color: var(--muted);
+  background: var(--card);
+}
+
+.button.is-done {
+  background: var(--card);
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  cursor: default;
+}
+
+.home-surprise {
+  margin: 1.6rem 0 .6rem;
+}

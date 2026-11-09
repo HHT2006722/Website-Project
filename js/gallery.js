@@ -73,6 +73,19 @@
       favOff: "Als Favorit speichern",
     },
   }[lang];
+  // 已看进度：详情页看过哪些，这里显示 x/y
+  // View progress: which photos were opened on their detail page
+  const viewedKey = "pf-viewed";
+  const readViewed = () => {
+    try {
+      return new Set(JSON.parse(localStorage.getItem(viewedKey) || "[]"));
+    } catch (e) {
+      return new Set();
+    }
+  };
+  const viewedChip = document.createElement("span");
+  viewedChip.className = "viewed-chip";
+
   const hintEl = document.querySelector("#likeHint");
   if (hintEl) hintEl.textContent = UI_TEXT.hint;
 
@@ -228,6 +241,17 @@
   sortAll.addEventListener("click", () => setSort("all"));
   if (sortFav) sortFav.addEventListener("click", () => setSort("fav"));
 
+  function updateViewedChip() {
+    const photos = photosOf(current);
+    const viewed = readViewed();
+    const seen = photos.filter((p, i) => viewed.has(current.id + "|" + i)).length;
+    const label = { en: "Viewed", zh: "已看", de: "Gesehen" }[lang];
+    viewedChip.textContent = "👀 " + label + " " + seen + "/" + photos.length;
+    if (seen === photos.length && photos.length) {
+      viewedChip.textContent += " 🎉";
+    }
+  }
+
   function render() {
     document.body.dataset.cat = current.id;
 
@@ -240,6 +264,11 @@
     menuLabel.textContent = current.emoji + " " + T(current.label) + " · " + second;
 
     luckyBtn.textContent = "🎲 " + T(current.lucky);
+    updateViewedChip();
+    if (!viewedChip.isConnected) {
+      const tools = document.querySelector(".gallery-tools");
+      if (tools) tools.appendChild(viewedChip);
+    }
 
     const all = photosOf(current);
     const base = sortMode === "hot" ? hotPhotos(current)

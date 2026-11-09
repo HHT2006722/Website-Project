@@ -1703,6 +1703,26 @@ body {
   font-weight: 700;
   border-bottom: 2px solid var(--accent);
 }
+
+.viewed-chip {
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: .35em 1em;
+  font-size: .9rem;
+  color: var(--muted);
+  background: var(--card);
+}
+
+.button.is-done {
+  background: var(--card);
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  cursor: default;
+}
+
+.home-surprise {
+  margin: 1.6rem 0 .6rem;
+}
   </style>
 </head>
 <body>
@@ -1788,6 +1808,7 @@ body {
         <span class="gate-desc">Mountains and lakes</span>
       </a>
     </div>
+    <p class="home-surprise"><a id="randomAny" class="button button-big" href="works.html">🎲 Surprise me</a></p>
     <p class="hint">Decor photos rotate on every visit · 装饰图每次刷新随机换</p>
   </main>
 
@@ -1795,8 +1816,8 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · built by hand</p>
       </footer>
 
-  <script src="js/script.js?v=40" defer></script>
-  <script src="js/home-pool.js?v=40" defer></script>
+  <script src="js/script.js?v=41" defer></script>
+  <script src="js/home-pool.js?v=41" defer></script>
 
 
     <dialog id="introBox" class="intro-box" aria-labelledby="introTitle"></dialog>

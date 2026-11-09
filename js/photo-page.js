@@ -65,6 +65,18 @@
     return;
   }
 
+  // 标记这一张已看过（详情页打开即算）
+  // Mark this photo as viewed (opening its page counts)
+  const VIEWED_KEY = "pf-viewed";
+  const markViewed = () => {
+    try {
+      const set = new Set(JSON.parse(localStorage.getItem(VIEWED_KEY) || "[]"));
+      set.add(cat.id + "|" + idx);
+      localStorage.setItem(VIEWED_KEY, JSON.stringify([...set]));
+    } catch (e) { /* 存不了就算了 */ }
+  };
+  markViewed();
+
   const rel = (i) => {
     if (i < 0 || i >= photos.length) return null;
     return "photo.html?cat=" + cat.id + "&p=" + i;
@@ -102,8 +114,43 @@
 
   const pRel = rel(idx - 1);
   const nRel = rel(idx + 1);
+  // 「看下一张没看过的」
+  // Jump to the next photo that has not been opened yet
+  let unviewed = -1;
+  try {
+    const set = new Set(JSON.parse(localStorage.getItem(VIEWED_KEY) || "[]"));
+    for (let step = 1; step <= photos.length; step++) {
+      const j = (idx + step) % photos.length;
+      if (j !== idx && !set.has(cat.id + "|" + j)) {
+        unviewed = j;
+        break;
+      }
+    }
+  } catch (e) { unviewed = -1; }
+
+  const nextUnseen = document.createElement("a");
+  nextUnseen.className = "button";
+  if (unviewed >= 0) {
+    nextUnseen.href = "photo.html?cat=" + cat.id + "&p=" + unviewed;
+    nextUnseen.textContent = { en: "Next unseen →", zh: "看下一张没看过的 →", de: "Nächstes ungesehenes →" }[lang];
+  } else {
+    nextUnseen.textContent = { en: "All seen 🎉", zh: "这一类都看完了 🎉", de: "Alle gesehen 🎉" }[lang];
+    nextUnseen.classList.add("is-done");
+  }
   if (pRel) prevEl.href = pRel; else prevEl.hidden = true;
   if (nRel) nextEl.href = nRel; else nextEl.hidden = true;
+  document.querySelector(".photo-nav").insertBefore(nextUnseen, nextEl.nextSibling);
+
+  // 键盘：← 上一张，→ 下一张，r 随机
+  // Keyboard: arrows for prev/next, r for a random photo
+  document.addEventListener("keydown", (e) => {
+    if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
+    if (e.key === "ArrowLeft" && pRel) location.href = pRel;
+    if (e.key === "ArrowRight" && nRel) location.href = nRel;
+    if (e.key.toLowerCase() === "r") {
+      location.href = "photo.html?cat=" + cat.id + "&p=" + Math.floor(Math.random() * photos.length);
+    }
+  });
 
   copyEl.addEventListener("click", () => {
     const url = location.origin + location.pathname + "?cat=" + cat.id + "&p=" + idx;
