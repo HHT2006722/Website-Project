@@ -52,9 +52,10 @@
 
   const count = document.createElement("p");
   count.className = "hint";
-  count.textContent = { en: pts.length + " photos have coordinates in their files.",
-                        zh: "有 " + pts.length + " 张照片的文件里带位置信息。",
-                        de: pts.length + " Fotos haben Koordinaten in ihren Dateien." }[lang];
+  const curatedCount = pts.filter((pt) => pt.curated).length;
+  count.textContent = { en: pts.length + " photos are on the map (" + curatedCount + " placed by place name, the rest from file metadata).",
+                        zh: "地图上有 " + pts.length + " 张照片（其中 " + curatedCount + " 张按地名定位，其余来自文件元数据）。",
+                        de: pts.length + " Fotos sind auf der Karte (" + curatedCount + " nach Ortsnamen gesetzt, der Rest aus Datei-Metadaten)." }[lang];
   body.appendChild(count);
 
   const list = document.createElement("div");

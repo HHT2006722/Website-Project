@@ -2145,6 +2145,22 @@ body {
   color: var(--accent);
   background: var(--card);
 }
+
+.gallery-links .button-ghost {
+  font-weight: 600;
+  border-width: 1px;
+}
+
+.gallery-links a:nth-child(1) { background: #0e7490; color: #fff; border-color: #0e7490; }
+.gallery-links a:nth-child(2) { background: #15803d; color: #fff; border-color: #15803d; }
+.gallery-links a:nth-child(3) { background: #b45309; color: #fff; border-color: #b45309; }
+.gallery-links a:nth-child(4) { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
+.gallery-links a:nth-child(5) { background: #9d174d; color: #fff; border-color: #9d174d; }
+
+.gallery-links a:hover {
+  filter: brightness(1.12);
+  color: #fff;
+}
   </style>
 </head>
 <body>
@@ -2165,15 +2181,16 @@ body {
     <h1>照片地图</h1>
     <p class="lead">照片拍摄地，全部来自文件自带的位置元数据。</p>
     <div id="pageBody"></div>
+    <p class="hint" data-note hidden></p>
   </main>
   <footer class="site-footer">
     <p>© <span id="year">2026</span> 照片签 · 手工搭建</p>
     <p class="footer-note" id="mapCredit" hidden>Base map: BlankMap-World-Equirectangular.svg (public domain, Wikimedia Commons)</p>
   </footer>
-  <script src="../js/script.js?v=47" defer></script>
-  <script src="../js/gallery-data.js?v=47" defer></script>
-  <script src="../js/gallery-pool.js?v=47" defer></script>
-  <script src="../js/map-data.js?v=47" defer></script>
-  <script src="../js/map-page.js?v=47" defer></script>
+  <script src="../js/script.js?v=48" defer></script>
+  <script src="../js/gallery-data.js?v=48" defer></script>
+  <script src="../js/gallery-pool.js?v=48" defer></script>
+  <script src="../js/map-data.js?v=48" defer></script>
+  <script src="../js/map-page.js?v=48" defer></script>
 </body>
 </html>
