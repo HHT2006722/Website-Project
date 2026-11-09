@@ -2169,6 +2169,35 @@ body {
   filter: brightness(1.12);
   color: #fff;
 }
+
+.sub-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: .6rem 0;
+}
+
+.sub-chip {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 99px;
+  padding: .25em 1em;
+  font: inherit;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.sub-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat, var(--accent));
+}
+
+.sub-chip.is-active {
+  background: var(--cat, var(--accent));
+  border-color: var(--cat, var(--accent));
+  color: #fff;
+}
   </style>
 </head>
 <body>
@@ -2213,6 +2242,7 @@ body {
             <button id="randomBtn" class="sort-btn" type="button">🎲 <span data-random></span></button>
           </div>
         </div>
+        <div class="sub-chips" id="subChips" role="group" aria-label=""></div>
         <p class="gallery-links"><a class="button button-ghost" href="walks.html">🧭 Spaziergänge</a><a class="button button-ghost" href="lucky.html">🍀 Glück von heute</a><a class="button button-ghost" href="quiz.html">❓ Quiz</a><a class="button button-ghost" href="map.html">🗺️ Karte</a><a class="button button-ghost" href="favourites.html">★ Favoriten</a></p>
         <p class="hint" id="likeHint"></p>
         <section class="lucky-zone" aria-labelledby="luckyTitle">
@@ -2234,9 +2264,9 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · von Hand gebaut</p>
       </footer>
 
-  <script src="../js/script.js?v=48" defer></script>
-  <script src="../js/gallery-data.js?v=48" defer></script>
-  <script src="../js/gallery-pool.js?v=48" defer></script>
-  <script src="../js/gallery.js?v=48" defer></script>
+  <script src="../js/script.js?v=49" defer></script>
+  <script src="../js/gallery-data.js?v=49" defer></script>
+  <script src="../js/gallery-pool.js?v=49" defer></script>
+  <script src="../js/gallery.js?v=49" defer></script>
 </body>
 </html>

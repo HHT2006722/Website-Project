@@ -2169,6 +2169,35 @@ body {
   filter: brightness(1.12);
   color: #fff;
 }
+
+.sub-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: .6rem 0;
+}
+
+.sub-chip {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 99px;
+  padding: .25em 1em;
+  font: inherit;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.sub-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--cat, var(--accent));
+}
+
+.sub-chip.is-active {
+  background: var(--cat, var(--accent));
+  border-color: var(--cat, var(--accent));
+  color: #fff;
+}
   </style>
 </head>
 <body>
@@ -2257,6 +2286,6 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · von Hand gebaut</p>
       </footer>
 
-  <script src="../js/script.js?v=48" defer></script>
+  <script src="../js/script.js?v=49" defer></script>
 </body>
 </html>

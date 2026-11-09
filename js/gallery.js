@@ -154,6 +154,53 @@
   };
 
   let sortMode = "all";
+  let currentSub = null;
+
+  // 每个大类下面两个小类
+  // Two subcategories inside each kind
+  const SUBS = {
+    humanities: {
+      people: { en: "People", zh: "人物", de: "Menschen" },
+      city: { en: "City", zh: "城市", de: "Stadt" },
+    },
+    food: {
+      dish: { en: "Dishes", zh: "菜肴", de: "Gerichte" },
+      street: { en: "Street food", zh: "街头", de: "Streetfood" },
+    },
+    animals: {
+      pet: { en: "Pets", zh: "宠物", de: "Haustiere" },
+      wild: { en: "Wild", zh: "野生", de: "Wildtiere" },
+    },
+    landscape: {
+      water: { en: "Water", zh: "水边", de: "Wasser" },
+      heights: { en: "Highlands", zh: "山与高地", de: "Berge" },
+    },
+  };
+
+  const subChipsEl = document.querySelector("#subChips");
+
+  function renderSubChips() {
+    if (!subChipsEl) return;
+    subChipsEl.innerHTML = "";
+    const subs = SUBS[current.id] || {};
+    const mk = (id, label, active) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "sub-chip" + (active ? " is-active" : "");
+      b.textContent = label;
+      b.setAttribute("aria-pressed", String(active));
+      b.addEventListener("click", () => {
+        currentSub = id;
+        render();
+      });
+      subChipsEl.appendChild(b);
+    };
+    const allLabel = lang === "zh" ? "全部" : lang === "de" ? "Alle" : "All";
+    mk(null, allLabel, currentSub === null);
+    Object.keys(subs).forEach((id) => {
+      mk(id, subs[id][lang] || subs[id].en, currentSub === id);
+    });
+  }
 
   // 洗牌：每次展示顺序随机
   // Shuffle: display order is random on every visit
@@ -206,6 +253,7 @@
     b.textContent = cat.emoji + " " + T(cat.label) + " · " + second;
     b.addEventListener("click", () => {
       current = cat;
+      currentSub = null;
       history.replaceState(null, "", "?cat=" + cat.id);
       render();
       setMenuOpen(false);
@@ -262,6 +310,7 @@
 
     const second = lang === "en" ? current.label.zh : current.label.en;
     menuLabel.textContent = current.emoji + " " + T(current.label) + " · " + second;
+    renderSubChips();
 
     luckyBtn.textContent = "🎲 " + T(current.lucky);
     updateViewedChip();
@@ -271,12 +320,13 @@
     }
 
     const all = photosOf(current);
-    const base = sortMode === "hot" ? hotPhotos(current)
-      : sortMode === "fav" ? all.filter((p) => store.isFav(p)) : all;
+    const filtered = currentSub ? all.filter((p) => (p.sub || "") === currentSub) : all;
+    const base = sortMode === "hot" ? hotPhotos(current).filter((p) => !currentSub || (p.sub || "") === currentSub)
+      : sortMode === "fav" ? filtered.filter((p) => store.isFav(p)) : filtered;
 
     // 每次打开/换类别/换排序都重新洗牌，照片顺序随机
     // Reshuffle on every load, category change and sort change
-    const orderKey = current.id + "|" + sortMode + "|" + (sortMode === "fav" ? base.length : "");
+    const orderKey = current.id + "|" + sortMode + "|" + (currentSub || "") + "|" + (sortMode === "fav" ? base.length : "");
     if (orderKey !== lastOrderKey) {
       lastOrderKey = orderKey;
       shownOrder = arrangeBySpecies(shuffle(base));
@@ -291,7 +341,9 @@
     if (!shown.length) {
       const note = document.createElement("p");
       note.className = "cat-empty";
-      note.textContent = UI_TEXT.empty;
+      note.textContent = currentSub
+        ? (lang === "zh" ? "这一小类还没有照片。" : lang === "de" ? "Diese Untergruppe hat noch keine Fotos." : "No photos in this subgroup yet.")
+        : UI_TEXT.empty;
       grid.appendChild(note);
       loadNews();
       return;
