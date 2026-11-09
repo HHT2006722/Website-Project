@@ -613,3 +613,25 @@ const T = STRINGS[L.startsWith('zh') ? 'zh' : L.startsWith('de') ? 'de' : 'en'];
       lang === "de" ? "🔥 Tag " + count + " in Folge" : "🔥 Day " + count + " in a row");
   }
 })();
+
+/* ---------- 12. 滚动显现：进入视口时淡入 ---------- */
+/* ---------- 12. Scroll reveal: fade in when entering the viewport ---------- */
+(function initReveal() {
+  if (!("IntersectionObserver" in window)) return;
+  const targets = document.querySelectorAll(
+    ".news-zone, .lucky-zone, .walk-card, .fav-item, .lucky-card, .hist-row, .map-wrap, .quiz-img, .cat-empty, .gate-card"
+  );
+  if (!targets.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-in");
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+  targets.forEach((el) => {
+    el.classList.add("reveal");
+    io.observe(el);
+  });
+})();

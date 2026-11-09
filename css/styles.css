@@ -1545,6 +1545,8 @@ body {
 
 .sort-switch {
   display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: .25rem;
   border: 1px solid var(--line);
   border-radius: 99px;
@@ -2201,4 +2203,139 @@ body {
 .map-dot:hover .map-tip,
 .map-dot:focus .map-tip {
   opacity: 1;
+}
+
+/* ---------- 动感升级：入场、滚动显现、悬停细节 ---------- */
+/* ---------- Motion pass: entrances, scroll reveals, hover details ---------- */
+
+/* 照片卡片错带入场上滑 */
+/* Photo cards rise in with a stagger */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(16px) scale(.985); }
+  to   { opacity: 1; transform: none; }
+}
+
+.cat-item {
+  animation: rise-in .55s cubic-bezier(.2, .7, .3, 1) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+/* 滚动到视口时淡入 */
+/* Fade in when scrolled into view */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* 导航下划线从左滑出 */
+/* Nav underline sliding in from the left */
+.site-nav a {
+  position: relative;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -3px;
+  height: 2px;
+  background: linear-gradient(90deg, #e0245e, #0e7490);
+  transition: right .25s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a[aria-current="page"]::after,
+.site-nav a:focus-visible::after {
+  right: 0;
+}
+
+/* 幸运区 / 新闻区：顶部彩虹细边 */
+/* Lucky and news blocks get a thin rainbow edge */
+.lucky-zone,
+.news-zone {
+  position: relative;
+  overflow: hidden;
+}
+
+.lucky-zone::before,
+.news-zone::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e0245e, #ea580c, #15803d, #0e7490, #e0245e);
+  background-size: 200% 100%;
+  animation: hue-slide 6s linear infinite;
+}
+
+/* 照片卡片悬停：本类颜色阴影 + 轻微抬起 */
+/* Photo cards: category-coloured shadow and a small lift */
+.cat-item {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.cat-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--cat, #b34e17) 26%, transparent);
+}
+
+/* 热门角标呼吸 */
+/* Hot badge breathes */
+@keyframes badge-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.07); }
+}
+
+.hot-badge {
+  animation: badge-pulse 2.2s ease-in-out infinite;
+}
+
+/* 首页随机按钮轻微起伏 */
+/* Home surprise button floats a little */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+.home-surprise .button {
+  animation: float-y 3.2s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* 每日一句话淡入 */
+/* Daily line fades in */
+#dailyLine {
+  animation: rise-in .8s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-item,
+  .hot-badge,
+  .home-surprise .button,
+  #dailyLine {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .sort-btn {
+    padding: .35em .6em;
+    font-size: .9rem;
+  }
+
+  .gallery-tools {
+    gap: .5rem;
+  }
 }

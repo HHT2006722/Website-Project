@@ -1405,6 +1405,8 @@ body {
 
 .sort-switch {
   display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: .25rem;
   border: 1px solid var(--line);
   border-radius: 99px;
@@ -2023,6 +2025,122 @@ body {
 .map-dot:focus .map-tip {
   opacity: 1;
 }
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(16px) scale(.985); }
+  to   { opacity: 1; transform: none; }
+}
+
+.cat-item {
+  animation: rise-in .55s cubic-bezier(.2, .7, .3, 1) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.site-nav a {
+  position: relative;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -3px;
+  height: 2px;
+  background: linear-gradient(90deg, #e0245e, #0e7490);
+  transition: right .25s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a[aria-current="page"]::after,
+.site-nav a:focus-visible::after {
+  right: 0;
+}
+
+.lucky-zone,
+.news-zone {
+  position: relative;
+  overflow: hidden;
+}
+
+.lucky-zone::before,
+.news-zone::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e0245e, #ea580c, #15803d, #0e7490, #e0245e);
+  background-size: 200% 100%;
+  animation: hue-slide 6s linear infinite;
+}
+
+.cat-item {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.cat-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--cat, #b34e17) 26%, transparent);
+}
+
+@keyframes badge-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.07); }
+}
+
+.hot-badge {
+  animation: badge-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+.home-surprise .button {
+  animation: float-y 3.2s ease-in-out infinite;
+  display: inline-block;
+}
+
+#dailyLine {
+  animation: rise-in .8s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-item,
+  .hot-badge,
+  .home-surprise .button,
+  #dailyLine {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .sort-btn {
+    padding: .35em .6em;
+    font-size: .9rem;
+  }
+
+  .gallery-tools {
+    gap: .5rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -2063,6 +2181,6 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · von Hand gebaut</p>
       </footer>
 
-  <script src="../js/script.js?v=43" defer></script>
+  <script src="../js/script.js?v=45" defer></script>
 </body>
 </html>

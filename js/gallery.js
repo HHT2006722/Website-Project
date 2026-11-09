@@ -297,9 +297,10 @@
       return;
     }
 
-    shown.forEach((photo) => {
+    shown.forEach((photo, order) => {
       const fig = document.createElement("figure");
       fig.className = "cat-item";
+      fig.style.setProperty("--i", String(order % 12));
 
       const imgWrap = document.createElement("div");
       imgWrap.className = "cat-img";
