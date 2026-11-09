@@ -10,12 +10,12 @@ const GALLERY = {
       lucky: { en: "Lucky Moment of the Day", zh: "今日幸运人文", de: "Glücksmoment des Tages" },
       news: {
         keywords: {
-        en: ["culture", "art", "museum", "festival", "film", "music", "artist", "writer", "book", "election", "president", "leader", "protest", "city", "people"],
-        zh: ["艺术", "文化", "博物馆", "电影节", "电影", "音乐", "作家", "书", "选举", "总统", "抗议", "城市", "人", "画家", "文学"],
-        de: ["Kultur", "Kunst", "Museum", "Film", "Musik", "Künstler", "Schriftsteller", "Buch", "Wahl", "Präsident", "Protest", "Stadt", "Menschen", "Festival"]
+        en: ["culture", "art", "museum", "festival", "film", "music", "artist", "writer", "book", "election", "president", "leader", "protest", "city", "people", "theatre", "literature", "painting", "sculpture", "exhibition", "journalist", "human rights"],
+        zh: ["艺术", "文化", "博物馆", "电影节", "电影", "音乐", "作家", "书", "选举", "总统", "抗议", "城市", "人", "画家", "文学", "戏剧", "文学", "绘画", "雕塑", "展览", "记者", "人权"],
+        de: ["Kultur", "Kunst", "Museum", "Film", "Musik", "Künstler", "Schriftsteller", "Buch", "Wahl", "Präsident", "Protest", "Stadt", "Menschen", "Festival", "Theater", "Literatur", "Malerei", "Skulptur", "Ausstellung", "Journalist", "Menschenrechte"]
       },
         title: { en: "Humanities news today", zh: "今日人文新闻", de: "Menschen-Nachrichten von heute" },
-        fallback: { en: "No themed news matched today — here is what is in the news generally.", zh: "今天没有匹配到人文新闻——下面是今天的要闻。", de: "Heute passte keine Themenmeldung — hier sind die allgemeinen Nachrichten." }
+        fallback: { en: "No humanities story in today's Wikipedia news.", zh: "今天维基百科的要闻里没有人文类新闻。", de: "Heute keine Kulturmeldung in den Wikipedia-Nachrichten." }
       },
       photos: [
         { src: "img/cat-humanities-1.jpg", w: 420, h: 560, srcset: "", source: "https://commons.wikimedia.org/wiki/File:Albert%20Einstein%20Head.jpg",
@@ -64,12 +64,12 @@ const GALLERY = {
       lucky: { en: "Lucky Food of the Day", zh: "今日幸运美食", de: "Glücksessen des Tages" },
       news: {
         keywords: {
-        en: ["food", "crop", "harvest", "restaurant", "chef", "cuisine", "hunger", "wheat", "rice", "fish", "farm", "meal"],
-        zh: ["食品", "食物", "粮", "收成", "餐厅", "厨师", "饥", "小麦", "水稻", "鱼", "农场", "餐"],
-        de: ["Lebensmittel", "Essen", "Ernte", "Restaurant", "Koch", "Hunger", "Weizen", "Reis", "Fisch", "Bauernhof", "Mahlzeit"]
+        en: ["food", "crop", "harvest", "restaurant", "chef", "cuisine", "hunger", "wheat", "rice", "fish", "farm", "meal", "recipe", "wine", "milk", "beef", "poultry", "fisheries", "sushi", "bread", "coffee", "tea", "cheese"],
+        zh: ["食品", "食物", "粮", "收成", "餐厅", "厨师", "饥", "小麦", "水稻", "鱼", "农场", "餐", "食谱", "葡萄酒", "牛奶", "牛肉", "家禽", "渔业", "寿司", "面包", "咖啡", "茶", "奶酪"],
+        de: ["Lebensmittel", "Essen", "Ernte", "Restaurant", "Koch", "Hunger", "Weizen", "Reis", "Fisch", "Bauernhof", "Mahlzeit", "Rezept", "Wein", "Milch", "Rindfleisch", "Geflügel", "Fischerei", "Sushi", "Brot", "Kaffee", "Tee", "Käse"]
       },
         title: { en: "Food news today", zh: "今日美食新闻", de: "Essen-Nachrichten von heute" },
-        fallback: { en: "No themed news matched today — here is what is in the news generally.", zh: "今天没有匹配到美食新闻——下面是今天的要闻。", de: "Heute passte keine Themenmeldung — hier sind die allgemeinen Nachrichten." }
+        fallback: { en: "No food story in today's Wikipedia news.", zh: "今天维基百科的要闻里没有美食类新闻。", de: "Heute keine Essensmeldung in den Wikipedia-Nachrichten." }
       },
       photos: [
         { src: "img/cat-food-1.jpg", w: 560, h: 374, srcset: "", source: "https://commons.wikimedia.org/wiki/Open_street_food_market_in_Bizerte_02.jpg",
@@ -120,12 +120,12 @@ const GALLERY = {
       lucky: { en: "Lucky Animal of the Day", zh: "今日幸运动物", de: "Glückstier des Tages" },
       news: {
         keywords: {
-        en: ["animal", "species", "zoo", "wildlife", "bird", "fish", "whale", "panda", "dog", "cat", "extinct", "conservation"],
-        zh: ["动物", "物种", "动物园", "野生", "鸟", "鱼", "鲸", "熊猫", "狗", "猫", "灭绝", "保护"],
-        de: ["Tier", "Art", "Zoo", "Wildtier", "Vogel", "Fisch", "Wal", "Panda", "Hund", "Katze", "ausgestorben", "Naturschutz"]
+        en: ["animal", "species", "zoo", "wildlife", "bird", "fish", "whale", "panda", "dog", "cat", "extinct", "conservation", "lion", "tiger", "elephant", "bear", "wolf", "seal", "turtle", "pet", "zoo", "poaching", "extinction", "wild animal"],
+        zh: ["动物", "物种", "动物园", "野生", "鸟", "鱼", "鲸", "熊猫", "狗", "猫", "灭绝", "保护", "狮", "虎", "象", "熊", "狼", "海豹", "龟", "宠物", "动物园", "偷猎", "灭绝", "野生动物"],
+        de: ["Tier", "Art", "Zoo", "Wildtier", "Vogel", "Fisch", "Wal", "Panda", "Hund", "Katze", "ausgestorben", "Naturschutz", "Löwe", "Tiger", "Elefant", "Bär", "Wolf", "Robbe", "Schildkröte", "Haustier", "Zoo", "Wilderei", "Aussterben", "Wildtier"]
       },
         title: { en: "Animal news today", zh: "今日动物新闻", de: "Tier-Nachrichten von heute" },
-        fallback: { en: "No themed news matched today — here is what is in the news generally.", zh: "今天没有匹配到动物新闻——下面是今天的要闻。", de: "Heute passte keine Themenmeldung — hier sind die allgemeinen Nachrichten." }
+        fallback: { en: "No animal story in today's Wikipedia news.", zh: "今天维基百科的要闻里没有动物类新闻。", de: "Heute keine Tiermeldung in den Wikipedia-Nachrichten." }
       },
       photos: [
         { src: "img/work-01-768.webp",
@@ -138,7 +138,7 @@ const GALLERY = {
           luckyLine: { en: "Today rewards patience: what you want will come on its own.",
                        zh: "今天适合等待：你想的东西会自己过来。",
                        de: "Heute belohnt Geduld: Was du willst, kommt von selbst." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" }, species: "iguana",
           desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-02-768.webp",
           srcset: "img/work-02-480.webp 480w, img/work-02-768.webp 768w, img/work-02-960.webp 960w, img/work-02-1600.webp 1600w",
@@ -150,7 +150,7 @@ const GALLERY = {
           luckyLine: { en: "Today, say what is on your mind — someone will answer.",
                        zh: "今天把想说的话说出来，会有人回应。",
                        de: "Sag heute, was du denkst — jemand wird antworten." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" }, species: "cockatiel",
           desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-03-768.webp",
           srcset: "img/work-03-480.webp 480w, img/work-03-768.webp 768w, img/work-03-960.webp 960w, img/work-03-1280.webp 1280w",
@@ -162,7 +162,7 @@ const GALLERY = {
           luckyLine: { en: "Today, make room to play — being serious can wait.",
                        zh: "今天留点时间玩，认真可以等一等。",
                        de: "Nimm dir heute Zeit zum Spielen — Ernstsein kann warten." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" }, species: "otter",
           desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-04-768.webp",
           srcset: "img/work-04-480.webp 480w, img/work-04-768.webp 768w, img/work-04-960.webp 960w, img/work-04-1440.webp 1440w",
@@ -174,7 +174,7 @@ const GALLERY = {
           luckyLine: { en: "Today, prepare first, then act.",
                        zh: "今天先准备好，再动手。",
                        de: "Heute erst vorbereiten, dann handeln." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" }, species: "hedgehog",
           desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-05-768.webp",
           srcset: "img/work-05-480.webp 480w, img/work-05-768.webp 768w, img/work-05-960.webp 960w, img/work-05-1440.webp 1440w",
@@ -186,7 +186,7 @@ const GALLERY = {
           luckyLine: { en: "Today, a light will fall on you — stand where it can reach.",
                        zh: "今天会有一束光打在你身上，站到它够得着的地方。",
                        de: "Heute fällt ein Licht auf dich — stell dich dorthin, wo es hinkommt." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" }, species: "other",
           desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } },
         { src: "img/work-06-768.webp",
           srcset: "img/work-06-480.webp 480w, img/work-06-768.webp 768w, img/work-06-960.webp 960w, img/work-06-1440.webp 1440w",
@@ -198,7 +198,7 @@ const GALLERY = {
           luckyLine: { en: "Today is for rest — enough is enough.",
                        zh: "今天适合休息，够了就是够了。",
                        de: "Heute ist Ruhetag — genug ist genug." },
-          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" },
+          credit: { en: "Photo by the site's author · iPhone 13 Pro · 5 Apr 2024", zh: "本站作者拍摄 · iPhone 13 Pro · 2024.04.05", de: "Foto vom Autor der Seite · iPhone 13 Pro · 5. April 2024" }, species: "pig",
           desc: { en: "This photo was taken by the site's author on 5 April 2024 with an iPhone 13 Pro, shot against the glass of an animal enclosure. The line above is the full note on it.", zh: "这张照片由本站作者于 2024 年 4 月 5 日用 iPhone 13 Pro 隔着动物展馆的玻璃拍下。上面那句话就是关于它的全部说明。", de: "Dieses Foto wurde vom Autor der Seite am 5. April 2024 mit einem iPhone 13 Pro durch die Scheibe eines Tiergeheges aufgenommen. Die Zeile oben ist die ganze Notiz dazu." } }
       ]
     },
@@ -210,12 +210,12 @@ const GALLERY = {
       lucky: { en: "Lucky Landscape of the Day", zh: "今日幸运风景", de: "Glückslandschaft des Tages" },
       news: {
         keywords: {
-        en: ["environment", "climate", "flood", "drought", "forest", "fire", "storm", "earthquake", "volcano", "mountain", "lake", "nature", "glacier"],
-        zh: ["环境", "气候", "洪水", "干旱", "森林", "火灾", "风暴", "地震", "火山", "山", "湖", "自然", "冰川"],
-        de: ["Umwelt", "Klima", "Hochwasser", "Dürre", "Wald", "Feuer", "Sturm", "Erdbeben", "Vulkan", "Berg", "See", "Natur", "Gletscher"]
+        en: ["environment", "climate", "flood", "drought", "forest", "fire", "storm", "earthquake", "volcano", "mountain", "lake", "nature", "glacier", "wildfire", "hurricane", "glacier", "national park", "erosion", "conservation", "rainfall"],
+        zh: ["环境", "气候", "洪水", "干旱", "森林", "火灾", "风暴", "地震", "火山", "山", "湖", "自然", "冰川", "野火", "飓风", "冰川", "国家公园", "侵蚀", "保护", "降雨"],
+        de: ["Umwelt", "Klima", "Hochwasser", "Dürre", "Wald", "Feuer", "Sturm", "Erdbeben", "Vulkan", "Berg", "See", "Natur", "Gletscher", "Waldbrand", "Hurrikan", "Gletscher", "Nationalpark", "Erosion", "Naturschutz", "Niederschlag"]
       },
         title: { en: "Landscape news today", zh: "今日风景新闻", de: "Landschafts-Nachrichten von heute" },
-        fallback: { en: "No themed news matched today — here is what is in the news generally.", zh: "今天没有匹配到风景新闻——下面是今天的要闻。", de: "Heute passte keine Themenmeldung — hier sind die allgemeinen Nachrichten." }
+        fallback: { en: "No nature story in today's Wikipedia news.", zh: "今天维基百科的要闻里没有自然类新闻。", de: "Heute keine Naturmeldung in den Wikipedia-Nachrichten." }
       },
       photos: [
         { src: "img/cat-landscape-1.jpg", w: 560, h: 314, srcset: "", source: "https://commons.wikimedia.org/wiki/1_lake_louise_pano_2019.jpg",

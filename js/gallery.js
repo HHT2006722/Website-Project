@@ -142,6 +142,18 @@
     }
     return a;
   };
+  // 相邻不出现同一物种：一眼看去不重样
+  // No two same-species photos next to each other
+  const arrangeBySpecies = (list) => {
+    const out = [];
+    const rest = list.slice();
+    while (rest.length) {
+      let pick = rest.findIndex((p, i) => i > 0 && (!out.length || p.species !== out[out.length - 1].species));
+      if (pick === -1) pick = 0;
+      out.push(rest.splice(pick, 1)[0]);
+    }
+    return out;
+  };
   let lastOrderKey = "";
   let shownOrder = [];
 
@@ -226,7 +238,7 @@
     const orderKey = current.id + "|" + sortMode + "|" + (sortMode === "fav" ? base.length : "");
     if (orderKey !== lastOrderKey) {
       lastOrderKey = orderKey;
-      shownOrder = shuffle(base);
+      shownOrder = arrangeBySpecies(shuffle(base));
     }
     const shown = shownOrder;
 
@@ -562,9 +574,21 @@
         });
         }
 
+        // 严格按本类关键词匹配：拉丁词用整词边界（避免 cat 命中 category），中文直接包含
+        // Strict per-category matching: whole words for Latin (so "cat" misses "category"), plain contains for Chinese
         const kw = (current.news.keywords && (current.news.keywords[feedLang] || current.news.keywords.en)) || [];
-        const matched = items.filter((it) => kw.some((k) => it.text.toLowerCase().includes(k)));
-        const shown = (matched.length ? matched : items).slice(0, 3);
+        const latinKw = kw
+          .filter((k) => /[a-zA-Z]/.test(k))
+          .map((k) => new RegExp("\\b" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i"));
+        const cjkKw = kw.filter((k) => /[\u4e00-\u9fa5]/.test(k));
+        const matched = items.filter((it) => {
+          const text = it.text;
+          if (cjkKw.some((k) => text.includes(k))) return true;
+          return latinKw.some((re) => re.test(text));
+        });
+        // 没匹配就不显示无关新闻——宁可空着也不张冠李戴
+        // No match means no unrelated headlines: an honest empty state instead
+        const shown = matched.slice(0, 3);
 
         newsList.innerHTML = "";
         shown.forEach((it) => {
@@ -582,7 +606,19 @@
         });
 
         if (!matched.length) {
-          newsNote.textContent = T(current.news.fallback);
+          newsNote.textContent = T(current.news.fallback) + " ";
+          const q = {
+            humanities: "culture art museum news",
+            food: "food cuisine news",
+            animals: "animals wildlife news",
+            landscape: "environment nature climate news",
+          }[current.id] || "news";
+          const a = document.createElement("a");
+          a.href = "https://news.google.com/search?q=" + encodeURIComponent(q);
+          a.rel = "noopener noreferrer";
+          a.target = "_blank";
+          a.textContent = lang === "zh" ? "打开本类今日新闻 →" : lang === "de" ? "Themen-Nachrichten öffnen →" : "Open this category's news →";
+          newsNote.appendChild(a);
         } else if (newsNote) {
           newsNote.textContent = "";
         }
