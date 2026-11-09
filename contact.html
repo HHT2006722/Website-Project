@@ -2141,6 +2141,18 @@ body {
     gap: .5rem;
   }
 }
+
+.button.button-ghost {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.button.button-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--card);
+}
   </style>
 </head>
 <body>
@@ -2162,7 +2174,7 @@ body {
         <li><a href="contact.html" aria-current="page">Contact</a></li>
         <li><button id="dotBtn" class="dot-btn" type="button" aria-label="Useless machine: fill the screen with 99+ dots">99+</button></li>
         <li><a href="submit.html">Submit</a></li>
-        <li class="lang-group"><a href="contact.html" lang="en" aria-current="page">EN</a><a href="zh/contact.html" lang="zh-CN">中文</a><a href="de/contact.html" lang="de">Deutsch</a></li>
+        <li><a href="map.html">Map</a></li><li><a href="quiz.html">Quiz</a></li><li class="lang-group"><a href="contact.html" lang="en" aria-current="page">EN</a><a href="zh/contact.html" lang="zh-CN">中文</a><a href="de/contact.html" lang="de">Deutsch</a></li>
       </ul>
     </nav>
   </header>
@@ -2230,6 +2242,6 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · built by hand</p>
       </footer>
 
-  <script src="js/script.js?v=45" defer></script>
+  <script src="js/script.js?v=47" defer></script>
 </body>
 </html>

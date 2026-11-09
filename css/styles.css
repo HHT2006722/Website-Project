@@ -2339,3 +2339,18 @@ body {
     gap: .5rem;
   }
 }
+
+/* ---------- 次要按钮：白底深字，确保在渐变主按钮旁也清晰 ---------- */
+/* ---------- Secondary buttons: solid card background so they stay readable ---------- */
+
+.button.button-ghost {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.button.button-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--card);
+}
