@@ -563,3 +563,53 @@ const T = STRINGS[L.startsWith('zh') ? 'zh' : L.startsWith('de') ? 'de' : 'en'];
   if (!box.open) box.showModal();
   start.focus();
 })();
+
+/* ---------- 11. 每日一句话 + 连续打卡 ---------- */
+/* ---------- 11. Daily line and visit streak ---------- */
+(function initDaily() {
+  const lineEl = document.querySelector("#dailyLine");
+  const streakEl = document.querySelector("#streakLine");
+  if (!lineEl && !streakEl) return;
+
+  const lang = (document.documentElement.lang || "en").toLowerCase().startsWith("zh")
+    ? "zh" : (document.documentElement.lang || "en").toLowerCase().startsWith("de") ? "de" : "en";
+
+  const LINES = {
+    en: ["Look before you scroll.", "One photo a day is enough.", "Ask the stranger a question.", "Eat slowly today.",
+         "Leave ten minutes early and walk.", "The best view is the one you climbed for.", "Share what you have.",
+         "Notice the small animal.", "Call someone you miss.", "Take the longer way home.",
+         "Rest is part of the work.", "Lucky people keep looking."],
+    zh: ["先看，再划走。", "一天一张照片就够了。", "今天问问陌生人的事。", "今天慢慢吃。",
+         "提早十分钟出门，走路。", "最好的风景是爬上去看到的。", "把你有的分一点出去。",
+         "留意那只小动物。", "给想念的人打个电话。", "走那条更远的路回家。",
+         "休息也是工作的一部分。", "运气好的人，一直在看。"],
+    de: ["Erst schauen, dann scrollen.", "Ein Foto am Tag reicht.", "Frag heute einen Fremden etwas.",
+         "Iss heute langsam.", "Geh zehn Minuten früher los.", "Die beste Aussicht ist die erarbeitete.",
+         "Teile, was du hast.", "Achte auf das kleine Tier.", "Ruf jemanden an, den du vermisst.",
+         "Nimm den längeren Weg nach Hause.", "Pausen gehören zur Arbeit.", "Glück hat, wer weiter schaut."],
+  }[lang];
+
+  const dayIndex = Math.floor(Date.now() / 86400000);
+  if (lineEl) lineEl.textContent = "“" + LINES[dayIndex % LINES.length] + "”";
+
+  if (streakEl) {
+    const today = new Date();
+    const iso = today.toISOString().slice(0, 10);
+    let last = "";
+    let count = 0;
+    try {
+      last = localStorage.getItem("pf-last-visit") || "";
+      count = parseInt(localStorage.getItem("pf-streak") || "0", 10) || 0;
+    } catch (e) { /* ignore */ }
+    if (last !== iso) {
+      const y = new Date(today.getTime() - 86400000).toISOString().slice(0, 10);
+      count = last === y ? count + 1 : 1;
+      try {
+        localStorage.setItem("pf-last-visit", iso);
+        localStorage.setItem("pf-streak", String(count));
+      } catch (e) { /* ignore */ }
+    }
+    streakEl.textContent = (lang === "zh" ? "🔥 连续第 " + count + " 天" :
+      lang === "de" ? "🔥 Tag " + count + " in Folge" : "🔥 Day " + count + " in a row");
+  }
+})();

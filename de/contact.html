@@ -1724,6 +1724,121 @@ body {
 .home-surprise {
   margin: 1.6rem 0 .6rem;
 }
+
+.gallery-links {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.walk-card,
+.fav-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.walk-card {
+  margin-bottom: 1.2rem;
+}
+
+.walk-card:hover,
+.fav-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
+}
+
+.walk-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.walk-card h2 {
+  margin: .8rem 1rem .2rem;
+  font-size: 1.15rem;
+}
+
+.walk-card p {
+  margin: 0 1rem .6rem;
+  color: var(--muted);
+}
+
+.walk-go {
+  display: inline-block;
+  margin: 0 1rem 1rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.walk-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.walk-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.walk-cap {
+  display: block;
+  padding: .6rem .8rem;
+  font-size: .9rem;
+  color: var(--ink);
+}
+
+.walk-nav {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-top: 1.4rem;
+}
+
+.fav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.fav-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.fav-cap {
+  display: block;
+  padding: .5rem .7rem;
+  font-size: .85rem;
+}
+
+.fav-cat {
+  margin: 1.4rem 0 .7rem;
+  font-size: 1.05rem;
+}
+
+.daily-line {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin: 1.2rem 0 .2rem;
+  color: var(--ink);
+}
+
+.streak-line {
+  margin: 0 0 .8rem;
+  color: var(--muted);
+}
   </style>
 </head>
 <body>
@@ -1812,6 +1927,6 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · von Hand gebaut</p>
       </footer>
 
-  <script src="../js/script.js?v=41" defer></script>
+  <script src="../js/script.js?v=42" defer></script>
 </body>
 </html>
