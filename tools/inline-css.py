@@ -34,7 +34,10 @@ PAGES = ["index.html", "works.html", "journal.html", "about.html", "contact.html
          "photo.html", "zh/photo.html", "de/photo.html",
          "walks.html", "zh/walks.html", "de/walks.html",
          "walk.html", "zh/walk.html", "de/walk.html",
-         "favourites.html", "zh/favourites.html", "de/favourites.html"]
+         "favourites.html", "zh/favourites.html", "de/favourites.html",
+         "lucky.html", "zh/lucky.html", "de/lucky.html",
+         "quiz.html", "zh/quiz.html", "de/quiz.html",
+         "map.html", "zh/map.html", "de/map.html"]
 
 JS_FLAG = "<script>document.documentElement.classList.add('js');</script>\n"
 # 页面里的标记也写成中英两行

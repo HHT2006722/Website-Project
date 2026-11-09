@@ -1838,6 +1838,190 @@ body {
   margin: 0 0 .8rem;
   color: var(--muted);
 }
+
+.lucky-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin: 1.2rem 0 2rem;
+}
+
+.lucky-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
+  padding-bottom: .9rem;
+}
+
+.lucky-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: .7rem;
+}
+
+.lucky-card h2,
+.lucky-card p,
+.lucky-card a,
+.lucky-card button {
+  margin-left: .9rem;
+  margin-right: .9rem;
+}
+
+.lucky-card h2 {
+  font-size: 1rem;
+  margin-bottom: .3rem;
+}
+
+.lucky-card .dialog-label {
+  font-size: .85rem;
+  margin-bottom: .2rem;
+}
+
+.badge-line {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin: 0 0 1rem;
+}
+
+.badge {
+  border: 1px dashed var(--line);
+  border-radius: 99px;
+  padding: .2em .9em;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.badge.is-on {
+  border-style: solid;
+  border-color: #d97706;
+  color: #b45309;
+  background: rgba(217, 119, 6, .08);
+}
+
+.hist-list {
+  display: grid;
+  gap: .6rem;
+  margin-top: .8rem;
+}
+
+.hist-row {
+  display: flex;
+  gap: .8rem;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: .4rem .6rem;
+}
+
+.hist-row img {
+  width: 84px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.hist-info {
+  display: grid;
+  gap: .15rem;
+  font-size: .9rem;
+}
+
+.quiz-bar {
+  color: var(--muted);
+}
+
+.quiz-img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin: .8rem 0;
+  display: block;
+}
+
+.quiz-ask {
+  font-weight: 600;
+  margin: .4rem 0 .8rem;
+}
+
+.quiz-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: .6rem;
+}
+
+.quiz-opts .cat-pick-btn.is-right {
+  border-color: #15803d;
+  background: rgba(21, 128, 61, .12);
+}
+
+.quiz-opts .cat-pick-btn.is-wrong {
+  border-color: #b91c1c;
+  background: rgba(185, 28, 28, .1);
+}
+
+.quiz-result {
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+.quiz-done {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.map-wrap {
+  position: relative;
+  margin: 1.2rem 0;
+  aspect-ratio: 1387 / 709;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.map-dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+}
+
+.map-dot-mark {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e0245e;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px rgba(224, 36, 94, .35);
+}
+
+.map-tip {
+  position: absolute;
+  left: 50%;
+  bottom: 130%;
+  transform: translateX(-50%);
+  background: rgba(20, 16, 13, .9);
+  color: #fff;
+  padding: .2em .6em;
+  border-radius: 6px;
+  font-size: .75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease;
+}
+
+.map-dot:hover .map-tip,
+.map-dot:focus .map-tip {
+  opacity: 1;
+}
   </style>
 </head>
 <body>
@@ -1933,8 +2117,8 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · built by hand</p>
       </footer>
 
-  <script src="js/script.js?v=42" defer></script>
-  <script src="js/home-pool.js?v=42" defer></script>
+  <script src="js/script.js?v=43" defer></script>
+  <script src="js/home-pool.js?v=43" defer></script>
 
 
     <dialog id="introBox" class="intro-box" aria-labelledby="introTitle"></dialog>
