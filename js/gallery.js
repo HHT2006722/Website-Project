@@ -181,8 +181,17 @@
 
   function renderSubChips() {
     if (!subChipsEl) return;
-    subChipsEl.innerHTML = "";
     const subs = SUBS[current.id] || {};
+    // 这一类没有小类（例如绘画）就整条隐藏
+    // Hide the chip row entirely for kinds without subcategories
+    if (!Object.keys(subs).length) {
+      subChipsEl.hidden = true;
+      subChipsEl.innerHTML = "";
+      if (currentSub) currentSub = null;
+      return;
+    }
+    subChipsEl.hidden = false;
+    subChipsEl.innerHTML = "";
     const mk = (id, label, active) => {
       const b = document.createElement("button");
       b.type = "button";

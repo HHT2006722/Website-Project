@@ -2405,3 +2405,23 @@ body {
   border-color: var(--cat, var(--accent));
   color: #fff;
 }
+
+/* ---------- 第 5 类：绘画（占满底部一整行） ---------- */
+/* ---------- Fifth kind: paintings (spans the bottom row) ---------- */
+
+.choice-gate {
+  grid-template-rows: 1fr 1fr auto;
+}
+
+.quad-painting {
+  grid-column: 1 / -1;
+  min-height: 22vh;
+}
+
+.quad-painting .q-emoji {
+  font-size: 2rem;
+}
+
+.gate-painting {
+  grid-column: 1 / -1;
+}

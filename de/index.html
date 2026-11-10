@@ -2198,6 +2198,23 @@ body {
   border-color: var(--cat, var(--accent));
   color: #fff;
 }
+
+.choice-gate {
+  grid-template-rows: 1fr 1fr auto;
+}
+
+.quad-painting {
+  grid-column: 1 / -1;
+  min-height: 22vh;
+}
+
+.quad-painting .q-emoji {
+  font-size: 2rem;
+}
+
+.gate-painting {
+  grid-column: 1 / -1;
+}
   </style>
 </head>
 <body>
@@ -2231,7 +2248,13 @@ body {
       <span class="q-title">Landschaft · Landscape</span>
       <span class="q-desc">Wasser · Berge</span>
     </a>
-        <a class="gate-submit" href="submit.html">投稿 · Submit</a>
+        <a class="gate-quad quad-painting" href="works.html?cat=painting">
+      <span class="q-bg" data-pool="painting" aria-hidden="true"></span>
+      <span class="q-emoji" aria-hidden="true">🖼️</span>
+      <span class="q-title">Gemälde · 绘画</span>
+      <span class="q-desc">Öl · Alte Meister</span>
+    </a>
+    <a class="gate-submit" href="submit.html">投稿 · Submit</a>
     <button id="gateSkip" class="gate-skip" type="button">Überspringen · Skip</button>
   </div>
 
@@ -2257,7 +2280,7 @@ body {
 
   <main id="main">
     <h1>Photo Fortune</h1>
-    <p class="lead">Vier Arten von Fotos, je eine Zeile — und ein Glücksfoto für deinen Tag.</p>
+    <p class="lead">Vier Arten von Fotos — und eine Wand voller Gemälde. Je eine Zeile.</p>
     <div class="gate-grid">
       <a class="gate-card gate-humanities" href="works.html?cat=humanities">
         <img class="gate-thumb" loading="lazy" decoding="async" alt="" aria-hidden="true" data-pool="humanities">
@@ -2290,8 +2313,8 @@ body {
     <p>© <span id="year">2026</span> Photo Fortune · von Hand gebaut</p>
       </footer>
 
-  <script src="../js/script.js?v=53" defer></script>
-  <script src="../js/home-pool.js?v=53" defer></script>
+  <script src="../js/script.js?v=55" defer></script>
+  <script src="../js/home-pool.js?v=55" defer></script>
 
 
     <dialog id="introBox" class="intro-box" aria-labelledby="introTitle"></dialog>

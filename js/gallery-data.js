@@ -259,6 +259,23 @@ const GALLERY = {
                     de: "Foto: Kenny Muir · 2006 · CC BY 2.0 · Wikimedia Commons" }, sub: "water",
           desc: { en: "This photo shows \"Iceland's glacier lagoon: blue ice drifts to the sea.\". It was taken by Kenny Muir in 2006. It is published under CC BY 2.0. The original file and its full history are on Wikimedia Commons (link below).", zh: "这张照片是《冰岛的冰湖：蓝色冰块漂向海。》。由 Kenny Muir 摄于 2006 年。以 CC BY 2.0 许可发布。原文件与完整历史见下方维基共享资源链接。", de: "Dieses Foto zeigt „Die Gletscherlagune Islands: Blaues Eis treibt zum Meer.\". Es wurde 2006 von Kenny Muir aufgenommen. Es steht unter CC BY 2.0. Originaldatei und vollständige Geschichte: Wikimedia Commons (Link unten)." } }
       ]
+    },
+    {
+      id: "painting",
+      emoji: "🖼️",
+      label: { en: "Paintings", zh: "绘画", de: "Gemälde" },
+      gate: { en: "Paintings, old and new", zh: "油画与古画", de: "Gemälde, alt und neu" },
+      lucky: { en: "Lucky Painting of the Day", zh: "今日幸运绘画", de: "Glücksgemälde des Tages" },
+      news: {
+        keywords: {
+        en: ["painting", "art", "museum", "gallery", "canvas", "artist", "painter", "exhibition", "auction", "sculpture"],
+        zh: ["绘画", "油画", "艺术", "美术馆", "画廊", "画家", "展览", "拍卖", "雕塑"],
+        de: ["Gemälde", "Kunst", "Museum", "Galerie", "Maler", "Ausstellung", "Auktion", "Skulptur"]
+      },
+        title: { en: "Art news today", zh: "今日绘画新闻", de: "Kunst-Nachrichten von heute" },
+        fallback: { en: "No art story in today's Wikipedia news.", zh: "今天维基百科的要闻里没有绘画类新闻。", de: "Heute keine Kunstmeldung in den Wikipedia-Nachrichten." }
+      },
+      photos: []
     }
   ]
 };
