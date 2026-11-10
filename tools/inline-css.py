@@ -32,8 +32,6 @@ PAGES = ["index.html", "works.html", "journal.html", "about.html", "contact.html
          "de/contact.html", "de/404.html",
          "submit.html", "zh/submit.html", "de/submit.html",
          "photo.html", "zh/photo.html", "de/photo.html",
-         "walks.html", "zh/walks.html", "de/walks.html",
-         "walk.html", "zh/walk.html", "de/walk.html",
          "favourites.html", "zh/favourites.html", "de/favourites.html",
          "lucky.html", "zh/lucky.html", "de/lucky.html",
          "quiz.html", "zh/quiz.html", "de/quiz.html",
